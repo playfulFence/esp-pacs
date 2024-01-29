@@ -1,5 +1,9 @@
 #[doc = "Register `DATA` reader"]
 pub type R = crate::R<DATA_SPEC>;
+#[doc = "Register `DATA` writer"]
+pub type W = crate::W<DATA_SPEC>;
+#[doc = "Field `FIFO_RDATA` writer "]
+pub type FIFO_RDATA_W<'a, REG, const O: u8> = crate::FieldWriter<'a, REG, 32, O, u32>;
 #[doc = "Field `FIFO_RDATA` reader - The value of rx FIFO read data."]
 pub type FIFO_RDATA_R = crate::FieldReader;
 impl R {
@@ -7,6 +11,13 @@ impl R {
     #[inline(always)]
     pub fn fifo_rdata(&self) -> FIFO_RDATA_R {
         FIFO_RDATA_R::new((self.bits & 0xff) as u8)
+    }
+}
+impl W {
+    #[doc = "Bits 0:7 - The value of rx FIFO write data."]
+    #[inline(always)]
+    pub fn fifo_rdata(&mut self) -> FIFO_RDATA_W<DATA_SPEC, 0> {
+        FIFO_RDATA_W::new(self)
     }
 }
 #[cfg(feature = "impl-register-debug")]
@@ -33,4 +44,9 @@ impl crate::Readable for DATA_SPEC {}
 #[doc = "`reset()` method sets DATA to value 0"]
 impl crate::Resettable for DATA_SPEC {
     const RESET_VALUE: Self::Ux = 0;
+}
+#[doc = "`write(|w| ..)` method takes [`data::W`](W) writer structure"]
+impl crate::Writable for DATA_SPEC {
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }

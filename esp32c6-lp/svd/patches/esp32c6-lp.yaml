@@ -46,3 +46,9 @@ LP_UART:
     _modify:
       RXFIFO_RD_BYTE:
         access: read-write
+
+LP_I2C:
+  DATA:
+    _modify:
+      FIFO_RDATA:
+        access: read-write
