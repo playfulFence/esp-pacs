@@ -8,6 +8,7 @@ use std::{
 
 use anyhow::{Error, Result};
 use clap::{Parser, Subcommand, ValueEnum};
+use rayon::prelude::*;
 use strum::{Display, EnumIter, IntoEnumIterator};
 use svd2rust::{
     config::{IdentFormats, IdentFormatsTheme},
@@ -17,7 +18,6 @@ use svd2rust::{
 };
 use svdtools::{html::html_cli::svd2html, patch::Config as PatchConfig};
 use toml_edit::DocumentMut;
-use rayon::prelude::*;
 
 #[derive(Debug, Clone, Display, EnumIter, ValueEnum)]
 #[strum(serialize_all = "kebab-case")]
@@ -25,6 +25,7 @@ enum Chip {
     Esp32,
     Esp32c2,
     Esp32c3,
+    Esp32c5,
     Esp32c6,
     Esp32c6Lp,
     Esp32h2,
@@ -119,7 +120,7 @@ enum Commands {
 
 fn main() -> Result<()> {
     env_logger::Builder::new()
-        .filter_module("xtask", log::LevelFilter::Info)
+        .filter_module("xtask", log::LevelFilter::Trace)
         .init();
 
     // The directory containing the cargo manifest for the 'xtask' package is a
