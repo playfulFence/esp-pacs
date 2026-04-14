@@ -19,6 +19,8 @@ use svd2rust::{
 use svdtools::{html::html_cli::svd2html, patch::Config as PatchConfig};
 use toml_edit::DocumentMut;
 
+mod idf_soc;
+
 #[derive(Debug, Clone, Display, EnumIter, ValueEnum)]
 #[strum(serialize_all = "kebab-case")]
 enum Chip {
@@ -114,6 +116,26 @@ enum Commands {
         #[arg(value_enum, default_values_t = Chip::iter())]
         chips: Vec<Chip>,
     },
+
+    /// [Experimental] Fetch ESP-IDF `soc/*_reg.h` headers and emit CSV + SVD under `target/`
+    ///
+    /// Does not modify committed PAC or SVD sources. Only `esp32c3` is implemented for now.
+    IdfSoc {
+        #[arg(value_enum, default_value_t = Chip::Esp32c3)]
+        chip: Chip,
+
+        /// Output directory (default: `<workspace>/target/idf-soc-parse/<chip>/`)
+        #[arg(long, value_name = "DIR")]
+        out: Option<PathBuf>,
+
+        /// Local ESP-IDF tree root (reads `components/soc/<chip>/register/soc/*.h`)
+        #[arg(long, value_name = "DIR")]
+        idf_path: Option<PathBuf>,
+
+        /// Do not fetch from GitHub (implies `--idf-path`)
+        #[arg(long)]
+        offline: bool,
+    },
 }
 
 // ----------------------------------------------------------------------------
@@ -151,6 +173,26 @@ fn main() -> Result<()> {
         Commands::Publish { dry_run, chips } => chips
             .par_iter()
             .try_for_each(|chip| publish_package(&workspace, chip, dry_run)),
+
+        Commands::IdfSoc {
+            chip,
+            out,
+            idf_path,
+            offline,
+        } => {
+            let out_dir = out.unwrap_or_else(|| {
+                workspace
+                    .join("target")
+                    .join("idf-soc-parse")
+                    .join(chip.to_string())
+            });
+            idf_soc::run_idf_soc_experiment(idf_soc::IdfSocOptions {
+                chip,
+                out_dir,
+                idf_path,
+                offline,
+            })
+        }
     }
 }
 
