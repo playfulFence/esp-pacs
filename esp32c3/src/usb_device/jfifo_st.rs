@@ -2,63 +2,63 @@
 pub type R = crate::R<JFIFO_ST_SPEC>;
 #[doc = "Register `JFIFO_ST` writer"]
 pub type W = crate::W<JFIFO_ST_SPEC>;
-#[doc = "Field `IN_FIFO_CNT` reader - JTAG in fifo counter. /"]
+#[doc = "Field `IN_FIFO_CNT` reader - JTAT in fifo counter."]
 pub type IN_FIFO_CNT_R = crate::FieldReader;
-#[doc = "Field `IN_FIFO_EMPTY` reader - 1: JTAG in fifo is empty. /"]
+#[doc = "Field `IN_FIFO_EMPTY` reader - 1: JTAG in fifo is empty."]
 pub type IN_FIFO_EMPTY_R = crate::BitReader;
-#[doc = "Field `IN_FIFO_FULL` reader - 1: JTAG in fifo is full. /"]
+#[doc = "Field `IN_FIFO_FULL` reader - 1: JTAG in fifo is full."]
 pub type IN_FIFO_FULL_R = crate::BitReader;
-#[doc = "Field `OUT_FIFO_CNT` reader - JTAT out fifo counter. /"]
+#[doc = "Field `OUT_FIFO_CNT` reader - JTAT out fifo counter."]
 pub type OUT_FIFO_CNT_R = crate::FieldReader;
-#[doc = "Field `OUT_FIFO_EMPTY` reader - 1: JTAG out fifo is empty. /"]
+#[doc = "Field `OUT_FIFO_EMPTY` reader - 1: JTAG out fifo is empty."]
 pub type OUT_FIFO_EMPTY_R = crate::BitReader;
-#[doc = "Field `OUT_FIFO_FULL` reader - 1: JTAG out fifo is full. /"]
+#[doc = "Field `OUT_FIFO_FULL` reader - 1: JTAG out fifo is full."]
 pub type OUT_FIFO_FULL_R = crate::BitReader;
-#[doc = "Field `IN_FIFO_RESET` reader - Write 1 to reset JTAG in fifo. /"]
+#[doc = "Field `IN_FIFO_RESET` reader - Write 1 to reset JTAG in fifo."]
 pub type IN_FIFO_RESET_R = crate::BitReader;
-#[doc = "Field `IN_FIFO_RESET` writer - Write 1 to reset JTAG in fifo. /"]
+#[doc = "Field `IN_FIFO_RESET` writer - Write 1 to reset JTAG in fifo."]
 pub type IN_FIFO_RESET_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `OUT_FIFO_RESET` reader - Write 1 to reset JTAG out fifo. /"]
+#[doc = "Field `OUT_FIFO_RESET` reader - Write 1 to reset JTAG out fifo."]
 pub type OUT_FIFO_RESET_R = crate::BitReader;
-#[doc = "Field `OUT_FIFO_RESET` writer - Write 1 to reset JTAG out fifo. /"]
+#[doc = "Field `OUT_FIFO_RESET` writer - Write 1 to reset JTAG out fifo."]
 pub type OUT_FIFO_RESET_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bits 0:2 - JTAG in fifo counter. /"]
+    #[doc = "Bits 0:1 - JTAT in fifo counter."]
     #[inline(always)]
     pub fn in_fifo_cnt(&self) -> IN_FIFO_CNT_R {
-        IN_FIFO_CNT_R::new((self.bits & 7) as u8)
+        IN_FIFO_CNT_R::new((self.bits & 3) as u8)
     }
-    #[doc = "Bit 2 - 1: JTAG in fifo is empty. /"]
+    #[doc = "Bit 2 - 1: JTAG in fifo is empty."]
     #[inline(always)]
     pub fn in_fifo_empty(&self) -> IN_FIFO_EMPTY_R {
         IN_FIFO_EMPTY_R::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bit 3 - 1: JTAG in fifo is full. /"]
+    #[doc = "Bit 3 - 1: JTAG in fifo is full."]
     #[inline(always)]
     pub fn in_fifo_full(&self) -> IN_FIFO_FULL_R {
         IN_FIFO_FULL_R::new(((self.bits >> 3) & 1) != 0)
     }
-    #[doc = "Bits 4:6 - JTAT out fifo counter. /"]
+    #[doc = "Bits 4:5 - JTAT out fifo counter."]
     #[inline(always)]
     pub fn out_fifo_cnt(&self) -> OUT_FIFO_CNT_R {
-        OUT_FIFO_CNT_R::new(((self.bits >> 4) & 7) as u8)
+        OUT_FIFO_CNT_R::new(((self.bits >> 4) & 3) as u8)
     }
-    #[doc = "Bit 6 - 1: JTAG out fifo is empty. /"]
+    #[doc = "Bit 6 - 1: JTAG out fifo is empty."]
     #[inline(always)]
     pub fn out_fifo_empty(&self) -> OUT_FIFO_EMPTY_R {
         OUT_FIFO_EMPTY_R::new(((self.bits >> 6) & 1) != 0)
     }
-    #[doc = "Bit 7 - 1: JTAG out fifo is full. /"]
+    #[doc = "Bit 7 - 1: JTAG out fifo is full."]
     #[inline(always)]
     pub fn out_fifo_full(&self) -> OUT_FIFO_FULL_R {
         OUT_FIFO_FULL_R::new(((self.bits >> 7) & 1) != 0)
     }
-    #[doc = "Bit 8 - Write 1 to reset JTAG in fifo. /"]
+    #[doc = "Bit 8 - Write 1 to reset JTAG in fifo."]
     #[inline(always)]
     pub fn in_fifo_reset(&self) -> IN_FIFO_RESET_R {
         IN_FIFO_RESET_R::new(((self.bits >> 8) & 1) != 0)
     }
-    #[doc = "Bit 9 - Write 1 to reset JTAG out fifo. /"]
+    #[doc = "Bit 9 - Write 1 to reset JTAG out fifo."]
     #[inline(always)]
     pub fn out_fifo_reset(&self) -> OUT_FIFO_RESET_R {
         OUT_FIFO_RESET_R::new(((self.bits >> 9) & 1) != 0)
@@ -80,18 +80,18 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 8 - Write 1 to reset JTAG in fifo. /"]
+    #[doc = "Bit 8 - Write 1 to reset JTAG in fifo."]
     #[inline(always)]
     pub fn in_fifo_reset(&mut self) -> IN_FIFO_RESET_W<'_, JFIFO_ST_SPEC> {
         IN_FIFO_RESET_W::new(self, 8)
     }
-    #[doc = "Bit 9 - Write 1 to reset JTAG out fifo. /"]
+    #[doc = "Bit 9 - Write 1 to reset JTAG out fifo."]
     #[inline(always)]
     pub fn out_fifo_reset(&mut self) -> OUT_FIFO_RESET_W<'_, JFIFO_ST_SPEC> {
         OUT_FIFO_RESET_W::new(self, 9)
     }
 }
-#[doc = "USB_SERIAL_JTAG_JFIFO_ST_REG. /\n\nYou can [`read`](crate::Reg::read) this register and get [`jfifo_st::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`jfifo_st::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "USB_DEVICE_JFIFO_ST_REG.\n\nYou can [`read`](crate::Reg::read) this register and get [`jfifo_st::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`jfifo_st::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct JFIFO_ST_SPEC;
 impl crate::RegisterSpec for JFIFO_ST_SPEC {
     type Ux = u32;
@@ -102,5 +102,7 @@ impl crate::Readable for JFIFO_ST_SPEC {}
 impl crate::Writable for JFIFO_ST_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets JFIFO_ST to value 0"]
-impl crate::Resettable for JFIFO_ST_SPEC {}
+#[doc = "`reset()` method sets JFIFO_ST to value 0x44"]
+impl crate::Resettable for JFIFO_ST_SPEC {
+    const RESET_VALUE: u32 = 0x44;
+}

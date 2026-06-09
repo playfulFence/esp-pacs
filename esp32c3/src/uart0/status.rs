@@ -62,23 +62,25 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("STATUS")
-            .field("txd", &self.txd())
-            .field("rtsn", &self.rtsn())
-            .field("dtrn", &self.dtrn())
-            .field("txfifo_cnt", &self.txfifo_cnt())
-            .field("rxd", &self.rxd())
-            .field("ctsn", &self.ctsn())
-            .field("dsrn", &self.dsrn())
             .field("rxfifo_cnt", &self.rxfifo_cnt())
+            .field("dsrn", &self.dsrn())
+            .field("ctsn", &self.ctsn())
+            .field("rxd", &self.rxd())
+            .field("txfifo_cnt", &self.txfifo_cnt())
+            .field("dtrn", &self.dtrn())
+            .field("rtsn", &self.rtsn())
+            .field("txd", &self.txd())
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "UART status register\n\nYou can [`read`](crate::Reg::read) this register and get [`status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct STATUS_SPEC;
 impl crate::RegisterSpec for STATUS_SPEC {
     type Ux = u32;
 }
 #[doc = "`read()` method returns [`status::R`](R) reader structure"]
 impl crate::Readable for STATUS_SPEC {}
-#[doc = "`reset()` method sets STATUS to value 0"]
-impl crate::Resettable for STATUS_SPEC {}
+#[doc = "`reset()` method sets STATUS to value 0xe000_c000"]
+impl crate::Resettable for STATUS_SPEC {
+    const RESET_VALUE: u32 = 0xe000_c000;
+}

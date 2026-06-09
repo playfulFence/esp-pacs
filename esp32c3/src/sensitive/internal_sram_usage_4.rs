@@ -2,12 +2,12 @@
 pub type R = crate::R<INTERNAL_SRAM_USAGE_4_SPEC>;
 #[doc = "Register `INTERNAL_SRAM_USAGE_4` writer"]
 pub type W = crate::W<INTERNAL_SRAM_USAGE_4_SPEC>;
-#[doc = "Field `INTERNAL_SRAM_USAGE_LOG_SRAM` reader - "]
+#[doc = "Field `INTERNAL_SRAM_USAGE_LOG_SRAM` reader - internal_sram_usage_log_sram"]
 pub type INTERNAL_SRAM_USAGE_LOG_SRAM_R = crate::BitReader;
-#[doc = "Field `INTERNAL_SRAM_USAGE_LOG_SRAM` writer - "]
+#[doc = "Field `INTERNAL_SRAM_USAGE_LOG_SRAM` writer - internal_sram_usage_log_sram"]
 pub type INTERNAL_SRAM_USAGE_LOG_SRAM_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - internal_sram_usage_log_sram"]
     #[inline(always)]
     pub fn internal_sram_usage_log_sram(&self) -> INTERNAL_SRAM_USAGE_LOG_SRAM_R {
         INTERNAL_SRAM_USAGE_LOG_SRAM_R::new((self.bits & 1) != 0)
@@ -25,7 +25,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - internal_sram_usage_log_sram"]
     #[inline(always)]
     pub fn internal_sram_usage_log_sram(
         &mut self,
@@ -33,7 +33,7 @@ impl W {
         INTERNAL_SRAM_USAGE_LOG_SRAM_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`internal_sram_usage_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`internal_sram_usage_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SENSITIVE_INTERNAL_SRAM_USAGE_4_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`internal_sram_usage_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`internal_sram_usage_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INTERNAL_SRAM_USAGE_4_SPEC;
 impl crate::RegisterSpec for INTERNAL_SRAM_USAGE_4_SPEC {
     type Ux = u32;

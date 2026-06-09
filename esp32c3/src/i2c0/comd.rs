@@ -118,9 +118,9 @@ where
         self.variant(OPCODE::Rstart)
     }
 }
-#[doc = "Field `COMMAND_DONE` reader - ."]
+#[doc = "Field `COMMAND_DONE` reader - reg_command0_done"]
 pub type COMMAND_DONE_R = crate::BitReader;
-#[doc = "Field `COMMAND_DONE` writer - ."]
+#[doc = "Field `COMMAND_DONE` writer - reg_command0_done"]
 pub type COMMAND_DONE_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:7 - Number of bytes to be sent or received for command %s."]
@@ -148,7 +148,7 @@ impl R {
     pub fn opcode(&self) -> OPCODE_R {
         OPCODE_R::new(((self.bits >> 11) & 7) as u8)
     }
-    #[doc = "Bit 31 - ."]
+    #[doc = "Bit 31 - reg_command0_done"]
     #[inline(always)]
     pub fn command_done(&self) -> COMMAND_DONE_R {
         COMMAND_DONE_R::new(((self.bits >> 31) & 1) != 0)
@@ -193,13 +193,13 @@ impl W {
     pub fn opcode(&mut self) -> OPCODE_W<'_, COMD_SPEC> {
         OPCODE_W::new(self, 11)
     }
-    #[doc = "Bit 31 - ."]
+    #[doc = "Bit 31 - reg_command0_done"]
     #[inline(always)]
     pub fn command_done(&mut self) -> COMMAND_DONE_W<'_, COMD_SPEC> {
         COMMAND_DONE_W::new(self, 31)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`comd::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`comd::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "I2C_COMD%s_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`comd::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`comd::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct COMD_SPEC;
 impl crate::RegisterSpec for COMD_SPEC {
     type Ux = u32;

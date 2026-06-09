@@ -69,5 +69,7 @@ impl crate::Readable for PIN_CTRL_SPEC {}
 impl crate::Writable for PIN_CTRL_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets PIN_CTRL to value 0"]
-impl crate::Resettable for PIN_CTRL_SPEC {}
+#[doc = "`reset()` method sets PIN_CTRL to value 0x07ff"]
+impl crate::Resettable for PIN_CTRL_SPEC {
+    const RESET_VALUE: u32 = 0x07ff;
+}

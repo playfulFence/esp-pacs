@@ -2,12 +2,12 @@
 pub type R = crate::R<CLOCK_GATE_SPEC>;
 #[doc = "Register `CLOCK_GATE` writer"]
 pub type W = crate::W<CLOCK_GATE_SPEC>;
-#[doc = "Field `CLK_EN` reader - "]
+#[doc = "Field `CLK_EN` reader - clk_en"]
 pub type CLK_EN_R = crate::BitReader;
-#[doc = "Field `CLK_EN` writer - "]
+#[doc = "Field `CLK_EN` writer - clk_en"]
 pub type CLK_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - clk_en"]
     #[inline(always)]
     pub fn clk_en(&self) -> CLK_EN_R {
         CLK_EN_R::new((self.bits & 1) != 0)
@@ -22,7 +22,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - clk_en"]
     #[inline(always)]
     pub fn clk_en(&mut self) -> CLK_EN_W<'_, CLOCK_GATE_SPEC> {
         CLK_EN_W::new(self, 0)
@@ -39,5 +39,7 @@ impl crate::Readable for CLOCK_GATE_SPEC {}
 impl crate::Writable for CLOCK_GATE_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CLOCK_GATE to value 0"]
-impl crate::Resettable for CLOCK_GATE_SPEC {}
+#[doc = "`reset()` method sets CLOCK_GATE to value 0x01"]
+impl crate::Resettable for CLOCK_GATE_SPEC {
+    const RESET_VALUE: u32 = 0x01;
+}

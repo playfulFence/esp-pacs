@@ -20,12 +20,12 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("FSM_STATUS")
-            .field("st_utx_out", &self.st_utx_out())
             .field("st_urx_out", &self.st_urx_out())
+            .field("st_utx_out", &self.st_utx_out())
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`fsm_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "UART transmit and receive status.\n\nYou can [`read`](crate::Reg::read) this register and get [`fsm_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FSM_STATUS_SPEC;
 impl crate::RegisterSpec for FSM_STATUS_SPEC {
     type Ux = u32;

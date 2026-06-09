@@ -62,12 +62,12 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("HUNG_CONF")
-            .field("rxfifo_timeout_ena", &self.rxfifo_timeout_ena())
-            .field("rxfifo_timeout_shift", &self.rxfifo_timeout_shift())
-            .field("rxfifo_timeout", &self.rxfifo_timeout())
-            .field("txfifo_timeout_ena", &self.txfifo_timeout_ena())
-            .field("txfifo_timeout_shift", &self.txfifo_timeout_shift())
             .field("txfifo_timeout", &self.txfifo_timeout())
+            .field("txfifo_timeout_shift", &self.txfifo_timeout_shift())
+            .field("txfifo_timeout_ena", &self.txfifo_timeout_ena())
+            .field("rxfifo_timeout", &self.rxfifo_timeout())
+            .field("rxfifo_timeout_shift", &self.rxfifo_timeout_shift())
+            .field("rxfifo_timeout_ena", &self.rxfifo_timeout_ena())
             .finish()
     }
 }
@@ -103,7 +103,7 @@ impl W {
         RXFIFO_TIMEOUT_ENA_W::new(self, 23)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`hung_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hung_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "a\n\nYou can [`read`](crate::Reg::read) this register and get [`hung_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hung_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct HUNG_CONF_SPEC;
 impl crate::RegisterSpec for HUNG_CONF_SPEC {
     type Ux = u32;
@@ -114,5 +114,7 @@ impl crate::Readable for HUNG_CONF_SPEC {}
 impl crate::Writable for HUNG_CONF_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets HUNG_CONF to value 0"]
-impl crate::Resettable for HUNG_CONF_SPEC {}
+#[doc = "`reset()` method sets HUNG_CONF to value 0x0081_0810"]
+impl crate::Resettable for HUNG_CONF_SPEC {
+    const RESET_VALUE: u32 = 0x0081_0810;
+}

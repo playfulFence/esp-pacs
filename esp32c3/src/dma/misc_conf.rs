@@ -2,30 +2,30 @@
 pub type R = crate::R<MISC_CONF_SPEC>;
 #[doc = "Register `MISC_CONF` writer"]
 pub type W = crate::W<MISC_CONF_SPEC>;
-#[doc = "Field `AHBM_RST_INTER` reader - Set this bit, then clear this bit to reset the internal ahb FSM. /"]
+#[doc = "Field `AHBM_RST_INTER` reader - Set this bit, then clear this bit to reset the internal ahb FSM."]
 pub type AHBM_RST_INTER_R = crate::BitReader;
-#[doc = "Field `AHBM_RST_INTER` writer - Set this bit, then clear this bit to reset the internal ahb FSM. /"]
+#[doc = "Field `AHBM_RST_INTER` writer - Set this bit, then clear this bit to reset the internal ahb FSM."]
 pub type AHBM_RST_INTER_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `ARB_PRI_DIS` reader - Set this bit to disable priority arbitration function. /"]
+#[doc = "Field `ARB_PRI_DIS` reader - Set this bit to disable priority arbitration function."]
 pub type ARB_PRI_DIS_R = crate::BitReader;
-#[doc = "Field `ARB_PRI_DIS` writer - Set this bit to disable priority arbitration function. /"]
+#[doc = "Field `ARB_PRI_DIS` writer - Set this bit to disable priority arbitration function."]
 pub type ARB_PRI_DIS_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `CLK_EN` reader - 0: Enable the clock only when application writes registers. 1: Force the clock on for registers. /"]
+#[doc = "Field `CLK_EN` reader - reg_clk_en"]
 pub type CLK_EN_R = crate::BitReader;
-#[doc = "Field `CLK_EN` writer - 0: Enable the clock only when application writes registers. 1: Force the clock on for registers. /"]
+#[doc = "Field `CLK_EN` writer - reg_clk_en"]
 pub type CLK_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - Set this bit, then clear this bit to reset the internal ahb FSM. /"]
+    #[doc = "Bit 0 - Set this bit, then clear this bit to reset the internal ahb FSM."]
     #[inline(always)]
     pub fn ahbm_rst_inter(&self) -> AHBM_RST_INTER_R {
         AHBM_RST_INTER_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 2 - Set this bit to disable priority arbitration function. /"]
+    #[doc = "Bit 2 - Set this bit to disable priority arbitration function."]
     #[inline(always)]
     pub fn arb_pri_dis(&self) -> ARB_PRI_DIS_R {
         ARB_PRI_DIS_R::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bit 3 - 0: Enable the clock only when application writes registers. 1: Force the clock on for registers. /"]
+    #[doc = "Bit 3 - reg_clk_en"]
     #[inline(always)]
     pub fn clk_en(&self) -> CLK_EN_R {
         CLK_EN_R::new(((self.bits >> 3) & 1) != 0)
@@ -42,23 +42,23 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - Set this bit, then clear this bit to reset the internal ahb FSM. /"]
+    #[doc = "Bit 0 - Set this bit, then clear this bit to reset the internal ahb FSM."]
     #[inline(always)]
     pub fn ahbm_rst_inter(&mut self) -> AHBM_RST_INTER_W<'_, MISC_CONF_SPEC> {
         AHBM_RST_INTER_W::new(self, 0)
     }
-    #[doc = "Bit 2 - Set this bit to disable priority arbitration function. /"]
+    #[doc = "Bit 2 - Set this bit to disable priority arbitration function."]
     #[inline(always)]
     pub fn arb_pri_dis(&mut self) -> ARB_PRI_DIS_W<'_, MISC_CONF_SPEC> {
         ARB_PRI_DIS_W::new(self, 2)
     }
-    #[doc = "Bit 3 - 0: Enable the clock only when application writes registers. 1: Force the clock on for registers. /"]
+    #[doc = "Bit 3 - reg_clk_en"]
     #[inline(always)]
     pub fn clk_en(&mut self) -> CLK_EN_W<'_, MISC_CONF_SPEC> {
         CLK_EN_W::new(self, 3)
     }
 }
-#[doc = "Miscellaneous register /\n\nYou can [`read`](crate::Reg::read) this register and get [`misc_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`misc_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "DMA_MISC_CONF_REG.\n\nYou can [`read`](crate::Reg::read) this register and get [`misc_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`misc_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MISC_CONF_SPEC;
 impl crate::RegisterSpec for MISC_CONF_SPEC {
     type Ux = u32;

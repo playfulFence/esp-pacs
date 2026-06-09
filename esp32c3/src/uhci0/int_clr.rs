@@ -8,10 +8,10 @@ pub type TX_START_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 pub type RX_HUNG_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `TX_HUNG` writer - a"]
 pub type TX_HUNG_W<'a, REG> = crate::BitWriter1C<'a, REG>;
-#[doc = "Field `SEND_S_Q` writer - a"]
-pub type SEND_S_Q_W<'a, REG> = crate::BitWriter1C<'a, REG>;
-#[doc = "Field `SEND_A_Q` writer - a"]
-pub type SEND_A_Q_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+#[doc = "Field `SEND_S_REG_Q` writer - a"]
+pub type SEND_S_REG_Q_W<'a, REG> = crate::BitWriter1C<'a, REG>;
+#[doc = "Field `SEND_A_REG_Q` writer - a"]
+pub type SEND_A_REG_Q_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `OUTLINK_EOF_ERR` writer - a"]
 pub type OUTLINK_EOF_ERR_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `APP_CTRL0` writer - a"]
@@ -47,13 +47,13 @@ impl W {
     }
     #[doc = "Bit 4 - a"]
     #[inline(always)]
-    pub fn send_s_q(&mut self) -> SEND_S_Q_W<'_, INT_CLR_SPEC> {
-        SEND_S_Q_W::new(self, 4)
+    pub fn send_s_reg_q(&mut self) -> SEND_S_REG_Q_W<'_, INT_CLR_SPEC> {
+        SEND_S_REG_Q_W::new(self, 4)
     }
     #[doc = "Bit 5 - a"]
     #[inline(always)]
-    pub fn send_a_q(&mut self) -> SEND_A_Q_W<'_, INT_CLR_SPEC> {
-        SEND_A_Q_W::new(self, 5)
+    pub fn send_a_reg_q(&mut self) -> SEND_A_REG_Q_W<'_, INT_CLR_SPEC> {
+        SEND_A_REG_Q_W::new(self, 5)
     }
     #[doc = "Bit 6 - a"]
     #[inline(always)]
@@ -71,7 +71,7 @@ impl W {
         APP_CTRL1_W::new(self, 8)
     }
 }
-#[doc = "\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_clr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "a\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_clr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_CLR_SPEC;
 impl crate::RegisterSpec for INT_CLR_SPEC {
     type Ux = u32;

@@ -137,26 +137,26 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("INT_ST")
-            .field("ovf_cnt_ch0", &self.ovf_cnt_ch0())
-            .field("ovf_cnt_ch1", &self.ovf_cnt_ch1())
-            .field("ovf_cnt_ch2", &self.ovf_cnt_ch2())
-            .field("ovf_cnt_ch3", &self.ovf_cnt_ch3())
-            .field("ovf_cnt_ch4", &self.ovf_cnt_ch4())
-            .field("ovf_cnt_ch5", &self.ovf_cnt_ch5())
+            .field("timer0_ovf", &self.timer0_ovf())
+            .field("timer1_ovf", &self.timer1_ovf())
+            .field("timer2_ovf", &self.timer2_ovf())
+            .field("timer3_ovf", &self.timer3_ovf())
             .field("duty_chng_end_ch0", &self.duty_chng_end_ch0())
             .field("duty_chng_end_ch1", &self.duty_chng_end_ch1())
             .field("duty_chng_end_ch2", &self.duty_chng_end_ch2())
             .field("duty_chng_end_ch3", &self.duty_chng_end_ch3())
             .field("duty_chng_end_ch4", &self.duty_chng_end_ch4())
             .field("duty_chng_end_ch5", &self.duty_chng_end_ch5())
-            .field("timer0_ovf", &self.timer0_ovf())
-            .field("timer1_ovf", &self.timer1_ovf())
-            .field("timer2_ovf", &self.timer2_ovf())
-            .field("timer3_ovf", &self.timer3_ovf())
+            .field("ovf_cnt_ch0", &self.ovf_cnt_ch0())
+            .field("ovf_cnt_ch1", &self.ovf_cnt_ch1())
+            .field("ovf_cnt_ch2", &self.ovf_cnt_ch2())
+            .field("ovf_cnt_ch3", &self.ovf_cnt_ch3())
+            .field("ovf_cnt_ch4", &self.ovf_cnt_ch4())
+            .field("ovf_cnt_ch5", &self.ovf_cnt_ch5())
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`int_st::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "LEDC_INT_ST.\n\nYou can [`read`](crate::Reg::read) this register and get [`int_st::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {
     type Ux = u32;

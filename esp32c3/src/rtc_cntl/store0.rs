@@ -2,12 +2,12 @@
 pub type R = crate::R<STORE0_SPEC>;
 #[doc = "Register `STORE0` writer"]
 pub type W = crate::W<STORE0_SPEC>;
-#[doc = "Field `DATA` reader - "]
+#[doc = "Field `DATA` reader - reserved register"]
 pub type DATA_R = crate::FieldReader<u32>;
-#[doc = "Field `DATA` writer - "]
+#[doc = "Field `DATA` writer - reserved register"]
 pub type DATA_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - reserved register"]
     #[inline(always)]
     pub fn data(&self) -> DATA_R {
         DATA_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - reserved register"]
     #[inline(always)]
     pub fn data(&mut self) -> DATA_W<'_, STORE0_SPEC> {
         DATA_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`store0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`store0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`store0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`store0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct STORE0_SPEC;
 impl crate::RegisterSpec for STORE0_SPEC {
     type Ux = u32;

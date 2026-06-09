@@ -2,12 +2,12 @@
 pub type R = crate::R<DATA_SPEC>;
 #[doc = "Register `DATA` writer"]
 pub type W = crate::W<DATA_SPEC>;
-#[doc = "Field `FIFO_RDATA` reader - ."]
+#[doc = "Field `FIFO_RDATA` reader - reg_fifo_rdata"]
 pub type FIFO_RDATA_R = crate::FieldReader;
-#[doc = "Field `FIFO_RDATA` writer - ."]
+#[doc = "Field `FIFO_RDATA` writer - reg_fifo_rdata"]
 pub type FIFO_RDATA_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
-    #[doc = "Bits 0:7 - ."]
+    #[doc = "Bits 0:7 - reg_fifo_rdata"]
     #[inline(always)]
     pub fn fifo_rdata(&self) -> FIFO_RDATA_R {
         FIFO_RDATA_R::new((self.bits & 0xff) as u8)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - ."]
+    #[doc = "Bits 0:7 - reg_fifo_rdata"]
     #[inline(always)]
     pub fn fifo_rdata(&mut self) -> FIFO_RDATA_W<'_, DATA_SPEC> {
         FIFO_RDATA_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`data::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`data::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "I2C_FIFO_DATA_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`data::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`data::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DATA_SPEC;
 impl crate::RegisterSpec for DATA_SPEC {
     type Ux = u32;

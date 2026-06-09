@@ -1,16 +1,16 @@
 #[doc = "Register `QUERY_CHECK` reader"]
 pub type R = crate::R<QUERY_CHECK_SPEC>;
-#[doc = "Field `MD_ERROR` reader - MD checkout result. 1b0: MD check pass, 1b1: MD check fail"]
+#[doc = "Field `MD_ERROR` reader - MD checkout result. 1'b0: MD check pass, 1'b1: MD check fail"]
 pub type MD_ERROR_R = crate::BitReader;
-#[doc = "Field `PADDING_BAD` reader - padding checkout result. 1b0: a good padding, 1b1: a bad padding"]
+#[doc = "Field `PADDING_BAD` reader - padding checkout result. 1'b0: a good padding, 1'b1: a bad padding"]
 pub type PADDING_BAD_R = crate::BitReader;
 impl R {
-    #[doc = "Bit 0 - MD checkout result. 1b0: MD check pass, 1b1: MD check fail"]
+    #[doc = "Bit 0 - MD checkout result. 1'b0: MD check pass, 1'b1: MD check fail"]
     #[inline(always)]
     pub fn md_error(&self) -> MD_ERROR_R {
         MD_ERROR_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 1 - padding checkout result. 1b0: a good padding, 1b1: a bad padding"]
+    #[doc = "Bit 1 - padding checkout result. 1'b0: a good padding, 1'b1: a bad padding"]
     #[inline(always)]
     pub fn padding_bad(&self) -> PADDING_BAD_R {
         PADDING_BAD_R::new(((self.bits >> 1) & 1) != 0)

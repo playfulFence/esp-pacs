@@ -2,12 +2,12 @@
 pub type R = crate::R<APB_PERIPHERAL_ACCESS_0_SPEC>;
 #[doc = "Register `APB_PERIPHERAL_ACCESS_0` writer"]
 pub type W = crate::W<APB_PERIPHERAL_ACCESS_0_SPEC>;
-#[doc = "Field `APB_PERIPHERAL_ACCESS_LOCK` reader - "]
+#[doc = "Field `APB_PERIPHERAL_ACCESS_LOCK` reader - apb_peripheral_access_lock"]
 pub type APB_PERIPHERAL_ACCESS_LOCK_R = crate::BitReader;
-#[doc = "Field `APB_PERIPHERAL_ACCESS_LOCK` writer - "]
+#[doc = "Field `APB_PERIPHERAL_ACCESS_LOCK` writer - apb_peripheral_access_lock"]
 pub type APB_PERIPHERAL_ACCESS_LOCK_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - apb_peripheral_access_lock"]
     #[inline(always)]
     pub fn apb_peripheral_access_lock(&self) -> APB_PERIPHERAL_ACCESS_LOCK_R {
         APB_PERIPHERAL_ACCESS_LOCK_R::new((self.bits & 1) != 0)
@@ -25,7 +25,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - apb_peripheral_access_lock"]
     #[inline(always)]
     pub fn apb_peripheral_access_lock(
         &mut self,
@@ -33,7 +33,7 @@ impl W {
         APB_PERIPHERAL_ACCESS_LOCK_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`apb_peripheral_access_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apb_peripheral_access_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SENSITIVE_APB_PERIPHERAL_ACCESS_0_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`apb_peripheral_access_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`apb_peripheral_access_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct APB_PERIPHERAL_ACCESS_0_SPEC;
 impl crate::RegisterSpec for APB_PERIPHERAL_ACCESS_0_SPEC {
     type Ux = u32;

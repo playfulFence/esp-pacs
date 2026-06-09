@@ -35,7 +35,7 @@ impl W {
         MAIN_TIMER_ALARM_EN_W::new(self, 16)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`slp_timer1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`slp_timer1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`slp_timer1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`slp_timer1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SLP_TIMER1_SPEC;
 impl crate::RegisterSpec for SLP_TIMER1_SPEC {
     type Ux = u32;

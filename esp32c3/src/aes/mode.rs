@@ -2,12 +2,12 @@
 pub type R = crate::R<MODE_SPEC>;
 #[doc = "Register `MODE` writer"]
 pub type W = crate::W<MODE_SPEC>;
-#[doc = "Field `MODE` reader - This bits decides which one operation mode will be used. 3d0: AES-EN-128, 3d1: AES-EN-192, 3d2: AES-EN-256, 3d4: AES-DE-128, 3d5: AES-DE-192, 3d6: AES-DE-256."]
+#[doc = "Field `MODE` reader - This bits decides which one operation mode will be used. 3'd0: AES-EN-128, 3'd1: AES-EN-192, 3'd2: AES-EN-256, 3'd4: AES-DE-128, 3'd5: AES-DE-192, 3'd6: AES-DE-256."]
 pub type MODE_R = crate::FieldReader;
-#[doc = "Field `MODE` writer - This bits decides which one operation mode will be used. 3d0: AES-EN-128, 3d1: AES-EN-192, 3d2: AES-EN-256, 3d4: AES-DE-128, 3d5: AES-DE-192, 3d6: AES-DE-256."]
+#[doc = "Field `MODE` writer - This bits decides which one operation mode will be used. 3'd0: AES-EN-128, 3'd1: AES-EN-192, 3'd2: AES-EN-256, 3'd4: AES-DE-128, 3'd5: AES-DE-192, 3'd6: AES-DE-256."]
 pub type MODE_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 impl R {
-    #[doc = "Bits 0:2 - This bits decides which one operation mode will be used. 3d0: AES-EN-128, 3d1: AES-EN-192, 3d2: AES-EN-256, 3d4: AES-DE-128, 3d5: AES-DE-192, 3d6: AES-DE-256."]
+    #[doc = "Bits 0:2 - This bits decides which one operation mode will be used. 3'd0: AES-EN-128, 3'd1: AES-EN-192, 3'd2: AES-EN-256, 3'd4: AES-DE-128, 3'd5: AES-DE-192, 3'd6: AES-DE-256."]
     #[inline(always)]
     pub fn mode(&self) -> MODE_R {
         MODE_R::new((self.bits & 7) as u8)
@@ -20,7 +20,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:2 - This bits decides which one operation mode will be used. 3d0: AES-EN-128, 3d1: AES-EN-192, 3d2: AES-EN-256, 3d4: AES-DE-128, 3d5: AES-DE-192, 3d6: AES-DE-256."]
+    #[doc = "Bits 0:2 - This bits decides which one operation mode will be used. 3'd0: AES-EN-128, 3'd1: AES-EN-192, 3'd2: AES-EN-256, 3'd4: AES-DE-128, 3'd5: AES-DE-192, 3'd6: AES-DE-256."]
     #[inline(always)]
     pub fn mode(&mut self) -> MODE_W<'_, MODE_SPEC> {
         MODE_W::new(self, 0)

@@ -2,12 +2,12 @@
 pub type R = crate::R<ICACHE_CTRL_SPEC>;
 #[doc = "Register `ICACHE_CTRL` writer"]
 pub type W = crate::W<ICACHE_CTRL_SPEC>;
-#[doc = "Field `ICACHE_ENABLE` reader - The bit is used to activate the data cache. 0: disable 1: enable"]
+#[doc = "Field `ICACHE_ENABLE` reader - The bit is used to activate the data cache. 0: disable, 1: enable"]
 pub type ICACHE_ENABLE_R = crate::BitReader;
-#[doc = "Field `ICACHE_ENABLE` writer - The bit is used to activate the data cache. 0: disable 1: enable"]
+#[doc = "Field `ICACHE_ENABLE` writer - The bit is used to activate the data cache. 0: disable, 1: enable"]
 pub type ICACHE_ENABLE_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - The bit is used to activate the data cache. 0: disable 1: enable"]
+    #[doc = "Bit 0 - The bit is used to activate the data cache. 0: disable, 1: enable"]
     #[inline(always)]
     pub fn icache_enable(&self) -> ICACHE_ENABLE_R {
         ICACHE_ENABLE_R::new((self.bits & 1) != 0)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - The bit is used to activate the data cache. 0: disable 1: enable"]
+    #[doc = "Bit 0 - The bit is used to activate the data cache. 0: disable, 1: enable"]
     #[inline(always)]
     pub fn icache_enable(&mut self) -> ICACHE_ENABLE_W<'_, ICACHE_CTRL_SPEC> {
         ICACHE_ENABLE_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`icache_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icache_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "This description will be updated in the near future.\n\nYou can [`read`](crate::Reg::read) this register and get [`icache_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icache_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ICACHE_CTRL_SPEC;
 impl crate::RegisterSpec for ICACHE_CTRL_SPEC {
     type Ux = u32;

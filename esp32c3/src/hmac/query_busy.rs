@@ -1,9 +1,9 @@
 #[doc = "Register `QUERY_BUSY` reader"]
 pub type R = crate::R<QUERY_BUSY_SPEC>;
-#[doc = "Field `BUSY_STATE` reader - Hmac state. 1b0: idle. 1b1: busy"]
+#[doc = "Field `BUSY_STATE` reader - Hmac state. 1'b0: idle. 1'b1: busy"]
 pub type BUSY_STATE_R = crate::BitReader;
 impl R {
-    #[doc = "Bit 0 - Hmac state. 1b0: idle. 1b1: busy"]
+    #[doc = "Bit 0 - Hmac state. 1'b0: idle. 1'b1: busy"]
     #[inline(always)]
     pub fn busy_state(&self) -> BUSY_STATE_R {
         BUSY_STATE_R::new((self.bits & 1) != 0)

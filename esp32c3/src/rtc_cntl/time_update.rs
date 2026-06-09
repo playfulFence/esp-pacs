@@ -37,9 +37,9 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("TIME_UPDATE")
-            .field("timer_sys_rst", &self.timer_sys_rst())
-            .field("timer_xtl_off", &self.timer_xtl_off())
             .field("timer_sys_stall", &self.timer_sys_stall())
+            .field("timer_xtl_off", &self.timer_xtl_off())
+            .field("timer_sys_rst", &self.timer_sys_rst())
             .finish()
     }
 }
@@ -65,7 +65,7 @@ impl W {
         TIME_UPDATE_W::new(self, 31)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`time_update::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`time_update::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`time_update::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`time_update::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct TIME_UPDATE_SPEC;
 impl crate::RegisterSpec for TIME_UPDATE_SPEC {
     type Ux = u32;

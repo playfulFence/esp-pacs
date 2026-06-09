@@ -27,12 +27,12 @@ impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CACHE_ENCRYPT_DECRYPT_RECORD_DISABLE")
             .field(
-                "record_disable_g0cb_decrypt",
-                &self.record_disable_g0cb_decrypt(),
-            )
-            .field(
                 "record_disable_db_encrypt",
                 &self.record_disable_db_encrypt(),
+            )
+            .field(
+                "record_disable_g0cb_decrypt",
+                &self.record_disable_g0cb_decrypt(),
             )
             .finish()
     }
@@ -53,7 +53,7 @@ impl W {
         RECORD_DISABLE_G0CB_DECRYPT_W::new(self, 1)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_encrypt_decrypt_record_disable::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_encrypt_decrypt_record_disable::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "This description will be updated in the near future.\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_encrypt_decrypt_record_disable::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_encrypt_decrypt_record_disable::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CACHE_ENCRYPT_DECRYPT_RECORD_DISABLE_SPEC;
 impl crate::RegisterSpec for CACHE_ENCRYPT_DECRYPT_RECORD_DISABLE_SPEC {
     type Ux = u32;

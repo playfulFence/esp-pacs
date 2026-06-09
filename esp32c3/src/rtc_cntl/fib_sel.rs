@@ -28,7 +28,7 @@ impl W {
         FIB_SEL_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`fib_sel::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`fib_sel::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`fib_sel::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`fib_sel::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FIB_SEL_SPEC;
 impl crate::RegisterSpec for FIB_SEL_SPEC {
     type Ux = u32;
@@ -39,5 +39,7 @@ impl crate::Readable for FIB_SEL_SPEC {}
 impl crate::Writable for FIB_SEL_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets FIB_SEL to value 0"]
-impl crate::Resettable for FIB_SEL_SPEC {}
+#[doc = "`reset()` method sets FIB_SEL to value 0x07"]
+impl crate::Resettable for FIB_SEL_SPEC {
+    const RESET_VALUE: u32 = 0x07;
+}

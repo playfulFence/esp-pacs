@@ -2,12 +2,12 @@
 pub type R = crate::R<SP_MIN_SPEC>;
 #[doc = "Register `SP_MIN` writer"]
 pub type W = crate::W<SP_MIN_SPEC>;
-#[doc = "Field `SP_MIN` reader - "]
+#[doc = "Field `SP_MIN` reader - reg_core_0_sp_min"]
 pub type SP_MIN_R = crate::FieldReader<u32>;
-#[doc = "Field `SP_MIN` writer - "]
+#[doc = "Field `SP_MIN` writer - reg_core_0_sp_min"]
 pub type SP_MIN_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - reg_core_0_sp_min"]
     #[inline(always)]
     pub fn sp_min(&self) -> SP_MIN_R {
         SP_MIN_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - reg_core_0_sp_min"]
     #[inline(always)]
     pub fn sp_min(&mut self) -> SP_MIN_W<'_, SP_MIN_SPEC> {
         SP_MIN_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`sp_min::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sp_min::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "ASSIST_DEBUG_CORE_0_SP_MIN_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`sp_min::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sp_min::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SP_MIN_SPEC;
 impl crate::RegisterSpec for SP_MIN_SPEC {
     type Ux = u32;

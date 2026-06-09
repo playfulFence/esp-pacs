@@ -2,12 +2,12 @@
 pub type R = crate::R<AREA_PIF_1_MAX_SPEC>;
 #[doc = "Register `AREA_PIF_1_MAX` writer"]
 pub type W = crate::W<AREA_PIF_1_MAX_SPEC>;
-#[doc = "Field `AREA_PIF_1_MAX` reader - "]
+#[doc = "Field `AREA_PIF_1_MAX` reader - reg_core_0_area_pif_1_max"]
 pub type AREA_PIF_1_MAX_R = crate::FieldReader<u32>;
-#[doc = "Field `AREA_PIF_1_MAX` writer - "]
+#[doc = "Field `AREA_PIF_1_MAX` writer - reg_core_0_area_pif_1_max"]
 pub type AREA_PIF_1_MAX_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - reg_core_0_area_pif_1_max"]
     #[inline(always)]
     pub fn area_pif_1_max(&self) -> AREA_PIF_1_MAX_R {
         AREA_PIF_1_MAX_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - reg_core_0_area_pif_1_max"]
     #[inline(always)]
     pub fn area_pif_1_max(&mut self) -> AREA_PIF_1_MAX_W<'_, AREA_PIF_1_MAX_SPEC> {
         AREA_PIF_1_MAX_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`area_pif_1_max::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`area_pif_1_max::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "ASSIST_DEBUG_CORE_0_AREA_PIF_1_MAX_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`area_pif_1_max::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`area_pif_1_max::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AREA_PIF_1_MAX_SPEC;
 impl crate::RegisterSpec for AREA_PIF_1_MAX_SPEC {
     type Ux = u32;

@@ -1,9 +1,9 @@
 #[doc = "Register `SP_PC` reader"]
 pub type R = crate::R<SP_PC_SPEC>;
-#[doc = "Field `SP_PC` reader - "]
+#[doc = "Field `SP_PC` reader - reg_core_0_sp_pc"]
 pub type SP_PC_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - reg_core_0_sp_pc"]
     #[inline(always)]
     pub fn sp_pc(&self) -> SP_PC_R {
         SP_PC_R::new(self.bits)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`sp_pc::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "ASSIST_DEBUG_CORE_0_SP_PC_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`sp_pc::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SP_PC_SPEC;
 impl crate::RegisterSpec for SP_PC_SPEC {
     type Ux = u32;

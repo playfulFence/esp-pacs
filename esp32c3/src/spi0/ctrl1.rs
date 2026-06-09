@@ -2,55 +2,32 @@
 pub type R = crate::R<CTRL1_SPEC>;
 #[doc = "Register `CTRL1` writer"]
 pub type W = crate::W<CTRL1_SPEC>;
-#[doc = "Field `CLK_MODE` reader - SPI clock mode bits. 0: SPI clock is off when CS inactive 1:"]
+#[doc = "Field `CLK_MODE` reader - SPI clock mode bits. 0: SPI clock is off when CS inactive 1: SPI clock is delayed one cycle after CS inactive 2: SPI clock is delayed two cycles after CS inactive 3: SPI clock is alwasy on."]
 pub type CLK_MODE_R = crate::FieldReader;
-#[doc = "Field `CLK_MODE` writer - SPI clock mode bits. 0: SPI clock is off when CS inactive 1:"]
+#[doc = "Field `CLK_MODE` writer - SPI clock mode bits. 0: SPI clock is off when CS inactive 1: SPI clock is delayed one cycle after CS inactive 2: SPI clock is delayed two cycles after CS inactive 3: SPI clock is alwasy on."]
 pub type CLK_MODE_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `CS_HOLD_DLY_RES` reader - After RES/DP/HPM command is sent SPI1 waits (SPI_MEM_CS_HOLD_DELAY_RES\\[9:0\\]"]
-pub type CS_HOLD_DLY_RES_R = crate::FieldReader<u16>;
-#[doc = "Field `CS_HOLD_DLY_RES` writer - After RES/DP/HPM command is sent SPI1 waits (SPI_MEM_CS_HOLD_DELAY_RES\\[9:0\\]"]
-pub type CS_HOLD_DLY_RES_W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 #[doc = "Field `RXFIFO_RST` writer - SPI0 RX FIFO reset signal."]
 pub type RXFIFO_RST_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RXFIFO_WFULL_ERR` reader - 1: SPI0 RX FIFO write full error Cache/EDMA do not read all"]
-pub type RXFIFO_WFULL_ERR_R = crate::BitReader;
 impl R {
-    #[doc = "Bits 0:1 - SPI clock mode bits. 0: SPI clock is off when CS inactive 1:"]
+    #[doc = "Bits 0:1 - SPI clock mode bits. 0: SPI clock is off when CS inactive 1: SPI clock is delayed one cycle after CS inactive 2: SPI clock is delayed two cycles after CS inactive 3: SPI clock is alwasy on."]
     #[inline(always)]
     pub fn clk_mode(&self) -> CLK_MODE_R {
         CLK_MODE_R::new((self.bits & 3) as u8)
-    }
-    #[doc = "Bits 2:11 - After RES/DP/HPM command is sent SPI1 waits (SPI_MEM_CS_HOLD_DELAY_RES\\[9:0\\]"]
-    #[inline(always)]
-    pub fn cs_hold_dly_res(&self) -> CS_HOLD_DLY_RES_R {
-        CS_HOLD_DLY_RES_R::new(((self.bits >> 2) & 0x03ff) as u16)
-    }
-    #[doc = "Bit 31 - 1: SPI0 RX FIFO write full error Cache/EDMA do not read all"]
-    #[inline(always)]
-    pub fn rxfifo_wfull_err(&self) -> RXFIFO_WFULL_ERR_R {
-        RXFIFO_WFULL_ERR_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CTRL1")
-            .field("rxfifo_wfull_err", &self.rxfifo_wfull_err())
-            .field("cs_hold_dly_res", &self.cs_hold_dly_res())
             .field("clk_mode", &self.clk_mode())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bits 0:1 - SPI clock mode bits. 0: SPI clock is off when CS inactive 1:"]
+    #[doc = "Bits 0:1 - SPI clock mode bits. 0: SPI clock is off when CS inactive 1: SPI clock is delayed one cycle after CS inactive 2: SPI clock is delayed two cycles after CS inactive 3: SPI clock is alwasy on."]
     #[inline(always)]
     pub fn clk_mode(&mut self) -> CLK_MODE_W<'_, CTRL1_SPEC> {
         CLK_MODE_W::new(self, 0)
-    }
-    #[doc = "Bits 2:11 - After RES/DP/HPM command is sent SPI1 waits (SPI_MEM_CS_HOLD_DELAY_RES\\[9:0\\]"]
-    #[inline(always)]
-    pub fn cs_hold_dly_res(&mut self) -> CS_HOLD_DLY_RES_W<'_, CTRL1_SPEC> {
-        CS_HOLD_DLY_RES_W::new(self, 2)
     }
     #[doc = "Bit 30 - SPI0 RX FIFO reset signal."]
     #[inline(always)]
@@ -58,7 +35,7 @@ impl W {
         RXFIFO_RST_W::new(self, 30)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SPI0 control1 register.\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CTRL1_SPEC;
 impl crate::RegisterSpec for CTRL1_SPEC {
     type Ux = u32;

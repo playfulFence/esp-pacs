@@ -1,23 +1,23 @@
 #[doc = "Register `RD_SYS_PART1_DATA0` reader"]
 pub type R = crate::R<RD_SYS_PART1_DATA0_SPEC>;
-#[doc = "Field `OPTIONAL_UNIQUE_ID` reader - Optional unique 128-bit ID /"]
-pub type OPTIONAL_UNIQUE_ID_R = crate::FieldReader<u32>;
+#[doc = "Field `SYS_DATA_PART1_0` reader - Stores the zeroth 32 bits of the first part of system data."]
+pub type SYS_DATA_PART1_0_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:31 - Optional unique 128-bit ID /"]
+    #[doc = "Bits 0:31 - Stores the zeroth 32 bits of the first part of system data."]
     #[inline(always)]
-    pub fn optional_unique_id(&self) -> OPTIONAL_UNIQUE_ID_R {
-        OPTIONAL_UNIQUE_ID_R::new(self.bits)
+    pub fn sys_data_part1_0(&self) -> SYS_DATA_PART1_0_R {
+        SYS_DATA_PART1_0_R::new(self.bits)
     }
 }
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("RD_SYS_PART1_DATA0")
-            .field("optional_unique_id", &self.optional_unique_id())
+            .field("sys_data_part1_0", &self.sys_data_part1_0())
             .finish()
     }
 }
-#[doc = "Register 0 of BLOCK2 (system). /\n\nYou can [`read`](crate::Reg::read) this register and get [`rd_sys_part1_data0::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Register 0 of BLOCK2 (system).\n\nYou can [`read`](crate::Reg::read) this register and get [`rd_sys_part1_data0::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RD_SYS_PART1_DATA0_SPEC;
 impl crate::RegisterSpec for RD_SYS_PART1_DATA0_SPEC {
     type Ux = u32;

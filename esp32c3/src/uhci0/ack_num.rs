@@ -2,14 +2,14 @@
 pub type R = crate::R<ACK_NUM_SPEC>;
 #[doc = "Register `ACK_NUM` writer"]
 pub type W = crate::W<ACK_NUM_SPEC>;
-#[doc = "Field `ACK_NUM` reader - "]
+#[doc = "Field `ACK_NUM` reader - a"]
 pub type ACK_NUM_R = crate::FieldReader;
-#[doc = "Field `ACK_NUM` writer - "]
+#[doc = "Field `ACK_NUM` writer - a"]
 pub type ACK_NUM_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
-#[doc = "Field `ACK_NUM_LOAD` writer - a"]
-pub type ACK_NUM_LOAD_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LOAD` writer - a"]
+pub type LOAD_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bits 0:2"]
+    #[doc = "Bits 0:2 - a"]
     #[inline(always)]
     pub fn ack_num(&self) -> ACK_NUM_R {
         ACK_NUM_R::new((self.bits & 7) as u8)
@@ -24,18 +24,18 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:2"]
+    #[doc = "Bits 0:2 - a"]
     #[inline(always)]
     pub fn ack_num(&mut self) -> ACK_NUM_W<'_, ACK_NUM_SPEC> {
         ACK_NUM_W::new(self, 0)
     }
     #[doc = "Bit 3 - a"]
     #[inline(always)]
-    pub fn ack_num_load(&mut self) -> ACK_NUM_LOAD_W<'_, ACK_NUM_SPEC> {
-        ACK_NUM_LOAD_W::new(self, 3)
+    pub fn load(&mut self) -> LOAD_W<'_, ACK_NUM_SPEC> {
+        LOAD_W::new(self, 3)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`ack_num::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ack_num::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "a\n\nYou can [`read`](crate::Reg::read) this register and get [`ack_num::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ack_num::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ACK_NUM_SPEC;
 impl crate::RegisterSpec for ACK_NUM_SPEC {
     type Ux = u32;
@@ -46,5 +46,7 @@ impl crate::Readable for ACK_NUM_SPEC {}
 impl crate::Writable for ACK_NUM_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets ACK_NUM to value 0"]
-impl crate::Resettable for ACK_NUM_SPEC {}
+#[doc = "`reset()` method sets ACK_NUM to value 0x08"]
+impl crate::Resettable for ACK_NUM_SPEC {
+    const RESET_VALUE: u32 = 0x08;
+}

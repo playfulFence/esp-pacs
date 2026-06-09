@@ -41,15 +41,15 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("INT_ST")
-            .field("mst_st_end", &self.mst_st_end())
-            .field("slv_st_end", &self.slv_st_end())
-            .field("wpe_end", &self.wpe_end())
-            .field("pes_end", &self.pes_end())
             .field("per_end", &self.per_end())
+            .field("pes_end", &self.pes_end())
+            .field("wpe_end", &self.wpe_end())
+            .field("slv_st_end", &self.slv_st_end())
+            .field("mst_st_end", &self.mst_st_end())
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`int_st::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SPI1 interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`int_st::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {
     type Ux = u32;

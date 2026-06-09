@@ -2,26 +2,19 @@
 pub type R = crate::R<SPI_MEM_PMS_CTRL_SPEC>;
 #[doc = "Register `SPI_MEM_PMS_CTRL` writer"]
 pub type W = crate::W<SPI_MEM_PMS_CTRL_SPEC>;
-#[doc = "Field `SPI_MEM_REJECT_INT` reader - "]
+#[doc = "Field `SPI_MEM_REJECT_INT` reader - reg_spi_mem_reject_int"]
 pub type SPI_MEM_REJECT_INT_R = crate::BitReader;
-#[doc = "Field `SPI_MEM_REJECT_CLR` reader - "]
-pub type SPI_MEM_REJECT_CLR_R = crate::BitReader;
-#[doc = "Field `SPI_MEM_REJECT_CLR` writer - "]
+#[doc = "Field `SPI_MEM_REJECT_CLR` writer - reg_spi_mem_reject_clr"]
 pub type SPI_MEM_REJECT_CLR_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SPI_MEM_REJECT_CDE` reader - "]
+#[doc = "Field `SPI_MEM_REJECT_CDE` reader - reg_spi_mem_reject_cde"]
 pub type SPI_MEM_REJECT_CDE_R = crate::FieldReader;
 impl R {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - reg_spi_mem_reject_int"]
     #[inline(always)]
     pub fn spi_mem_reject_int(&self) -> SPI_MEM_REJECT_INT_R {
         SPI_MEM_REJECT_INT_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 1"]
-    #[inline(always)]
-    pub fn spi_mem_reject_clr(&self) -> SPI_MEM_REJECT_CLR_R {
-        SPI_MEM_REJECT_CLR_R::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bits 2:6"]
+    #[doc = "Bits 2:6 - reg_spi_mem_reject_cde"]
     #[inline(always)]
     pub fn spi_mem_reject_cde(&self) -> SPI_MEM_REJECT_CDE_R {
         SPI_MEM_REJECT_CDE_R::new(((self.bits >> 2) & 0x1f) as u8)
@@ -31,20 +24,19 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("SPI_MEM_PMS_CTRL")
-            .field("spi_mem_reject_cde", &self.spi_mem_reject_cde())
-            .field("spi_mem_reject_clr", &self.spi_mem_reject_clr())
             .field("spi_mem_reject_int", &self.spi_mem_reject_int())
+            .field("spi_mem_reject_cde", &self.spi_mem_reject_cde())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bit 1"]
+    #[doc = "Bit 1 - reg_spi_mem_reject_clr"]
     #[inline(always)]
     pub fn spi_mem_reject_clr(&mut self) -> SPI_MEM_REJECT_CLR_W<'_, SPI_MEM_PMS_CTRL_SPEC> {
         SPI_MEM_REJECT_CLR_W::new(self, 1)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`spi_mem_pms_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`spi_mem_pms_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "APB_CTRL_SPI_MEM_PMS_CTRL_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`spi_mem_pms_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`spi_mem_pms_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SPI_MEM_PMS_CTRL_SPEC;
 impl crate::RegisterSpec for SPI_MEM_PMS_CTRL_SPEC {
     type Ux = u32;

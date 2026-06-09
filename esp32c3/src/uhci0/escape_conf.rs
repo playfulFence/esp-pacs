@@ -80,14 +80,14 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("ESCAPE_CONF")
-            .field("rx_13_esc_en", &self.rx_13_esc_en())
-            .field("rx_11_esc_en", &self.rx_11_esc_en())
-            .field("rx_db_esc_en", &self.rx_db_esc_en())
-            .field("rx_c0_esc_en", &self.rx_c0_esc_en())
-            .field("tx_13_esc_en", &self.tx_13_esc_en())
-            .field("tx_11_esc_en", &self.tx_11_esc_en())
-            .field("tx_db_esc_en", &self.tx_db_esc_en())
             .field("tx_c0_esc_en", &self.tx_c0_esc_en())
+            .field("tx_db_esc_en", &self.tx_db_esc_en())
+            .field("tx_11_esc_en", &self.tx_11_esc_en())
+            .field("tx_13_esc_en", &self.tx_13_esc_en())
+            .field("rx_c0_esc_en", &self.rx_c0_esc_en())
+            .field("rx_db_esc_en", &self.rx_db_esc_en())
+            .field("rx_11_esc_en", &self.rx_11_esc_en())
+            .field("rx_13_esc_en", &self.rx_13_esc_en())
             .finish()
     }
 }
@@ -133,7 +133,7 @@ impl W {
         RX_13_ESC_EN_W::new(self, 7)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`escape_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`escape_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "a\n\nYou can [`read`](crate::Reg::read) this register and get [`escape_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`escape_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ESCAPE_CONF_SPEC;
 impl crate::RegisterSpec for ESCAPE_CONF_SPEC {
     type Ux = u32;
@@ -144,5 +144,7 @@ impl crate::Readable for ESCAPE_CONF_SPEC {}
 impl crate::Writable for ESCAPE_CONF_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets ESCAPE_CONF to value 0"]
-impl crate::Resettable for ESCAPE_CONF_SPEC {}
+#[doc = "`reset()` method sets ESCAPE_CONF to value 0x33"]
+impl crate::Resettable for ESCAPE_CONF_SPEC {
+    const RESET_VALUE: u32 = 0x33;
+}

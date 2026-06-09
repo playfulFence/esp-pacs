@@ -28,7 +28,7 @@ impl W {
         MIN_SLP_VAL_W::new(self, 8)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`timer5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`timer5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`timer5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`timer5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct TIMER5_SPEC;
 impl crate::RegisterSpec for TIMER5_SPEC {
     type Ux = u32;
@@ -39,5 +39,7 @@ impl crate::Readable for TIMER5_SPEC {}
 impl crate::Writable for TIMER5_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets TIMER5 to value 0"]
-impl crate::Resettable for TIMER5_SPEC {}
+#[doc = "`reset()` method sets TIMER5 to value 0x8000"]
+impl crate::Resettable for TIMER5_SPEC {
+    const RESET_VALUE: u32 = 0x8000;
+}

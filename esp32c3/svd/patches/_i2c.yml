@@ -1,6 +1,6 @@
 I2C0:
   _modify:
-    "?~FIFO_DATA":
+    FIFO_DATA:
       name: DATA
 
   DATA:

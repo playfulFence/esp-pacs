@@ -84,5 +84,7 @@ impl crate::Readable for MODE_SPEC {}
 impl crate::Writable for MODE_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets MODE to value 0"]
-impl crate::Resettable for MODE_SPEC {}
+#[doc = "`reset()` method sets MODE to value 0x01"]
+impl crate::Resettable for MODE_SPEC {
+    const RESET_VALUE: u32 = 0x01;
+}

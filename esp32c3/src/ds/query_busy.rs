@@ -1,9 +1,9 @@
 #[doc = "Register `QUERY_BUSY` reader"]
 pub type R = crate::R<QUERY_BUSY_SPEC>;
-#[doc = "Field `QUERY_BUSY` reader - digital signature state. 1b0: idle, 1b1: busy"]
+#[doc = "Field `QUERY_BUSY` reader - digital signature state. 1'b0: idle, 1'b1: busy"]
 pub type QUERY_BUSY_R = crate::BitReader;
 impl R {
-    #[doc = "Bit 0 - digital signature state. 1b0: idle, 1b1: busy"]
+    #[doc = "Bit 0 - digital signature state. 1'b0: idle, 1'b1: busy"]
     #[inline(always)]
     pub fn query_busy(&self) -> QUERY_BUSY_R {
         QUERY_BUSY_R::new((self.bits & 1) != 0)

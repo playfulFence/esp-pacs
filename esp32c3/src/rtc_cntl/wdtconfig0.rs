@@ -34,9 +34,9 @@ pub type WDT_SYS_RESET_LENGTH_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 pub type WDT_CPU_RESET_LENGTH_R = crate::FieldReader;
 #[doc = "Field `WDT_CPU_RESET_LENGTH` writer - CPU reset counter length"]
 pub type WDT_CPU_RESET_LENGTH_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
-#[doc = "Field `WDT_STG3` reader - stage action selection values"]
+#[doc = "Field `WDT_STG3` reader - 1: interrupt stage en"]
 pub type WDT_STG3_R = crate::FieldReader;
-#[doc = "Field `WDT_STG3` writer - stage action selection values"]
+#[doc = "Field `WDT_STG3` writer - 1: interrupt stage en"]
 pub type WDT_STG3_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `WDT_STG2` reader - 1: interrupt stage en"]
 pub type WDT_STG2_R = crate::FieldReader;
@@ -50,9 +50,9 @@ pub type WDT_STG1_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 pub type WDT_STG0_R = crate::FieldReader;
 #[doc = "Field `WDT_STG0` writer - 1: interrupt stage en"]
 pub type WDT_STG0_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
-#[doc = "Field `WDT_EN` reader - "]
+#[doc = "Field `WDT_EN` reader - enable rtc wdt"]
 pub type WDT_EN_R = crate::BitReader;
-#[doc = "Field `WDT_EN` writer - "]
+#[doc = "Field `WDT_EN` writer - enable rtc wdt"]
 pub type WDT_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:7 - chip reset siginal pulse width"]
@@ -95,7 +95,7 @@ impl R {
     pub fn wdt_cpu_reset_length(&self) -> WDT_CPU_RESET_LENGTH_R {
         WDT_CPU_RESET_LENGTH_R::new(((self.bits >> 16) & 7) as u8)
     }
-    #[doc = "Bits 19:21 - stage action selection values"]
+    #[doc = "Bits 19:21 - 1: interrupt stage en"]
     #[inline(always)]
     pub fn wdt_stg3(&self) -> WDT_STG3_R {
         WDT_STG3_R::new(((self.bits >> 19) & 7) as u8)
@@ -115,7 +115,7 @@ impl R {
     pub fn wdt_stg0(&self) -> WDT_STG0_R {
         WDT_STG0_R::new(((self.bits >> 28) & 7) as u8)
     }
-    #[doc = "Bit 31"]
+    #[doc = "Bit 31 - enable rtc wdt"]
     #[inline(always)]
     pub fn wdt_en(&self) -> WDT_EN_R {
         WDT_EN_R::new(((self.bits >> 31) & 1) != 0)
@@ -125,19 +125,19 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("WDTCONFIG0")
-            .field("wdt_en", &self.wdt_en())
-            .field("wdt_stg0", &self.wdt_stg0())
-            .field("wdt_stg1", &self.wdt_stg1())
-            .field("wdt_stg2", &self.wdt_stg2())
-            .field("wdt_stg3", &self.wdt_stg3())
-            .field("wdt_cpu_reset_length", &self.wdt_cpu_reset_length())
-            .field("wdt_sys_reset_length", &self.wdt_sys_reset_length())
-            .field("wdt_flashboot_mod_en", &self.wdt_flashboot_mod_en())
-            .field("wdt_procpu_reset_en", &self.wdt_procpu_reset_en())
-            .field("wdt_appcpu_reset_en", &self.wdt_appcpu_reset_en())
-            .field("wdt_pause_in_slp", &self.wdt_pause_in_slp())
-            .field("wdt_chip_reset_en", &self.wdt_chip_reset_en())
             .field("wdt_chip_reset_width", &self.wdt_chip_reset_width())
+            .field("wdt_chip_reset_en", &self.wdt_chip_reset_en())
+            .field("wdt_pause_in_slp", &self.wdt_pause_in_slp())
+            .field("wdt_appcpu_reset_en", &self.wdt_appcpu_reset_en())
+            .field("wdt_procpu_reset_en", &self.wdt_procpu_reset_en())
+            .field("wdt_flashboot_mod_en", &self.wdt_flashboot_mod_en())
+            .field("wdt_sys_reset_length", &self.wdt_sys_reset_length())
+            .field("wdt_cpu_reset_length", &self.wdt_cpu_reset_length())
+            .field("wdt_stg3", &self.wdt_stg3())
+            .field("wdt_stg2", &self.wdt_stg2())
+            .field("wdt_stg1", &self.wdt_stg1())
+            .field("wdt_stg0", &self.wdt_stg0())
+            .field("wdt_en", &self.wdt_en())
             .finish()
     }
 }
@@ -182,7 +182,7 @@ impl W {
     pub fn wdt_cpu_reset_length(&mut self) -> WDT_CPU_RESET_LENGTH_W<'_, WDTCONFIG0_SPEC> {
         WDT_CPU_RESET_LENGTH_W::new(self, 16)
     }
-    #[doc = "Bits 19:21 - stage action selection values"]
+    #[doc = "Bits 19:21 - 1: interrupt stage en"]
     #[inline(always)]
     pub fn wdt_stg3(&mut self) -> WDT_STG3_W<'_, WDTCONFIG0_SPEC> {
         WDT_STG3_W::new(self, 19)
@@ -202,13 +202,13 @@ impl W {
     pub fn wdt_stg0(&mut self) -> WDT_STG0_W<'_, WDTCONFIG0_SPEC> {
         WDT_STG0_W::new(self, 28)
     }
-    #[doc = "Bit 31"]
+    #[doc = "Bit 31 - enable rtc wdt"]
     #[inline(always)]
     pub fn wdt_en(&mut self) -> WDT_EN_W<'_, WDTCONFIG0_SPEC> {
         WDT_EN_W::new(self, 31)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`wdtconfig0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdtconfig0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdtconfig0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdtconfig0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct WDTCONFIG0_SPEC;
 impl crate::RegisterSpec for WDTCONFIG0_SPEC {
     type Ux = u32;
@@ -219,5 +219,7 @@ impl crate::Readable for WDTCONFIG0_SPEC {}
 impl crate::Writable for WDTCONFIG0_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets WDTCONFIG0 to value 0"]
-impl crate::Resettable for WDTCONFIG0_SPEC {}
+#[doc = "`reset()` method sets WDTCONFIG0 to value 0x0001_3214"]
+impl crate::Resettable for WDTCONFIG0_SPEC {
+    const RESET_VALUE: u32 = 0x0001_3214;
+}

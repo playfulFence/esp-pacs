@@ -2,12 +2,12 @@
 pub type R = crate::R<CPU_INT_PRI_SPEC>;
 #[doc = "Register `CPU_INT_PRI%s` writer"]
 pub type W = crate::W<CPU_INT_PRI_SPEC>;
-#[doc = "Field `MAP` reader - "]
+#[doc = "Field `MAP` reader - reg_core0_cpu_pri_0_map"]
 pub type MAP_R = crate::FieldReader;
-#[doc = "Field `MAP` writer - "]
+#[doc = "Field `MAP` writer - reg_core0_cpu_pri_0_map"]
 pub type MAP_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
-    #[doc = "Bits 0:3"]
+    #[doc = "Bits 0:3 - reg_core0_cpu_pri_0_map"]
     #[inline(always)]
     pub fn map(&self) -> MAP_R {
         MAP_R::new((self.bits & 0x0f) as u8)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:3"]
+    #[doc = "Bits 0:3 - reg_core0_cpu_pri_0_map"]
     #[inline(always)]
     pub fn map(&mut self) -> MAP_W<'_, CPU_INT_PRI_SPEC> {
         MAP_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cpu_int_pri::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpu_int_pri::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "mac intr map register\n\nYou can [`read`](crate::Reg::read) this register and get [`cpu_int_pri::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpu_int_pri::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CPU_INT_PRI_SPEC;
 impl crate::RegisterSpec for CPU_INT_PRI_SPEC {
     type Ux = u32;

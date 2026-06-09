@@ -1,9 +1,9 @@
 #[doc = "Register `PCPU_INT` reader"]
 pub type R = crate::R<PCPU_INT_SPEC>;
-#[doc = "Field `PROCPU_INT` reader - "]
+#[doc = "Field `PROCPU_INT` reader - GPIO PRO_CPU interrupt status register for GPIO0-25"]
 pub type PROCPU_INT_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:25"]
+    #[doc = "Bits 0:25 - GPIO PRO_CPU interrupt status register for GPIO0-25"]
     #[inline(always)]
     pub fn procpu_int(&self) -> PROCPU_INT_R {
         PROCPU_INT_R::new(self.bits & 0x03ff_ffff)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`pcpu_int::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPIO PRO_CPU interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`pcpu_int::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PCPU_INT_SPEC;
 impl crate::RegisterSpec for PCPU_INT_SPEC {
     type Ux = u32;

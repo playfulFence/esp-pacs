@@ -2,17 +2,9 @@
 pub type R = crate::R<USER_SPEC>;
 #[doc = "Register `USER` writer"]
 pub type W = crate::W<USER_SPEC>;
-#[doc = "Field `CS_HOLD` reader - spi cs keep low when spi is in done phase. 1: enable 0: disable."]
-pub type CS_HOLD_R = crate::BitReader;
-#[doc = "Field `CS_HOLD` writer - spi cs keep low when spi is in done phase. 1: enable 0: disable."]
-pub type CS_HOLD_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `CS_SETUP` reader - spi cs is enable when spi is in prepare phase. 1: enable 0: disable."]
-pub type CS_SETUP_R = crate::BitReader;
-#[doc = "Field `CS_SETUP` writer - spi cs is enable when spi is in prepare phase. 1: enable 0: disable."]
-pub type CS_SETUP_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `CK_OUT_EDGE` reader - the bit combined with spi_mem_mosi_delay_mode bits to set mosi"]
+#[doc = "Field `CK_OUT_EDGE` reader - the bit combined with spi_mem_mosi_delay_mode bits to set mosi signal delay mode."]
 pub type CK_OUT_EDGE_R = crate::BitReader;
-#[doc = "Field `CK_OUT_EDGE` writer - the bit combined with spi_mem_mosi_delay_mode bits to set mosi"]
+#[doc = "Field `CK_OUT_EDGE` writer - the bit combined with spi_mem_mosi_delay_mode bits to set mosi signal delay mode."]
 pub type CK_OUT_EDGE_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `FWRITE_DUAL` reader - In the write operations read-data phase apply 2 signals"]
 pub type FWRITE_DUAL_R = crate::BitReader;
@@ -30,17 +22,17 @@ pub type FWRITE_DIO_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type FWRITE_QIO_R = crate::BitReader;
 #[doc = "Field `FWRITE_QIO` writer - In the write operations address phase and read-data phase apply 4 signals."]
 pub type FWRITE_QIO_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `USR_MISO_HIGHPART` reader - read-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15."]
+#[doc = "Field `USR_MISO_HIGHPART` reader - read-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15. 1: enable 0: disable."]
 pub type USR_MISO_HIGHPART_R = crate::BitReader;
-#[doc = "Field `USR_MISO_HIGHPART` writer - read-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15."]
+#[doc = "Field `USR_MISO_HIGHPART` writer - read-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15. 1: enable 0: disable."]
 pub type USR_MISO_HIGHPART_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `USR_MOSI_HIGHPART` reader - write-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15."]
+#[doc = "Field `USR_MOSI_HIGHPART` reader - write-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15. 1: enable 0: disable."]
 pub type USR_MOSI_HIGHPART_R = crate::BitReader;
-#[doc = "Field `USR_MOSI_HIGHPART` writer - write-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15."]
+#[doc = "Field `USR_MOSI_HIGHPART` writer - write-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15. 1: enable 0: disable."]
 pub type USR_MOSI_HIGHPART_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `USR_DUMMY_IDLE` reader - spi clock is disable in dummy phase when the bit is enable."]
+#[doc = "Field `USR_DUMMY_IDLE` reader - SPI clock is disable in dummy phase when the bit is enable."]
 pub type USR_DUMMY_IDLE_R = crate::BitReader;
-#[doc = "Field `USR_DUMMY_IDLE` writer - spi clock is disable in dummy phase when the bit is enable."]
+#[doc = "Field `USR_DUMMY_IDLE` writer - SPI clock is disable in dummy phase when the bit is enable."]
 pub type USR_DUMMY_IDLE_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `USR_MOSI` reader - This bit enable the write-data phase of an operation."]
 pub type USR_MOSI_R = crate::BitReader;
@@ -63,17 +55,7 @@ pub type USR_COMMAND_R = crate::BitReader;
 #[doc = "Field `USR_COMMAND` writer - This bit enable the command phase of an operation."]
 pub type USR_COMMAND_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 6 - spi cs keep low when spi is in done phase. 1: enable 0: disable."]
-    #[inline(always)]
-    pub fn cs_hold(&self) -> CS_HOLD_R {
-        CS_HOLD_R::new(((self.bits >> 6) & 1) != 0)
-    }
-    #[doc = "Bit 7 - spi cs is enable when spi is in prepare phase. 1: enable 0: disable."]
-    #[inline(always)]
-    pub fn cs_setup(&self) -> CS_SETUP_R {
-        CS_SETUP_R::new(((self.bits >> 7) & 1) != 0)
-    }
-    #[doc = "Bit 9 - the bit combined with spi_mem_mosi_delay_mode bits to set mosi"]
+    #[doc = "Bit 9 - the bit combined with spi_mem_mosi_delay_mode bits to set mosi signal delay mode."]
     #[inline(always)]
     pub fn ck_out_edge(&self) -> CK_OUT_EDGE_R {
         CK_OUT_EDGE_R::new(((self.bits >> 9) & 1) != 0)
@@ -98,17 +80,17 @@ impl R {
     pub fn fwrite_qio(&self) -> FWRITE_QIO_R {
         FWRITE_QIO_R::new(((self.bits >> 15) & 1) != 0)
     }
-    #[doc = "Bit 24 - read-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15."]
+    #[doc = "Bit 24 - read-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15. 1: enable 0: disable."]
     #[inline(always)]
     pub fn usr_miso_highpart(&self) -> USR_MISO_HIGHPART_R {
         USR_MISO_HIGHPART_R::new(((self.bits >> 24) & 1) != 0)
     }
-    #[doc = "Bit 25 - write-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15."]
+    #[doc = "Bit 25 - write-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15. 1: enable 0: disable."]
     #[inline(always)]
     pub fn usr_mosi_highpart(&self) -> USR_MOSI_HIGHPART_R {
         USR_MOSI_HIGHPART_R::new(((self.bits >> 25) & 1) != 0)
     }
-    #[doc = "Bit 26 - spi clock is disable in dummy phase when the bit is enable."]
+    #[doc = "Bit 26 - SPI clock is disable in dummy phase when the bit is enable."]
     #[inline(always)]
     pub fn usr_dummy_idle(&self) -> USR_DUMMY_IDLE_R {
         USR_DUMMY_IDLE_R::new(((self.bits >> 26) & 1) != 0)
@@ -143,36 +125,24 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("USER")
-            .field("usr_command", &self.usr_command())
-            .field("usr_addr", &self.usr_addr())
-            .field("usr_dummy", &self.usr_dummy())
-            .field("usr_miso", &self.usr_miso())
-            .field("usr_mosi", &self.usr_mosi())
-            .field("usr_dummy_idle", &self.usr_dummy_idle())
-            .field("usr_mosi_highpart", &self.usr_mosi_highpart())
-            .field("usr_miso_highpart", &self.usr_miso_highpart())
-            .field("fwrite_qio", &self.fwrite_qio())
-            .field("fwrite_dio", &self.fwrite_dio())
-            .field("fwrite_quad", &self.fwrite_quad())
-            .field("fwrite_dual", &self.fwrite_dual())
             .field("ck_out_edge", &self.ck_out_edge())
-            .field("cs_setup", &self.cs_setup())
-            .field("cs_hold", &self.cs_hold())
+            .field("fwrite_dual", &self.fwrite_dual())
+            .field("fwrite_quad", &self.fwrite_quad())
+            .field("fwrite_dio", &self.fwrite_dio())
+            .field("fwrite_qio", &self.fwrite_qio())
+            .field("usr_miso_highpart", &self.usr_miso_highpart())
+            .field("usr_mosi_highpart", &self.usr_mosi_highpart())
+            .field("usr_dummy_idle", &self.usr_dummy_idle())
+            .field("usr_mosi", &self.usr_mosi())
+            .field("usr_miso", &self.usr_miso())
+            .field("usr_dummy", &self.usr_dummy())
+            .field("usr_addr", &self.usr_addr())
+            .field("usr_command", &self.usr_command())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bit 6 - spi cs keep low when spi is in done phase. 1: enable 0: disable."]
-    #[inline(always)]
-    pub fn cs_hold(&mut self) -> CS_HOLD_W<'_, USER_SPEC> {
-        CS_HOLD_W::new(self, 6)
-    }
-    #[doc = "Bit 7 - spi cs is enable when spi is in prepare phase. 1: enable 0: disable."]
-    #[inline(always)]
-    pub fn cs_setup(&mut self) -> CS_SETUP_W<'_, USER_SPEC> {
-        CS_SETUP_W::new(self, 7)
-    }
-    #[doc = "Bit 9 - the bit combined with spi_mem_mosi_delay_mode bits to set mosi"]
+    #[doc = "Bit 9 - the bit combined with spi_mem_mosi_delay_mode bits to set mosi signal delay mode."]
     #[inline(always)]
     pub fn ck_out_edge(&mut self) -> CK_OUT_EDGE_W<'_, USER_SPEC> {
         CK_OUT_EDGE_W::new(self, 9)
@@ -197,17 +167,17 @@ impl W {
     pub fn fwrite_qio(&mut self) -> FWRITE_QIO_W<'_, USER_SPEC> {
         FWRITE_QIO_W::new(self, 15)
     }
-    #[doc = "Bit 24 - read-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15."]
+    #[doc = "Bit 24 - read-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15. 1: enable 0: disable."]
     #[inline(always)]
     pub fn usr_miso_highpart(&mut self) -> USR_MISO_HIGHPART_W<'_, USER_SPEC> {
         USR_MISO_HIGHPART_W::new(self, 24)
     }
-    #[doc = "Bit 25 - write-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15."]
+    #[doc = "Bit 25 - write-data phase only access to high-part of the buffer spi_mem_w8~spi_mem_w15. 1: enable 0: disable."]
     #[inline(always)]
     pub fn usr_mosi_highpart(&mut self) -> USR_MOSI_HIGHPART_W<'_, USER_SPEC> {
         USR_MOSI_HIGHPART_W::new(self, 25)
     }
-    #[doc = "Bit 26 - spi clock is disable in dummy phase when the bit is enable."]
+    #[doc = "Bit 26 - SPI clock is disable in dummy phase when the bit is enable."]
     #[inline(always)]
     pub fn usr_dummy_idle(&mut self) -> USR_DUMMY_IDLE_W<'_, USER_SPEC> {
         USR_DUMMY_IDLE_W::new(self, 26)
@@ -238,7 +208,7 @@ impl W {
         USR_COMMAND_W::new(self, 31)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`user::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`user::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SPI1 user register.\n\nYou can [`read`](crate::Reg::read) this register and get [`user::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`user::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct USER_SPEC;
 impl crate::RegisterSpec for USER_SPEC {
     type Ux = u32;
@@ -249,5 +219,7 @@ impl crate::Readable for USER_SPEC {}
 impl crate::Writable for USER_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets USER to value 0"]
-impl crate::Resettable for USER_SPEC {}
+#[doc = "`reset()` method sets USER to value 0x8000_0000"]
+impl crate::Resettable for USER_SPEC {
+    const RESET_VALUE: u32 = 0x8000_0000;
+}

@@ -2,12 +2,12 @@
 pub type R = crate::R<REGION_PMS_CONSTRAIN_4_SPEC>;
 #[doc = "Register `REGION_PMS_CONSTRAIN_4` writer"]
 pub type W = crate::W<REGION_PMS_CONSTRAIN_4_SPEC>;
-#[doc = "Field `REGION_PMS_CONSTRAIN_ADDR_1` reader - "]
+#[doc = "Field `REGION_PMS_CONSTRAIN_ADDR_1` reader - region_pms_constrain_addr_1"]
 pub type REGION_PMS_CONSTRAIN_ADDR_1_R = crate::FieldReader<u32>;
-#[doc = "Field `REGION_PMS_CONSTRAIN_ADDR_1` writer - "]
+#[doc = "Field `REGION_PMS_CONSTRAIN_ADDR_1` writer - region_pms_constrain_addr_1"]
 pub type REGION_PMS_CONSTRAIN_ADDR_1_W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
-    #[doc = "Bits 0:29"]
+    #[doc = "Bits 0:29 - region_pms_constrain_addr_1"]
     #[inline(always)]
     pub fn region_pms_constrain_addr_1(&self) -> REGION_PMS_CONSTRAIN_ADDR_1_R {
         REGION_PMS_CONSTRAIN_ADDR_1_R::new(self.bits & 0x3fff_ffff)
@@ -25,7 +25,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:29"]
+    #[doc = "Bits 0:29 - region_pms_constrain_addr_1"]
     #[inline(always)]
     pub fn region_pms_constrain_addr_1(
         &mut self,
@@ -33,7 +33,7 @@ impl W {
         REGION_PMS_CONSTRAIN_ADDR_1_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`region_pms_constrain_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`region_pms_constrain_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SENSITIVE_REGION_PMS_CONSTRAIN_4_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`region_pms_constrain_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`region_pms_constrain_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct REGION_PMS_CONSTRAIN_4_SPEC;
 impl crate::RegisterSpec for REGION_PMS_CONSTRAIN_4_SPEC {
     type Ux = u32;

@@ -68,9 +68,9 @@ pub type XTAL32K_GPIO_SEL_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type XTL_EXT_CTR_LV_R = crate::BitReader;
 #[doc = "Field `XTL_EXT_CTR_LV` writer - 0: power down XTAL at high level"]
 pub type XTL_EXT_CTR_LV_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `XTL_EXT_CTR_EN` reader - "]
+#[doc = "Field `XTL_EXT_CTR_EN` reader - enable gpio configure xtal power on"]
 pub type XTL_EXT_CTR_EN_R = crate::BitReader;
-#[doc = "Field `XTL_EXT_CTR_EN` writer - "]
+#[doc = "Field `XTL_EXT_CTR_EN` writer - enable gpio configure xtal power on"]
 pub type XTL_EXT_CTR_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - xtal 32k watch dog enable"]
@@ -158,7 +158,7 @@ impl R {
     pub fn xtl_ext_ctr_lv(&self) -> XTL_EXT_CTR_LV_R {
         XTL_EXT_CTR_LV_R::new(((self.bits >> 30) & 1) != 0)
     }
-    #[doc = "Bit 31"]
+    #[doc = "Bit 31 - enable gpio configure xtal power on"]
     #[inline(always)]
     pub fn xtl_ext_ctr_en(&self) -> XTL_EXT_CTR_EN_R {
         XTL_EXT_CTR_EN_R::new(((self.bits >> 31) & 1) != 0)
@@ -168,24 +168,24 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("EXT_XTL_CONF")
-            .field("xtl_ext_ctr_en", &self.xtl_ext_ctr_en())
-            .field("xtl_ext_ctr_lv", &self.xtl_ext_ctr_lv())
-            .field("xtal32k_gpio_sel", &self.xtal32k_gpio_sel())
-            .field("wdt_state", &self.wdt_state())
-            .field("dac_xtal_32k", &self.dac_xtal_32k())
-            .field("xpd_xtal_32k", &self.xpd_xtal_32k())
-            .field("dres_xtal_32k", &self.dres_xtal_32k())
-            .field("dgm_xtal_32k", &self.dgm_xtal_32k())
-            .field("dbuf_xtal_32k", &self.dbuf_xtal_32k())
-            .field("enckinit_xtal_32k", &self.enckinit_xtal_32k())
-            .field("xtal32k_xpd_force", &self.xtal32k_xpd_force())
-            .field("xtal32k_auto_return", &self.xtal32k_auto_return())
-            .field("xtal32k_auto_restart", &self.xtal32k_auto_restart())
-            .field("xtal32k_auto_backup", &self.xtal32k_auto_backup())
-            .field("xtal32k_ext_clk_fo", &self.xtal32k_ext_clk_fo())
-            .field("xtal32k_wdt_reset", &self.xtal32k_wdt_reset())
-            .field("xtal32k_wdt_clk_fo", &self.xtal32k_wdt_clk_fo())
             .field("xtal32k_wdt_en", &self.xtal32k_wdt_en())
+            .field("xtal32k_wdt_clk_fo", &self.xtal32k_wdt_clk_fo())
+            .field("xtal32k_wdt_reset", &self.xtal32k_wdt_reset())
+            .field("xtal32k_ext_clk_fo", &self.xtal32k_ext_clk_fo())
+            .field("xtal32k_auto_backup", &self.xtal32k_auto_backup())
+            .field("xtal32k_auto_restart", &self.xtal32k_auto_restart())
+            .field("xtal32k_auto_return", &self.xtal32k_auto_return())
+            .field("xtal32k_xpd_force", &self.xtal32k_xpd_force())
+            .field("enckinit_xtal_32k", &self.enckinit_xtal_32k())
+            .field("dbuf_xtal_32k", &self.dbuf_xtal_32k())
+            .field("dgm_xtal_32k", &self.dgm_xtal_32k())
+            .field("dres_xtal_32k", &self.dres_xtal_32k())
+            .field("xpd_xtal_32k", &self.xpd_xtal_32k())
+            .field("dac_xtal_32k", &self.dac_xtal_32k())
+            .field("wdt_state", &self.wdt_state())
+            .field("xtal32k_gpio_sel", &self.xtal32k_gpio_sel())
+            .field("xtl_ext_ctr_lv", &self.xtl_ext_ctr_lv())
+            .field("xtl_ext_ctr_en", &self.xtl_ext_ctr_en())
             .finish()
     }
 }
@@ -270,13 +270,13 @@ impl W {
     pub fn xtl_ext_ctr_lv(&mut self) -> XTL_EXT_CTR_LV_W<'_, EXT_XTL_CONF_SPEC> {
         XTL_EXT_CTR_LV_W::new(self, 30)
     }
-    #[doc = "Bit 31"]
+    #[doc = "Bit 31 - enable gpio configure xtal power on"]
     #[inline(always)]
     pub fn xtl_ext_ctr_en(&mut self) -> XTL_EXT_CTR_EN_W<'_, EXT_XTL_CONF_SPEC> {
         XTL_EXT_CTR_EN_W::new(self, 31)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`ext_xtl_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ext_xtl_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`ext_xtl_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ext_xtl_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct EXT_XTL_CONF_SPEC;
 impl crate::RegisterSpec for EXT_XTL_CONF_SPEC {
     type Ux = u32;
@@ -287,5 +287,7 @@ impl crate::Readable for EXT_XTL_CONF_SPEC {}
 impl crate::Writable for EXT_XTL_CONF_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets EXT_XTL_CONF to value 0"]
-impl crate::Resettable for EXT_XTL_CONF_SPEC {}
+#[doc = "`reset()` method sets EXT_XTL_CONF to value 0x0006_6c80"]
+impl crate::Resettable for EXT_XTL_CONF_SPEC {
+    const RESET_VALUE: u32 = 0x0006_6c80;
+}

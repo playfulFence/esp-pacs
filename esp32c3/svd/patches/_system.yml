@@ -7,15 +7,15 @@ SYSTEM:
 
   PERIP_CLK_EN0:
     _modify:
-      "?~CAN_CLK_EN":
+      CAN_CLK_EN:
         name: TWAI_CLK_EN
-      "?~EXT0_CLK_EN":
+      EXT0_CLK_EN:
         name: "I2C_EXT0_CLK_EN"
   PERIP_RST_EN0:
     _modify:
-      "?~CAN_RST":
+      CAN_RST:
         name: TWAI_RST
-      "?~EXT0_RST":
+      EXT0_RST:
         name: "I2C_EXT0_RST"
 
   COMB_PVT_ERR_LVT_SITE0:

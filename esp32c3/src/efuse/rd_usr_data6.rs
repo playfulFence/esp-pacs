@@ -1,31 +1,23 @@
 #[doc = "Register `RD_USR_DATA6` reader"]
 pub type R = crate::R<RD_USR_DATA6_SPEC>;
-#[doc = "Field `RESERVED_3_192` reader - reserved /"]
-pub type RESERVED_3_192_R = crate::FieldReader;
-#[doc = "Field `CUSTOM_MAC` reader - Custom MAC address /"]
-pub type CUSTOM_MAC_R = crate::FieldReader<u32>;
+#[doc = "Field `USR_DATA6` reader - Stores the sixth 32 bits of BLOCK3 (user)."]
+pub type USR_DATA6_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:7 - reserved /"]
+    #[doc = "Bits 0:31 - Stores the sixth 32 bits of BLOCK3 (user)."]
     #[inline(always)]
-    pub fn reserved_3_192(&self) -> RESERVED_3_192_R {
-        RESERVED_3_192_R::new((self.bits & 0xff) as u8)
-    }
-    #[doc = "Bits 8:31 - Custom MAC address /"]
-    #[inline(always)]
-    pub fn custom_mac(&self) -> CUSTOM_MAC_R {
-        CUSTOM_MAC_R::new((self.bits >> 8) & 0x00ff_ffff)
+    pub fn usr_data6(&self) -> USR_DATA6_R {
+        USR_DATA6_R::new(self.bits)
     }
 }
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("RD_USR_DATA6")
-            .field("reserved_3_192", &self.reserved_3_192())
-            .field("custom_mac", &self.custom_mac())
+            .field("usr_data6", &self.usr_data6())
             .finish()
     }
 }
-#[doc = "Register 6 of BLOCK3 (user). /\n\nYou can [`read`](crate::Reg::read) this register and get [`rd_usr_data6::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Register 6 of BLOCK3 (user).\n\nYou can [`read`](crate::Reg::read) this register and get [`rd_usr_data6::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RD_USR_DATA6_SPEC;
 impl crate::RegisterSpec for RD_USR_DATA6_SPEC {
     type Ux = u32;

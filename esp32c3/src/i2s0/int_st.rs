@@ -34,14 +34,14 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("INT_ST")
-            .field("tx_hung", &self.tx_hung())
-            .field("rx_hung", &self.rx_hung())
-            .field("tx_done", &self.tx_done())
             .field("rx_done", &self.rx_done())
+            .field("tx_done", &self.tx_done())
+            .field("rx_hung", &self.rx_hung())
+            .field("tx_hung", &self.tx_hung())
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`int_st::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "I2S interrupt status register.\n\nYou can [`read`](crate::Reg::read) this register and get [`int_st::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {
     type Ux = u32;

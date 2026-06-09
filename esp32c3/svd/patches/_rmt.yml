@@ -35,13 +35,13 @@ RMT:
       - "CH2"
       - "CH3"
     _modify:
-      "?~*DATA":
+      "*DATA":
         name: DATA
         access: read-write
   
   "CH0CONF0":
     _modify:
-      "?~REG_CONF_UPDATE_CH0":
+      "REG_CONF_UPDATE_CH0":
         name: CONF_UPDATE
         
   "CH*CONF0":

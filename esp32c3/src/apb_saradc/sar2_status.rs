@@ -1,9 +1,9 @@
 #[doc = "Register `SAR2_STATUS` reader"]
 pub type R = crate::R<SAR2_STATUS_SPEC>;
-#[doc = "Field `SAR2_STATUS` reader - "]
+#[doc = "Field `SAR2_STATUS` reader - saradc2 status about data and channel"]
 pub type SAR2_STATUS_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - saradc2 status about data and channel"]
     #[inline(always)]
     pub fn sar2_status(&self) -> SAR2_STATUS_R {
         SAR2_STATUS_R::new(self.bits)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`sar2_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "digital saradc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`sar2_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SAR2_STATUS_SPEC;
 impl crate::RegisterSpec for SAR2_STATUS_SPEC {
     type Ux = u32;

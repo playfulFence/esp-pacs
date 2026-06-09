@@ -2,12 +2,12 @@
 pub type R = crate::R<INT_ENA_SPEC>;
 #[doc = "Register `INT_ENA` writer"]
 pub type W = crate::W<INT_ENA_SPEC>;
-#[doc = "Field `INT_ENA` reader - Set this bit to enable interrupt that occurs when rsa calculation is done. 1b0: disable, 1b1: enable(default)."]
+#[doc = "Field `INT_ENA` reader - Set this bit to enable interrupt that occurs when rsa calculation is done. 1'b0: disable, 1'b1: enable(default)."]
 pub type INT_ENA_R = crate::BitReader;
-#[doc = "Field `INT_ENA` writer - Set this bit to enable interrupt that occurs when rsa calculation is done. 1b0: disable, 1b1: enable(default)."]
+#[doc = "Field `INT_ENA` writer - Set this bit to enable interrupt that occurs when rsa calculation is done. 1'b0: disable, 1'b1: enable(default)."]
 pub type INT_ENA_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - Set this bit to enable interrupt that occurs when rsa calculation is done. 1b0: disable, 1b1: enable(default)."]
+    #[doc = "Bit 0 - Set this bit to enable interrupt that occurs when rsa calculation is done. 1'b0: disable, 1'b1: enable(default)."]
     #[inline(always)]
     pub fn int_ena(&self) -> INT_ENA_R {
         INT_ENA_R::new((self.bits & 1) != 0)
@@ -22,7 +22,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - Set this bit to enable interrupt that occurs when rsa calculation is done. 1b0: disable, 1b1: enable(default)."]
+    #[doc = "Bit 0 - Set this bit to enable interrupt that occurs when rsa calculation is done. 1'b0: disable, 1'b1: enable(default)."]
     #[inline(always)]
     pub fn int_ena(&mut self) -> INT_ENA_W<'_, INT_ENA_SPEC> {
         INT_ENA_W::new(self, 0)

@@ -2,9 +2,9 @@
 pub type R = crate::R<FLOW_CONF_SPEC>;
 #[doc = "Register `FLOW_CONF` writer"]
 pub type W = crate::W<FLOW_CONF_SPEC>;
-#[doc = "Field `SW_FLOW_CON_EN` reader - Set this bit to enable software flow control. It is used with"]
+#[doc = "Field `SW_FLOW_CON_EN` reader - Set this bit to enable software flow control. It is used with register sw_xon or sw_xoff."]
 pub type SW_FLOW_CON_EN_R = crate::BitReader;
-#[doc = "Field `SW_FLOW_CON_EN` writer - Set this bit to enable software flow control. It is used with"]
+#[doc = "Field `SW_FLOW_CON_EN` writer - Set this bit to enable software flow control. It is used with register sw_xon or sw_xoff."]
 pub type SW_FLOW_CON_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `XONOFF_DEL` reader - Set this bit to remove flow control char from the received data."]
 pub type XONOFF_DEL_R = crate::BitReader;
@@ -27,7 +27,7 @@ pub type SEND_XOFF_R = crate::BitReader;
 #[doc = "Field `SEND_XOFF` writer - Set this bit to send Xoff char. It is cleared by hardware automatically."]
 pub type SEND_XOFF_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - Set this bit to enable software flow control. It is used with"]
+    #[doc = "Bit 0 - Set this bit to enable software flow control. It is used with register sw_xon or sw_xoff."]
     #[inline(always)]
     pub fn sw_flow_con_en(&self) -> SW_FLOW_CON_EN_R {
         SW_FLOW_CON_EN_R::new((self.bits & 1) != 0)
@@ -62,17 +62,17 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("FLOW_CONF")
-            .field("send_xoff", &self.send_xoff())
-            .field("send_xon", &self.send_xon())
-            .field("force_xoff", &self.force_xoff())
-            .field("force_xon", &self.force_xon())
-            .field("xonoff_del", &self.xonoff_del())
             .field("sw_flow_con_en", &self.sw_flow_con_en())
+            .field("xonoff_del", &self.xonoff_del())
+            .field("force_xon", &self.force_xon())
+            .field("force_xoff", &self.force_xoff())
+            .field("send_xon", &self.send_xon())
+            .field("send_xoff", &self.send_xoff())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bit 0 - Set this bit to enable software flow control. It is used with"]
+    #[doc = "Bit 0 - Set this bit to enable software flow control. It is used with register sw_xon or sw_xoff."]
     #[inline(always)]
     pub fn sw_flow_con_en(&mut self) -> SW_FLOW_CON_EN_W<'_, FLOW_CONF_SPEC> {
         SW_FLOW_CON_EN_W::new(self, 0)
@@ -103,7 +103,7 @@ impl W {
         SEND_XOFF_W::new(self, 5)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`flow_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flow_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Software flow-control configuration\n\nYou can [`read`](crate::Reg::read) this register and get [`flow_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flow_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FLOW_CONF_SPEC;
 impl crate::RegisterSpec for FLOW_CONF_SPEC {
     type Ux = u32;

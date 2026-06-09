@@ -2,12 +2,12 @@
 pub type R = crate::R<CACHE_MMU_OWNER_SPEC>;
 #[doc = "Register `CACHE_MMU_OWNER` writer"]
 pub type W = crate::W<CACHE_MMU_OWNER_SPEC>;
-#[doc = "Field `CACHE_MMU_OWNER` reader - The bits are used to specify the owner of MMU.bit0/bit2: ibus bit1/bit3: dbus"]
+#[doc = "Field `CACHE_MMU_OWNER` reader - The bits are used to specify the owner of MMU.bit0/bit2: ibus, bit1/bit3: dbus"]
 pub type CACHE_MMU_OWNER_R = crate::FieldReader;
-#[doc = "Field `CACHE_MMU_OWNER` writer - The bits are used to specify the owner of MMU.bit0/bit2: ibus bit1/bit3: dbus"]
+#[doc = "Field `CACHE_MMU_OWNER` writer - The bits are used to specify the owner of MMU.bit0/bit2: ibus, bit1/bit3: dbus"]
 pub type CACHE_MMU_OWNER_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
-    #[doc = "Bits 0:3 - The bits are used to specify the owner of MMU.bit0/bit2: ibus bit1/bit3: dbus"]
+    #[doc = "Bits 0:3 - The bits are used to specify the owner of MMU.bit0/bit2: ibus, bit1/bit3: dbus"]
     #[inline(always)]
     pub fn cache_mmu_owner(&self) -> CACHE_MMU_OWNER_R {
         CACHE_MMU_OWNER_R::new((self.bits & 0x0f) as u8)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:3 - The bits are used to specify the owner of MMU.bit0/bit2: ibus bit1/bit3: dbus"]
+    #[doc = "Bits 0:3 - The bits are used to specify the owner of MMU.bit0/bit2: ibus, bit1/bit3: dbus"]
     #[inline(always)]
     pub fn cache_mmu_owner(&mut self) -> CACHE_MMU_OWNER_W<'_, CACHE_MMU_OWNER_SPEC> {
         CACHE_MMU_OWNER_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_mmu_owner::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_mmu_owner::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "This description will be updated in the near future.\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_mmu_owner::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_mmu_owner::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CACHE_MMU_OWNER_SPEC;
 impl crate::RegisterSpec for CACHE_MMU_OWNER_SPEC {
     type Ux = u32;

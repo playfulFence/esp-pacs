@@ -2,12 +2,12 @@
 pub type R = crate::R<BACKUP_BUS_PMS_CONSTRAIN_0_SPEC>;
 #[doc = "Register `BACKUP_BUS_PMS_CONSTRAIN_0` writer"]
 pub type W = crate::W<BACKUP_BUS_PMS_CONSTRAIN_0_SPEC>;
-#[doc = "Field `BACKUP_BUS_PMS_CONSTRAIN_LOCK` reader - "]
+#[doc = "Field `BACKUP_BUS_PMS_CONSTRAIN_LOCK` reader - backup_bus_pms_constrain_lock"]
 pub type BACKUP_BUS_PMS_CONSTRAIN_LOCK_R = crate::BitReader;
-#[doc = "Field `BACKUP_BUS_PMS_CONSTRAIN_LOCK` writer - "]
+#[doc = "Field `BACKUP_BUS_PMS_CONSTRAIN_LOCK` writer - backup_bus_pms_constrain_lock"]
 pub type BACKUP_BUS_PMS_CONSTRAIN_LOCK_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - backup_bus_pms_constrain_lock"]
     #[inline(always)]
     pub fn backup_bus_pms_constrain_lock(&self) -> BACKUP_BUS_PMS_CONSTRAIN_LOCK_R {
         BACKUP_BUS_PMS_CONSTRAIN_LOCK_R::new((self.bits & 1) != 0)
@@ -25,7 +25,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - backup_bus_pms_constrain_lock"]
     #[inline(always)]
     pub fn backup_bus_pms_constrain_lock(
         &mut self,
@@ -33,7 +33,7 @@ impl W {
         BACKUP_BUS_PMS_CONSTRAIN_LOCK_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`backup_bus_pms_constrain_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`backup_bus_pms_constrain_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SENSITIVE_BACKUP_BUS_PMS_CONSTRAIN_0_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`backup_bus_pms_constrain_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`backup_bus_pms_constrain_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct BACKUP_BUS_PMS_CONSTRAIN_0_SPEC;
 impl crate::RegisterSpec for BACKUP_BUS_PMS_CONSTRAIN_0_SPEC {
     type Ux = u32;

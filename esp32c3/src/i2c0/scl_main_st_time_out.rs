@@ -2,33 +2,33 @@
 pub type R = crate::R<SCL_MAIN_ST_TIME_OUT_SPEC>;
 #[doc = "Register `SCL_MAIN_ST_TIME_OUT` writer"]
 pub type W = crate::W<SCL_MAIN_ST_TIME_OUT_SPEC>;
-#[doc = "Field `SCL_MAIN_ST_TO_REG` reader - no more than 23."]
-pub type SCL_MAIN_ST_TO_REG_R = crate::FieldReader;
-#[doc = "Field `SCL_MAIN_ST_TO_REG` writer - no more than 23."]
-pub type SCL_MAIN_ST_TO_REG_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+#[doc = "Field `SCL_MAIN_ST_TO` reader - reg_scl_main_st_to_regno more than 23"]
+pub type SCL_MAIN_ST_TO_R = crate::FieldReader;
+#[doc = "Field `SCL_MAIN_ST_TO` writer - reg_scl_main_st_to_regno more than 23"]
+pub type SCL_MAIN_ST_TO_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 impl R {
-    #[doc = "Bits 0:4 - no more than 23."]
+    #[doc = "Bits 0:4 - reg_scl_main_st_to_regno more than 23"]
     #[inline(always)]
-    pub fn scl_main_st_to_reg(&self) -> SCL_MAIN_ST_TO_REG_R {
-        SCL_MAIN_ST_TO_REG_R::new((self.bits & 0x1f) as u8)
+    pub fn scl_main_st_to(&self) -> SCL_MAIN_ST_TO_R {
+        SCL_MAIN_ST_TO_R::new((self.bits & 0x1f) as u8)
     }
 }
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("SCL_MAIN_ST_TIME_OUT")
-            .field("scl_main_st_to_reg", &self.scl_main_st_to_reg())
+            .field("scl_main_st_to", &self.scl_main_st_to())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bits 0:4 - no more than 23."]
+    #[doc = "Bits 0:4 - reg_scl_main_st_to_regno more than 23"]
     #[inline(always)]
-    pub fn scl_main_st_to_reg(&mut self) -> SCL_MAIN_ST_TO_REG_W<'_, SCL_MAIN_ST_TIME_OUT_SPEC> {
-        SCL_MAIN_ST_TO_REG_W::new(self, 0)
+    pub fn scl_main_st_to(&mut self) -> SCL_MAIN_ST_TO_W<'_, SCL_MAIN_ST_TIME_OUT_SPEC> {
+        SCL_MAIN_ST_TO_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`scl_main_st_time_out::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`scl_main_st_time_out::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "I2C_SCL_MAIN_ST_TIME_OUT_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`scl_main_st_time_out::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`scl_main_st_time_out::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SCL_MAIN_ST_TIME_OUT_SPEC;
 impl crate::RegisterSpec for SCL_MAIN_ST_TIME_OUT_SPEC {
     type Ux = u32;
@@ -39,5 +39,7 @@ impl crate::Readable for SCL_MAIN_ST_TIME_OUT_SPEC {}
 impl crate::Writable for SCL_MAIN_ST_TIME_OUT_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets SCL_MAIN_ST_TIME_OUT to value 0"]
-impl crate::Resettable for SCL_MAIN_ST_TIME_OUT_SPEC {}
+#[doc = "`reset()` method sets SCL_MAIN_ST_TIME_OUT to value 0x10"]
+impl crate::Resettable for SCL_MAIN_ST_TIME_OUT_SPEC {
+    const RESET_VALUE: u32 = 0x10;
+}

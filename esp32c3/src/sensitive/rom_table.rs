@@ -2,12 +2,12 @@
 pub type R = crate::R<ROM_TABLE_SPEC>;
 #[doc = "Register `ROM_TABLE` writer"]
 pub type W = crate::W<ROM_TABLE_SPEC>;
-#[doc = "Field `ROM_TABLE` reader - "]
+#[doc = "Field `ROM_TABLE` reader - rom_table"]
 pub type ROM_TABLE_R = crate::FieldReader<u32>;
-#[doc = "Field `ROM_TABLE` writer - "]
+#[doc = "Field `ROM_TABLE` writer - rom_table"]
 pub type ROM_TABLE_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - rom_table"]
     #[inline(always)]
     pub fn rom_table(&self) -> ROM_TABLE_R {
         ROM_TABLE_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - rom_table"]
     #[inline(always)]
     pub fn rom_table(&mut self) -> ROM_TABLE_W<'_, ROM_TABLE_SPEC> {
         ROM_TABLE_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`rom_table::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rom_table::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SENSITIVE_ROM_TABLE_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`rom_table::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rom_table::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ROM_TABLE_SPEC;
 impl crate::RegisterSpec for ROM_TABLE_SPEC {
     type Ux = u32;

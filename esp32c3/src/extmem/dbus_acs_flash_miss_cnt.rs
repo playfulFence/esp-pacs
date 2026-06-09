@@ -1,9 +1,9 @@
 #[doc = "Register `DBUS_ACS_FLASH_MISS_CNT` reader"]
 pub type R = crate::R<DBUS_ACS_FLASH_MISS_CNT_SPEC>;
-#[doc = "Field `DBUS_ACS_FLASH_MISS_CNT` reader - The bits are used to count the number of the cache miss caused"]
+#[doc = "Field `DBUS_ACS_FLASH_MISS_CNT` reader - The bits are used to count the number of the cache miss caused by dbus access flash."]
 pub type DBUS_ACS_FLASH_MISS_CNT_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:31 - The bits are used to count the number of the cache miss caused"]
+    #[doc = "Bits 0:31 - The bits are used to count the number of the cache miss caused by dbus access flash."]
     #[inline(always)]
     pub fn dbus_acs_flash_miss_cnt(&self) -> DBUS_ACS_FLASH_MISS_CNT_R {
         DBUS_ACS_FLASH_MISS_CNT_R::new(self.bits)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`dbus_acs_flash_miss_cnt::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "This description will be updated in the near future.\n\nYou can [`read`](crate::Reg::read) this register and get [`dbus_acs_flash_miss_cnt::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DBUS_ACS_FLASH_MISS_CNT_SPEC;
 impl crate::RegisterSpec for DBUS_ACS_FLASH_MISS_CNT_SPEC {
     type Ux = u32;

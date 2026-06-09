@@ -35,9 +35,9 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("SLP_REJECT_CONF")
-            .field("deep_slp_reject_en", &self.deep_slp_reject_en())
-            .field("light_slp_reject_en", &self.light_slp_reject_en())
             .field("sleep_reject_ena", &self.sleep_reject_ena())
+            .field("light_slp_reject_en", &self.light_slp_reject_en())
+            .field("deep_slp_reject_en", &self.deep_slp_reject_en())
             .finish()
     }
 }
@@ -58,7 +58,7 @@ impl W {
         DEEP_SLP_REJECT_EN_W::new(self, 31)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`slp_reject_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`slp_reject_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`slp_reject_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`slp_reject_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SLP_REJECT_CONF_SPEC;
 impl crate::RegisterSpec for SLP_REJECT_CONF_SPEC {
     type Ux = u32;

@@ -2,12 +2,12 @@
 pub type R = crate::R<DIG_PAD_HOLD_SPEC>;
 #[doc = "Register `DIG_PAD_HOLD` writer"]
 pub type W = crate::W<DIG_PAD_HOLD_SPEC>;
-#[doc = "Field `DIG_PAD_HOLD` reader - "]
+#[doc = "Field `DIG_PAD_HOLD` reader - the configure of digital pad"]
 pub type DIG_PAD_HOLD_R = crate::FieldReader<u32>;
-#[doc = "Field `DIG_PAD_HOLD` writer - "]
+#[doc = "Field `DIG_PAD_HOLD` writer - the configure of digital pad"]
 pub type DIG_PAD_HOLD_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - the configure of digital pad"]
     #[inline(always)]
     pub fn dig_pad_hold(&self) -> DIG_PAD_HOLD_R {
         DIG_PAD_HOLD_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - the configure of digital pad"]
     #[inline(always)]
     pub fn dig_pad_hold(&mut self) -> DIG_PAD_HOLD_W<'_, DIG_PAD_HOLD_SPEC> {
         DIG_PAD_HOLD_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`dig_pad_hold::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dig_pad_hold::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`dig_pad_hold::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dig_pad_hold::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DIG_PAD_HOLD_SPEC;
 impl crate::RegisterSpec for DIG_PAD_HOLD_SPEC {
     type Ux = u32;

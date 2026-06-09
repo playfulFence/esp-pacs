@@ -2,10 +2,6 @@
 pub type R = crate::R<TIMING_CALI_SPEC>;
 #[doc = "Register `TIMING_CALI` writer"]
 pub type W = crate::W<TIMING_CALI_SPEC>;
-#[doc = "Field `TIMING_CLK_ENA` reader - The bit is used to enable timing adjust clock for all reading operations."]
-pub type TIMING_CLK_ENA_R = crate::BitReader;
-#[doc = "Field `TIMING_CLK_ENA` writer - The bit is used to enable timing adjust clock for all reading operations."]
-pub type TIMING_CLK_ENA_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `TIMING_CALI` reader - The bit is used to enable timing auto-calibration for all reading operations."]
 pub type TIMING_CALI_R = crate::BitReader;
 #[doc = "Field `TIMING_CALI` writer - The bit is used to enable timing auto-calibration for all reading operations."]
@@ -15,11 +11,6 @@ pub type EXTRA_DUMMY_CYCLELEN_R = crate::FieldReader;
 #[doc = "Field `EXTRA_DUMMY_CYCLELEN` writer - add extra dummy spi clock cycle length for spi clock calibration."]
 pub type EXTRA_DUMMY_CYCLELEN_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 impl R {
-    #[doc = "Bit 0 - The bit is used to enable timing adjust clock for all reading operations."]
-    #[inline(always)]
-    pub fn timing_clk_ena(&self) -> TIMING_CLK_ENA_R {
-        TIMING_CLK_ENA_R::new((self.bits & 1) != 0)
-    }
     #[doc = "Bit 1 - The bit is used to enable timing auto-calibration for all reading operations."]
     #[inline(always)]
     pub fn timing_cali(&self) -> TIMING_CALI_R {
@@ -35,18 +26,12 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("TIMING_CALI")
-            .field("extra_dummy_cyclelen", &self.extra_dummy_cyclelen())
             .field("timing_cali", &self.timing_cali())
-            .field("timing_clk_ena", &self.timing_clk_ena())
+            .field("extra_dummy_cyclelen", &self.extra_dummy_cyclelen())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bit 0 - The bit is used to enable timing adjust clock for all reading operations."]
-    #[inline(always)]
-    pub fn timing_clk_ena(&mut self) -> TIMING_CLK_ENA_W<'_, TIMING_CALI_SPEC> {
-        TIMING_CLK_ENA_W::new(self, 0)
-    }
     #[doc = "Bit 1 - The bit is used to enable timing auto-calibration for all reading operations."]
     #[inline(always)]
     pub fn timing_cali(&mut self) -> TIMING_CALI_W<'_, TIMING_CALI_SPEC> {
@@ -58,7 +43,7 @@ impl W {
         EXTRA_DUMMY_CYCLELEN_W::new(self, 2)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`timing_cali::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`timing_cali::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SPI1 timing control register\n\nYou can [`read`](crate::Reg::read) this register and get [`timing_cali::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`timing_cali::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct TIMING_CALI_SPEC;
 impl crate::RegisterSpec for TIMING_CALI_SPEC {
     type Ux = u32;

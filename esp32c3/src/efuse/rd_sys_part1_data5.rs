@@ -1,47 +1,23 @@
 #[doc = "Register `RD_SYS_PART1_DATA5` reader"]
 pub type R = crate::R<RD_SYS_PART1_DATA5_SPEC>;
-#[doc = "Field `ADC1_INIT_CODE_ATTEN1_1` reader - ADC1 init code at atten1 /"]
-pub type ADC1_INIT_CODE_ATTEN1_1_R = crate::FieldReader;
-#[doc = "Field `ADC1_INIT_CODE_ATTEN2` reader - ADC1 init code at atten2 /"]
-pub type ADC1_INIT_CODE_ATTEN2_R = crate::FieldReader<u16>;
-#[doc = "Field `ADC1_INIT_CODE_ATTEN3` reader - ADC1 init code at atten3 /"]
-pub type ADC1_INIT_CODE_ATTEN3_R = crate::FieldReader<u16>;
-#[doc = "Field `ADC1_CAL_VOL_ATTEN0` reader - ADC1 calibration voltage at atten0 /"]
-pub type ADC1_CAL_VOL_ATTEN0_R = crate::FieldReader;
+#[doc = "Field `SYS_DATA_PART1_5` reader - Stores the fifth 32 bits of the first part of system data."]
+pub type SYS_DATA_PART1_5_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:7 - ADC1 init code at atten1 /"]
+    #[doc = "Bits 0:31 - Stores the fifth 32 bits of the first part of system data."]
     #[inline(always)]
-    pub fn adc1_init_code_atten1_1(&self) -> ADC1_INIT_CODE_ATTEN1_1_R {
-        ADC1_INIT_CODE_ATTEN1_1_R::new((self.bits & 0xff) as u8)
-    }
-    #[doc = "Bits 8:17 - ADC1 init code at atten2 /"]
-    #[inline(always)]
-    pub fn adc1_init_code_atten2(&self) -> ADC1_INIT_CODE_ATTEN2_R {
-        ADC1_INIT_CODE_ATTEN2_R::new(((self.bits >> 8) & 0x03ff) as u16)
-    }
-    #[doc = "Bits 18:27 - ADC1 init code at atten3 /"]
-    #[inline(always)]
-    pub fn adc1_init_code_atten3(&self) -> ADC1_INIT_CODE_ATTEN3_R {
-        ADC1_INIT_CODE_ATTEN3_R::new(((self.bits >> 18) & 0x03ff) as u16)
-    }
-    #[doc = "Bits 28:31 - ADC1 calibration voltage at atten0 /"]
-    #[inline(always)]
-    pub fn adc1_cal_vol_atten0(&self) -> ADC1_CAL_VOL_ATTEN0_R {
-        ADC1_CAL_VOL_ATTEN0_R::new(((self.bits >> 28) & 0x0f) as u8)
+    pub fn sys_data_part1_5(&self) -> SYS_DATA_PART1_5_R {
+        SYS_DATA_PART1_5_R::new(self.bits)
     }
 }
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("RD_SYS_PART1_DATA5")
-            .field("adc1_init_code_atten1_1", &self.adc1_init_code_atten1_1())
-            .field("adc1_init_code_atten2", &self.adc1_init_code_atten2())
-            .field("adc1_init_code_atten3", &self.adc1_init_code_atten3())
-            .field("adc1_cal_vol_atten0", &self.adc1_cal_vol_atten0())
+            .field("sys_data_part1_5", &self.sys_data_part1_5())
             .finish()
     }
 }
-#[doc = "Register 5 of BLOCK2 (system). /\n\nYou can [`read`](crate::Reg::read) this register and get [`rd_sys_part1_data5::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Register 5 of BLOCK2 (system).\n\nYou can [`read`](crate::Reg::read) this register and get [`rd_sys_part1_data5::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RD_SYS_PART1_DATA5_SPEC;
 impl crate::RegisterSpec for RD_SYS_PART1_DATA5_SPEC {
     type Ux = u32;

@@ -26,9 +26,9 @@ pub type BROWN_OUT_RST_ENA_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type BROWN_OUT_RST_SEL_R = crate::BitReader;
 #[doc = "Field `BROWN_OUT_RST_SEL` writer - 1: 4-pos reset"]
 pub type BROWN_OUT_RST_SEL_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BROWN_OUT_ANA_RST_EN` reader - "]
+#[doc = "Field `BROWN_OUT_ANA_RST_EN` reader - brown_out origin reset enable"]
 pub type BROWN_OUT_ANA_RST_EN_R = crate::BitReader;
-#[doc = "Field `BROWN_OUT_ANA_RST_EN` writer - "]
+#[doc = "Field `BROWN_OUT_ANA_RST_EN` writer - brown_out origin reset enable"]
 pub type BROWN_OUT_ANA_RST_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BROWN_OUT_CNT_CLR` writer - clear brown out counter"]
 pub type BROWN_OUT_CNT_CLR_W<'a, REG> = crate::BitWriter<'a, REG>;
@@ -36,8 +36,8 @@ pub type BROWN_OUT_CNT_CLR_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type BROWN_OUT_ENA_R = crate::BitReader;
 #[doc = "Field `BROWN_OUT_ENA` writer - enable brown out"]
 pub type BROWN_OUT_ENA_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BROWN_OUT_DET` reader - "]
-pub type BROWN_OUT_DET_R = crate::BitReader;
+#[doc = "Field `DET` reader - the flag of brown det from analog"]
+pub type DET_R = crate::BitReader;
 impl R {
     #[doc = "Bits 4:13 - brown out interrupt wait cycles"]
     #[inline(always)]
@@ -69,7 +69,7 @@ impl R {
     pub fn brown_out_rst_sel(&self) -> BROWN_OUT_RST_SEL_R {
         BROWN_OUT_RST_SEL_R::new(((self.bits >> 27) & 1) != 0)
     }
-    #[doc = "Bit 28"]
+    #[doc = "Bit 28 - brown_out origin reset enable"]
     #[inline(always)]
     pub fn brown_out_ana_rst_en(&self) -> BROWN_OUT_ANA_RST_EN_R {
         BROWN_OUT_ANA_RST_EN_R::new(((self.bits >> 28) & 1) != 0)
@@ -79,28 +79,28 @@ impl R {
     pub fn brown_out_ena(&self) -> BROWN_OUT_ENA_R {
         BROWN_OUT_ENA_R::new(((self.bits >> 30) & 1) != 0)
     }
-    #[doc = "Bit 31"]
+    #[doc = "Bit 31 - the flag of brown det from analog"]
     #[inline(always)]
-    pub fn brown_out_det(&self) -> BROWN_OUT_DET_R {
-        BROWN_OUT_DET_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn det(&self) -> DET_R {
+        DET_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("BROWN_OUT")
-            .field("brown_out_det", &self.brown_out_det())
-            .field("brown_out_ena", &self.brown_out_ena())
-            .field("brown_out_ana_rst_en", &self.brown_out_ana_rst_en())
-            .field("brown_out_rst_sel", &self.brown_out_rst_sel())
-            .field("brown_out_rst_ena", &self.brown_out_rst_ena())
-            .field("brown_out_rst_wait", &self.brown_out_rst_wait())
-            .field("brown_out_pd_rf_ena", &self.brown_out_pd_rf_ena())
+            .field("brown_out_int_wait", &self.brown_out_int_wait())
             .field(
                 "brown_out_close_flash_ena",
                 &self.brown_out_close_flash_ena(),
             )
-            .field("brown_out_int_wait", &self.brown_out_int_wait())
+            .field("brown_out_pd_rf_ena", &self.brown_out_pd_rf_ena())
+            .field("brown_out_rst_wait", &self.brown_out_rst_wait())
+            .field("brown_out_rst_ena", &self.brown_out_rst_ena())
+            .field("brown_out_rst_sel", &self.brown_out_rst_sel())
+            .field("brown_out_ana_rst_en", &self.brown_out_ana_rst_en())
+            .field("brown_out_ena", &self.brown_out_ena())
+            .field("det", &self.det())
             .finish()
     }
 }
@@ -135,7 +135,7 @@ impl W {
     pub fn brown_out_rst_sel(&mut self) -> BROWN_OUT_RST_SEL_W<'_, BROWN_OUT_SPEC> {
         BROWN_OUT_RST_SEL_W::new(self, 27)
     }
-    #[doc = "Bit 28"]
+    #[doc = "Bit 28 - brown_out origin reset enable"]
     #[inline(always)]
     pub fn brown_out_ana_rst_en(&mut self) -> BROWN_OUT_ANA_RST_EN_W<'_, BROWN_OUT_SPEC> {
         BROWN_OUT_ANA_RST_EN_W::new(self, 28)
@@ -151,7 +151,7 @@ impl W {
         BROWN_OUT_ENA_W::new(self, 30)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`brown_out::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`brown_out::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`brown_out::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`brown_out::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct BROWN_OUT_SPEC;
 impl crate::RegisterSpec for BROWN_OUT_SPEC {
     type Ux = u32;
@@ -162,5 +162,7 @@ impl crate::Readable for BROWN_OUT_SPEC {}
 impl crate::Writable for BROWN_OUT_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets BROWN_OUT to value 0"]
-impl crate::Resettable for BROWN_OUT_SPEC {}
+#[doc = "`reset()` method sets BROWN_OUT to value 0x43ff_0010"]
+impl crate::Resettable for BROWN_OUT_SPEC {
+    const RESET_VALUE: u32 = 0x43ff_0010;
+}

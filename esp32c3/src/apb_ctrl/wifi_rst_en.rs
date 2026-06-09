@@ -28,7 +28,7 @@ impl W {
         MAC_RST_W::new(self, 2)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`wifi_rst_en::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wifi_rst_en::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "APB_CTRL_WIFI_RST_EN_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`wifi_rst_en::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wifi_rst_en::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct WIFI_RST_EN_SPEC;
 impl crate::RegisterSpec for WIFI_RST_EN_SPEC {
     type Ux = u32;

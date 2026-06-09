@@ -1,9 +1,9 @@
 #[doc = "Register `LASTPC_BEFORE_EXCEPTION` reader"]
 pub type R = crate::R<LASTPC_BEFORE_EXCEPTION_SPEC>;
-#[doc = "Field `LASTPC_BEFORE_EXC` reader - "]
+#[doc = "Field `LASTPC_BEFORE_EXC` reader - reg_core_0_lastpc_before_exc"]
 pub type LASTPC_BEFORE_EXC_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - reg_core_0_lastpc_before_exc"]
     #[inline(always)]
     pub fn lastpc_before_exc(&self) -> LASTPC_BEFORE_EXC_R {
         LASTPC_BEFORE_EXC_R::new(self.bits)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`lastpc_before_exception::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "ASSIST_DEBUG_CORE_0_LASTPC_BEFORE_EXCEPTION\n\nYou can [`read`](crate::Reg::read) this register and get [`lastpc_before_exception::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct LASTPC_BEFORE_EXCEPTION_SPEC;
 impl crate::RegisterSpec for LASTPC_BEFORE_EXCEPTION_SPEC {
     type Ux = u32;

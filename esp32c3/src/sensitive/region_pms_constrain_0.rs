@@ -2,12 +2,12 @@
 pub type R = crate::R<REGION_PMS_CONSTRAIN_0_SPEC>;
 #[doc = "Register `REGION_PMS_CONSTRAIN_0` writer"]
 pub type W = crate::W<REGION_PMS_CONSTRAIN_0_SPEC>;
-#[doc = "Field `REGION_PMS_CONSTRAIN_LOCK` reader - "]
+#[doc = "Field `REGION_PMS_CONSTRAIN_LOCK` reader - region_pms_constrain_lock"]
 pub type REGION_PMS_CONSTRAIN_LOCK_R = crate::BitReader;
-#[doc = "Field `REGION_PMS_CONSTRAIN_LOCK` writer - "]
+#[doc = "Field `REGION_PMS_CONSTRAIN_LOCK` writer - region_pms_constrain_lock"]
 pub type REGION_PMS_CONSTRAIN_LOCK_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - region_pms_constrain_lock"]
     #[inline(always)]
     pub fn region_pms_constrain_lock(&self) -> REGION_PMS_CONSTRAIN_LOCK_R {
         REGION_PMS_CONSTRAIN_LOCK_R::new((self.bits & 1) != 0)
@@ -25,7 +25,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - region_pms_constrain_lock"]
     #[inline(always)]
     pub fn region_pms_constrain_lock(
         &mut self,
@@ -33,7 +33,7 @@ impl W {
         REGION_PMS_CONSTRAIN_LOCK_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`region_pms_constrain_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`region_pms_constrain_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SENSITIVE_REGION_PMS_CONSTRAIN_0_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`region_pms_constrain_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`region_pms_constrain_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct REGION_PMS_CONSTRAIN_0_SPEC;
 impl crate::RegisterSpec for REGION_PMS_CONSTRAIN_0_SPEC {
     type Ux = u32;

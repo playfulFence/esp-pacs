@@ -189,5 +189,7 @@ impl crate::Readable for GPIO_SPEC {}
 impl crate::Writable for GPIO_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets GPIO%s to value 0"]
-impl crate::Resettable for GPIO_SPEC {}
+#[doc = "`reset()` method sets GPIO%s to value 0x0b00"]
+impl crate::Resettable for GPIO_SPEC {
+    const RESET_VALUE: u32 = 0x0b00;
+}

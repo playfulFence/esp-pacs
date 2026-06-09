@@ -1,9 +1,9 @@
 #[doc = "Register `RD_KEY1_DATA1` reader"]
 pub type R = crate::R<RD_KEY1_DATA1_SPEC>;
-#[doc = "Field `KEY1_DATA1` reader - Stores the first 32 bits of KEY1. /"]
+#[doc = "Field `KEY1_DATA1` reader - Stores the first 32 bits of KEY1."]
 pub type KEY1_DATA1_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:31 - Stores the first 32 bits of KEY1. /"]
+    #[doc = "Bits 0:31 - Stores the first 32 bits of KEY1."]
     #[inline(always)]
     pub fn key1_data1(&self) -> KEY1_DATA1_R {
         KEY1_DATA1_R::new(self.bits)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "Register 1 of BLOCK5 (KEY1). /\n\nYou can [`read`](crate::Reg::read) this register and get [`rd_key1_data1::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Register 1 of BLOCK5 (KEY1).\n\nYou can [`read`](crate::Reg::read) this register and get [`rd_key1_data1::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RD_KEY1_DATA1_SPEC;
 impl crate::RegisterSpec for RD_KEY1_DATA1_SPEC {
     type Ux = u32;

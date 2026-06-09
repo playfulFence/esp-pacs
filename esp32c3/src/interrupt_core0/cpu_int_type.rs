@@ -2,12 +2,12 @@
 pub type R = crate::R<CPU_INT_TYPE_SPEC>;
 #[doc = "Register `CPU_INT_TYPE` writer"]
 pub type W = crate::W<CPU_INT_TYPE_SPEC>;
-#[doc = "Field `CPU_INT_TYPE` reader - "]
+#[doc = "Field `CPU_INT_TYPE` reader - reg_core0_cpu_int_type"]
 pub type CPU_INT_TYPE_R = crate::FieldReader<u32>;
-#[doc = "Field `CPU_INT_TYPE` writer - "]
+#[doc = "Field `CPU_INT_TYPE` writer - reg_core0_cpu_int_type"]
 pub type CPU_INT_TYPE_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - reg_core0_cpu_int_type"]
     #[inline(always)]
     pub fn cpu_int_type(&self) -> CPU_INT_TYPE_R {
         CPU_INT_TYPE_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31"]
+    #[doc = "Bits 0:31 - reg_core0_cpu_int_type"]
     #[inline(always)]
     pub fn cpu_int_type(&mut self) -> CPU_INT_TYPE_W<'_, CPU_INT_TYPE_SPEC> {
         CPU_INT_TYPE_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cpu_int_type::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpu_int_type::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "mac intr map register\n\nYou can [`read`](crate::Reg::read) this register and get [`cpu_int_type::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpu_int_type::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CPU_INT_TYPE_SPEC;
 impl crate::RegisterSpec for CPU_INT_TYPE_SPEC {
     type Ux = u32;

@@ -1,6 +1,6 @@
 ASSIST_DEBUG:
   _modify:
-    "?~C0RE_0_MONTR_ENA":
+    C0RE_0_MONTR_ENA:
       name: CORE_0_MONTR_ENA
 
   _include: ../../../common_patches/assist_debug.yaml
@@ -70,6 +70,9 @@ ASSIST_DEBUG:
         _strip: CORE_?_
       CORE_?_LASTPC_BEFORE_EXCEPTION:
         name: LASTPC_BEFORE_EXCEPTION
+        _strip: CORE_?_
+      CORE_?_MONTR_ENA:
+        name: MONTR_ENA
         _strip: CORE_?_
       CORE_?_RCD_EN:
         name: RCD_EN

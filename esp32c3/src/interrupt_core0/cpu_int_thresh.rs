@@ -2,12 +2,12 @@
 pub type R = crate::R<CPU_INT_THRESH_SPEC>;
 #[doc = "Register `CPU_INT_THRESH` writer"]
 pub type W = crate::W<CPU_INT_THRESH_SPEC>;
-#[doc = "Field `CPU_INT_THRESH` reader - "]
+#[doc = "Field `CPU_INT_THRESH` reader - reg_core0_cpu_int_thresh"]
 pub type CPU_INT_THRESH_R = crate::FieldReader;
-#[doc = "Field `CPU_INT_THRESH` writer - "]
+#[doc = "Field `CPU_INT_THRESH` writer - reg_core0_cpu_int_thresh"]
 pub type CPU_INT_THRESH_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
-    #[doc = "Bits 0:3"]
+    #[doc = "Bits 0:3 - reg_core0_cpu_int_thresh"]
     #[inline(always)]
     pub fn cpu_int_thresh(&self) -> CPU_INT_THRESH_R {
         CPU_INT_THRESH_R::new((self.bits & 0x0f) as u8)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:3"]
+    #[doc = "Bits 0:3 - reg_core0_cpu_int_thresh"]
     #[inline(always)]
     pub fn cpu_int_thresh(&mut self) -> CPU_INT_THRESH_W<'_, CPU_INT_THRESH_SPEC> {
         CPU_INT_THRESH_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cpu_int_thresh::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpu_int_thresh::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "mac intr map register\n\nYou can [`read`](crate::Reg::read) this register and get [`cpu_int_thresh::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpu_int_thresh::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CPU_INT_THRESH_SPEC;
 impl crate::RegisterSpec for CPU_INT_THRESH_SPEC {
     type Ux = u32;

@@ -26,8 +26,8 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("USER2")
-            .field("usr_command_bitlen", &self.usr_command_bitlen())
             .field("usr_command_value", &self.usr_command_value())
+            .field("usr_command_bitlen", &self.usr_command_bitlen())
             .finish()
     }
 }
@@ -43,7 +43,7 @@ impl W {
         USR_COMMAND_BITLEN_W::new(self, 28)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`user2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`user2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SPI0 user2 register.\n\nYou can [`read`](crate::Reg::read) this register and get [`user2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`user2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct USER2_SPEC;
 impl crate::RegisterSpec for USER2_SPEC {
     type Ux = u32;
@@ -54,5 +54,7 @@ impl crate::Readable for USER2_SPEC {}
 impl crate::Writable for USER2_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets USER2 to value 0"]
-impl crate::Resettable for USER2_SPEC {}
+#[doc = "`reset()` method sets USER2 to value 0x7000_0000"]
+impl crate::Resettable for USER2_SPEC {
+    const RESET_VALUE: u32 = 0x7000_0000;
+}

@@ -1,6 +1,6 @@
 #[doc = "Register `LOAD` writer"]
 pub type W = crate::W<LOAD_SPEC>;
-#[doc = "Field `LOAD` writer - Write any value to trigger a timer $x time-base counter reload. /"]
+#[doc = "Field `LOAD` writer - t0_load"]
 pub type LOAD_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<LOAD_SPEC> {
@@ -9,13 +9,13 @@ impl core::fmt::Debug for crate::generic::Reg<LOAD_SPEC> {
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Write any value to trigger a timer $x time-base counter reload. /"]
+    #[doc = "Bits 0:31 - t0_load"]
     #[inline(always)]
     pub fn load(&mut self) -> LOAD_W<'_, LOAD_SPEC> {
         LOAD_W::new(self, 0)
     }
 }
-#[doc = "Write to reload timer from TIMG_T$x_(LOADLOLOADHI)_REG /\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`load::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "TIMG_T0LOAD_REG.\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`load::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct LOAD_SPEC;
 impl crate::RegisterSpec for LOAD_SPEC {
     type Ux = u32;

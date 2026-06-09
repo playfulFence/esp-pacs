@@ -2,78 +2,78 @@
 pub type R = crate::R<TEST_SPEC>;
 #[doc = "Register `TEST` writer"]
 pub type W = crate::W<TEST_SPEC>;
-#[doc = "Field `TEST_ENABLE` reader - Enable test of the USB pad /"]
-pub type TEST_ENABLE_R = crate::BitReader;
-#[doc = "Field `TEST_ENABLE` writer - Enable test of the USB pad /"]
-pub type TEST_ENABLE_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TEST_USB_OE` reader - USB pad one in test /"]
-pub type TEST_USB_OE_R = crate::BitReader;
-#[doc = "Field `TEST_USB_OE` writer - USB pad one in test /"]
-pub type TEST_USB_OE_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TEST_TX_DP` reader - USB D+ tx value in test /"]
-pub type TEST_TX_DP_R = crate::BitReader;
-#[doc = "Field `TEST_TX_DP` writer - USB D+ tx value in test /"]
-pub type TEST_TX_DP_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TEST_TX_DM` reader - USB D- tx value in test /"]
-pub type TEST_TX_DM_R = crate::BitReader;
-#[doc = "Field `TEST_TX_DM` writer - USB D- tx value in test /"]
-pub type TEST_TX_DM_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `ENABLE` reader - Enable test of the USB pad"]
+pub type ENABLE_R = crate::BitReader;
+#[doc = "Field `ENABLE` writer - Enable test of the USB pad"]
+pub type ENABLE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `USB_OE` reader - USB pad oen in test"]
+pub type USB_OE_R = crate::BitReader;
+#[doc = "Field `USB_OE` writer - USB pad oen in test"]
+pub type USB_OE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `TX_DP` reader - USB D+ tx value in test"]
+pub type TX_DP_R = crate::BitReader;
+#[doc = "Field `TX_DP` writer - USB D+ tx value in test"]
+pub type TX_DP_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `TX_DM` reader - USB D- tx value in test"]
+pub type TX_DM_R = crate::BitReader;
+#[doc = "Field `TX_DM` writer - USB D- tx value in test"]
+pub type TX_DM_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - Enable test of the USB pad /"]
+    #[doc = "Bit 0 - Enable test of the USB pad"]
     #[inline(always)]
-    pub fn test_enable(&self) -> TEST_ENABLE_R {
-        TEST_ENABLE_R::new((self.bits & 1) != 0)
+    pub fn enable(&self) -> ENABLE_R {
+        ENABLE_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 1 - USB pad one in test /"]
+    #[doc = "Bit 1 - USB pad oen in test"]
     #[inline(always)]
-    pub fn test_usb_oe(&self) -> TEST_USB_OE_R {
-        TEST_USB_OE_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn usb_oe(&self) -> USB_OE_R {
+        USB_OE_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 2 - USB D+ tx value in test /"]
+    #[doc = "Bit 2 - USB D+ tx value in test"]
     #[inline(always)]
-    pub fn test_tx_dp(&self) -> TEST_TX_DP_R {
-        TEST_TX_DP_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn tx_dp(&self) -> TX_DP_R {
+        TX_DP_R::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bit 3 - USB D- tx value in test /"]
+    #[doc = "Bit 3 - USB D- tx value in test"]
     #[inline(always)]
-    pub fn test_tx_dm(&self) -> TEST_TX_DM_R {
-        TEST_TX_DM_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn tx_dm(&self) -> TX_DM_R {
+        TX_DM_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("TEST")
-            .field("test_enable", &self.test_enable())
-            .field("test_usb_oe", &self.test_usb_oe())
-            .field("test_tx_dp", &self.test_tx_dp())
-            .field("test_tx_dm", &self.test_tx_dm())
+            .field("enable", &self.enable())
+            .field("usb_oe", &self.usb_oe())
+            .field("tx_dp", &self.tx_dp())
+            .field("tx_dm", &self.tx_dm())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bit 0 - Enable test of the USB pad /"]
+    #[doc = "Bit 0 - Enable test of the USB pad"]
     #[inline(always)]
-    pub fn test_enable(&mut self) -> TEST_ENABLE_W<'_, TEST_SPEC> {
-        TEST_ENABLE_W::new(self, 0)
+    pub fn enable(&mut self) -> ENABLE_W<'_, TEST_SPEC> {
+        ENABLE_W::new(self, 0)
     }
-    #[doc = "Bit 1 - USB pad one in test /"]
+    #[doc = "Bit 1 - USB pad oen in test"]
     #[inline(always)]
-    pub fn test_usb_oe(&mut self) -> TEST_USB_OE_W<'_, TEST_SPEC> {
-        TEST_USB_OE_W::new(self, 1)
+    pub fn usb_oe(&mut self) -> USB_OE_W<'_, TEST_SPEC> {
+        USB_OE_W::new(self, 1)
     }
-    #[doc = "Bit 2 - USB D+ tx value in test /"]
+    #[doc = "Bit 2 - USB D+ tx value in test"]
     #[inline(always)]
-    pub fn test_tx_dp(&mut self) -> TEST_TX_DP_W<'_, TEST_SPEC> {
-        TEST_TX_DP_W::new(self, 2)
+    pub fn tx_dp(&mut self) -> TX_DP_W<'_, TEST_SPEC> {
+        TX_DP_W::new(self, 2)
     }
-    #[doc = "Bit 3 - USB D- tx value in test /"]
+    #[doc = "Bit 3 - USB D- tx value in test"]
     #[inline(always)]
-    pub fn test_tx_dm(&mut self) -> TEST_TX_DM_W<'_, TEST_SPEC> {
-        TEST_TX_DM_W::new(self, 3)
+    pub fn tx_dm(&mut self) -> TX_DM_W<'_, TEST_SPEC> {
+        TX_DM_W::new(self, 3)
     }
 }
-#[doc = "USB_SERIAL_JTAG_TEST_REG. /\n\nYou can [`read`](crate::Reg::read) this register and get [`test::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`test::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "USB_DEVICE_TEST_REG.\n\nYou can [`read`](crate::Reg::read) this register and get [`test::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`test::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct TEST_SPEC;
 impl crate::RegisterSpec for TEST_SPEC {
     type Ux = u32;

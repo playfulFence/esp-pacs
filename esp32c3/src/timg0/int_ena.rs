@@ -2,16 +2,16 @@
 pub type R = crate::R<INT_ENA_SPEC>;
 #[doc = "Register `INT_ENA` writer"]
 pub type W = crate::W<INT_ENA_SPEC>;
-#[doc = "Field `T(0-0)` reader - The interrupt enable bit for the TIMG_T$x_INT interrupt. /"]
+#[doc = "Field `T(0-0)` reader - t%s_int_ena"]
 pub type T_R = crate::BitReader;
-#[doc = "Field `T(0-0)` writer - The interrupt enable bit for the TIMG_T$x_INT interrupt. /"]
+#[doc = "Field `T(0-0)` writer - t%s_int_ena"]
 pub type T_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `WDT` reader - The interrupt enable bit for the TIMG_WDT_INT interrupt. /"]
+#[doc = "Field `WDT` reader - wdt_int_ena"]
 pub type WDT_R = crate::BitReader;
-#[doc = "Field `WDT` writer - The interrupt enable bit for the TIMG_WDT_INT interrupt. /"]
+#[doc = "Field `WDT` writer - wdt_int_ena"]
 pub type WDT_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "The interrupt enable bit for the TIMG_T$x_INT interrupt. /"]
+    #[doc = "t(0-0)_int_ena"]
     #[doc = ""]
     #[doc = "<div class=\"warning\">`n` is number of field in register. `n == 0` corresponds to `T0` field.</div>"]
     #[inline(always)]
@@ -21,17 +21,17 @@ impl R {
         T_R::new(((self.bits >> (n * 0)) & 1) != 0)
     }
     #[doc = "Iterator for array of:"]
-    #[doc = "The interrupt enable bit for the TIMG_T$x_INT interrupt. /"]
+    #[doc = "t(0-0)_int_ena"]
     #[inline(always)]
     pub fn t_iter(&self) -> impl Iterator<Item = T_R> + '_ {
         (0..1).map(move |n| T_R::new(((self.bits >> (n * 0)) & 1) != 0))
     }
-    #[doc = "Bit 0 - The interrupt enable bit for the TIMG_T$x_INT interrupt. /"]
+    #[doc = "Bit 0 - t0_int_ena"]
     #[inline(always)]
     pub fn t0(&self) -> T_R {
         T_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 1 - The interrupt enable bit for the TIMG_WDT_INT interrupt. /"]
+    #[doc = "Bit 1 - wdt_int_ena"]
     #[inline(always)]
     pub fn wdt(&self) -> WDT_R {
         WDT_R::new(((self.bits >> 1) & 1) != 0)
@@ -47,7 +47,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "The interrupt enable bit for the TIMG_T$x_INT interrupt. /"]
+    #[doc = "t(0-0)_int_ena"]
     #[doc = ""]
     #[doc = "<div class=\"warning\">`n` is number of field in register. `n == 0` corresponds to `T0` field.</div>"]
     #[inline(always)]
@@ -56,18 +56,18 @@ impl W {
         [(); 1][n as usize];
         T_W::new(self, n * 0)
     }
-    #[doc = "Bit 0 - The interrupt enable bit for the TIMG_T$x_INT interrupt. /"]
+    #[doc = "Bit 0 - t0_int_ena"]
     #[inline(always)]
     pub fn t0(&mut self) -> T_W<'_, INT_ENA_SPEC> {
         T_W::new(self, 0)
     }
-    #[doc = "Bit 1 - The interrupt enable bit for the TIMG_WDT_INT interrupt. /"]
+    #[doc = "Bit 1 - wdt_int_ena"]
     #[inline(always)]
     pub fn wdt(&mut self) -> WDT_W<'_, INT_ENA_SPEC> {
         WDT_W::new(self, 1)
     }
 }
-#[doc = "Interrupt enable bits /\n\nYou can [`read`](crate::Reg::read) this register and get [`int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "INT_ENA_TIMG_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_ENA_SPEC;
 impl crate::RegisterSpec for INT_ENA_SPEC {
     type Ux = u32;

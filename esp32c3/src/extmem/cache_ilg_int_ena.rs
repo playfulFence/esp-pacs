@@ -53,11 +53,11 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CACHE_ILG_INT_ENA")
-            .field("dbus_cnt_ovf", &self.dbus_cnt_ovf())
-            .field("ibus_cnt_ovf", &self.ibus_cnt_ovf())
-            .field("mmu_entry_fault", &self.mmu_entry_fault())
-            .field("icache_preload_op_fault", &self.icache_preload_op_fault())
             .field("icache_sync_op_fault", &self.icache_sync_op_fault())
+            .field("icache_preload_op_fault", &self.icache_preload_op_fault())
+            .field("mmu_entry_fault", &self.mmu_entry_fault())
+            .field("ibus_cnt_ovf", &self.ibus_cnt_ovf())
+            .field("dbus_cnt_ovf", &self.dbus_cnt_ovf())
             .finish()
     }
 }
@@ -90,7 +90,7 @@ impl W {
         DBUS_CNT_OVF_W::new(self, 8)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_ilg_int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_ilg_int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "This description will be updated in the near future.\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_ilg_int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_ilg_int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CACHE_ILG_INT_ENA_SPEC;
 impl crate::RegisterSpec for CACHE_ILG_INT_ENA_SPEC {
     type Ux = u32;

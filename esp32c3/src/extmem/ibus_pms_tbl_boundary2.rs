@@ -28,7 +28,7 @@ impl W {
         IBUS_PMS_BOUNDARY2_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`ibus_pms_tbl_boundary2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ibus_pms_tbl_boundary2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "This description will be updated in the near future.\n\nYou can [`read`](crate::Reg::read) this register and get [`ibus_pms_tbl_boundary2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ibus_pms_tbl_boundary2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IBUS_PMS_TBL_BOUNDARY2_SPEC;
 impl crate::RegisterSpec for IBUS_PMS_TBL_BOUNDARY2_SPEC {
     type Ux = u32;
@@ -39,5 +39,7 @@ impl crate::Readable for IBUS_PMS_TBL_BOUNDARY2_SPEC {}
 impl crate::Writable for IBUS_PMS_TBL_BOUNDARY2_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets IBUS_PMS_TBL_BOUNDARY2 to value 0"]
-impl crate::Resettable for IBUS_PMS_TBL_BOUNDARY2_SPEC {}
+#[doc = "`reset()` method sets IBUS_PMS_TBL_BOUNDARY2 to value 0x0800"]
+impl crate::Resettable for IBUS_PMS_TBL_BOUNDARY2_SPEC {
+    const RESET_VALUE: u32 = 0x0800;
+}

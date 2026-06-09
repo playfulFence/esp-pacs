@@ -2,12 +2,12 @@
 pub type R = crate::R<SDIO_SELECT_SPEC>;
 #[doc = "Register `SDIO_SELECT` writer"]
 pub type W = crate::W<SDIO_SELECT_SPEC>;
-#[doc = "Field `SDIO_SEL` reader - "]
+#[doc = "Field `SDIO_SEL` reader - GPIO sdio select register"]
 pub type SDIO_SEL_R = crate::FieldReader;
-#[doc = "Field `SDIO_SEL` writer - "]
+#[doc = "Field `SDIO_SEL` writer - GPIO sdio select register"]
 pub type SDIO_SEL_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
-    #[doc = "Bits 0:7"]
+    #[doc = "Bits 0:7 - GPIO sdio select register"]
     #[inline(always)]
     pub fn sdio_sel(&self) -> SDIO_SEL_R {
         SDIO_SEL_R::new((self.bits & 0xff) as u8)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:7"]
+    #[doc = "Bits 0:7 - GPIO sdio select register"]
     #[inline(always)]
     pub fn sdio_sel(&mut self) -> SDIO_SEL_W<'_, SDIO_SELECT_SPEC> {
         SDIO_SEL_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`sdio_select::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sdio_select::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPIO sdio select register\n\nYou can [`read`](crate::Reg::read) this register and get [`sdio_select::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sdio_select::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SDIO_SELECT_SPEC;
 impl crate::RegisterSpec for SDIO_SELECT_SPEC {
     type Ux = u32;

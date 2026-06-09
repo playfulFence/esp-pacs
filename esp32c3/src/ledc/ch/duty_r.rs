@@ -1,9 +1,9 @@
 #[doc = "Register `DUTY_R` reader"]
 pub type R = crate::R<DUTY_R_SPEC>;
-#[doc = "Field `DUTY_R` reader - "]
+#[doc = "Field `DUTY_R` reader - reg_duty_lsch0_r."]
 pub type DUTY_R_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:18"]
+    #[doc = "Bits 0:18 - reg_duty_lsch0_r."]
     #[inline(always)]
     pub fn duty_r(&self) -> DUTY_R_R {
         DUTY_R_R::new(self.bits & 0x0007_ffff)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`duty_r::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "LEDC_LSCH0_DUTY_R.\n\nYou can [`read`](crate::Reg::read) this register and get [`duty_r::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DUTY_R_SPEC;
 impl crate::RegisterSpec for DUTY_R_SPEC {
     type Ux = u32;

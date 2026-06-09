@@ -2,21 +2,21 @@
 pub type R = crate::R<PERI_BACKUP_INT_ENA_SPEC>;
 #[doc = "Register `PERI_BACKUP_INT_ENA` writer"]
 pub type W = crate::W<PERI_BACKUP_INT_ENA_SPEC>;
-#[doc = "Field `DONE` reader - "]
+#[doc = "Field `DONE` reader - reg_peri_backup_done_int_ena"]
 pub type DONE_R = crate::BitReader;
-#[doc = "Field `DONE` writer - "]
+#[doc = "Field `DONE` writer - reg_peri_backup_done_int_ena"]
 pub type DONE_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `ERR` reader - "]
+#[doc = "Field `ERR` reader - reg_peri_backup_err_int_ena"]
 pub type ERR_R = crate::BitReader;
-#[doc = "Field `ERR` writer - "]
+#[doc = "Field `ERR` writer - reg_peri_backup_err_int_ena"]
 pub type ERR_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - reg_peri_backup_done_int_ena"]
     #[inline(always)]
     pub fn done(&self) -> DONE_R {
         DONE_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 1"]
+    #[doc = "Bit 1 - reg_peri_backup_err_int_ena"]
     #[inline(always)]
     pub fn err(&self) -> ERR_R {
         ERR_R::new(((self.bits >> 1) & 1) != 0)
@@ -26,24 +26,24 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("PERI_BACKUP_INT_ENA")
-            .field("err", &self.err())
             .field("done", &self.done())
+            .field("err", &self.err())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - reg_peri_backup_done_int_ena"]
     #[inline(always)]
     pub fn done(&mut self) -> DONE_W<'_, PERI_BACKUP_INT_ENA_SPEC> {
         DONE_W::new(self, 0)
     }
-    #[doc = "Bit 1"]
+    #[doc = "Bit 1 - reg_peri_backup_err_int_ena"]
     #[inline(always)]
     pub fn err(&mut self) -> ERR_W<'_, PERI_BACKUP_INT_ENA_SPEC> {
         ERR_W::new(self, 1)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`peri_backup_int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`peri_backup_int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "APB_CTRL_PERI_BACKUP_INT_ENA_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`peri_backup_int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`peri_backup_int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PERI_BACKUP_INT_ENA_SPEC;
 impl crate::RegisterSpec for PERI_BACKUP_INT_ENA_SPEC {
     type Ux = u32;

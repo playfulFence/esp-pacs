@@ -39,5 +39,7 @@ impl crate::Readable for ERR_WARNING_LIMIT_SPEC {}
 impl crate::Writable for ERR_WARNING_LIMIT_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets ERR_WARNING_LIMIT to value 0"]
-impl crate::Resettable for ERR_WARNING_LIMIT_SPEC {}
+#[doc = "`reset()` method sets ERR_WARNING_LIMIT to value 0x60"]
+impl crate::Resettable for ERR_WARNING_LIMIT_SPEC {
+    const RESET_VALUE: u32 = 0x60;
+}

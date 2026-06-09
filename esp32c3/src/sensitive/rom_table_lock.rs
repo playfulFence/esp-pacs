@@ -2,12 +2,12 @@
 pub type R = crate::R<ROM_TABLE_LOCK_SPEC>;
 #[doc = "Register `ROM_TABLE_LOCK` writer"]
 pub type W = crate::W<ROM_TABLE_LOCK_SPEC>;
-#[doc = "Field `ROM_TABLE_LOCK` reader - "]
+#[doc = "Field `ROM_TABLE_LOCK` reader - rom_table_lock"]
 pub type ROM_TABLE_LOCK_R = crate::BitReader;
-#[doc = "Field `ROM_TABLE_LOCK` writer - "]
+#[doc = "Field `ROM_TABLE_LOCK` writer - rom_table_lock"]
 pub type ROM_TABLE_LOCK_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - rom_table_lock"]
     #[inline(always)]
     pub fn rom_table_lock(&self) -> ROM_TABLE_LOCK_R {
         ROM_TABLE_LOCK_R::new((self.bits & 1) != 0)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - rom_table_lock"]
     #[inline(always)]
     pub fn rom_table_lock(&mut self) -> ROM_TABLE_LOCK_W<'_, ROM_TABLE_LOCK_SPEC> {
         ROM_TABLE_LOCK_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`rom_table_lock::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rom_table_lock::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SENSITIVE_ROM_TABLE_LOCK_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`rom_table_lock::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rom_table_lock::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ROM_TABLE_LOCK_SPEC;
 impl crate::RegisterSpec for ROM_TABLE_LOCK_SPEC {
     type Ux = u32;

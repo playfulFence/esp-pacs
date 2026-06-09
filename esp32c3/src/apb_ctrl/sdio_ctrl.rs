@@ -2,12 +2,12 @@
 pub type R = crate::R<SDIO_CTRL_SPEC>;
 #[doc = "Register `SDIO_CTRL` writer"]
 pub type W = crate::W<SDIO_CTRL_SPEC>;
-#[doc = "Field `SDIO_WIN_ACCESS_EN` reader - "]
+#[doc = "Field `SDIO_WIN_ACCESS_EN` reader - reg_sdio_win_access_en"]
 pub type SDIO_WIN_ACCESS_EN_R = crate::BitReader;
-#[doc = "Field `SDIO_WIN_ACCESS_EN` writer - "]
+#[doc = "Field `SDIO_WIN_ACCESS_EN` writer - reg_sdio_win_access_en"]
 pub type SDIO_WIN_ACCESS_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - reg_sdio_win_access_en"]
     #[inline(always)]
     pub fn sdio_win_access_en(&self) -> SDIO_WIN_ACCESS_EN_R {
         SDIO_WIN_ACCESS_EN_R::new((self.bits & 1) != 0)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - reg_sdio_win_access_en"]
     #[inline(always)]
     pub fn sdio_win_access_en(&mut self) -> SDIO_WIN_ACCESS_EN_W<'_, SDIO_CTRL_SPEC> {
         SDIO_WIN_ACCESS_EN_W::new(self, 0)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`sdio_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sdio_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "APB_CTRL_SDIO_CTRL_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`sdio_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sdio_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SDIO_CTRL_SPEC;
 impl crate::RegisterSpec for SDIO_CTRL_SPEC {
     type Ux = u32;

@@ -2,17 +2,17 @@
 pub type R = crate::R<CTRL_SPEC>;
 #[doc = "Register `CTRL` writer"]
 pub type W = crate::W<CTRL_SPEC>;
-#[doc = "Field `START_FORCE` reader - "]
+#[doc = "Field `START_FORCE` reader - select software enable saradc sample"]
 pub type START_FORCE_R = crate::BitReader;
-#[doc = "Field `START_FORCE` writer - "]
+#[doc = "Field `START_FORCE` writer - select software enable saradc sample"]
 pub type START_FORCE_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `START` reader - "]
+#[doc = "Field `START` reader - software enable saradc sample"]
 pub type START_R = crate::BitReader;
-#[doc = "Field `START` writer - "]
+#[doc = "Field `START` writer - software enable saradc sample"]
 pub type START_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SAR_CLK_GATED` reader - "]
+#[doc = "Field `SAR_CLK_GATED` reader - SAR clock gated"]
 pub type SAR_CLK_GATED_R = crate::BitReader;
-#[doc = "Field `SAR_CLK_GATED` writer - "]
+#[doc = "Field `SAR_CLK_GATED` writer - SAR clock gated"]
 pub type SAR_CLK_GATED_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SAR_CLK_DIV` reader - SAR clock divider"]
 pub type SAR_CLK_DIV_R = crate::FieldReader;
@@ -35,17 +35,17 @@ pub type WAIT_ARB_CYCLE_R = crate::FieldReader;
 #[doc = "Field `WAIT_ARB_CYCLE` writer - wait arbit signal stable after sar_done"]
 pub type WAIT_ARB_CYCLE_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - select software enable saradc sample"]
     #[inline(always)]
     pub fn start_force(&self) -> START_FORCE_R {
         START_FORCE_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 1"]
+    #[doc = "Bit 1 - software enable saradc sample"]
     #[inline(always)]
     pub fn start(&self) -> START_R {
         START_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 6"]
+    #[doc = "Bit 6 - SAR clock gated"]
     #[inline(always)]
     pub fn sar_clk_gated(&self) -> SAR_CLK_GATED_R {
         SAR_CLK_GATED_R::new(((self.bits >> 6) & 1) != 0)
@@ -80,29 +80,29 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CTRL")
-            .field("wait_arb_cycle", &self.wait_arb_cycle())
-            .field("xpd_sar_force", &self.xpd_sar_force())
-            .field("sar_patt_p_clear", &self.sar_patt_p_clear())
-            .field("sar_patt_len", &self.sar_patt_len())
-            .field("sar_clk_div", &self.sar_clk_div())
-            .field("sar_clk_gated", &self.sar_clk_gated())
-            .field("start", &self.start())
             .field("start_force", &self.start_force())
+            .field("start", &self.start())
+            .field("sar_clk_gated", &self.sar_clk_gated())
+            .field("sar_clk_div", &self.sar_clk_div())
+            .field("sar_patt_len", &self.sar_patt_len())
+            .field("sar_patt_p_clear", &self.sar_patt_p_clear())
+            .field("xpd_sar_force", &self.xpd_sar_force())
+            .field("wait_arb_cycle", &self.wait_arb_cycle())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bit 0"]
+    #[doc = "Bit 0 - select software enable saradc sample"]
     #[inline(always)]
     pub fn start_force(&mut self) -> START_FORCE_W<'_, CTRL_SPEC> {
         START_FORCE_W::new(self, 0)
     }
-    #[doc = "Bit 1"]
+    #[doc = "Bit 1 - software enable saradc sample"]
     #[inline(always)]
     pub fn start(&mut self) -> START_W<'_, CTRL_SPEC> {
         START_W::new(self, 1)
     }
-    #[doc = "Bit 6"]
+    #[doc = "Bit 6 - SAR clock gated"]
     #[inline(always)]
     pub fn sar_clk_gated(&mut self) -> SAR_CLK_GATED_W<'_, CTRL_SPEC> {
         SAR_CLK_GATED_W::new(self, 6)
@@ -133,7 +133,7 @@ impl W {
         WAIT_ARB_CYCLE_W::new(self, 30)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "digital saradc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CTRL_SPEC;
 impl crate::RegisterSpec for CTRL_SPEC {
     type Ux = u32;
@@ -144,5 +144,7 @@ impl crate::Readable for CTRL_SPEC {}
 impl crate::Writable for CTRL_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CTRL to value 0"]
-impl crate::Resettable for CTRL_SPEC {}
+#[doc = "`reset()` method sets CTRL to value 0x4003_8240"]
+impl crate::Resettable for CTRL_SPEC {
+    const RESET_VALUE: u32 = 0x4003_8240;
+}
