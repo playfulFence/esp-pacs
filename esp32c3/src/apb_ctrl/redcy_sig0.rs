@@ -2,19 +2,19 @@
 pub type R = crate::R<REDCY_SIG0_SPEC>;
 #[doc = "Register `REDCY_SIG0` writer"]
 pub type W = crate::W<REDCY_SIG0_SPEC>;
-#[doc = "Field `REDCY_SIG0` reader - reg_redcy_sig0"]
+#[doc = "Field `REDCY_SIG0` reader - "]
 pub type REDCY_SIG0_R = crate::FieldReader<u32>;
-#[doc = "Field `REDCY_SIG0` writer - reg_redcy_sig0"]
+#[doc = "Field `REDCY_SIG0` writer - "]
 pub type REDCY_SIG0_W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
-#[doc = "Field `REDCY_ANDOR` reader - reg_redcy_andor"]
+#[doc = "Field `REDCY_ANDOR` reader - "]
 pub type REDCY_ANDOR_R = crate::BitReader;
 impl R {
-    #[doc = "Bits 0:30 - reg_redcy_sig0"]
+    #[doc = "Bits 0:30"]
     #[inline(always)]
     pub fn redcy_sig0(&self) -> REDCY_SIG0_R {
         REDCY_SIG0_R::new(self.bits & 0x7fff_ffff)
     }
-    #[doc = "Bit 31 - reg_redcy_andor"]
+    #[doc = "Bit 31"]
     #[inline(always)]
     pub fn redcy_andor(&self) -> REDCY_ANDOR_R {
         REDCY_ANDOR_R::new(((self.bits >> 31) & 1) != 0)
@@ -24,13 +24,13 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("REDCY_SIG0")
-            .field("redcy_sig0", &self.redcy_sig0())
             .field("redcy_andor", &self.redcy_andor())
+            .field("redcy_sig0", &self.redcy_sig0())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bits 0:30 - reg_redcy_sig0"]
+    #[doc = "Bits 0:30"]
     #[inline(always)]
     pub fn redcy_sig0(&mut self) -> REDCY_SIG0_W<'_, REDCY_SIG0_SPEC> {
         REDCY_SIG0_W::new(self, 0)

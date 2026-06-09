@@ -17,14 +17,12 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "I2S TX status register\n\nYou can [`read`](crate::Reg::read) this register and get [`state::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`state::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct STATE_SPEC;
 impl crate::RegisterSpec for STATE_SPEC {
     type Ux = u32;
 }
 #[doc = "`read()` method returns [`state::R`](R) reader structure"]
 impl crate::Readable for STATE_SPEC {}
-#[doc = "`reset()` method sets STATE to value 0x01"]
-impl crate::Resettable for STATE_SPEC {
-    const RESET_VALUE: u32 = 0x01;
-}
+#[doc = "`reset()` method sets STATE to value 0"]
+impl crate::Resettable for STATE_SPEC {}

@@ -2,12 +2,12 @@
 pub type R = crate::R<CALI_SPEC>;
 #[doc = "Register `CALI` writer"]
 pub type W = crate::W<CALI_SPEC>;
-#[doc = "Field `CFG` reader - saradc cali factor"]
+#[doc = "Field `CFG` reader - "]
 pub type CFG_R = crate::FieldReader<u32>;
-#[doc = "Field `CFG` writer - saradc cali factor"]
+#[doc = "Field `CFG` writer - "]
 pub type CFG_W<'a, REG> = crate::FieldWriter<'a, REG, 17, u32>;
 impl R {
-    #[doc = "Bits 0:16 - saradc cali factor"]
+    #[doc = "Bits 0:16"]
     #[inline(always)]
     pub fn cfg(&self) -> CFG_R {
         CFG_R::new(self.bits & 0x0001_ffff)
@@ -20,13 +20,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:16 - saradc cali factor"]
+    #[doc = "Bits 0:16"]
     #[inline(always)]
     pub fn cfg(&mut self) -> CFG_W<'_, CALI_SPEC> {
         CFG_W::new(self, 0)
     }
 }
-#[doc = "digital saradc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`cali::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cali::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cali::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cali::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CALI_SPEC;
 impl crate::RegisterSpec for CALI_SPEC {
     type Ux = u32;
@@ -37,7 +37,5 @@ impl crate::Readable for CALI_SPEC {}
 impl crate::Writable for CALI_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CALI to value 0x8000"]
-impl crate::Resettable for CALI_SPEC {
-    const RESET_VALUE: u32 = 0x8000;
-}
+#[doc = "`reset()` method sets CALI to value 0"]
+impl crate::Resettable for CALI_SPEC {}

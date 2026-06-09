@@ -1,0 +1,121 @@
+peripherals:
+  - name: SHA
+    register_groups:
+      - description: registers
+        registers:
+          - name: MODE
+            description: "Initial configuration register."
+            addr: 0
+            fields:
+              - name: MODE
+                description: "Sha mode."
+                shift: 0
+                mask: 7
+                access: R/W
+          - name: T_STRING
+            description: "SHA 512/t configuration register 0."
+            addr: 4
+            fields:
+              - name: T_STRING
+                description: "Sha t_string (used if and only if mode == SHA_512/t)."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: T_LENGTH
+            description: "SHA 512/t configuration register 1."
+            addr: 8
+            fields:
+              - name: T_LENGTH
+                description: "Sha t_length (used if and only if mode == SHA_512/t)."
+                shift: 0
+                mask: 63
+                access: R/W
+          - name: DMA_BLOCK_NUM
+            description: "DMA configuration register 0."
+            addr: 12
+            fields:
+              - name: DMA_BLOCK_NUM
+                description: "Dma-sha block number."
+                shift: 0
+                mask: 63
+                access: R/W
+          - name: START
+            description: "Typical SHA configuration register 0."
+            addr: 16
+            fields:
+              - name: START
+                description: "Reserved."
+                shift: 1
+                mask: 4294967294
+                access: RO
+          - name: CONTINUE
+            description: "Typical SHA configuration register 1."
+            addr: 20
+            fields:
+              - name: CONTINUE
+                description: "Reserved."
+                shift: 1
+                mask: 4294967294
+                access: RO
+          - name: BUSY
+            description: "Busy register."
+            addr: 24
+            fields:
+              - name: STATE
+                description: "Sha busy state. 1b0: idle. 1b1: busy."
+                shift: 0
+                mask: 1
+                access: RO
+          - name: DMA_START
+            description: "DMA configuration register 1."
+            addr: 28
+            fields:
+              - name: DMA_START
+                description: "Start dma-sha."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: DMA_CONTINUE
+            description: "DMA configuration register 2."
+            addr: 32
+            fields:
+              - name: DMA_CONTINUE
+                description: "Continue dma-sha."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: CLEAR_IRQ
+            description: "Interrupt clear register."
+            addr: 36
+            fields:
+              - name: CLEAR_INTERRUPT
+                description: "Clear sha interrupt."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: IRQ_ENA
+            description: "Interrupt enable register."
+            addr: 40
+            fields:
+              - name: INTERRUPT_ENA
+                description: "Sha interrupt enable register. 1b0: disable(default). 1b1: enable."
+                shift: 0
+                mask: 1
+                access: R/W
+          - name: DATE
+            description: "Date register."
+            addr: 44
+            fields:
+              - name: DATE
+                description: "Sha date information/ sha version information."
+                shift: 0
+                mask: 1073741823
+                access: R/W
+          - name: H_MEM[%s]
+            description: "Sha H memory which contains intermediate hash or finial hash."
+            addr: 64
+            size: 8
+          - name: M_MEM[%s]
+            description: "Sha M memory which contains message."
+            addr: 128
+            size: 8

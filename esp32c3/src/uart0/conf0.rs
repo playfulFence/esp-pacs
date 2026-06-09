@@ -18,17 +18,17 @@ pub type BIT_NUM_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 pub type STOP_BIT_NUM_R = crate::FieldReader;
 #[doc = "Field `STOP_BIT_NUM` writer - This register is used to set the length of stop bit."]
 pub type STOP_BIT_NUM_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `SW_RTS` reader - This register is used to configure the software rts signal which is used in software flow control."]
+#[doc = "Field `SW_RTS` reader - This register is used to configure the software rts signal which"]
 pub type SW_RTS_R = crate::BitReader;
-#[doc = "Field `SW_RTS` writer - This register is used to configure the software rts signal which is used in software flow control."]
+#[doc = "Field `SW_RTS` writer - This register is used to configure the software rts signal which"]
 pub type SW_RTS_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SW_DTR` reader - This register is used to configure the software dtr signal which is used in software flow control."]
+#[doc = "Field `SW_DTR` reader - This register is used to configure the software dtr signal which"]
 pub type SW_DTR_R = crate::BitReader;
-#[doc = "Field `SW_DTR` writer - This register is used to configure the software dtr signal which is used in software flow control."]
+#[doc = "Field `SW_DTR` writer - This register is used to configure the software dtr signal which"]
 pub type SW_DTR_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TXD_BRK` reader - Set this bit to enbale transmitter to send NULL when the process of sending data is done."]
+#[doc = "Field `TXD_BRK` reader - Set this bit to enable transmitter to send NULL when the process"]
 pub type TXD_BRK_R = crate::BitReader;
-#[doc = "Field `TXD_BRK` writer - Set this bit to enbale transmitter to send NULL when the process of sending data is done."]
+#[doc = "Field `TXD_BRK` writer - Set this bit to enable transmitter to send NULL when the process"]
 pub type TXD_BRK_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IRDA_DPLX` reader - Set this bit to enable IrDA loopback mode."]
 pub type IRDA_DPLX_R = crate::BitReader;
@@ -38,9 +38,9 @@ pub type IRDA_DPLX_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type IRDA_TX_EN_R = crate::BitReader;
 #[doc = "Field `IRDA_TX_EN` writer - This is the start enable bit for IrDA transmitter."]
 pub type IRDA_TX_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `IRDA_WCTL` reader - 1'h1: The IrDA transmitter's 11th bit is the same as 10th bit. 1'h0: Set IrDA transmitter's 11th bit to 0."]
+#[doc = "Field `IRDA_WCTL` reader - 1'h1: The IrDA transmitter's 11th bit is the same as 10th bit."]
 pub type IRDA_WCTL_R = crate::BitReader;
-#[doc = "Field `IRDA_WCTL` writer - 1'h1: The IrDA transmitter's 11th bit is the same as 10th bit. 1'h0: Set IrDA transmitter's 11th bit to 0."]
+#[doc = "Field `IRDA_WCTL` writer - 1'h1: The IrDA transmitter's 11th bit is the same as 10th bit."]
 pub type IRDA_WCTL_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IRDA_TX_INV` reader - Set this bit to invert the level of IrDA transmitter."]
 pub type IRDA_TX_INV_R = crate::BitReader;
@@ -94,13 +94,13 @@ pub type RTS_INV_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type DTR_INV_R = crate::BitReader;
 #[doc = "Field `DTR_INV` writer - Set this bit to inverse the level value of uart dtr signal."]
 pub type DTR_INV_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `CLK_EN` reader - 1'h1: Force clock on for register. 1'h0: Support clock only when application writes registers."]
+#[doc = "Field `CLK_EN` reader - 1'h1: Force clock on for register. 1'h0: Support clock only when"]
 pub type CLK_EN_R = crate::BitReader;
-#[doc = "Field `CLK_EN` writer - 1'h1: Force clock on for register. 1'h0: Support clock only when application writes registers."]
+#[doc = "Field `CLK_EN` writer - 1'h1: Force clock on for register. 1'h0: Support clock only when"]
 pub type CLK_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `ERR_WR_MASK` reader - 1'h1: Receiver stops storing data into FIFO when data is wrong. 1'h0: Receiver stores the data even if the received data is wrong."]
+#[doc = "Field `ERR_WR_MASK` reader - 1'h1: Receiver stops storing data into FIFO when data is wrong."]
 pub type ERR_WR_MASK_R = crate::BitReader;
-#[doc = "Field `ERR_WR_MASK` writer - 1'h1: Receiver stops storing data into FIFO when data is wrong. 1'h0: Receiver stores the data even if the received data is wrong."]
+#[doc = "Field `ERR_WR_MASK` writer - 1'h1: Receiver stops storing data into FIFO when data is wrong."]
 pub type ERR_WR_MASK_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUTOBAUD_EN` reader - This is the enable bit for detecting baudrate."]
 pub type AUTOBAUD_EN_R = crate::BitReader;
@@ -131,17 +131,17 @@ impl R {
     pub fn stop_bit_num(&self) -> STOP_BIT_NUM_R {
         STOP_BIT_NUM_R::new(((self.bits >> 4) & 3) as u8)
     }
-    #[doc = "Bit 6 - This register is used to configure the software rts signal which is used in software flow control."]
+    #[doc = "Bit 6 - This register is used to configure the software rts signal which"]
     #[inline(always)]
     pub fn sw_rts(&self) -> SW_RTS_R {
         SW_RTS_R::new(((self.bits >> 6) & 1) != 0)
     }
-    #[doc = "Bit 7 - This register is used to configure the software dtr signal which is used in software flow control."]
+    #[doc = "Bit 7 - This register is used to configure the software dtr signal which"]
     #[inline(always)]
     pub fn sw_dtr(&self) -> SW_DTR_R {
         SW_DTR_R::new(((self.bits >> 7) & 1) != 0)
     }
-    #[doc = "Bit 8 - Set this bit to enbale transmitter to send NULL when the process of sending data is done."]
+    #[doc = "Bit 8 - Set this bit to enable transmitter to send NULL when the process"]
     #[inline(always)]
     pub fn txd_brk(&self) -> TXD_BRK_R {
         TXD_BRK_R::new(((self.bits >> 8) & 1) != 0)
@@ -156,7 +156,7 @@ impl R {
     pub fn irda_tx_en(&self) -> IRDA_TX_EN_R {
         IRDA_TX_EN_R::new(((self.bits >> 10) & 1) != 0)
     }
-    #[doc = "Bit 11 - 1'h1: The IrDA transmitter's 11th bit is the same as 10th bit. 1'h0: Set IrDA transmitter's 11th bit to 0."]
+    #[doc = "Bit 11 - 1'h1: The IrDA transmitter's 11th bit is the same as 10th bit."]
     #[inline(always)]
     pub fn irda_wctl(&self) -> IRDA_WCTL_R {
         IRDA_WCTL_R::new(((self.bits >> 11) & 1) != 0)
@@ -226,12 +226,12 @@ impl R {
     pub fn dtr_inv(&self) -> DTR_INV_R {
         DTR_INV_R::new(((self.bits >> 24) & 1) != 0)
     }
-    #[doc = "Bit 25 - 1'h1: Force clock on for register. 1'h0: Support clock only when application writes registers."]
+    #[doc = "Bit 25 - 1'h1: Force clock on for register. 1'h0: Support clock only when"]
     #[inline(always)]
     pub fn clk_en(&self) -> CLK_EN_R {
         CLK_EN_R::new(((self.bits >> 25) & 1) != 0)
     }
-    #[doc = "Bit 26 - 1'h1: Receiver stops storing data into FIFO when data is wrong. 1'h0: Receiver stores the data even if the received data is wrong."]
+    #[doc = "Bit 26 - 1'h1: Receiver stops storing data into FIFO when data is wrong."]
     #[inline(always)]
     pub fn err_wr_mask(&self) -> ERR_WR_MASK_R {
         ERR_WR_MASK_R::new(((self.bits >> 26) & 1) != 0)
@@ -251,33 +251,33 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CONF0")
-            .field("parity", &self.parity())
-            .field("parity_en", &self.parity_en())
-            .field("bit_num", &self.bit_num())
-            .field("stop_bit_num", &self.stop_bit_num())
-            .field("sw_rts", &self.sw_rts())
-            .field("sw_dtr", &self.sw_dtr())
-            .field("txd_brk", &self.txd_brk())
-            .field("irda_dplx", &self.irda_dplx())
-            .field("irda_tx_en", &self.irda_tx_en())
-            .field("irda_wctl", &self.irda_wctl())
-            .field("irda_tx_inv", &self.irda_tx_inv())
-            .field("irda_rx_inv", &self.irda_rx_inv())
-            .field("loopback", &self.loopback())
-            .field("tx_flow_en", &self.tx_flow_en())
-            .field("irda_en", &self.irda_en())
-            .field("rxfifo_rst", &self.rxfifo_rst())
-            .field("txfifo_rst", &self.txfifo_rst())
-            .field("rxd_inv", &self.rxd_inv())
-            .field("cts_inv", &self.cts_inv())
-            .field("dsr_inv", &self.dsr_inv())
-            .field("txd_inv", &self.txd_inv())
-            .field("rts_inv", &self.rts_inv())
-            .field("dtr_inv", &self.dtr_inv())
-            .field("clk_en", &self.clk_en())
-            .field("err_wr_mask", &self.err_wr_mask())
-            .field("autobaud_en", &self.autobaud_en())
             .field("mem_clk_en", &self.mem_clk_en())
+            .field("autobaud_en", &self.autobaud_en())
+            .field("err_wr_mask", &self.err_wr_mask())
+            .field("clk_en", &self.clk_en())
+            .field("dtr_inv", &self.dtr_inv())
+            .field("rts_inv", &self.rts_inv())
+            .field("txd_inv", &self.txd_inv())
+            .field("dsr_inv", &self.dsr_inv())
+            .field("cts_inv", &self.cts_inv())
+            .field("rxd_inv", &self.rxd_inv())
+            .field("txfifo_rst", &self.txfifo_rst())
+            .field("rxfifo_rst", &self.rxfifo_rst())
+            .field("irda_en", &self.irda_en())
+            .field("tx_flow_en", &self.tx_flow_en())
+            .field("loopback", &self.loopback())
+            .field("irda_rx_inv", &self.irda_rx_inv())
+            .field("irda_tx_inv", &self.irda_tx_inv())
+            .field("irda_wctl", &self.irda_wctl())
+            .field("irda_tx_en", &self.irda_tx_en())
+            .field("irda_dplx", &self.irda_dplx())
+            .field("txd_brk", &self.txd_brk())
+            .field("sw_dtr", &self.sw_dtr())
+            .field("sw_rts", &self.sw_rts())
+            .field("stop_bit_num", &self.stop_bit_num())
+            .field("bit_num", &self.bit_num())
+            .field("parity_en", &self.parity_en())
+            .field("parity", &self.parity())
             .finish()
     }
 }
@@ -302,17 +302,17 @@ impl W {
     pub fn stop_bit_num(&mut self) -> STOP_BIT_NUM_W<'_, CONF0_SPEC> {
         STOP_BIT_NUM_W::new(self, 4)
     }
-    #[doc = "Bit 6 - This register is used to configure the software rts signal which is used in software flow control."]
+    #[doc = "Bit 6 - This register is used to configure the software rts signal which"]
     #[inline(always)]
     pub fn sw_rts(&mut self) -> SW_RTS_W<'_, CONF0_SPEC> {
         SW_RTS_W::new(self, 6)
     }
-    #[doc = "Bit 7 - This register is used to configure the software dtr signal which is used in software flow control."]
+    #[doc = "Bit 7 - This register is used to configure the software dtr signal which"]
     #[inline(always)]
     pub fn sw_dtr(&mut self) -> SW_DTR_W<'_, CONF0_SPEC> {
         SW_DTR_W::new(self, 7)
     }
-    #[doc = "Bit 8 - Set this bit to enbale transmitter to send NULL when the process of sending data is done."]
+    #[doc = "Bit 8 - Set this bit to enable transmitter to send NULL when the process"]
     #[inline(always)]
     pub fn txd_brk(&mut self) -> TXD_BRK_W<'_, CONF0_SPEC> {
         TXD_BRK_W::new(self, 8)
@@ -327,7 +327,7 @@ impl W {
     pub fn irda_tx_en(&mut self) -> IRDA_TX_EN_W<'_, CONF0_SPEC> {
         IRDA_TX_EN_W::new(self, 10)
     }
-    #[doc = "Bit 11 - 1'h1: The IrDA transmitter's 11th bit is the same as 10th bit. 1'h0: Set IrDA transmitter's 11th bit to 0."]
+    #[doc = "Bit 11 - 1'h1: The IrDA transmitter's 11th bit is the same as 10th bit."]
     #[inline(always)]
     pub fn irda_wctl(&mut self) -> IRDA_WCTL_W<'_, CONF0_SPEC> {
         IRDA_WCTL_W::new(self, 11)
@@ -397,12 +397,12 @@ impl W {
     pub fn dtr_inv(&mut self) -> DTR_INV_W<'_, CONF0_SPEC> {
         DTR_INV_W::new(self, 24)
     }
-    #[doc = "Bit 25 - 1'h1: Force clock on for register. 1'h0: Support clock only when application writes registers."]
+    #[doc = "Bit 25 - 1'h1: Force clock on for register. 1'h0: Support clock only when"]
     #[inline(always)]
     pub fn clk_en(&mut self) -> CLK_EN_W<'_, CONF0_SPEC> {
         CLK_EN_W::new(self, 25)
     }
-    #[doc = "Bit 26 - 1'h1: Receiver stops storing data into FIFO when data is wrong. 1'h0: Receiver stores the data even if the received data is wrong."]
+    #[doc = "Bit 26 - 1'h1: Receiver stops storing data into FIFO when data is wrong."]
     #[inline(always)]
     pub fn err_wr_mask(&mut self) -> ERR_WR_MASK_W<'_, CONF0_SPEC> {
         ERR_WR_MASK_W::new(self, 26)
@@ -418,7 +418,7 @@ impl W {
         MEM_CLK_EN_W::new(self, 28)
     }
 }
-#[doc = "a\n\nYou can [`read`](crate::Reg::read) this register and get [`conf0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`conf0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`conf0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`conf0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CONF0_SPEC;
 impl crate::RegisterSpec for CONF0_SPEC {
     type Ux = u32;
@@ -429,7 +429,5 @@ impl crate::Readable for CONF0_SPEC {}
 impl crate::Writable for CONF0_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CONF0 to value 0x1000_001c"]
-impl crate::Resettable for CONF0_SPEC {
-    const RESET_VALUE: u32 = 0x1000_001c;
-}
+#[doc = "`reset()` method sets CONF0 to value 0"]
+impl crate::Resettable for CONF0_SPEC {}

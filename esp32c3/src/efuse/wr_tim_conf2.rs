@@ -2,12 +2,12 @@
 pub type R = crate::R<WR_TIM_CONF2_SPEC>;
 #[doc = "Register `WR_TIM_CONF2` writer"]
 pub type W = crate::W<WR_TIM_CONF2_SPEC>;
-#[doc = "Field `PWR_OFF_NUM` reader - Configures the power outage time for VDDQ."]
+#[doc = "Field `PWR_OFF_NUM` reader - Configures the power outage time for VDDQ. /"]
 pub type PWR_OFF_NUM_R = crate::FieldReader<u16>;
-#[doc = "Field `PWR_OFF_NUM` writer - Configures the power outage time for VDDQ."]
+#[doc = "Field `PWR_OFF_NUM` writer - Configures the power outage time for VDDQ. /"]
 pub type PWR_OFF_NUM_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
-    #[doc = "Bits 0:15 - Configures the power outage time for VDDQ."]
+    #[doc = "Bits 0:15 - Configures the power outage time for VDDQ. /"]
     #[inline(always)]
     pub fn pwr_off_num(&self) -> PWR_OFF_NUM_R {
         PWR_OFF_NUM_R::new((self.bits & 0xffff) as u16)
@@ -22,7 +22,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:15 - Configures the power outage time for VDDQ."]
+    #[doc = "Bits 0:15 - Configures the power outage time for VDDQ. /"]
     #[inline(always)]
     pub fn pwr_off_num(&mut self) -> PWR_OFF_NUM_W<'_, WR_TIM_CONF2_SPEC> {
         PWR_OFF_NUM_W::new(self, 0)
@@ -39,7 +39,5 @@ impl crate::Readable for WR_TIM_CONF2_SPEC {}
 impl crate::Writable for WR_TIM_CONF2_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets WR_TIM_CONF2 to value 0x0190"]
-impl crate::Resettable for WR_TIM_CONF2_SPEC {
-    const RESET_VALUE: u32 = 0x0190;
-}
+#[doc = "`reset()` method sets WR_TIM_CONF2 to value 0"]
+impl crate::Resettable for WR_TIM_CONF2_SPEC {}

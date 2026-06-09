@@ -2,72 +2,72 @@
 pub type R = crate::R<CORE_0_PIF_PMS_CONSTRAIN_7_SPEC>;
 #[doc = "Register `CORE_0_PIF_PMS_CONSTRAIN_7` writer"]
 pub type W = crate::W<CORE_0_PIF_PMS_CONSTRAIN_7_SPEC>;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SPI_2` reader - core_0_pif_pms_constrain_world_1_spi_2"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SPI_2` reader - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SPI_2_R = crate::FieldReader;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SPI_2` writer - core_0_pif_pms_constrain_world_1_spi_2"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SPI_2` writer - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SPI_2_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_APB_CTRL` reader - core_0_pif_pms_constrain_world_1_apb_ctrl"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_APB_CTRL` reader - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_APB_CTRL_R = crate::FieldReader;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_APB_CTRL` writer - core_0_pif_pms_constrain_world_1_apb_ctrl"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_APB_CTRL` writer - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_APB_CTRL_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_CAN` reader - core_0_pif_pms_constrain_world_1_can"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_CAN` reader - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_CAN_R = crate::FieldReader;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_CAN` writer - core_0_pif_pms_constrain_world_1_can"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_CAN` writer - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_CAN_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S1` reader - core_0_pif_pms_constrain_world_1_i2s1"]
-pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S1_R = crate::FieldReader;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S1` writer - core_0_pif_pms_constrain_world_1_i2s1"]
-pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S1_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_RWBT` reader - core_0_pif_pms_constrain_world_1_rwbt"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S0` reader - "]
+pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S0_R = crate::FieldReader;
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S0` writer - "]
+pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S0_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_RWBT` reader - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_RWBT_R = crate::FieldReader;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_RWBT` writer - core_0_pif_pms_constrain_world_1_rwbt"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_RWBT` writer - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_RWBT_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_WIFIMAC` reader - core_0_pif_pms_constrain_world_1_wifimac"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_WIFIMAC` reader - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_WIFIMAC_R = crate::FieldReader;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_WIFIMAC` writer - core_0_pif_pms_constrain_world_1_wifimac"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_WIFIMAC` writer - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_WIFIMAC_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_PWR` reader - core_0_pif_pms_constrain_world_1_pwr"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_PWR` reader - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_PWR_R = crate::FieldReader;
-#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_PWR` writer - core_0_pif_pms_constrain_world_1_pwr"]
+#[doc = "Field `CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_PWR` writer - "]
 pub type CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_PWR_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
-    #[doc = "Bits 0:1 - core_0_pif_pms_constrain_world_1_spi_2"]
+    #[doc = "Bits 0:1"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_spi_2(
         &self,
     ) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SPI_2_R {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SPI_2_R::new((self.bits & 3) as u8)
     }
-    #[doc = "Bits 4:5 - core_0_pif_pms_constrain_world_1_apb_ctrl"]
+    #[doc = "Bits 4:5"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_apb_ctrl(
         &self,
     ) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_APB_CTRL_R {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_APB_CTRL_R::new(((self.bits >> 4) & 3) as u8)
     }
-    #[doc = "Bits 10:11 - core_0_pif_pms_constrain_world_1_can"]
+    #[doc = "Bits 10:11"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_can(&self) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_CAN_R {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_CAN_R::new(((self.bits >> 10) & 3) as u8)
     }
-    #[doc = "Bits 14:15 - core_0_pif_pms_constrain_world_1_i2s1"]
+    #[doc = "Bits 14:15"]
     #[inline(always)]
-    pub fn core_0_pif_pms_constrain_world_1_i2s1(&self) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S1_R {
-        CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S1_R::new(((self.bits >> 14) & 3) as u8)
+    pub fn core_0_pif_pms_constrain_world_1_i2s0(&self) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S0_R {
+        CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S0_R::new(((self.bits >> 14) & 3) as u8)
     }
-    #[doc = "Bits 22:23 - core_0_pif_pms_constrain_world_1_rwbt"]
+    #[doc = "Bits 22:23"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_rwbt(&self) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_RWBT_R {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_RWBT_R::new(((self.bits >> 22) & 3) as u8)
     }
-    #[doc = "Bits 26:27 - core_0_pif_pms_constrain_world_1_wifimac"]
+    #[doc = "Bits 26:27"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_wifimac(
         &self,
     ) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_WIFIMAC_R {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_WIFIMAC_R::new(((self.bits >> 26) & 3) as u8)
     }
-    #[doc = "Bits 28:29 - core_0_pif_pms_constrain_world_1_pwr"]
+    #[doc = "Bits 28:29"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_pwr(&self) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_PWR_R {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_PWR_R::new(((self.bits >> 28) & 3) as u8)
@@ -78,80 +78,80 @@ impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CORE_0_PIF_PMS_CONSTRAIN_7")
             .field(
-                "core_0_pif_pms_constrain_world_1_spi_2",
-                &self.core_0_pif_pms_constrain_world_1_spi_2(),
-            )
-            .field(
-                "core_0_pif_pms_constrain_world_1_apb_ctrl",
-                &self.core_0_pif_pms_constrain_world_1_apb_ctrl(),
-            )
-            .field(
-                "core_0_pif_pms_constrain_world_1_can",
-                &self.core_0_pif_pms_constrain_world_1_can(),
-            )
-            .field(
-                "core_0_pif_pms_constrain_world_1_i2s1",
-                &self.core_0_pif_pms_constrain_world_1_i2s1(),
-            )
-            .field(
-                "core_0_pif_pms_constrain_world_1_rwbt",
-                &self.core_0_pif_pms_constrain_world_1_rwbt(),
+                "core_0_pif_pms_constrain_world_1_pwr",
+                &self.core_0_pif_pms_constrain_world_1_pwr(),
             )
             .field(
                 "core_0_pif_pms_constrain_world_1_wifimac",
                 &self.core_0_pif_pms_constrain_world_1_wifimac(),
             )
             .field(
-                "core_0_pif_pms_constrain_world_1_pwr",
-                &self.core_0_pif_pms_constrain_world_1_pwr(),
+                "core_0_pif_pms_constrain_world_1_rwbt",
+                &self.core_0_pif_pms_constrain_world_1_rwbt(),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_i2s0",
+                &self.core_0_pif_pms_constrain_world_1_i2s0(),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_can",
+                &self.core_0_pif_pms_constrain_world_1_can(),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_apb_ctrl",
+                &self.core_0_pif_pms_constrain_world_1_apb_ctrl(),
+            )
+            .field(
+                "core_0_pif_pms_constrain_world_1_spi_2",
+                &self.core_0_pif_pms_constrain_world_1_spi_2(),
             )
             .finish()
     }
 }
 impl W {
-    #[doc = "Bits 0:1 - core_0_pif_pms_constrain_world_1_spi_2"]
+    #[doc = "Bits 0:1"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_spi_2(
         &mut self,
     ) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SPI_2_W<'_, CORE_0_PIF_PMS_CONSTRAIN_7_SPEC> {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_SPI_2_W::new(self, 0)
     }
-    #[doc = "Bits 4:5 - core_0_pif_pms_constrain_world_1_apb_ctrl"]
+    #[doc = "Bits 4:5"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_apb_ctrl(
         &mut self,
     ) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_APB_CTRL_W<'_, CORE_0_PIF_PMS_CONSTRAIN_7_SPEC> {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_APB_CTRL_W::new(self, 4)
     }
-    #[doc = "Bits 10:11 - core_0_pif_pms_constrain_world_1_can"]
+    #[doc = "Bits 10:11"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_can(
         &mut self,
     ) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_CAN_W<'_, CORE_0_PIF_PMS_CONSTRAIN_7_SPEC> {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_CAN_W::new(self, 10)
     }
-    #[doc = "Bits 14:15 - core_0_pif_pms_constrain_world_1_i2s1"]
+    #[doc = "Bits 14:15"]
     #[inline(always)]
-    pub fn core_0_pif_pms_constrain_world_1_i2s1(
+    pub fn core_0_pif_pms_constrain_world_1_i2s0(
         &mut self,
-    ) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S1_W<'_, CORE_0_PIF_PMS_CONSTRAIN_7_SPEC> {
-        CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S1_W::new(self, 14)
+    ) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S0_W<'_, CORE_0_PIF_PMS_CONSTRAIN_7_SPEC> {
+        CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_I2S0_W::new(self, 14)
     }
-    #[doc = "Bits 22:23 - core_0_pif_pms_constrain_world_1_rwbt"]
+    #[doc = "Bits 22:23"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_rwbt(
         &mut self,
     ) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_RWBT_W<'_, CORE_0_PIF_PMS_CONSTRAIN_7_SPEC> {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_RWBT_W::new(self, 22)
     }
-    #[doc = "Bits 26:27 - core_0_pif_pms_constrain_world_1_wifimac"]
+    #[doc = "Bits 26:27"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_wifimac(
         &mut self,
     ) -> CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_WIFIMAC_W<'_, CORE_0_PIF_PMS_CONSTRAIN_7_SPEC> {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_WIFIMAC_W::new(self, 26)
     }
-    #[doc = "Bits 28:29 - core_0_pif_pms_constrain_world_1_pwr"]
+    #[doc = "Bits 28:29"]
     #[inline(always)]
     pub fn core_0_pif_pms_constrain_world_1_pwr(
         &mut self,
@@ -159,7 +159,7 @@ impl W {
         CORE_0_PIF_PMS_CONSTRAIN_WORLD_1_PWR_W::new(self, 28)
     }
 }
-#[doc = "SENSITIVE_CORE_0_PIF_PMS_CONSTRAIN_7_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`core_0_pif_pms_constrain_7::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`core_0_pif_pms_constrain_7::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`core_0_pif_pms_constrain_7::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`core_0_pif_pms_constrain_7::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CORE_0_PIF_PMS_CONSTRAIN_7_SPEC;
 impl crate::RegisterSpec for CORE_0_PIF_PMS_CONSTRAIN_7_SPEC {
     type Ux = u32;
@@ -170,7 +170,5 @@ impl crate::Readable for CORE_0_PIF_PMS_CONSTRAIN_7_SPEC {}
 impl crate::Writable for CORE_0_PIF_PMS_CONSTRAIN_7_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CORE_0_PIF_PMS_CONSTRAIN_7 to value 0x3cc0_cc33"]
-impl crate::Resettable for CORE_0_PIF_PMS_CONSTRAIN_7_SPEC {
-    const RESET_VALUE: u32 = 0x3cc0_cc33;
-}
+#[doc = "`reset()` method sets CORE_0_PIF_PMS_CONSTRAIN_7 to value 0"]
+impl crate::Resettable for CORE_0_PIF_PMS_CONSTRAIN_7_SPEC {}

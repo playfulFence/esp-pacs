@@ -2,12 +2,12 @@
 pub type R = crate::R<WDTCONFIG_SPEC>;
 #[doc = "Register `WDTCONFIG%s` writer"]
 pub type W = crate::W<WDTCONFIG_SPEC>;
-#[doc = "Field `HOLD` reader - the hold time of stage0"]
+#[doc = "Field `HOLD` reader - "]
 pub type HOLD_R = crate::FieldReader<u32>;
-#[doc = "Field `HOLD` writer - the hold time of stage0"]
+#[doc = "Field `HOLD` writer - "]
 pub type HOLD_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31 - the hold time of stage0"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn hold(&self) -> HOLD_R {
         HOLD_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - the hold time of stage0"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn hold(&mut self) -> HOLD_W<'_, WDTCONFIG_SPEC> {
         HOLD_W::new(self, 0)
     }
 }
-#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdtconfig::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdtconfig::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`wdtconfig::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdtconfig::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct WDTCONFIG_SPEC;
 impl crate::RegisterSpec for WDTCONFIG_SPEC {
     type Ux = u32;
@@ -39,7 +39,5 @@ impl crate::Readable for WDTCONFIG_SPEC {}
 impl crate::Writable for WDTCONFIG_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets WDTCONFIG%s to value 0x0003_0d40"]
-impl crate::Resettable for WDTCONFIG_SPEC {
-    const RESET_VALUE: u32 = 0x0003_0d40;
-}
+#[doc = "`reset()` method sets WDTCONFIG%s to value 0"]
+impl crate::Resettable for WDTCONFIG_SPEC {}

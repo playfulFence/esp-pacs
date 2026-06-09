@@ -2,12 +2,12 @@
 pub type R = crate::R<CORE_X_IRAM0_DRAM0_EXCEPTION_MONITOR_SPEC>;
 #[doc = "Register `CORE_X_IRAM0_DRAM0_EXCEPTION_MONITOR%s` writer"]
 pub type W = crate::W<CORE_X_IRAM0_DRAM0_EXCEPTION_MONITOR_SPEC>;
-#[doc = "Field `LIMIT_CYCLE_0` reader - reg_core_x_iram0_dram0_limit_cycle_0"]
+#[doc = "Field `LIMIT_CYCLE_0` reader - "]
 pub type LIMIT_CYCLE_0_R = crate::FieldReader<u32>;
-#[doc = "Field `LIMIT_CYCLE_0` writer - reg_core_x_iram0_dram0_limit_cycle_0"]
+#[doc = "Field `LIMIT_CYCLE_0` writer - "]
 pub type LIMIT_CYCLE_0_W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
-    #[doc = "Bits 0:19 - reg_core_x_iram0_dram0_limit_cycle_0"]
+    #[doc = "Bits 0:19"]
     #[inline(always)]
     pub fn limit_cycle_0(&self) -> LIMIT_CYCLE_0_R {
         LIMIT_CYCLE_0_R::new(self.bits & 0x000f_ffff)
@@ -22,7 +22,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:19 - reg_core_x_iram0_dram0_limit_cycle_0"]
+    #[doc = "Bits 0:19"]
     #[inline(always)]
     pub fn limit_cycle_0(
         &mut self,

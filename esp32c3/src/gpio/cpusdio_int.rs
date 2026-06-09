@@ -1,9 +1,9 @@
 #[doc = "Register `CPUSDIO_INT` reader"]
 pub type R = crate::R<CPUSDIO_INT_SPEC>;
-#[doc = "Field `SDIO_INT` reader - GPIO CPUSDIO interrupt status register for GPIO0-25"]
+#[doc = "Field `SDIO_INT` reader - "]
 pub type SDIO_INT_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:25 - GPIO CPUSDIO interrupt status register for GPIO0-25"]
+    #[doc = "Bits 0:25"]
     #[inline(always)]
     pub fn sdio_int(&self) -> SDIO_INT_R {
         SDIO_INT_R::new(self.bits & 0x03ff_ffff)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "GPIO CPUSDIO interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`cpusdio_int::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cpusdio_int::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CPUSDIO_INT_SPEC;
 impl crate::RegisterSpec for CPUSDIO_INT_SPEC {
     type Ux = u32;

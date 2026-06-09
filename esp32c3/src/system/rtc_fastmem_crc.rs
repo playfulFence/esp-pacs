@@ -1,9 +1,9 @@
 #[doc = "Register `RTC_FASTMEM_CRC` reader"]
 pub type R = crate::R<RTC_FASTMEM_CRC_SPEC>;
-#[doc = "Field `RTC_MEM_CRC_RES` reader - reg_rtc_mem_crc_res"]
+#[doc = "Field `RTC_MEM_CRC_RES` reader - "]
 pub type RTC_MEM_CRC_RES_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:31 - reg_rtc_mem_crc_res"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn rtc_mem_crc_res(&self) -> RTC_MEM_CRC_RES_R {
         RTC_MEM_CRC_RES_R::new(self.bits)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "reserved\n\nYou can [`read`](crate::Reg::read) this register and get [`rtc_fastmem_crc::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`rtc_fastmem_crc::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RTC_FASTMEM_CRC_SPEC;
 impl crate::RegisterSpec for RTC_FASTMEM_CRC_SPEC {
     type Ux = u32;

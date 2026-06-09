@@ -1,18 +1,18 @@
 _modify:
-  INT_RAW_RTC:
+  "?~INT_RAW_RTC":
     name: INT_RAW
-  INT_ST_RTC:
+  "?~INT_ST_RTC":
     name: INT_ST
-  INT_ENA_RTC:
+  "?~INT_ENA_RTC":
     name: INT_ENA
-  INT_CLR_RTC:
+  "?~INT_CLR_RTC":
     name: INT_CLR
-INT_ENA_RTC_W1TS:
+"INT_ENA*W1TS":
   _strip_end: _INT_ENA_W1TS
   _modify:
     "*":
       modifiedWriteValues: oneToSet
-INT_ENA_RTC_W1TC:
+"INT_ENA*W1TC":
   _strip_end: _INT_ENA_W1TC
   _modify:
     "*":

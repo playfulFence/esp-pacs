@@ -80,14 +80,14 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("ARB_CTRL")
-            .field("apb_force", &self.apb_force())
-            .field("rtc_force", &self.rtc_force())
-            .field("wifi_force", &self.wifi_force())
-            .field("grant_force", &self.grant_force())
-            .field("apb_priority", &self.apb_priority())
-            .field("rtc_priority", &self.rtc_priority())
-            .field("wifi_priority", &self.wifi_priority())
             .field("fix_priority", &self.fix_priority())
+            .field("wifi_priority", &self.wifi_priority())
+            .field("rtc_priority", &self.rtc_priority())
+            .field("apb_priority", &self.apb_priority())
+            .field("grant_force", &self.grant_force())
+            .field("wifi_force", &self.wifi_force())
+            .field("rtc_force", &self.rtc_force())
+            .field("apb_force", &self.apb_force())
             .finish()
     }
 }
@@ -133,7 +133,7 @@ impl W {
         FIX_PRIORITY_W::new(self, 12)
     }
 }
-#[doc = "digital saradc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`arb_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`arb_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`arb_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`arb_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ARB_CTRL_SPEC;
 impl crate::RegisterSpec for ARB_CTRL_SPEC {
     type Ux = u32;
@@ -144,7 +144,5 @@ impl crate::Readable for ARB_CTRL_SPEC {}
 impl crate::Writable for ARB_CTRL_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets ARB_CTRL to value 0x0900"]
-impl crate::Resettable for ARB_CTRL_SPEC {
-    const RESET_VALUE: u32 = 0x0900;
-}
+#[doc = "`reset()` method sets ARB_CTRL to value 0"]
+impl crate::Resettable for ARB_CTRL_SPEC {}

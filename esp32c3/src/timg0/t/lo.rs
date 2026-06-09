@@ -1,9 +1,9 @@
 #[doc = "Register `LO` reader"]
 pub type R = crate::R<LO_SPEC>;
-#[doc = "Field `LO` reader - t0_lo"]
+#[doc = "Field `LO` reader - After writing to TIMG_T0UPDATE_REG, the low 32 bits of the time-base counter of timer 0 can be read here. /"]
 pub type LO_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:31 - t0_lo"]
+    #[doc = "Bits 0:31 - After writing to TIMG_T0UPDATE_REG, the low 32 bits of the time-base counter of timer 0 can be read here. /"]
     #[inline(always)]
     pub fn lo(&self) -> LO_R {
         LO_R::new(self.bits)
@@ -15,7 +15,7 @@ impl core::fmt::Debug for R {
         f.debug_struct("LO").field("lo", &self.lo()).finish()
     }
 }
-#[doc = "TIMG_T0LO_REG.\n\nYou can [`read`](crate::Reg::read) this register and get [`lo::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Timer 0 current value, low 32 bits /\n\nYou can [`read`](crate::Reg::read) this register and get [`lo::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct LO_SPEC;
 impl crate::RegisterSpec for LO_SPEC {
     type Ux = u32;

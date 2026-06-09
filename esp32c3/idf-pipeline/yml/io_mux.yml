@@ -1,0 +1,94 @@
+peripherals:
+  - name: IO_MUX
+    register_groups:
+      - description: registers
+        registers:
+          - name: PIN_CTRL
+            description: "Clock Output Configuration Register"
+            addr: 0
+            fields:
+              - name: CLK_OUT1
+                description: "If you want to output clock for I2S to CLK_OUT_out1, set this register to 0x0. CLK_OUT_out1 can be found in peripheral output signals."
+                shift: 0
+                mask: 15
+                access: R/W
+              - name: CLK_OUT2
+                description: "If you want to output clock for I2S to CLK_OUT_out2, set this register to 0x0. CLK_OUT_out2 can be found in peripheral output signals."
+                shift: 4
+                mask: 240
+                access: R/W
+              - name: CLK_OUT3
+                description: "If you want to output clock for I2S to CLK_OUT_out3, set this register to 0x0. CLK_OUT_out3 can be found in peripheral output signals."
+                shift: 8
+                mask: 3840
+                access: R/W
+          - name: GPIO%s
+            description: "IO MUX Configure Register for pad XTAL_32K_P"
+            addr: 4
+            dim: 22
+            dim_increment: 4
+            fields:
+              - name: MCU_OE
+                description: "Output enable of the pad in sleep mode. 1: output enabled; 0: output disabled."
+                shift: 0
+                mask: 1
+                access: R/W
+              - name: SLP_SEL
+                description: "Sleep mode selection of this pad. Set to 1 to put the pad in pad mode."
+                shift: 1
+                mask: 2
+                access: R/W
+              - name: MCU_WPD
+                description: "Pull-down enable of the pad in sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled."
+                shift: 2
+                mask: 4
+                access: R/W
+              - name: MCU_WPU
+                description: "Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled."
+                shift: 3
+                mask: 8
+                access: R/W
+              - name: MCU_IE
+                description: "Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled."
+                shift: 4
+                mask: 16
+                access: R/W
+              - name: FUN_WPD
+                description: "Pull-down enable of the pad. 1: internal pull-down enabled; 0: internal pull-down disabled."
+                shift: 7
+                mask: 128
+                access: R/W
+              - name: FUN_WPU
+                description: "Pull-up enable of the pad. 1: internal pull-up enabled; 0: internal pull-up disabled."
+                shift: 8
+                mask: 256
+                access: R/W
+              - name: FUN_IE
+                description: "Input enable of the pad. 1: input enabled; 0: input disabled."
+                shift: 9
+                mask: 512
+                access: R/W
+              - name: FUN_DRV
+                description: "Select the drive strength of the pad. 0: ~5 mA; 1: ~10mA; 2: ~20mA; 3: ~40mA."
+                shift: 10
+                mask: 3072
+                access: R/W
+              - name: MCU_SEL
+                description: "Select IO MUX function for this signal. 0: Select Function 1; 1: Select Function 2; etc."
+                shift: 12
+                mask: 28672
+                access: R/W
+              - name: FILTER_EN
+                description: "Enable filter for pin input signals. 1: Filter enabled; 2: Filter disabled."
+                shift: 15
+                mask: 32768
+                access: R/W
+          - name: DATE
+            description: "IO MUX Version Control Register"
+            addr: 252
+            fields:
+              - name: REG_DATE
+                description: "Version control register"
+                shift: 0
+                mask: 268435455
+                access: R/W

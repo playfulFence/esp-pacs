@@ -1,0 +1,166 @@
+peripherals:
+  - name: HMAC
+    register_groups:
+      - description: registers
+        registers:
+          - name: SET_START
+            description: "Process control register 0."
+            addr: 64
+            fields:
+              - name: SET_START
+                description: "Start hmac operation."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_PARA_PURPOSE
+            description: "Configure purpose."
+            addr: 68
+            fields:
+              - name: PURPOSE_SET
+                description: "Set hmac parameter purpose."
+                shift: 0
+                mask: 15
+                access: WO
+          - name: SET_PARA_KEY
+            description: "Configure key."
+            addr: 72
+            fields:
+              - name: KEY_SET
+                description: "Set hmac parameter key."
+                shift: 0
+                mask: 7
+                access: WO
+          - name: SET_PARA_FINISH
+            description: "Finish initial configuration."
+            addr: 76
+            fields:
+              - name: SET_PARA_END
+                description: "Finish hmac configuration."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_MESSAGE_ONE
+            description: "Process control register 1."
+            addr: 80
+            fields:
+              - name: SET_TEXT_ONE
+                description: "Call SHA to calculate one message block."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_MESSAGE_ING
+            description: "Process control register 2."
+            addr: 84
+            fields:
+              - name: SET_TEXT_ING
+                description: "Continue typical hmac."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_MESSAGE_END
+            description: "Process control register 3."
+            addr: 88
+            fields:
+              - name: SET_TEXT_END
+                description: "Start hardware padding."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_RESULT_FINISH
+            description: "Process control register 4."
+            addr: 92
+            fields:
+              - name: SET_RESULT_END
+                description: "After read result from upstream, then let hmac back to idle."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_INVALIDATE_JTAG
+            description: "Invalidate register 0."
+            addr: 96
+            fields:
+              - name: SET_INVALIDATE_JTAG
+                description: "Clear result from hmac downstream JTAG."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_INVALIDATE_DS
+            description: "Invalidate register 1."
+            addr: 100
+            fields:
+              - name: SET_INVALIDATE_DS
+                description: "Clear result from hmac downstream DS."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: QUERY_ERROR
+            description: "Error register."
+            addr: 104
+            fields:
+              - name: QUREY_CHECK
+                description: "Hmac configuration state. 0: key are agree with purpose. 1: error"
+                shift: 0
+                mask: 1
+                access: RO
+          - name: QUERY_BUSY
+            description: "Busy register."
+            addr: 108
+            fields:
+              - name: BUSY_STATE
+                description: "Hmac state. 1b0: idle. 1b1: busy"
+                shift: 0
+                mask: 1
+                access: RO
+          - name: WR_MESSAGE_MEM[%s]
+            description: "Message block memory."
+            addr: 128
+            size: 8
+          - name: RD_RESULT_MEM[%s]
+            description: "Result from upstream."
+            addr: 192
+            size: 8
+          - name: SET_MESSAGE_PAD
+            description: "Process control register 5."
+            addr: 240
+            fields:
+              - name: SET_TEXT_PAD
+                description: "Start software padding."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: ONE_BLOCK
+            description: "Process control register 6."
+            addr: 244
+            fields:
+              - name: SET_ONE_BLOCK
+                description: "Dont have to do padding."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SOFT_JTAG_CTRL
+            description: "Jtag register 0."
+            addr: 248
+            fields:
+              - name: SOFT_JTAG_CTRL
+                description: "Turn on JTAG verification."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: DATE
+            description: "Date register."
+            addr: 248
+            fields:
+              - name: DATE
+                description: "Hmac date information/ hmac version information."
+                shift: 0
+                mask: 1073741823
+                access: R/W
+          - name: WR_JTAG
+            description: "Jtag register 1."
+            addr: 252
+            fields:
+              - name: WR_JTAG
+                description: "32-bit of key to be compared."
+                shift: 0
+                mask: 4294967295
+                access: WO

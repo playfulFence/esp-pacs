@@ -30,21 +30,21 @@ pub type OCD_HALT_ON_RESET_APPCPU_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type OCD_HALT_ON_RESET_PROCPU_R = crate::BitReader;
 #[doc = "Field `OCD_HALT_ON_RESET_PROCPU` writer - PROCPU OcdHaltOnReset"]
 pub type OCD_HALT_ON_RESET_PROCPU_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `JTAG_RESET_FLAG_PROCPU` reader - configure jtag reset configure"]
+#[doc = "Field `JTAG_RESET_FLAG_PROCPU` reader - "]
 pub type JTAG_RESET_FLAG_PROCPU_R = crate::BitReader;
-#[doc = "Field `JTAG_RESET_FLAG_APPCPU` reader - configure jtag reset configure"]
+#[doc = "Field `JTAG_RESET_FLAG_APPCPU` reader - "]
 pub type JTAG_RESET_FLAG_APPCPU_R = crate::BitReader;
-#[doc = "Field `JTAG_RESET_FLAG_CLR_PROCPU` writer - configure jtag reset configure"]
+#[doc = "Field `JTAG_RESET_FLAG_CLR_PROCPU` writer - "]
 pub type JTAG_RESET_FLAG_CLR_PROCPU_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `JTAG_RESET_FLAG_CLR_APPCPU` writer - configure jtag reset configure"]
+#[doc = "Field `JTAG_RESET_FLAG_CLR_APPCPU` writer - "]
 pub type JTAG_RESET_FLAG_CLR_APPCPU_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `DRESET_MASK_APPCPU` reader - configure dreset configure"]
+#[doc = "Field `DRESET_MASK_APPCPU` reader - "]
 pub type DRESET_MASK_APPCPU_R = crate::BitReader;
-#[doc = "Field `DRESET_MASK_APPCPU` writer - configure dreset configure"]
+#[doc = "Field `DRESET_MASK_APPCPU` writer - "]
 pub type DRESET_MASK_APPCPU_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `DRESET_MASK_PROCPU` reader - configure dreset configure"]
+#[doc = "Field `DRESET_MASK_PROCPU` reader - "]
 pub type DRESET_MASK_PROCPU_R = crate::BitReader;
-#[doc = "Field `DRESET_MASK_PROCPU` writer - configure dreset configure"]
+#[doc = "Field `DRESET_MASK_PROCPU` writer - "]
 pub type DRESET_MASK_PROCPU_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:5 - reset cause of PRO CPU"]
@@ -87,22 +87,22 @@ impl R {
     pub fn ocd_halt_on_reset_procpu(&self) -> OCD_HALT_ON_RESET_PROCPU_R {
         OCD_HALT_ON_RESET_PROCPU_R::new(((self.bits >> 19) & 1) != 0)
     }
-    #[doc = "Bit 20 - configure jtag reset configure"]
+    #[doc = "Bit 20"]
     #[inline(always)]
     pub fn jtag_reset_flag_procpu(&self) -> JTAG_RESET_FLAG_PROCPU_R {
         JTAG_RESET_FLAG_PROCPU_R::new(((self.bits >> 20) & 1) != 0)
     }
-    #[doc = "Bit 21 - configure jtag reset configure"]
+    #[doc = "Bit 21"]
     #[inline(always)]
     pub fn jtag_reset_flag_appcpu(&self) -> JTAG_RESET_FLAG_APPCPU_R {
         JTAG_RESET_FLAG_APPCPU_R::new(((self.bits >> 21) & 1) != 0)
     }
-    #[doc = "Bit 24 - configure dreset configure"]
+    #[doc = "Bit 24"]
     #[inline(always)]
     pub fn dreset_mask_appcpu(&self) -> DRESET_MASK_APPCPU_R {
         DRESET_MASK_APPCPU_R::new(((self.bits >> 24) & 1) != 0)
     }
-    #[doc = "Bit 25 - configure dreset configure"]
+    #[doc = "Bit 25"]
     #[inline(always)]
     pub fn dreset_mask_procpu(&self) -> DRESET_MASK_PROCPU_R {
         DRESET_MASK_PROCPU_R::new(((self.bits >> 25) & 1) != 0)
@@ -112,18 +112,18 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("RESET_STATE")
-            .field("reset_cause_procpu", &self.reset_cause_procpu())
-            .field("reset_cause_appcpu", &self.reset_cause_appcpu())
-            .field("stat_vector_sel_appcpu", &self.stat_vector_sel_appcpu())
-            .field("stat_vector_sel_procpu", &self.stat_vector_sel_procpu())
-            .field("all_reset_flag_procpu", &self.all_reset_flag_procpu())
-            .field("all_reset_flag_appcpu", &self.all_reset_flag_appcpu())
-            .field("ocd_halt_on_reset_appcpu", &self.ocd_halt_on_reset_appcpu())
-            .field("ocd_halt_on_reset_procpu", &self.ocd_halt_on_reset_procpu())
-            .field("jtag_reset_flag_procpu", &self.jtag_reset_flag_procpu())
-            .field("jtag_reset_flag_appcpu", &self.jtag_reset_flag_appcpu())
-            .field("dreset_mask_appcpu", &self.dreset_mask_appcpu())
             .field("dreset_mask_procpu", &self.dreset_mask_procpu())
+            .field("dreset_mask_appcpu", &self.dreset_mask_appcpu())
+            .field("jtag_reset_flag_appcpu", &self.jtag_reset_flag_appcpu())
+            .field("jtag_reset_flag_procpu", &self.jtag_reset_flag_procpu())
+            .field("ocd_halt_on_reset_procpu", &self.ocd_halt_on_reset_procpu())
+            .field("ocd_halt_on_reset_appcpu", &self.ocd_halt_on_reset_appcpu())
+            .field("all_reset_flag_appcpu", &self.all_reset_flag_appcpu())
+            .field("all_reset_flag_procpu", &self.all_reset_flag_procpu())
+            .field("stat_vector_sel_procpu", &self.stat_vector_sel_procpu())
+            .field("stat_vector_sel_appcpu", &self.stat_vector_sel_appcpu())
+            .field("reset_cause_appcpu", &self.reset_cause_appcpu())
+            .field("reset_cause_procpu", &self.reset_cause_procpu())
             .finish()
     }
 }
@@ -162,32 +162,32 @@ impl W {
     pub fn ocd_halt_on_reset_procpu(&mut self) -> OCD_HALT_ON_RESET_PROCPU_W<'_, RESET_STATE_SPEC> {
         OCD_HALT_ON_RESET_PROCPU_W::new(self, 19)
     }
-    #[doc = "Bit 22 - configure jtag reset configure"]
+    #[doc = "Bit 22"]
     #[inline(always)]
     pub fn jtag_reset_flag_clr_procpu(
         &mut self,
     ) -> JTAG_RESET_FLAG_CLR_PROCPU_W<'_, RESET_STATE_SPEC> {
         JTAG_RESET_FLAG_CLR_PROCPU_W::new(self, 22)
     }
-    #[doc = "Bit 23 - configure jtag reset configure"]
+    #[doc = "Bit 23"]
     #[inline(always)]
     pub fn jtag_reset_flag_clr_appcpu(
         &mut self,
     ) -> JTAG_RESET_FLAG_CLR_APPCPU_W<'_, RESET_STATE_SPEC> {
         JTAG_RESET_FLAG_CLR_APPCPU_W::new(self, 23)
     }
-    #[doc = "Bit 24 - configure dreset configure"]
+    #[doc = "Bit 24"]
     #[inline(always)]
     pub fn dreset_mask_appcpu(&mut self) -> DRESET_MASK_APPCPU_W<'_, RESET_STATE_SPEC> {
         DRESET_MASK_APPCPU_W::new(self, 24)
     }
-    #[doc = "Bit 25 - configure dreset configure"]
+    #[doc = "Bit 25"]
     #[inline(always)]
     pub fn dreset_mask_procpu(&mut self) -> DRESET_MASK_PROCPU_W<'_, RESET_STATE_SPEC> {
         DRESET_MASK_PROCPU_W::new(self, 25)
     }
 }
-#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`reset_state::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`reset_state::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`reset_state::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`reset_state::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RESET_STATE_SPEC;
 impl crate::RegisterSpec for RESET_STATE_SPEC {
     type Ux = u32;
@@ -198,7 +198,5 @@ impl crate::Readable for RESET_STATE_SPEC {}
 impl crate::Writable for RESET_STATE_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets RESET_STATE to value 0x3000"]
-impl crate::Resettable for RESET_STATE_SPEC {
-    const RESET_VALUE: u32 = 0x3000;
-}
+#[doc = "`reset()` method sets RESET_STATE to value 0"]
+impl crate::Resettable for RESET_STATE_SPEC {}

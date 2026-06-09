@@ -28,7 +28,7 @@ impl W {
         RX_GAP_TOUT_W::new(self, 0)
     }
 }
-#[doc = "Timeout configuration\n\nYou can [`read`](crate::Reg::read) this register and get [`at_cmd_gaptout::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`at_cmd_gaptout::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`at_cmd_gaptout::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`at_cmd_gaptout::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AT_CMD_GAPTOUT_SPEC;
 impl crate::RegisterSpec for AT_CMD_GAPTOUT_SPEC {
     type Ux = u32;
@@ -39,7 +39,5 @@ impl crate::Readable for AT_CMD_GAPTOUT_SPEC {}
 impl crate::Writable for AT_CMD_GAPTOUT_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets AT_CMD_GAPTOUT to value 0x0b"]
-impl crate::Resettable for AT_CMD_GAPTOUT_SPEC {
-    const RESET_VALUE: u32 = 0x0b;
-}
+#[doc = "`reset()` method sets AT_CMD_GAPTOUT to value 0"]
+impl crate::Resettable for AT_CMD_GAPTOUT_SPEC {}

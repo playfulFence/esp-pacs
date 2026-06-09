@@ -16,7 +16,7 @@ pub type SWD_R = crate::BitReader;
 pub type XTAL32K_DEAD_R = crate::BitReader;
 #[doc = "Field `GLITCH_DET` reader - glitch_det_interrupt_raw"]
 pub type GLITCH_DET_R = crate::BitReader;
-#[doc = "Field `BBPLL_CAL` reader - bbpll cal end interrupt state"]
+#[doc = "Field `BBPLL_CAL` reader - "]
 pub type BBPLL_CAL_R = crate::BitReader;
 impl R {
     #[doc = "Bit 0 - sleep wakeup interrupt raw"]
@@ -59,7 +59,7 @@ impl R {
     pub fn glitch_det(&self) -> GLITCH_DET_R {
         GLITCH_DET_R::new(((self.bits >> 19) & 1) != 0)
     }
-    #[doc = "Bit 20 - bbpll cal end interrupt state"]
+    #[doc = "Bit 20"]
     #[inline(always)]
     pub fn bbpll_cal(&self) -> BBPLL_CAL_R {
         BBPLL_CAL_R::new(((self.bits >> 20) & 1) != 0)
@@ -69,19 +69,19 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("INT_RAW")
-            .field("slp_wakeup", &self.slp_wakeup())
-            .field("slp_reject", &self.slp_reject())
-            .field("wdt", &self.wdt())
-            .field("brown_out", &self.brown_out())
-            .field("main_timer", &self.main_timer())
-            .field("swd", &self.swd())
-            .field("xtal32k_dead", &self.xtal32k_dead())
-            .field("glitch_det", &self.glitch_det())
             .field("bbpll_cal", &self.bbpll_cal())
+            .field("glitch_det", &self.glitch_det())
+            .field("xtal32k_dead", &self.xtal32k_dead())
+            .field("swd", &self.swd())
+            .field("main_timer", &self.main_timer())
+            .field("brown_out", &self.brown_out())
+            .field("wdt", &self.wdt())
+            .field("slp_reject", &self.slp_reject())
+            .field("slp_wakeup", &self.slp_wakeup())
             .finish()
     }
 }
-#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`int_raw::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`int_raw::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_RAW_SPEC;
 impl crate::RegisterSpec for INT_RAW_SPEC {
     type Ux = u32;

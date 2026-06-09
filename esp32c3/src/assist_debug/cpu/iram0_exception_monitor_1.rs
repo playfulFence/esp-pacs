@@ -1,23 +1,23 @@
 #[doc = "Register `IRAM0_EXCEPTION_MONITOR_1` reader"]
 pub type R = crate::R<IRAM0_EXCEPTION_MONITOR_1_SPEC>;
-#[doc = "Field `IRAM0_RECORDING_ADDR_1` reader - reg_core_0_iram0_recording_addr_1"]
+#[doc = "Field `IRAM0_RECORDING_ADDR_1` reader - "]
 pub type IRAM0_RECORDING_ADDR_1_R = crate::FieldReader<u32>;
-#[doc = "Field `IRAM0_RECORDING_WR_1` reader - reg_core_0_iram0_recording_wr_1"]
+#[doc = "Field `IRAM0_RECORDING_WR_1` reader - "]
 pub type IRAM0_RECORDING_WR_1_R = crate::BitReader;
-#[doc = "Field `IRAM0_RECORDING_LOADSTORE_1` reader - reg_core_0_iram0_recording_loadstore_1"]
+#[doc = "Field `IRAM0_RECORDING_LOADSTORE_1` reader - "]
 pub type IRAM0_RECORDING_LOADSTORE_1_R = crate::BitReader;
 impl R {
-    #[doc = "Bits 0:23 - reg_core_0_iram0_recording_addr_1"]
+    #[doc = "Bits 0:23"]
     #[inline(always)]
     pub fn iram0_recording_addr_1(&self) -> IRAM0_RECORDING_ADDR_1_R {
         IRAM0_RECORDING_ADDR_1_R::new(self.bits & 0x00ff_ffff)
     }
-    #[doc = "Bit 24 - reg_core_0_iram0_recording_wr_1"]
+    #[doc = "Bit 24"]
     #[inline(always)]
     pub fn iram0_recording_wr_1(&self) -> IRAM0_RECORDING_WR_1_R {
         IRAM0_RECORDING_WR_1_R::new(((self.bits >> 24) & 1) != 0)
     }
-    #[doc = "Bit 25 - reg_core_0_iram0_recording_loadstore_1"]
+    #[doc = "Bit 25"]
     #[inline(always)]
     pub fn iram0_recording_loadstore_1(&self) -> IRAM0_RECORDING_LOADSTORE_1_R {
         IRAM0_RECORDING_LOADSTORE_1_R::new(((self.bits >> 25) & 1) != 0)
@@ -27,16 +27,16 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("IRAM0_EXCEPTION_MONITOR_1")
-            .field("iram0_recording_addr_1", &self.iram0_recording_addr_1())
-            .field("iram0_recording_wr_1", &self.iram0_recording_wr_1())
             .field(
                 "iram0_recording_loadstore_1",
                 &self.iram0_recording_loadstore_1(),
             )
+            .field("iram0_recording_wr_1", &self.iram0_recording_wr_1())
+            .field("iram0_recording_addr_1", &self.iram0_recording_addr_1())
             .finish()
     }
 }
-#[doc = "ASSIST_DEBUG_CORE_0_IRAM0_EXCEPTION_MONITOR_1_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`iram0_exception_monitor_1::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`iram0_exception_monitor_1::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IRAM0_EXCEPTION_MONITOR_1_SPEC;
 impl crate::RegisterSpec for IRAM0_EXCEPTION_MONITOR_1_SPEC {
     type Ux = u32;

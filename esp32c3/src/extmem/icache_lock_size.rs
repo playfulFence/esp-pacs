@@ -2,12 +2,12 @@
 pub type R = crate::R<ICACHE_LOCK_SIZE_SPEC>;
 #[doc = "Register `ICACHE_LOCK_SIZE` writer"]
 pub type W = crate::W<ICACHE_LOCK_SIZE_SPEC>;
-#[doc = "Field `ICACHE_LOCK_SIZE` reader - The bits are used to configure the length for lock operations. The bits are the counts of cache block. It should be combined with ICACHE_LOCK_ADDR_REG."]
+#[doc = "Field `ICACHE_LOCK_SIZE` reader - The bits are used to configure the length for lock operations."]
 pub type ICACHE_LOCK_SIZE_R = crate::FieldReader<u16>;
-#[doc = "Field `ICACHE_LOCK_SIZE` writer - The bits are used to configure the length for lock operations. The bits are the counts of cache block. It should be combined with ICACHE_LOCK_ADDR_REG."]
+#[doc = "Field `ICACHE_LOCK_SIZE` writer - The bits are used to configure the length for lock operations."]
 pub type ICACHE_LOCK_SIZE_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
-    #[doc = "Bits 0:15 - The bits are used to configure the length for lock operations. The bits are the counts of cache block. It should be combined with ICACHE_LOCK_ADDR_REG."]
+    #[doc = "Bits 0:15 - The bits are used to configure the length for lock operations."]
     #[inline(always)]
     pub fn icache_lock_size(&self) -> ICACHE_LOCK_SIZE_R {
         ICACHE_LOCK_SIZE_R::new((self.bits & 0xffff) as u16)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:15 - The bits are used to configure the length for lock operations. The bits are the counts of cache block. It should be combined with ICACHE_LOCK_ADDR_REG."]
+    #[doc = "Bits 0:15 - The bits are used to configure the length for lock operations."]
     #[inline(always)]
     pub fn icache_lock_size(&mut self) -> ICACHE_LOCK_SIZE_W<'_, ICACHE_LOCK_SIZE_SPEC> {
         ICACHE_LOCK_SIZE_W::new(self, 0)
     }
 }
-#[doc = "This description will be updated in the near future.\n\nYou can [`read`](crate::Reg::read) this register and get [`icache_lock_size::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icache_lock_size::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`icache_lock_size::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icache_lock_size::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ICACHE_LOCK_SIZE_SPEC;
 impl crate::RegisterSpec for ICACHE_LOCK_SIZE_SPEC {
     type Ux = u32;

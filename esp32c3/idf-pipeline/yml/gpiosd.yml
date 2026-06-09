@@ -1,0 +1,51 @@
+peripherals:
+  - name: GPIO_SD
+    register_groups:
+      - description: registers
+        registers:
+          - name: SIGMADELTA%s
+            description: "Duty Cycle Configure Register of SDM%s"
+            addr: 0
+            fields:
+              - name: SD_IN
+                description: "This field is used to configure the duty cycle of sigma delta modulation output."
+                shift: 0
+                mask: 255
+                access: R/W
+              - name: SD_PRESCALE
+                description: "This field is used to set a divider value to divide APB clock."
+                shift: 8
+                mask: 65280
+                access: R/W
+          - name: SIGMADELTA_CG
+            description: "Clock Gating Configure Register"
+            addr: 32
+            fields:
+              - name: CLK_EN
+                description: "Clock enable bit of configuration registers for sigma delta modulation."
+                shift: 31
+                mask: 2147483648
+                access: R/W
+          - name: SIGMADELTA_MISC
+            description: "MISC Register"
+            addr: 36
+            fields:
+              - name: FUNCTION_CLK_EN
+                description: "Clock enable bit of sigma delta modulation."
+                shift: 30
+                mask: 1073741824
+                access: R/W
+              - name: SPI_SWAP
+                description: "Reserved."
+                shift: 31
+                mask: 2147483648
+                access: R/W
+          - name: SIGMADELTA_VERSION
+            description: "Version Control Register"
+            addr: 40
+            fields:
+              - name: GPIO_SD_DATE
+                description: "Version control register."
+                shift: 0
+                mask: 268435455
+                access: R/W

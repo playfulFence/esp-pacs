@@ -1,9 +1,9 @@
 #[doc = "Register `STRAP` reader"]
 pub type R = crate::R<STRAP_SPEC>;
-#[doc = "Field `STRAPPING` reader - pad strapping register"]
+#[doc = "Field `STRAPPING` reader - "]
 pub type STRAPPING_R = crate::FieldReader<u16>;
 impl R {
-    #[doc = "Bits 0:15 - pad strapping register"]
+    #[doc = "Bits 0:15"]
     #[inline(always)]
     pub fn strapping(&self) -> STRAPPING_R {
         STRAPPING_R::new((self.bits & 0xffff) as u16)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "pad strapping register\n\nYou can [`read`](crate::Reg::read) this register and get [`strap::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`strap::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct STRAP_SPEC;
 impl crate::RegisterSpec for STRAP_SPEC {
     type Ux = u32;

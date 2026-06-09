@@ -2,33 +2,33 @@
 pub type R = crate::R<STATUS_SPEC>;
 #[doc = "Register `STATUS` writer"]
 pub type W = crate::W<STATUS_SPEC>;
-#[doc = "Field `INTERRUPT` reader - GPIO interrupt status register for GPIO0-25"]
-pub type INTERRUPT_R = crate::FieldReader<u32>;
-#[doc = "Field `INTERRUPT` writer - GPIO interrupt status register for GPIO0-25"]
-pub type INTERRUPT_W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
+#[doc = "Field `STATUS_INT` reader - "]
+pub type STATUS_INT_R = crate::FieldReader<u32>;
+#[doc = "Field `STATUS_INT` writer - "]
+pub type STATUS_INT_W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
-    #[doc = "Bits 0:25 - GPIO interrupt status register for GPIO0-25"]
+    #[doc = "Bits 0:25"]
     #[inline(always)]
-    pub fn interrupt(&self) -> INTERRUPT_R {
-        INTERRUPT_R::new(self.bits & 0x03ff_ffff)
+    pub fn status_int(&self) -> STATUS_INT_R {
+        STATUS_INT_R::new(self.bits & 0x03ff_ffff)
     }
 }
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("STATUS")
-            .field("interrupt", &self.interrupt())
+            .field("status_int", &self.status_int())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bits 0:25 - GPIO interrupt status register for GPIO0-25"]
+    #[doc = "Bits 0:25"]
     #[inline(always)]
-    pub fn interrupt(&mut self) -> INTERRUPT_W<'_, STATUS_SPEC> {
-        INTERRUPT_W::new(self, 0)
+    pub fn status_int(&mut self) -> STATUS_INT_W<'_, STATUS_SPEC> {
+        STATUS_INT_W::new(self, 0)
     }
 }
-#[doc = "GPIO interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`status::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`status::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`status::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`status::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct STATUS_SPEC;
 impl crate::RegisterSpec for STATUS_SPEC {
     type Ux = u32;

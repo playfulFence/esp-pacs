@@ -35,9 +35,9 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("ESC_CONF")
-            .field("seper_char", &self.seper_char())
-            .field("seper_esc_char0", &self.seper_esc_char0())
             .field("seper_esc_char1", &self.seper_esc_char1())
+            .field("seper_esc_char0", &self.seper_esc_char0())
+            .field("seper_char", &self.seper_char())
             .finish()
     }
 }
@@ -58,7 +58,7 @@ impl W {
         SEPER_ESC_CHAR1_W::new(self, 16)
     }
 }
-#[doc = "a\n\nYou can [`read`](crate::Reg::read) this register and get [`esc_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`esc_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`esc_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`esc_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ESC_CONF_SPEC;
 impl crate::RegisterSpec for ESC_CONF_SPEC {
     type Ux = u32;
@@ -69,7 +69,5 @@ impl crate::Readable for ESC_CONF_SPEC {}
 impl crate::Writable for ESC_CONF_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets ESC_CONF%s to value 0x00dc_dbc0"]
-impl crate::Resettable for ESC_CONF_SPEC {
-    const RESET_VALUE: u32 = 0x00dc_dbc0;
-}
+#[doc = "`reset()` method sets ESC_CONF%s to value 0"]
+impl crate::Resettable for ESC_CONF_SPEC {}

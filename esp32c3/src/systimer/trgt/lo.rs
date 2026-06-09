@@ -2,12 +2,12 @@
 pub type R = crate::R<LO_SPEC>;
 #[doc = "Register `LO` writer"]
 pub type W = crate::W<LO_SPEC>;
-#[doc = "Field `LO` reader - timer taget0 low 32 bit"]
+#[doc = "Field `LO` reader - timer taget0 low 32 bit /"]
 pub type LO_R = crate::FieldReader<u32>;
-#[doc = "Field `LO` writer - timer taget0 low 32 bit"]
+#[doc = "Field `LO` writer - timer taget0 low 32 bit /"]
 pub type LO_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32, crate::Safe>;
 impl R {
-    #[doc = "Bits 0:31 - timer taget0 low 32 bit"]
+    #[doc = "Bits 0:31 - timer taget0 low 32 bit /"]
     #[inline(always)]
     pub fn lo(&self) -> LO_R {
         LO_R::new(self.bits)
@@ -20,13 +20,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - timer taget0 low 32 bit"]
+    #[doc = "Bits 0:31 - timer taget0 low 32 bit /"]
     #[inline(always)]
     pub fn lo(&mut self) -> LO_W<'_, LO_SPEC> {
         LO_W::new(self, 0)
     }
 }
-#[doc = "SYSTIMER_TARGET0_LO.\n\nYou can [`read`](crate::Reg::read) this register and get [`lo::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`lo::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SYSTIMER_TARGET0_LO. /\n\nYou can [`read`](crate::Reg::read) this register and get [`lo::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`lo::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct LO_SPEC;
 impl crate::RegisterSpec for LO_SPEC {
     type Ux = u32;

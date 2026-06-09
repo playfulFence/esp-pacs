@@ -28,7 +28,7 @@ impl W {
         WAKEUP_ENA_W::new(self, 15)
     }
 }
-#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`wakeup_state::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wakeup_state::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`wakeup_state::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wakeup_state::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct WAKEUP_STATE_SPEC;
 impl crate::RegisterSpec for WAKEUP_STATE_SPEC {
     type Ux = u32;
@@ -39,7 +39,5 @@ impl crate::Readable for WAKEUP_STATE_SPEC {}
 impl crate::Writable for WAKEUP_STATE_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets WAKEUP_STATE to value 0x0006_0000"]
-impl crate::Resettable for WAKEUP_STATE_SPEC {
-    const RESET_VALUE: u32 = 0x0006_0000;
-}
+#[doc = "`reset()` method sets WAKEUP_STATE to value 0"]
+impl crate::Resettable for WAKEUP_STATE_SPEC {}

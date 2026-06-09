@@ -2,12 +2,12 @@
 pub type R = crate::R<WDTWPROTECT_SPEC>;
 #[doc = "Register `WDTWPROTECT` writer"]
 pub type W = crate::W<WDTWPROTECT_SPEC>;
-#[doc = "Field `WDT_WKEY` reader - the key of rtc wdt"]
+#[doc = "Field `WDT_WKEY` reader - "]
 pub type WDT_WKEY_R = crate::FieldReader<u32>;
-#[doc = "Field `WDT_WKEY` writer - the key of rtc wdt"]
+#[doc = "Field `WDT_WKEY` writer - "]
 pub type WDT_WKEY_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31 - the key of rtc wdt"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn wdt_wkey(&self) -> WDT_WKEY_R {
         WDT_WKEY_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - the key of rtc wdt"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn wdt_wkey(&mut self) -> WDT_WKEY_W<'_, WDTWPROTECT_SPEC> {
         WDT_WKEY_W::new(self, 0)
     }
 }
-#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`wdtwprotect::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdtwprotect::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`wdtwprotect::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wdtwprotect::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct WDTWPROTECT_SPEC;
 impl crate::RegisterSpec for WDTWPROTECT_SPEC {
     type Ux = u32;

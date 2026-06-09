@@ -39,7 +39,5 @@ impl crate::Readable for CONSTANT_TIME_SPEC {}
 impl crate::Writable for CONSTANT_TIME_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CONSTANT_TIME to value 0x01"]
-impl crate::Resettable for CONSTANT_TIME_SPEC {
-    const RESET_VALUE: u32 = 0x01;
-}
+#[doc = "`reset()` method sets CONSTANT_TIME to value 0"]
+impl crate::Resettable for CONSTANT_TIME_SPEC {}

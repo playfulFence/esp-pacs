@@ -53,11 +53,11 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("INT_ENA")
-            .field("per_end", &self.per_end())
-            .field("pes_end", &self.pes_end())
-            .field("wpe_end", &self.wpe_end())
-            .field("slv_st_end", &self.slv_st_end())
             .field("mst_st_end", &self.mst_st_end())
+            .field("slv_st_end", &self.slv_st_end())
+            .field("wpe_end", &self.wpe_end())
+            .field("pes_end", &self.pes_end())
+            .field("per_end", &self.per_end())
             .finish()
     }
 }
@@ -88,7 +88,7 @@ impl W {
         MST_ST_END_W::new(self, 4)
     }
 }
-#[doc = "SPI1 interrupt enable register\n\nYou can [`read`](crate::Reg::read) this register and get [`int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_ENA_SPEC;
 impl crate::RegisterSpec for INT_ENA_SPEC {
     type Ux = u32;

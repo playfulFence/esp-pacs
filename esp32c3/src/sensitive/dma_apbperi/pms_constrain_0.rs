@@ -2,12 +2,12 @@
 pub type R = crate::R<PMS_CONSTRAIN_0_SPEC>;
 #[doc = "Register `PMS_CONSTRAIN_0` writer"]
 pub type W = crate::W<PMS_CONSTRAIN_0_SPEC>;
-#[doc = "Field `DMA_APBPERI_SPI2_PMS_CONSTRAIN_LOCK` reader - dma_apbperi_spi2_pms_constrain_lock"]
+#[doc = "Field `DMA_APBPERI_SPI2_PMS_CONSTRAIN_LOCK` reader - "]
 pub type DMA_APBPERI_SPI2_PMS_CONSTRAIN_LOCK_R = crate::BitReader;
-#[doc = "Field `DMA_APBPERI_SPI2_PMS_CONSTRAIN_LOCK` writer - dma_apbperi_spi2_pms_constrain_lock"]
+#[doc = "Field `DMA_APBPERI_SPI2_PMS_CONSTRAIN_LOCK` writer - "]
 pub type DMA_APBPERI_SPI2_PMS_CONSTRAIN_LOCK_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - dma_apbperi_spi2_pms_constrain_lock"]
+    #[doc = "Bit 0"]
     #[inline(always)]
     pub fn dma_apbperi_spi2_pms_constrain_lock(&self) -> DMA_APBPERI_SPI2_PMS_CONSTRAIN_LOCK_R {
         DMA_APBPERI_SPI2_PMS_CONSTRAIN_LOCK_R::new((self.bits & 1) != 0)
@@ -25,7 +25,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - dma_apbperi_spi2_pms_constrain_lock"]
+    #[doc = "Bit 0"]
     #[inline(always)]
     pub fn dma_apbperi_spi2_pms_constrain_lock(
         &mut self,
@@ -33,7 +33,7 @@ impl W {
         DMA_APBPERI_SPI2_PMS_CONSTRAIN_LOCK_W::new(self, 0)
     }
 }
-#[doc = "SENSITIVE_DMA_APBPERI_SPI2_PMS_CONSTRAIN_0_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`pms_constrain_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pms_constrain_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`pms_constrain_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pms_constrain_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PMS_CONSTRAIN_0_SPEC;
 impl crate::RegisterSpec for PMS_CONSTRAIN_0_SPEC {
     type Ux = u32;

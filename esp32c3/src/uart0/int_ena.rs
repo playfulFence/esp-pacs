@@ -188,26 +188,26 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("INT_ENA")
-            .field("rxfifo_full", &self.rxfifo_full())
-            .field("txfifo_empty", &self.txfifo_empty())
-            .field("parity_err", &self.parity_err())
-            .field("frm_err", &self.frm_err())
-            .field("rxfifo_ovf", &self.rxfifo_ovf())
-            .field("dsr_chg", &self.dsr_chg())
-            .field("cts_chg", &self.cts_chg())
-            .field("brk_det", &self.brk_det())
-            .field("rxfifo_tout", &self.rxfifo_tout())
-            .field("sw_xon", &self.sw_xon())
-            .field("sw_xoff", &self.sw_xoff())
-            .field("glitch_det", &self.glitch_det())
-            .field("tx_brk_done", &self.tx_brk_done())
-            .field("tx_brk_idle_done", &self.tx_brk_idle_done())
-            .field("tx_done", &self.tx_done())
-            .field("rs485_parity_err", &self.rs485_parity_err())
-            .field("rs485_frm_err", &self.rs485_frm_err())
-            .field("rs485_clash", &self.rs485_clash())
-            .field("at_cmd_char_det", &self.at_cmd_char_det())
             .field("wakeup", &self.wakeup())
+            .field("at_cmd_char_det", &self.at_cmd_char_det())
+            .field("rs485_clash", &self.rs485_clash())
+            .field("rs485_frm_err", &self.rs485_frm_err())
+            .field("rs485_parity_err", &self.rs485_parity_err())
+            .field("tx_done", &self.tx_done())
+            .field("tx_brk_idle_done", &self.tx_brk_idle_done())
+            .field("tx_brk_done", &self.tx_brk_done())
+            .field("glitch_det", &self.glitch_det())
+            .field("sw_xoff", &self.sw_xoff())
+            .field("sw_xon", &self.sw_xon())
+            .field("rxfifo_tout", &self.rxfifo_tout())
+            .field("brk_det", &self.brk_det())
+            .field("cts_chg", &self.cts_chg())
+            .field("dsr_chg", &self.dsr_chg())
+            .field("rxfifo_ovf", &self.rxfifo_ovf())
+            .field("frm_err", &self.frm_err())
+            .field("parity_err", &self.parity_err())
+            .field("txfifo_empty", &self.txfifo_empty())
+            .field("rxfifo_full", &self.rxfifo_full())
             .finish()
     }
 }
@@ -313,7 +313,7 @@ impl W {
         WAKEUP_W::new(self, 19)
     }
 }
-#[doc = "Interrupt enable bits\n\nYou can [`read`](crate::Reg::read) this register and get [`int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_ENA_SPEC;
 impl crate::RegisterSpec for INT_ENA_SPEC {
     type Ux = u32;

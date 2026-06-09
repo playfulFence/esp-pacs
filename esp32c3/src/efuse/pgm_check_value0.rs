@@ -2,12 +2,12 @@
 pub type R = crate::R<PGM_CHECK_VALUE0_SPEC>;
 #[doc = "Register `PGM_CHECK_VALUE0` writer"]
 pub type W = crate::W<PGM_CHECK_VALUE0_SPEC>;
-#[doc = "Field `PGM_RS_DATA_0` reader - The content of the 0th 32-bit RS code to be programmed."]
+#[doc = "Field `PGM_RS_DATA_0` reader - The content of the 0th 32-bit RS code to be programmed. /"]
 pub type PGM_RS_DATA_0_R = crate::FieldReader<u32>;
-#[doc = "Field `PGM_RS_DATA_0` writer - The content of the 0th 32-bit RS code to be programmed."]
+#[doc = "Field `PGM_RS_DATA_0` writer - The content of the 0th 32-bit RS code to be programmed. /"]
 pub type PGM_RS_DATA_0_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31 - The content of the 0th 32-bit RS code to be programmed."]
+    #[doc = "Bits 0:31 - The content of the 0th 32-bit RS code to be programmed. /"]
     #[inline(always)]
     pub fn pgm_rs_data_0(&self) -> PGM_RS_DATA_0_R {
         PGM_RS_DATA_0_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - The content of the 0th 32-bit RS code to be programmed."]
+    #[doc = "Bits 0:31 - The content of the 0th 32-bit RS code to be programmed. /"]
     #[inline(always)]
     pub fn pgm_rs_data_0(&mut self) -> PGM_RS_DATA_0_W<'_, PGM_CHECK_VALUE0_SPEC> {
         PGM_RS_DATA_0_W::new(self, 0)
     }
 }
-#[doc = "Register 0 that stores the RS code to be programmed.\n\nYou can [`read`](crate::Reg::read) this register and get [`pgm_check_value0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pgm_check_value0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Register 0 that stores the RS code to be programmed. /\n\nYou can [`read`](crate::Reg::read) this register and get [`pgm_check_value0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pgm_check_value0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PGM_CHECK_VALUE0_SPEC;
 impl crate::RegisterSpec for PGM_CHECK_VALUE0_SPEC {
     type Ux = u32;

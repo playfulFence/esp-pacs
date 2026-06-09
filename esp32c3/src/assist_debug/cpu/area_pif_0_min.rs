@@ -2,12 +2,12 @@
 pub type R = crate::R<AREA_PIF_0_MIN_SPEC>;
 #[doc = "Register `AREA_PIF_0_MIN` writer"]
 pub type W = crate::W<AREA_PIF_0_MIN_SPEC>;
-#[doc = "Field `AREA_PIF_0_MIN` reader - reg_core_0_area_pif_0_min"]
+#[doc = "Field `AREA_PIF_0_MIN` reader - "]
 pub type AREA_PIF_0_MIN_R = crate::FieldReader<u32>;
-#[doc = "Field `AREA_PIF_0_MIN` writer - reg_core_0_area_pif_0_min"]
+#[doc = "Field `AREA_PIF_0_MIN` writer - "]
 pub type AREA_PIF_0_MIN_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31 - reg_core_0_area_pif_0_min"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn area_pif_0_min(&self) -> AREA_PIF_0_MIN_R {
         AREA_PIF_0_MIN_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - reg_core_0_area_pif_0_min"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn area_pif_0_min(&mut self) -> AREA_PIF_0_MIN_W<'_, AREA_PIF_0_MIN_SPEC> {
         AREA_PIF_0_MIN_W::new(self, 0)
     }
 }
-#[doc = "ASSIST_DEBUG_CORE_0_AREA_PIF_0_MIN_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`area_pif_0_min::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`area_pif_0_min::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`area_pif_0_min::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`area_pif_0_min::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AREA_PIF_0_MIN_SPEC;
 impl crate::RegisterSpec for AREA_PIF_0_MIN_SPEC {
     type Ux = u32;
@@ -39,7 +39,5 @@ impl crate::Readable for AREA_PIF_0_MIN_SPEC {}
 impl crate::Writable for AREA_PIF_0_MIN_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets AREA_PIF_0_MIN to value 0xffff_ffff"]
-impl crate::Resettable for AREA_PIF_0_MIN_SPEC {
-    const RESET_VALUE: u32 = 0xffff_ffff;
-}
+#[doc = "`reset()` method sets AREA_PIF_0_MIN to value 0"]
+impl crate::Resettable for AREA_PIF_0_MIN_SPEC {}

@@ -2,12 +2,12 @@
 pub type R = crate::R<PERI_BACKUP_MEM_ADDR_SPEC>;
 #[doc = "Register `PERI_BACKUP_MEM_ADDR` writer"]
 pub type W = crate::W<PERI_BACKUP_MEM_ADDR_SPEC>;
-#[doc = "Field `BACKUP_MEM_START_ADDR` reader - reg_backup_mem_start_addr"]
+#[doc = "Field `BACKUP_MEM_START_ADDR` reader - "]
 pub type BACKUP_MEM_START_ADDR_R = crate::FieldReader<u32>;
-#[doc = "Field `BACKUP_MEM_START_ADDR` writer - reg_backup_mem_start_addr"]
+#[doc = "Field `BACKUP_MEM_START_ADDR` writer - "]
 pub type BACKUP_MEM_START_ADDR_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31 - reg_backup_mem_start_addr"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn backup_mem_start_addr(&self) -> BACKUP_MEM_START_ADDR_R {
         BACKUP_MEM_START_ADDR_R::new(self.bits)
@@ -22,7 +22,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - reg_backup_mem_start_addr"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn backup_mem_start_addr(
         &mut self,

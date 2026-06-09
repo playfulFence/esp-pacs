@@ -2,12 +2,12 @@
 pub type R = crate::R<WDTCONFIG_SPEC>;
 #[doc = "Register `WDTCONFIG%s` writer"]
 pub type W = crate::W<WDTCONFIG_SPEC>;
-#[doc = "Field `HOLD` reader - reg_wdt_stg0_hold."]
+#[doc = "Field `HOLD` reader - Stage 0 timeout value, in MWDT clock cycles. /"]
 pub type HOLD_R = crate::FieldReader<u32>;
-#[doc = "Field `HOLD` writer - reg_wdt_stg0_hold."]
+#[doc = "Field `HOLD` writer - Stage 0 timeout value, in MWDT clock cycles. /"]
 pub type HOLD_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31 - reg_wdt_stg0_hold."]
+    #[doc = "Bits 0:31 - Stage 0 timeout value, in MWDT clock cycles. /"]
     #[inline(always)]
     pub fn hold(&self) -> HOLD_R {
         HOLD_R::new(self.bits)
@@ -22,7 +22,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - reg_wdt_stg0_hold."]
+    #[doc = "Bits 0:31 - Stage 0 timeout value, in MWDT clock cycles. /"]
     #[inline(always)]
     pub fn hold(&mut self) -> HOLD_W<'_, WDTCONFIG_SPEC> {
         HOLD_W::new(self, 0)
@@ -39,7 +39,5 @@ impl crate::Readable for WDTCONFIG_SPEC {}
 impl crate::Writable for WDTCONFIG_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets WDTCONFIG%s to value 0x018c_ba80"]
-impl crate::Resettable for WDTCONFIG_SPEC {
-    const RESET_VALUE: u32 = 0x018c_ba80;
-}
+#[doc = "`reset()` method sets WDTCONFIG%s to value 0"]
+impl crate::Resettable for WDTCONFIG_SPEC {}

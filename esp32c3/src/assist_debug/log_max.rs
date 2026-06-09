@@ -2,12 +2,12 @@
 pub type R = crate::R<LOG_MAX_SPEC>;
 #[doc = "Register `LOG_MAX` writer"]
 pub type W = crate::W<LOG_MAX_SPEC>;
-#[doc = "Field `LOG_MAX` reader - reg_log_max"]
+#[doc = "Field `LOG_MAX` reader - "]
 pub type LOG_MAX_R = crate::FieldReader<u32>;
-#[doc = "Field `LOG_MAX` writer - reg_log_max"]
+#[doc = "Field `LOG_MAX` writer - "]
 pub type LOG_MAX_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31 - reg_log_max"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn log_max(&self) -> LOG_MAX_R {
         LOG_MAX_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - reg_log_max"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn log_max(&mut self) -> LOG_MAX_W<'_, LOG_MAX_SPEC> {
         LOG_MAX_W::new(self, 0)
     }
 }
-#[doc = "ASSIST_DEBUG_LOG_MAX_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`log_max::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`log_max::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`log_max::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`log_max::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct LOG_MAX_SPEC;
 impl crate::RegisterSpec for LOG_MAX_SPEC {
     type Ux = u32;

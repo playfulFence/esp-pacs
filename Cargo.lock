@@ -1585,6 +1585,8 @@ dependencies = [
  "log",
  "rayon",
  "semver",
+ "serde",
+ "serde_yaml 0.9.34+deprecated",
  "strum",
  "svd2rust",
  "svdtools",

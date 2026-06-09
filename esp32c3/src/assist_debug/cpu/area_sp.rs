@@ -1,9 +1,9 @@
 #[doc = "Register `AREA_SP` reader"]
 pub type R = crate::R<AREA_SP_SPEC>;
-#[doc = "Field `AREA_SP` reader - reg_core_0_area_sp"]
+#[doc = "Field `AREA_SP` reader - "]
 pub type AREA_SP_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:31 - reg_core_0_area_sp"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn area_sp(&self) -> AREA_SP_R {
         AREA_SP_R::new(self.bits)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "ASSIST_DEBUG_CORE_0_AREA_SP_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`area_sp::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`area_sp::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AREA_SP_SPEC;
 impl crate::RegisterSpec for AREA_SP_SPEC {
     type Ux = u32;

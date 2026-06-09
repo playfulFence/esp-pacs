@@ -8,10 +8,10 @@ pub type TX_START_R = crate::BitReader;
 pub type RX_HUNG_R = crate::BitReader;
 #[doc = "Field `TX_HUNG` reader - a"]
 pub type TX_HUNG_R = crate::BitReader;
-#[doc = "Field `SEND_S_REG_Q` reader - a"]
-pub type SEND_S_REG_Q_R = crate::BitReader;
-#[doc = "Field `SEND_A_REG_Q` reader - a"]
-pub type SEND_A_REG_Q_R = crate::BitReader;
+#[doc = "Field `SEND_S_Q` reader - a"]
+pub type SEND_S_Q_R = crate::BitReader;
+#[doc = "Field `SEND_A_Q` reader - a"]
+pub type SEND_A_Q_R = crate::BitReader;
 #[doc = "Field `OUTLINK_EOF_ERR` reader - a"]
 pub type OUTLINK_EOF_ERR_R = crate::BitReader;
 #[doc = "Field `APP_CTRL0` reader - a"]
@@ -41,13 +41,13 @@ impl R {
     }
     #[doc = "Bit 4 - a"]
     #[inline(always)]
-    pub fn send_s_reg_q(&self) -> SEND_S_REG_Q_R {
-        SEND_S_REG_Q_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn send_s_q(&self) -> SEND_S_Q_R {
+        SEND_S_Q_R::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - a"]
     #[inline(always)]
-    pub fn send_a_reg_q(&self) -> SEND_A_REG_Q_R {
-        SEND_A_REG_Q_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn send_a_q(&self) -> SEND_A_Q_R {
+        SEND_A_Q_R::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - a"]
     #[inline(always)]
@@ -69,19 +69,19 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("INT_ST")
-            .field("rx_start", &self.rx_start())
-            .field("tx_start", &self.tx_start())
-            .field("rx_hung", &self.rx_hung())
-            .field("tx_hung", &self.tx_hung())
-            .field("send_s_reg_q", &self.send_s_reg_q())
-            .field("send_a_reg_q", &self.send_a_reg_q())
-            .field("outlink_eof_err", &self.outlink_eof_err())
-            .field("app_ctrl0", &self.app_ctrl0())
             .field("app_ctrl1", &self.app_ctrl1())
+            .field("app_ctrl0", &self.app_ctrl0())
+            .field("outlink_eof_err", &self.outlink_eof_err())
+            .field("send_a_q", &self.send_a_q())
+            .field("send_s_q", &self.send_s_q())
+            .field("tx_hung", &self.tx_hung())
+            .field("rx_hung", &self.rx_hung())
+            .field("tx_start", &self.tx_start())
+            .field("rx_start", &self.rx_start())
             .finish()
     }
 }
-#[doc = "a\n\nYou can [`read`](crate::Reg::read) this register and get [`int_st::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`int_st::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {
     type Ux = u32;

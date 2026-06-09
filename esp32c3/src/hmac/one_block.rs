@@ -1,6 +1,6 @@
 #[doc = "Register `ONE_BLOCK` writer"]
 pub type W = crate::W<ONE_BLOCK_SPEC>;
-#[doc = "Field `SET_ONE_BLOCK` writer - Don't have to do padding."]
+#[doc = "Field `SET_ONE_BLOCK` writer - Dont have to do padding."]
 pub type SET_ONE_BLOCK_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<ONE_BLOCK_SPEC> {
@@ -9,7 +9,7 @@ impl core::fmt::Debug for crate::generic::Reg<ONE_BLOCK_SPEC> {
     }
 }
 impl W {
-    #[doc = "Bit 0 - Don't have to do padding."]
+    #[doc = "Bit 0 - Dont have to do padding."]
     #[inline(always)]
     pub fn set_one_block(&mut self) -> SET_ONE_BLOCK_W<'_, ONE_BLOCK_SPEC> {
         SET_ONE_BLOCK_W::new(self, 0)

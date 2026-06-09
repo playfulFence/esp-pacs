@@ -2,12 +2,12 @@
 pub type R = crate::R<MS_DLEN_SPEC>;
 #[doc = "Register `MS_DLEN` writer"]
 pub type W = crate::W<MS_DLEN_SPEC>;
-#[doc = "Field `MS_DATA_BITLEN` reader - The value of these bits is the configured SPI transmission data bit length in master mode DMA controlled transfer or CPU controlled transfer. The value is also the configured bit length in slave mode DMA RX controlled transfer. The register value shall be (bit_num-1). Can be configured in CONF state."]
+#[doc = "Field `MS_DATA_BITLEN` reader - The value of these bits is the configured SPI transmission data bit length in ma"]
 pub type MS_DATA_BITLEN_R = crate::FieldReader<u32>;
-#[doc = "Field `MS_DATA_BITLEN` writer - The value of these bits is the configured SPI transmission data bit length in master mode DMA controlled transfer or CPU controlled transfer. The value is also the configured bit length in slave mode DMA RX controlled transfer. The register value shall be (bit_num-1). Can be configured in CONF state."]
+#[doc = "Field `MS_DATA_BITLEN` writer - The value of these bits is the configured SPI transmission data bit length in ma"]
 pub type MS_DATA_BITLEN_W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 impl R {
-    #[doc = "Bits 0:17 - The value of these bits is the configured SPI transmission data bit length in master mode DMA controlled transfer or CPU controlled transfer. The value is also the configured bit length in slave mode DMA RX controlled transfer. The register value shall be (bit_num-1). Can be configured in CONF state."]
+    #[doc = "Bits 0:17 - The value of these bits is the configured SPI transmission data bit length in ma"]
     #[inline(always)]
     pub fn ms_data_bitlen(&self) -> MS_DATA_BITLEN_R {
         MS_DATA_BITLEN_R::new(self.bits & 0x0003_ffff)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:17 - The value of these bits is the configured SPI transmission data bit length in master mode DMA controlled transfer or CPU controlled transfer. The value is also the configured bit length in slave mode DMA RX controlled transfer. The register value shall be (bit_num-1). Can be configured in CONF state."]
+    #[doc = "Bits 0:17 - The value of these bits is the configured SPI transmission data bit length in ma"]
     #[inline(always)]
     pub fn ms_data_bitlen(&mut self) -> MS_DATA_BITLEN_W<'_, MS_DLEN_SPEC> {
         MS_DATA_BITLEN_W::new(self, 0)
     }
 }
-#[doc = "SPI data bit length control register\n\nYou can [`read`](crate::Reg::read) this register and get [`ms_dlen::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ms_dlen::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`ms_dlen::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ms_dlen::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MS_DLEN_SPEC;
 impl crate::RegisterSpec for MS_DLEN_SPEC {
     type Ux = u32;

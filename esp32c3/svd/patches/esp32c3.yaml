@@ -253,11 +253,11 @@ EXTMEM:
 
 GPIO_SD:
   _modify:
-    SIGMADELTA_CG:
+    "?~SIGMADELTA_CG":
       name: CLOCK_GATE
-    SIGMADELTA_VERSION:
+    "?~SIGMADELTA_VERSION":
       name: VERSION
-  SIGMADELTA%s:
+  "SIGMADELTA%s,SIGMADELTA*":
     _strip: SD_
 
 UHCI0:
@@ -289,16 +289,12 @@ RSA:
 
 SYSTEM:
   PERIP_CLK_EN0:
-    _delete:
-      I2S0_CLK_EN
     _modify:
-      I2S1_CLK_EN:
+      "?~I2S1_CLK_EN":
         name: I2S0_CLK_EN
   PERIP_RST_EN0:
-    _delete:
-      I2S0_RST
     _modify:
-      I2S1_RST:
+      "?~I2S1_RST":
         name: I2S0_RST
 
   _include: ../../../common_patches/sw_interrupts.yaml

@@ -1,9 +1,9 @@
 #[doc = "Register `RCD_PDEBUGPC` reader"]
 pub type R = crate::R<RCD_PDEBUGPC_SPEC>;
-#[doc = "Field `RCD_PDEBUGPC` reader - reg_core_0_rcd_pdebugpc"]
+#[doc = "Field `RCD_PDEBUGPC` reader - "]
 pub type RCD_PDEBUGPC_R = crate::FieldReader<u32>;
 impl R {
-    #[doc = "Bits 0:31 - reg_core_0_rcd_pdebugpc"]
+    #[doc = "Bits 0:31"]
     #[inline(always)]
     pub fn rcd_pdebugpc(&self) -> RCD_PDEBUGPC_R {
         RCD_PDEBUGPC_R::new(self.bits)
@@ -17,7 +17,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "ASSIST_DEBUG_CORE_0_RCD_PDEBUGPC_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`rcd_pdebugpc::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`rcd_pdebugpc::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RCD_PDEBUGPC_SPEC;
 impl crate::RegisterSpec for RCD_PDEBUGPC_SPEC {
     type Ux = u32;

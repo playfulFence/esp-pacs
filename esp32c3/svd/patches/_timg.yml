@@ -1,12 +1,12 @@
 "TIMG*":
   _modify:
-    INT_RAW_TIMG:
+    "?~INT_RAW_TIMG":
       name: "INT_RAW"
-    INT_CLR_TIMG:
+    "?~INT_CLR_TIMG":
       name: "INT_CLR"
-    INT_ENA_TIMG:
+    "?~INT_ENA_TIMG":
       name: "INT_ENA"
-    INT_ST_TIMG:
+    "?~INT_ST_TIMG":
       name: "INT_ST"
 
   "T0*":

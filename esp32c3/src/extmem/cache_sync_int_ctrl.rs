@@ -8,6 +8,8 @@ pub type ST_R = crate::BitReader;
 pub type ENA_R = crate::BitReader;
 #[doc = "Field `ENA` writer - The bit is used to enable the interrupt by icache sync done."]
 pub type ENA_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CLR` reader - The bit is used to clear the interrupt by icache sync done."]
+pub type CLR_R = crate::BitReader;
 #[doc = "Field `CLR` writer - The bit is used to clear the interrupt by icache sync done."]
 pub type CLR_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 impl R {
@@ -21,13 +23,19 @@ impl R {
     pub fn ena(&self) -> ENA_R {
         ENA_R::new(((self.bits >> 1) & 1) != 0)
     }
+    #[doc = "Bit 2 - The bit is used to clear the interrupt by icache sync done."]
+    #[inline(always)]
+    pub fn clr(&self) -> CLR_R {
+        CLR_R::new(((self.bits >> 2) & 1) != 0)
+    }
 }
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CACHE_SYNC_INT_CTRL")
-            .field("st", &self.st())
+            .field("clr", &self.clr())
             .field("ena", &self.ena())
+            .field("st", &self.st())
             .finish()
     }
 }
@@ -43,7 +51,7 @@ impl W {
         CLR_W::new(self, 2)
     }
 }
-#[doc = "This description will be updated in the near future.\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_sync_int_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_sync_int_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_sync_int_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_sync_int_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CACHE_SYNC_INT_CTRL_SPEC;
 impl crate::RegisterSpec for CACHE_SYNC_INT_CTRL_SPEC {
     type Ux = u32;

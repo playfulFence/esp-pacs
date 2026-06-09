@@ -35,15 +35,15 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CACHE_CONF_MISC")
-            .field(
-                "cache_ignore_preload_mmu_entry_fault",
-                &self.cache_ignore_preload_mmu_entry_fault(),
-            )
+            .field("cache_trace_ena", &self.cache_trace_ena())
             .field(
                 "cache_ignore_sync_mmu_entry_fault",
                 &self.cache_ignore_sync_mmu_entry_fault(),
             )
-            .field("cache_trace_ena", &self.cache_trace_ena())
+            .field(
+                "cache_ignore_preload_mmu_entry_fault",
+                &self.cache_ignore_preload_mmu_entry_fault(),
+            )
             .finish()
     }
 }
@@ -68,7 +68,7 @@ impl W {
         CACHE_TRACE_ENA_W::new(self, 2)
     }
 }
-#[doc = "This description will be updated in the near future.\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_conf_misc::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_conf_misc::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_conf_misc::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_conf_misc::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CACHE_CONF_MISC_SPEC;
 impl crate::RegisterSpec for CACHE_CONF_MISC_SPEC {
     type Ux = u32;
@@ -79,7 +79,5 @@ impl crate::Readable for CACHE_CONF_MISC_SPEC {}
 impl crate::Writable for CACHE_CONF_MISC_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CACHE_CONF_MISC to value 0x07"]
-impl crate::Resettable for CACHE_CONF_MISC_SPEC {
-    const RESET_VALUE: u32 = 0x07;
-}
+#[doc = "`reset()` method sets CACHE_CONF_MISC to value 0"]
+impl crate::Resettable for CACHE_CONF_MISC_SPEC {}

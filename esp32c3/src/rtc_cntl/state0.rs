@@ -55,11 +55,11 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("STATE0")
-            .field("apb2rtc_bridge_sel", &self.apb2rtc_bridge_sel())
-            .field("sdio_active_ind", &self.sdio_active_ind())
-            .field("slp_wakeup", &self.slp_wakeup())
-            .field("slp_reject", &self.slp_reject())
             .field("sleep_en", &self.sleep_en())
+            .field("slp_reject", &self.slp_reject())
+            .field("slp_wakeup", &self.slp_wakeup())
+            .field("sdio_active_ind", &self.sdio_active_ind())
+            .field("apb2rtc_bridge_sel", &self.apb2rtc_bridge_sel())
             .finish()
     }
 }
@@ -95,7 +95,7 @@ impl W {
         SLEEP_EN_W::new(self, 31)
     }
 }
-#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`state0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`state0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`state0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`state0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct STATE0_SPEC;
 impl crate::RegisterSpec for STATE0_SPEC {
     type Ux = u32;

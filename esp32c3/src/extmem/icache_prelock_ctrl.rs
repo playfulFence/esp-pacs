@@ -26,8 +26,8 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("ICACHE_PRELOCK_CTRL")
-            .field("icache_prelock_sct0_en", &self.icache_prelock_sct0_en())
             .field("icache_prelock_sct1_en", &self.icache_prelock_sct1_en())
+            .field("icache_prelock_sct0_en", &self.icache_prelock_sct0_en())
             .finish()
     }
 }
@@ -47,7 +47,7 @@ impl W {
         ICACHE_PRELOCK_SCT1_EN_W::new(self, 1)
     }
 }
-#[doc = "This description will be updated in the near future.\n\nYou can [`read`](crate::Reg::read) this register and get [`icache_prelock_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icache_prelock_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`icache_prelock_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icache_prelock_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ICACHE_PRELOCK_CTRL_SPEC;
 impl crate::RegisterSpec for ICACHE_PRELOCK_CTRL_SPEC {
     type Ux = u32;

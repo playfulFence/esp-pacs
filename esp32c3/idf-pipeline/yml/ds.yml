@@ -1,0 +1,105 @@
+peripherals:
+  - name: DS
+    register_groups:
+      - description: registers
+        registers:
+          - name: C_MEM[%s]
+            description: "memory that stores C"
+            addr: 0
+            size: 8
+          - name: Y_MEM[%s]
+            description: "memory that stores Y"
+            addr: 0
+            size: 8
+          - name: M_MEM[%s]
+            description: "memory that stores M"
+            addr: 512
+            size: 8
+          - name: RB_MEM[%s]
+            description: "memory that stores Rb"
+            addr: 1024
+            size: 8
+          - name: BOX_MEM[%s]
+            description: "memory that stores BOX"
+            addr: 1536
+            size: 8
+          - name: IV_MEM[%s]
+            description: "memory that stores IV"
+            addr: 1584
+            size: 8
+          - name: X_MEM[%s]
+            description: "memory that stores X"
+            addr: 2048
+            size: 8
+          - name: Z_MEM[%s]
+            description: "memory that stores Z"
+            addr: 2560
+            size: 8
+          - name: SET_START
+            description: "DS start control register"
+            addr: 3584
+            fields:
+              - name: SET_START
+                description: "set this bit to start DS operation."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_CONTINUE
+            description: "DS continue control register"
+            addr: 3588
+            fields:
+              - name: SET_CONTINUE
+                description: "set this bit to continue DS operation."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_FINISH
+            description: "DS finish control register"
+            addr: 3592
+            fields:
+              - name: SET_FINISH
+                description: "Set this bit to finish DS process."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: QUERY_BUSY
+            description: "DS query busy register"
+            addr: 3596
+            fields:
+              - name: QUERY_BUSY
+                description: "digital signature state. 1b0: idle, 1b1: busy"
+                shift: 0
+                mask: 1
+                access: RO
+          - name: QUERY_KEY_WRONG
+            description: "DS query key-wrong counter register"
+            addr: 3600
+            fields:
+              - name: QUERY_KEY_WRONG
+                description: "digital signature key wrong counter"
+                shift: 0
+                mask: 15
+                access: RO
+          - name: QUERY_CHECK
+            description: "DS query check result register"
+            addr: 3604
+            fields:
+              - name: MD_ERROR
+                description: "MD checkout result. 1b0: MD check pass, 1b1: MD check fail"
+                shift: 0
+                mask: 1
+                access: RO
+              - name: PADDING_BAD
+                description: "padding checkout result. 1b0: a good padding, 1b1: a bad padding"
+                shift: 1
+                mask: 2
+                access: RO
+          - name: DATE
+            description: "DS version control register"
+            addr: 3616
+            fields:
+              - name: DATE
+                description: "ds version information"
+                shift: 0
+                mask: 1073741823
+                access: R/W

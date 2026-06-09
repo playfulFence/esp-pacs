@@ -1,0 +1,77 @@
+peripheral_descriptions:
+  - peripheral: AES
+    description: AES (Advanced Encryption Standard) Accelerator
+  - peripheral: APB_CTRL
+    description: APB (Advanced Peripheral Bus) Controller
+  - peripheral: APB_SARADC
+    description: SAR (Successive Approximation Register) Analog-to-Digital Converter
+  - peripheral: ASSIST_DEBUG
+    description: Debug Assist
+  - peripheral: BB
+    description: BB Peripheral
+  - peripheral: DMA
+    description: DMA (Direct Memory Access) Controller
+  - peripheral: DS
+    description: Digital Signature
+  - peripheral: EFUSE
+    description: eFuse Controller
+  - peripheral: EXTMEM
+    description: External Memory
+  - peripheral: GPIO
+    description: General Purpose Input/Output
+  - peripheral: GPIO_SD
+    description: Sigma-Delta Modulation
+  - peripheral: GPIOSD
+    description: Sigma-Delta Modulation
+  - peripheral: HMAC
+    description: HMAC (Hash-based Message Authentication Code) Accelerator
+  - peripheral: I2C0
+    description: I2C (Inter-Integrated Circuit) Controller 0
+  - peripheral: I2S0
+    description: I2S (Inter-IC Sound) Controller 0
+  - peripheral: INTERRUPT_CORE0
+    description: Interrupt Controller (Core 0)
+  - peripheral: IO_MUX
+    description: Input/Output Multiplexer
+  - peripheral: LEDC
+    description: LED Control PWM (Pulse Width Modulation)
+  - peripheral: RMT
+    description: Remote Control
+  - peripheral: RNG
+    description: Hardware Random Number Generator
+  - peripheral: RSA
+    description: RSA (Rivest Shamir Adleman) Accelerator
+  - peripheral: RTC_CNTL
+    description: Real-Time Clock Control
+  - peripheral: SENSITIVE
+    description: Sensitive Register
+  - peripheral: SHA
+    description: SHA (Secure Hash Algorithm) Accelerator
+  - peripheral: SPI0
+    description: SPI (Serial Peripheral Interface) Controller 0
+  - peripheral: SPI1
+    description: SPI (Serial Peripheral Interface) Controller 1
+  - peripheral: SPI2
+    description: SPI (Serial Peripheral Interface) Controller 2
+  - peripheral: SYSTEM
+    description: System Configuration Registers
+  - peripheral: SYSTIMER
+    description: System Timer
+  - peripheral: TIMG0
+    description: Timer Group 0
+  - peripheral: TIMG1
+    description: Timer Group 1
+  - peripheral: TWAI0
+    description: Two-Wire Automotive Interface
+  - peripheral: UART0
+    description: UART (Universal Asynchronous Receiver-Transmitter) Controller 0
+  - peripheral: UART1
+    description: UART (Universal Asynchronous Receiver-Transmitter) Controller 1
+  - peripheral: UHCI0
+    description: Universal Host Controller Interface 0
+  - peripheral: UHCI1
+    description: Universal Host Controller Interface 1
+  - peripheral: USB_DEVICE
+    description: Full-speed USB Serial/JTAG Controller
+  - peripheral: XTS_AES
+    description: XTS-AES-128 Flash Encryption

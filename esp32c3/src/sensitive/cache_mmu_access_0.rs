@@ -2,12 +2,12 @@
 pub type R = crate::R<CACHE_MMU_ACCESS_0_SPEC>;
 #[doc = "Register `CACHE_MMU_ACCESS_0` writer"]
 pub type W = crate::W<CACHE_MMU_ACCESS_0_SPEC>;
-#[doc = "Field `CACHE_MMU_ACCESS_LOCK` reader - cache_mmu_access_lock"]
+#[doc = "Field `CACHE_MMU_ACCESS_LOCK` reader - "]
 pub type CACHE_MMU_ACCESS_LOCK_R = crate::BitReader;
-#[doc = "Field `CACHE_MMU_ACCESS_LOCK` writer - cache_mmu_access_lock"]
+#[doc = "Field `CACHE_MMU_ACCESS_LOCK` writer - "]
 pub type CACHE_MMU_ACCESS_LOCK_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - cache_mmu_access_lock"]
+    #[doc = "Bit 0"]
     #[inline(always)]
     pub fn cache_mmu_access_lock(&self) -> CACHE_MMU_ACCESS_LOCK_R {
         CACHE_MMU_ACCESS_LOCK_R::new((self.bits & 1) != 0)
@@ -22,7 +22,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - cache_mmu_access_lock"]
+    #[doc = "Bit 0"]
     #[inline(always)]
     pub fn cache_mmu_access_lock(
         &mut self,
@@ -30,7 +30,7 @@ impl W {
         CACHE_MMU_ACCESS_LOCK_W::new(self, 0)
     }
 }
-#[doc = "SENSITIVE_CACHE_MMU_ACCESS_0_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_mmu_access_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_mmu_access_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`cache_mmu_access_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cache_mmu_access_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CACHE_MMU_ACCESS_0_SPEC;
 impl crate::RegisterSpec for CACHE_MMU_ACCESS_0_SPEC {
     type Ux = u32;

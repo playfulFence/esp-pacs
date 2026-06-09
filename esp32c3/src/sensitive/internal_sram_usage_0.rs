@@ -2,12 +2,12 @@
 pub type R = crate::R<INTERNAL_SRAM_USAGE_0_SPEC>;
 #[doc = "Register `INTERNAL_SRAM_USAGE_0` writer"]
 pub type W = crate::W<INTERNAL_SRAM_USAGE_0_SPEC>;
-#[doc = "Field `INTERNAL_SRAM_USAGE_LOCK` reader - internal_sram_usage_lock"]
+#[doc = "Field `INTERNAL_SRAM_USAGE_LOCK` reader - "]
 pub type INTERNAL_SRAM_USAGE_LOCK_R = crate::BitReader;
-#[doc = "Field `INTERNAL_SRAM_USAGE_LOCK` writer - internal_sram_usage_lock"]
+#[doc = "Field `INTERNAL_SRAM_USAGE_LOCK` writer - "]
 pub type INTERNAL_SRAM_USAGE_LOCK_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - internal_sram_usage_lock"]
+    #[doc = "Bit 0"]
     #[inline(always)]
     pub fn internal_sram_usage_lock(&self) -> INTERNAL_SRAM_USAGE_LOCK_R {
         INTERNAL_SRAM_USAGE_LOCK_R::new((self.bits & 1) != 0)
@@ -22,7 +22,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - internal_sram_usage_lock"]
+    #[doc = "Bit 0"]
     #[inline(always)]
     pub fn internal_sram_usage_lock(
         &mut self,
@@ -30,7 +30,7 @@ impl W {
         INTERNAL_SRAM_USAGE_LOCK_W::new(self, 0)
     }
 }
-#[doc = "SENSITIVE_INTERNAL_SRAM_USAGE_0_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`internal_sram_usage_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`internal_sram_usage_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`internal_sram_usage_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`internal_sram_usage_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INTERNAL_SRAM_USAGE_0_SPEC;
 impl crate::RegisterSpec for INTERNAL_SRAM_USAGE_0_SPEC {
     type Ux = u32;

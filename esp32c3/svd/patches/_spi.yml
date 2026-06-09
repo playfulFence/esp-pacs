@@ -7,7 +7,7 @@
 SPI1:
   FLASH_SUS_CTRL:
     _modify:
-      SPI_FMEM_RD_SUS_2B:
+      "SPI_FMEM_RD_SUS_2B,FMEM_RD_SUS_2B":
         name: RD_SUS_2B
         
   _include: ../../../common_patches/int_strip.yaml

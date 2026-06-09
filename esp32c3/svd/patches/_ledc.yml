@@ -6,7 +6,7 @@ LEDC:
 
   "CH0_DUTY_R":
     _modify:
-      "DUTY_LSCH0_R":
+      "?~DUTY_LSCH0_R":
         name: "DUTY_R"
 
   "TIMER0_CONF":
@@ -29,7 +29,7 @@ LEDC:
       CH?_DUTY_R:
         name: DUTY_R
         _modify:
-          "DUTY_R,DUTY_CH_R,DUTY_CH?_R":
+          "DUTY_R,DUTY_CH_R,DUTY_CH?_R,DUTY":
             name: DUTY_R
 
     TIMER%s:

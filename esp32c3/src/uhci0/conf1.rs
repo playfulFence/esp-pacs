@@ -80,14 +80,14 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("CONF1")
-            .field("check_sum_en", &self.check_sum_en())
-            .field("check_seq_en", &self.check_seq_en())
-            .field("crc_disable", &self.crc_disable())
-            .field("save_head", &self.save_head())
-            .field("tx_check_sum_re", &self.tx_check_sum_re())
-            .field("tx_ack_num_re", &self.tx_ack_num_re())
-            .field("wait_sw_start", &self.wait_sw_start())
             .field("sw_start", &self.sw_start())
+            .field("wait_sw_start", &self.wait_sw_start())
+            .field("tx_ack_num_re", &self.tx_ack_num_re())
+            .field("tx_check_sum_re", &self.tx_check_sum_re())
+            .field("save_head", &self.save_head())
+            .field("crc_disable", &self.crc_disable())
+            .field("check_seq_en", &self.check_seq_en())
+            .field("check_sum_en", &self.check_sum_en())
             .finish()
     }
 }
@@ -133,7 +133,7 @@ impl W {
         SW_START_W::new(self, 8)
     }
 }
-#[doc = "a\n\nYou can [`read`](crate::Reg::read) this register and get [`conf1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`conf1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`conf1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`conf1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CONF1_SPEC;
 impl crate::RegisterSpec for CONF1_SPEC {
     type Ux = u32;
@@ -144,7 +144,5 @@ impl crate::Readable for CONF1_SPEC {}
 impl crate::Writable for CONF1_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CONF1 to value 0x33"]
-impl crate::Resettable for CONF1_SPEC {
-    const RESET_VALUE: u32 = 0x33;
-}
+#[doc = "`reset()` method sets CONF1 to value 0"]
+impl crate::Resettable for CONF1_SPEC {}

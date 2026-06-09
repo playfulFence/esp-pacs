@@ -2,12 +2,12 @@
 pub type R = crate::R<WR_TIM_CONF1_SPEC>;
 #[doc = "Register `WR_TIM_CONF1` writer"]
 pub type W = crate::W<WR_TIM_CONF1_SPEC>;
-#[doc = "Field `PWR_ON_NUM` reader - Configures the power up time for VDDQ."]
+#[doc = "Field `PWR_ON_NUM` reader - Configures the power up time for VDDQ. /"]
 pub type PWR_ON_NUM_R = crate::FieldReader<u16>;
-#[doc = "Field `PWR_ON_NUM` writer - Configures the power up time for VDDQ."]
+#[doc = "Field `PWR_ON_NUM` writer - Configures the power up time for VDDQ. /"]
 pub type PWR_ON_NUM_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
-    #[doc = "Bits 8:23 - Configures the power up time for VDDQ."]
+    #[doc = "Bits 8:23 - Configures the power up time for VDDQ. /"]
     #[inline(always)]
     pub fn pwr_on_num(&self) -> PWR_ON_NUM_R {
         PWR_ON_NUM_R::new(((self.bits >> 8) & 0xffff) as u16)
@@ -22,7 +22,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 8:23 - Configures the power up time for VDDQ."]
+    #[doc = "Bits 8:23 - Configures the power up time for VDDQ. /"]
     #[inline(always)]
     pub fn pwr_on_num(&mut self) -> PWR_ON_NUM_W<'_, WR_TIM_CONF1_SPEC> {
         PWR_ON_NUM_W::new(self, 8)
@@ -39,7 +39,5 @@ impl crate::Readable for WR_TIM_CONF1_SPEC {}
 impl crate::Writable for WR_TIM_CONF1_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets WR_TIM_CONF1 to value 0x0028_8000"]
-impl crate::Resettable for WR_TIM_CONF1_SPEC {
-    const RESET_VALUE: u32 = 0x0028_8000;
-}
+#[doc = "`reset()` method sets WR_TIM_CONF1 to value 0"]
+impl crate::Resettable for WR_TIM_CONF1_SPEC {}

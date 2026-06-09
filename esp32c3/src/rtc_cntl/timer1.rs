@@ -53,11 +53,11 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("TIMER1")
-            .field("cpu_stall_en", &self.cpu_stall_en())
-            .field("cpu_stall_wait", &self.cpu_stall_wait())
-            .field("ck8m_wait", &self.ck8m_wait())
-            .field("xtl_buf_wait", &self.xtl_buf_wait())
             .field("pll_buf_wait", &self.pll_buf_wait())
+            .field("xtl_buf_wait", &self.xtl_buf_wait())
+            .field("ck8m_wait", &self.ck8m_wait())
+            .field("cpu_stall_wait", &self.cpu_stall_wait())
+            .field("cpu_stall_en", &self.cpu_stall_en())
             .finish()
     }
 }
@@ -88,7 +88,7 @@ impl W {
         PLL_BUF_WAIT_W::new(self, 24)
     }
 }
-#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`timer1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`timer1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`timer1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`timer1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct TIMER1_SPEC;
 impl crate::RegisterSpec for TIMER1_SPEC {
     type Ux = u32;
@@ -99,7 +99,5 @@ impl crate::Readable for TIMER1_SPEC {}
 impl crate::Writable for TIMER1_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets TIMER1 to value 0x2814_0403"]
-impl crate::Resettable for TIMER1_SPEC {
-    const RESET_VALUE: u32 = 0x2814_0403;
-}
+#[doc = "`reset()` method sets TIMER1 to value 0"]
+impl crate::Resettable for TIMER1_SPEC {}

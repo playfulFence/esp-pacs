@@ -2,12 +2,12 @@
 pub type R = crate::R<OUT_PRI_SPEC>;
 #[doc = "Register `OUT_PRI` writer"]
 pub type W = crate::W<OUT_PRI_SPEC>;
-#[doc = "Field `TX_PRI` reader - The priority of Tx channel 0. The larger of the value, the higher of the priority."]
+#[doc = "Field `TX_PRI` reader - The priority of TX channel 0. The larger the value, the higher the priority. /"]
 pub type TX_PRI_R = crate::FieldReader;
-#[doc = "Field `TX_PRI` writer - The priority of Tx channel 0. The larger of the value, the higher of the priority."]
+#[doc = "Field `TX_PRI` writer - The priority of TX channel 0. The larger the value, the higher the priority. /"]
 pub type TX_PRI_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
-    #[doc = "Bits 0:3 - The priority of Tx channel 0. The larger of the value, the higher of the priority."]
+    #[doc = "Bits 0:3 - The priority of TX channel 0. The larger the value, the higher the priority. /"]
     #[inline(always)]
     pub fn tx_pri(&self) -> TX_PRI_R {
         TX_PRI_R::new((self.bits & 0x0f) as u8)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:3 - The priority of Tx channel 0. The larger of the value, the higher of the priority."]
+    #[doc = "Bits 0:3 - The priority of TX channel 0. The larger the value, the higher the priority. /"]
     #[inline(always)]
     pub fn tx_pri(&mut self) -> TX_PRI_W<'_, OUT_PRI_SPEC> {
         TX_PRI_W::new(self, 0)
     }
 }
-#[doc = "DMA_OUT_PRI_CH0_REG.\n\nYou can [`read`](crate::Reg::read) this register and get [`out_pri::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`out_pri::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Priority register of TX channel 0 /\n\nYou can [`read`](crate::Reg::read) this register and get [`out_pri::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`out_pri::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct OUT_PRI_SPEC;
 impl crate::RegisterSpec for OUT_PRI_SPEC {
     type Ux = u32;

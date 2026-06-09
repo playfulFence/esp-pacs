@@ -2,12 +2,14 @@
 pub type R = crate::R<UNIT_OP_SPEC>;
 #[doc = "Register `UNIT%s_OP` writer"]
 pub type W = crate::W<UNIT_OP_SPEC>;
-#[doc = "Field `VALUE_VALID` reader - reg_timer_unit0_value_valid"]
+#[doc = "Field `VALUE_VALID` reader - reg_timer_unit0_value_valid /"]
 pub type VALUE_VALID_R = crate::BitReader;
-#[doc = "Field `UPDATE` writer - update timer_unit0"]
+#[doc = "Field `VALUE_VALID` writer - reg_timer_unit0_value_valid /"]
+pub type VALUE_VALID_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `UPDATE` writer - update timer_unit0 /"]
 pub type UPDATE_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 29 - reg_timer_unit0_value_valid"]
+    #[doc = "Bit 29 - reg_timer_unit0_value_valid /"]
     #[inline(always)]
     pub fn value_valid(&self) -> VALUE_VALID_R {
         VALUE_VALID_R::new(((self.bits >> 29) & 1) != 0)
@@ -22,13 +24,18 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 30 - update timer_unit0"]
+    #[doc = "Bit 29 - reg_timer_unit0_value_valid /"]
+    #[inline(always)]
+    pub fn value_valid(&mut self) -> VALUE_VALID_W<'_, UNIT_OP_SPEC> {
+        VALUE_VALID_W::new(self, 29)
+    }
+    #[doc = "Bit 30 - update timer_unit0 /"]
     #[inline(always)]
     pub fn update(&mut self) -> UPDATE_W<'_, UNIT_OP_SPEC> {
         UPDATE_W::new(self, 30)
     }
 }
-#[doc = "SYSTIMER_UNIT%s_OP.\n\nYou can [`read`](crate::Reg::read) this register and get [`unit_op::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`unit_op::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SYSTIMER_UNIT%s_OP. /\n\nYou can [`read`](crate::Reg::read) this register and get [`unit_op::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`unit_op::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct UNIT_OP_SPEC;
 impl crate::RegisterSpec for UNIT_OP_SPEC {
     type Ux = u32;

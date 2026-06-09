@@ -1,0 +1,25 @@
+peripherals:
+  - name: BB
+    register_groups:
+      - description: registers
+        registers:
+          - name: BBPD_CTRL
+            description: "Baseband control register"
+            addr: 84
+            fields:
+              - name: DC_EST_FORCE_PD
+                shift: 0
+                mask: 1
+                access: R/W
+              - name: DC_EST_FORCE_PU
+                shift: 1
+                mask: 2
+                access: R/W
+              - name: FFT_FORCE_PD
+                shift: 2
+                mask: 4
+                access: R/W
+              - name: FFT_FORCE_PU
+                shift: 3
+                mask: 8
+                access: R/W

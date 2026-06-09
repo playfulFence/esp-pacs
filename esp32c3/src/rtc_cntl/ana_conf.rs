@@ -2,17 +2,17 @@
 pub type R = crate::R<ANA_CONF_SPEC>;
 #[doc = "Register `ANA_CONF` writer"]
 pub type W = crate::W<ANA_CONF_SPEC>;
-#[doc = "Field `RESET_POR_FORCE_PD` reader - force no bypass i2c power on reset"]
-pub type RESET_POR_FORCE_PD_R = crate::BitReader;
-#[doc = "Field `RESET_POR_FORCE_PD` writer - force no bypass i2c power on reset"]
-pub type RESET_POR_FORCE_PD_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESET_POR_FORCE_PU` reader - force bypass i2c power on reset"]
-pub type RESET_POR_FORCE_PU_R = crate::BitReader;
-#[doc = "Field `RESET_POR_FORCE_PU` writer - force bypass i2c power on reset"]
-pub type RESET_POR_FORCE_PU_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `GLITCH_RST_EN` reader - enable glitch reset"]
+#[doc = "Field `I2C_RESET_POR_FORCE_PD` reader - "]
+pub type I2C_RESET_POR_FORCE_PD_R = crate::BitReader;
+#[doc = "Field `I2C_RESET_POR_FORCE_PD` writer - "]
+pub type I2C_RESET_POR_FORCE_PD_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `I2C_RESET_POR_FORCE_PU` reader - "]
+pub type I2C_RESET_POR_FORCE_PU_R = crate::BitReader;
+#[doc = "Field `I2C_RESET_POR_FORCE_PU` writer - "]
+pub type I2C_RESET_POR_FORCE_PU_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `GLITCH_RST_EN` reader - "]
 pub type GLITCH_RST_EN_R = crate::BitReader;
-#[doc = "Field `GLITCH_RST_EN` writer - enable glitch reset"]
+#[doc = "Field `GLITCH_RST_EN` writer - "]
 pub type GLITCH_RST_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SAR_I2C_PU` reader - PLLA force power up"]
 pub type SAR_I2C_PU_R = crate::BitReader;
@@ -46,22 +46,22 @@ pub type RFRX_PBUS_PU_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type CKGEN_I2C_PU_R = crate::BitReader;
 #[doc = "Field `CKGEN_I2C_PU` writer - 1: CKGEN_I2C power up"]
 pub type CKGEN_I2C_PU_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `PLL_I2C_PU` reader - power up pll i2c"]
+#[doc = "Field `PLL_I2C_PU` reader - "]
 pub type PLL_I2C_PU_R = crate::BitReader;
-#[doc = "Field `PLL_I2C_PU` writer - power up pll i2c"]
+#[doc = "Field `PLL_I2C_PU` writer - "]
 pub type PLL_I2C_PU_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 18 - force no bypass i2c power on reset"]
+    #[doc = "Bit 18"]
     #[inline(always)]
-    pub fn reset_por_force_pd(&self) -> RESET_POR_FORCE_PD_R {
-        RESET_POR_FORCE_PD_R::new(((self.bits >> 18) & 1) != 0)
+    pub fn i2c_reset_por_force_pd(&self) -> I2C_RESET_POR_FORCE_PD_R {
+        I2C_RESET_POR_FORCE_PD_R::new(((self.bits >> 18) & 1) != 0)
     }
-    #[doc = "Bit 19 - force bypass i2c power on reset"]
+    #[doc = "Bit 19"]
     #[inline(always)]
-    pub fn reset_por_force_pu(&self) -> RESET_POR_FORCE_PU_R {
-        RESET_POR_FORCE_PU_R::new(((self.bits >> 19) & 1) != 0)
+    pub fn i2c_reset_por_force_pu(&self) -> I2C_RESET_POR_FORCE_PU_R {
+        I2C_RESET_POR_FORCE_PU_R::new(((self.bits >> 19) & 1) != 0)
     }
-    #[doc = "Bit 20 - enable glitch reset"]
+    #[doc = "Bit 20"]
     #[inline(always)]
     pub fn glitch_rst_en(&self) -> GLITCH_RST_EN_R {
         GLITCH_RST_EN_R::new(((self.bits >> 20) & 1) != 0)
@@ -106,7 +106,7 @@ impl R {
     pub fn ckgen_i2c_pu(&self) -> CKGEN_I2C_PU_R {
         CKGEN_I2C_PU_R::new(((self.bits >> 30) & 1) != 0)
     }
-    #[doc = "Bit 31 - power up pll i2c"]
+    #[doc = "Bit 31"]
     #[inline(always)]
     pub fn pll_i2c_pu(&self) -> PLL_I2C_PU_R {
         PLL_I2C_PU_R::new(((self.bits >> 31) & 1) != 0)
@@ -116,33 +116,33 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("ANA_CONF")
-            .field("reset_por_force_pd", &self.reset_por_force_pd())
-            .field("reset_por_force_pu", &self.reset_por_force_pu())
-            .field("glitch_rst_en", &self.glitch_rst_en())
-            .field("sar_i2c_pu", &self.sar_i2c_pu())
-            .field("plla_force_pd", &self.plla_force_pd())
-            .field("plla_force_pu", &self.plla_force_pu())
-            .field("bbpll_cal_slp_start", &self.bbpll_cal_slp_start())
-            .field("pvtmon_pu", &self.pvtmon_pu())
-            .field("txrf_i2c_pu", &self.txrf_i2c_pu())
-            .field("rfrx_pbus_pu", &self.rfrx_pbus_pu())
-            .field("ckgen_i2c_pu", &self.ckgen_i2c_pu())
             .field("pll_i2c_pu", &self.pll_i2c_pu())
+            .field("ckgen_i2c_pu", &self.ckgen_i2c_pu())
+            .field("rfrx_pbus_pu", &self.rfrx_pbus_pu())
+            .field("txrf_i2c_pu", &self.txrf_i2c_pu())
+            .field("pvtmon_pu", &self.pvtmon_pu())
+            .field("bbpll_cal_slp_start", &self.bbpll_cal_slp_start())
+            .field("plla_force_pu", &self.plla_force_pu())
+            .field("plla_force_pd", &self.plla_force_pd())
+            .field("sar_i2c_pu", &self.sar_i2c_pu())
+            .field("glitch_rst_en", &self.glitch_rst_en())
+            .field("i2c_reset_por_force_pu", &self.i2c_reset_por_force_pu())
+            .field("i2c_reset_por_force_pd", &self.i2c_reset_por_force_pd())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bit 18 - force no bypass i2c power on reset"]
+    #[doc = "Bit 18"]
     #[inline(always)]
-    pub fn reset_por_force_pd(&mut self) -> RESET_POR_FORCE_PD_W<'_, ANA_CONF_SPEC> {
-        RESET_POR_FORCE_PD_W::new(self, 18)
+    pub fn i2c_reset_por_force_pd(&mut self) -> I2C_RESET_POR_FORCE_PD_W<'_, ANA_CONF_SPEC> {
+        I2C_RESET_POR_FORCE_PD_W::new(self, 18)
     }
-    #[doc = "Bit 19 - force bypass i2c power on reset"]
+    #[doc = "Bit 19"]
     #[inline(always)]
-    pub fn reset_por_force_pu(&mut self) -> RESET_POR_FORCE_PU_W<'_, ANA_CONF_SPEC> {
-        RESET_POR_FORCE_PU_W::new(self, 19)
+    pub fn i2c_reset_por_force_pu(&mut self) -> I2C_RESET_POR_FORCE_PU_W<'_, ANA_CONF_SPEC> {
+        I2C_RESET_POR_FORCE_PU_W::new(self, 19)
     }
-    #[doc = "Bit 20 - enable glitch reset"]
+    #[doc = "Bit 20"]
     #[inline(always)]
     pub fn glitch_rst_en(&mut self) -> GLITCH_RST_EN_W<'_, ANA_CONF_SPEC> {
         GLITCH_RST_EN_W::new(self, 20)
@@ -187,13 +187,13 @@ impl W {
     pub fn ckgen_i2c_pu(&mut self) -> CKGEN_I2C_PU_W<'_, ANA_CONF_SPEC> {
         CKGEN_I2C_PU_W::new(self, 30)
     }
-    #[doc = "Bit 31 - power up pll i2c"]
+    #[doc = "Bit 31"]
     #[inline(always)]
     pub fn pll_i2c_pu(&mut self) -> PLL_I2C_PU_W<'_, ANA_CONF_SPEC> {
         PLL_I2C_PU_W::new(self, 31)
     }
 }
-#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`ana_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ana_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`ana_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ana_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ANA_CONF_SPEC;
 impl crate::RegisterSpec for ANA_CONF_SPEC {
     type Ux = u32;
@@ -204,7 +204,5 @@ impl crate::Readable for ANA_CONF_SPEC {}
 impl crate::Writable for ANA_CONF_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets ANA_CONF to value 0x00c4_0000"]
-impl crate::Resettable for ANA_CONF_SPEC {
-    const RESET_VALUE: u32 = 0x00c4_0000;
-}
+#[doc = "`reset()` method sets ANA_CONF to value 0"]
+impl crate::Resettable for ANA_CONF_SPEC {}

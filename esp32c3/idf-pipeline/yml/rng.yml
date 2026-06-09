@@ -1,0 +1,8 @@
+peripherals:
+  - name: RNG
+    register_groups:
+      - description: registers
+        registers:
+          - name: DATA
+            description: "Random number data"
+            addr: 176

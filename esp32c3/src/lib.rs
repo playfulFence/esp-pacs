@@ -431,14 +431,14 @@ impl core::fmt::Debug for RTC_CNTL {
 }
 #[doc = "Real-Time Clock Control"]
 pub mod rtc_cntl;
-#[doc = "SENSITIVE Peripheral"]
+#[doc = "Sensitive Register"]
 pub type SENSITIVE = crate::Periph<sensitive::RegisterBlock, 0x600c_1000>;
 impl core::fmt::Debug for SENSITIVE {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("SENSITIVE").finish()
     }
 }
-#[doc = "SENSITIVE Peripheral"]
+#[doc = "Sensitive Register"]
 pub mod sensitive;
 #[doc = "SHA (Secure Hash Algorithm) Accelerator"]
 pub type SHA = crate::Periph<sha::RegisterBlock, 0x6003_b000>;

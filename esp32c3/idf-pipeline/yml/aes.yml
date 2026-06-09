@@ -1,0 +1,300 @@
+peripherals:
+  - name: AES
+    register_groups:
+      - description: registers
+        registers:
+          - name: KEY_0
+            description: "Key material key_0 configure register"
+            addr: 0
+            fields:
+              - name: KEY_0
+                description: "This bits stores key_0 that is a part of key material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: KEY_1
+            description: "Key material key_1 configure register"
+            addr: 4
+            fields:
+              - name: KEY_1
+                description: "This bits stores key_1 that is a part of key material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: KEY_2
+            description: "Key material key_2 configure register"
+            addr: 8
+            fields:
+              - name: KEY_2
+                description: "This bits stores key_2 that is a part of key material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: KEY_3
+            description: "Key material key_3 configure register"
+            addr: 12
+            fields:
+              - name: KEY_3
+                description: "This bits stores key_3 that is a part of key material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: KEY_4
+            description: "Key material key_4 configure register"
+            addr: 16
+            fields:
+              - name: KEY_4
+                description: "This bits stores key_4 that is a part of key material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: KEY_5
+            description: "Key material key_5 configure register"
+            addr: 20
+            fields:
+              - name: KEY_5
+                description: "This bits stores key_5 that is a part of key material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: KEY_6
+            description: "Key material key_6 configure register"
+            addr: 24
+            fields:
+              - name: KEY_6
+                description: "This bits stores key_6 that is a part of key material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: KEY_7
+            description: "Key material key_7 configure register"
+            addr: 28
+            fields:
+              - name: KEY_7
+                description: "This bits stores key_7 that is a part of key material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: TEXT_IN_0
+            description: "source text material text_in_0 configure register"
+            addr: 32
+            fields:
+              - name: TEXT_IN_0
+                description: "This bits stores text_in_0 that is a part of source text material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: TEXT_IN_1
+            description: "source text material text_in_1 configure register"
+            addr: 36
+            fields:
+              - name: TEXT_IN_1
+                description: "This bits stores text_in_1 that is a part of source text material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: TEXT_IN_2
+            description: "source text material text_in_2 configure register"
+            addr: 40
+            fields:
+              - name: TEXT_IN_2
+                description: "This bits stores text_in_2 that is a part of source text material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: TEXT_IN_3
+            description: "source text material text_in_3 configure register"
+            addr: 44
+            fields:
+              - name: TEXT_IN_3
+                description: "This bits stores text_in_3 that is a part of source text material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: TEXT_OUT_0
+            description: "result text material text_out_0 configure register"
+            addr: 48
+            fields:
+              - name: TEXT_OUT_0
+                description: "This bits stores text_out_0 that is a part of result text material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: TEXT_OUT_1
+            description: "result text material text_out_1 configure register"
+            addr: 52
+            fields:
+              - name: TEXT_OUT_1
+                description: "This bits stores text_out_1 that is a part of result text material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: TEXT_OUT_2
+            description: "result text material text_out_2 configure register"
+            addr: 56
+            fields:
+              - name: TEXT_OUT_2
+                description: "This bits stores text_out_2 that is a part of result text material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: TEXT_OUT_3
+            description: "result text material text_out_3 configure register"
+            addr: 60
+            fields:
+              - name: TEXT_OUT_3
+                description: "This bits stores text_out_3 that is a part of result text material."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: MODE
+            description: "AES Mode register"
+            addr: 64
+            fields:
+              - name: MODE
+                description: "This bits decides which one operation mode will be used. 3d0: AES-EN-128, 3d1: AES-EN-192, 3d2: AES-EN-256, 3d4: AES-DE-128, 3d5: AES-DE-192, 3d6: AES-DE-256."
+                shift: 0
+                mask: 7
+                access: R/W
+          - name: ENDIAN
+            description: "AES Endian configure register"
+            addr: 68
+            fields:
+              - name: ENDIAN
+                description: "endian. [1:0] key endian, [3:2] text_in endian or in_stream endian, [5:4] text_out endian or out_stream endian"
+                shift: 0
+                mask: 63
+                access: R/W
+          - name: TRIGGER
+            description: "AES trigger register"
+            addr: 72
+            fields:
+              - name: TRIGGER
+                description: "Set this bit to start AES calculation."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: STATE
+            description: "AES state register"
+            addr: 76
+            fields:
+              - name: STATE
+                description: "Those bits shows AES status. For typical AES, 0: idle, 1: busy. For DMA-AES, 0: idle, 1: busy, 2: calculation_done."
+                shift: 0
+                mask: 3
+                access: RO
+          - name: IV_MEM[%s]
+            description: "The memory that stores initialization vector"
+            addr: 80
+            size: 8
+          - name: H_MEM[%s]
+            description: "The memory that stores GCM hash subkey"
+            addr: 96
+            size: 8
+          - name: J0_MEM[%s]
+            description: "The memory that stores J0"
+            addr: 112
+            size: 8
+          - name: T0_MEM[%s]
+            description: "The memory that stores T0"
+            addr: 128
+            size: 8
+          - name: DMA_ENABLE
+            description: "DMA-AES working mode register"
+            addr: 144
+            fields:
+              - name: DMA_ENABLE
+                description: "1b0: typical AES working mode, 1b1: DMA-AES working mode."
+                shift: 0
+                mask: 1
+                access: R/W
+          - name: BLOCK_MODE
+            description: "AES cipher block mode register"
+            addr: 148
+            fields:
+              - name: BLOCK_MODE
+                description: "Those bits decides which block mode will be used. 0x0: ECB, 0x1: CBC, 0x2: OFB, 0x3: CTR, 0x4: CFB-8, 0x5: CFB-128, 0x6: GCM, 0x7: reserved."
+                shift: 0
+                mask: 7
+                access: R/W
+          - name: BLOCK_NUM
+            description: "AES block number register"
+            addr: 152
+            fields:
+              - name: BLOCK_NUM
+                description: "Those bits stores the number of Plaintext/ciphertext block."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: INC_SEL
+            description: "Standard incrementing function configure register"
+            addr: 156
+            fields:
+              - name: INC_SEL
+                description: "This bit decides the standard incrementing function. 0: INC32. 1: INC128."
+                shift: 0
+                mask: 1
+                access: R/W
+          - name: AAD_BLOCK_NUM
+            description: "Additional Authential Data block number register"
+            addr: 160
+            fields:
+              - name: AAD_BLOCK_NUM
+                description: "Those bits stores the number of AAD block."
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: REMAINDER_BIT_NUM
+            description: "AES remainder bit number register"
+            addr: 164
+            fields:
+              - name: REMAINDER_BIT_NUM
+                description: "Those bits stores the number of remainder bit."
+                shift: 0
+                mask: 127
+                access: R/W
+          - name: CONTINUE
+            description: "AES continue register"
+            addr: 168
+            fields:
+              - name: CONTINUE
+                description: "Set this bit to continue GCM operation."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: INT_CLEAR
+            description: "AES Interrupt clear register"
+            addr: 172
+            fields:
+              - name: INT_CLEAR
+                description: "Set this bit to clear the AES interrupt."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: INT_ENA
+            description: "AES Interrupt enable register"
+            addr: 176
+            fields:
+              - name: INT_ENA
+                description: "Set this bit to enable interrupt that occurs when DMA-AES calculation is done."
+                shift: 0
+                mask: 1
+                access: R/W
+          - name: DATE
+            description: "AES version control register"
+            addr: 180
+            fields:
+              - name: DATE
+                description: "This bits stores the version information of AES."
+                shift: 0
+                mask: 1073741823
+                access: R/W
+          - name: DMA_EXIT
+            description: "AES-DMA exit config"
+            addr: 184
+            fields:
+              - name: DMA_EXIT
+                description: "Set this register to leave calculation done stage. Recommend to use it after software finishes reading DMAs output buffer."
+                shift: 0
+                mask: 1
+                access: WO

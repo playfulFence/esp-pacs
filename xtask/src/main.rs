@@ -1,3 +1,5 @@
+mod idf_parser;
+
 use std::{
     env,
     fs::{self, File},
@@ -114,6 +116,36 @@ enum Commands {
         #[arg(value_enum, default_values_t = Chip::iter())]
         chips: Vec<Chip>,
     },
+
+    /// Generate a base SVD (and optionally Rust PAC) from ESP-IDF C-headers.
+    ///
+    /// Reads metadata from `<chip>/idf-pipeline/` (peripherals.yml,
+    /// interrupts.yml, peripheral_descriptions.yml, header_map.yml) and parses
+    /// IDF register header files directly in Rust – no Python or regdesc needed.
+    ///
+    /// By default writes a new `<chip>/svd/<chip>.base.svd`, then applies
+    /// patches and generates Rust source (identical flow to `generate`).
+    ///
+    /// Prerequisites:
+    ///   - A local checkout of ESP-IDF (path via --idf-path or $IDF_PATH)
+    ///   - `<chip>/idf-pipeline/` directory with the required YAML files
+    IdfPipeline {
+        /// Chip to target
+        #[arg(value_enum, default_value = "esp32c3")]
+        chip: Chip,
+
+        /// Path to the ESP-IDF checkout (overrides IDF_PATH env var)
+        #[arg(long)]
+        idf_path: Option<PathBuf>,
+
+        /// Skip applying patches (only write the base SVD, do not generate Rust)
+        #[arg(long)]
+        skip_patch: bool,
+
+        /// Skip Rust code generation (only produce SVD files)
+        #[arg(long)]
+        skip_generate: bool,
+    },
 }
 
 // ----------------------------------------------------------------------------
@@ -151,6 +183,13 @@ fn main() -> Result<()> {
         Commands::Publish { dry_run, chips } => chips
             .par_iter()
             .try_for_each(|chip| publish_package(&workspace, chip, dry_run)),
+
+        Commands::IdfPipeline {
+            chip,
+            idf_path,
+            skip_patch,
+            skip_generate,
+        } => idf_pipeline(&workspace, &chip, idf_path, skip_patch, skip_generate),
     }
 }
 
@@ -179,7 +218,10 @@ fn patch_svd(workspace: &Path, chip: &Chip) -> Result<()> {
     let svd_path = workspace.join(chip.to_string()).join("svd");
     let yaml_file = svd_path.join("patches").join(format!("{chip}.yaml"));
     let config = PatchConfig::default();
-    svdtools::patch::process_file(&yaml_file, None, None, &config)?;
+    if let Err(e) = svdtools::patch::process_file(&yaml_file, None, None, &config) {
+        eprintln!("svdtools full error:\n{e:#?}");
+        return Err(e);
+    }
 
     let from = svd_path.join(format!("{chip}.base.svd.patched"));
     let to = svd_path.join(format!("{chip}.svd"));
@@ -363,6 +405,182 @@ fn publish_package(workspace: &Path, chip: &Chip, dry_run: bool) -> Result<()> {
     command.current_dir(path);
     run_command(&mut command)?;
 
+    Ok(())
+}
+
+// ----------------------------------------------------------------------------
+// IDF pipeline (pure Rust, no Python/regdesc)
+
+/// Parse ESP-IDF C register headers and generate a base SVD for the chip,
+/// then optionally apply patches and generate Rust source.
+///
+/// This is entirely self-contained within `esp-pacs` – no Python interpreter,
+/// no regdesc package, and no external `regdesc-data` repository are required.
+fn idf_pipeline(
+    workspace: &Path,
+    chip: &Chip,
+    idf_path: Option<PathBuf>,
+    skip_patch: bool,
+    skip_generate: bool,
+) -> Result<()> {
+    let chip_name = chip.to_string();
+
+    // Resolve IDF path
+    let idf_path = idf_path
+        .or_else(|| env::var("IDF_PATH").ok().map(PathBuf::from))
+        .ok_or_else(|| {
+            anyhow::anyhow!(
+                "ESP-IDF path not found. Pass --idf-path or set the IDF_PATH env var."
+            )
+        })?;
+    if !idf_path.is_dir() {
+        anyhow::bail!(
+            "IDF_PATH does not exist or is not a directory: {}",
+            idf_path.display()
+        );
+    }
+
+    // The idf-pipeline directory lives inside the chip directory in this repo.
+    let chip_dir = workspace.join(&chip_name);
+    let pipeline_dir = chip_dir.join("idf-pipeline");
+    if !pipeline_dir.is_dir() {
+        anyhow::bail!(
+            "idf-pipeline directory not found: {}\n\
+             Create it with the required YAML files (peripherals.yml, interrupts.yml, \
+             peripheral_descriptions.yml, header_map.yml).",
+            pipeline_dir.display()
+        );
+    }
+
+    // -----------------------------------------------------------------------
+    // Step 1: Parse IDF headers → generate base SVD
+    // -----------------------------------------------------------------------
+    log::info!(
+        "[idf-pipeline] Generating base SVD for {} from {}",
+        chip_name,
+        idf_path.display()
+    );
+
+    let svd_xml = idf_parser::generate_base_svd(&chip_name, &pipeline_dir, &idf_path)?;
+
+    let svd_dir = chip_dir.join("svd");
+    fs::create_dir_all(&svd_dir)?;
+    let base_svd_path = svd_dir.join(format!("{chip_name}.base.svd"));
+    fs::write(&base_svd_path, &svd_xml)?;
+
+    log::info!(
+        "[idf-pipeline] Base SVD written → {} ({} KB)",
+        base_svd_path.display(),
+        svd_xml.len() / 1024
+    );
+
+    if skip_patch && skip_generate {
+        log::info!("[idf-pipeline] Done (--skip-patch --skip-generate).");
+        return Ok(());
+    }
+
+    if skip_patch {
+        log::info!("[idf-pipeline] Skipping patches (--skip-patch).");
+        return Ok(());
+    }
+
+    // -----------------------------------------------------------------------
+    // Step 2: Apply svdtools patches
+    // -----------------------------------------------------------------------
+    log::info!("[idf-pipeline] Applying patches...");
+    patch_svd(workspace, chip)?;
+
+    if skip_generate {
+        log::info!("[idf-pipeline] Skipping Rust generation (--skip-generate).");
+        return Ok(());
+    }
+
+    // -----------------------------------------------------------------------
+    // Step 3: Generate Rust PAC from the patched SVD
+    // -----------------------------------------------------------------------
+    log::info!("[idf-pipeline] Generating Rust PAC...");
+    // generate_package calls patch_svd internally, but we already patched.
+    // Instead, call only the Rust generation part directly.
+    generate_rust_from_svd(workspace, chip)?;
+
+    log::info!("[idf-pipeline] Done. Output in {}", chip_dir.display());
+    Ok(())
+}
+
+/// Generate Rust PAC source from an already-patched SVD (skips the patch step).
+fn generate_rust_from_svd(workspace: &Path, chip: &Chip) -> Result<()> {
+    use svd2rust::{
+        config::{IdentFormats, IdentFormatsTheme},
+        util::IdentFormat,
+        Config, Target,
+    };
+
+    let path = workspace.join(chip.to_string());
+    let svd_file = path.join("svd").join(format!("{chip}.svd"));
+
+    if fs::remove_dir_all(path.join("src")).is_err() {
+        log::warn!("unable to remove 'src/' directory");
+    }
+
+    log::info!("generating PAC for {chip} from '{}'", svd_file.display());
+
+    let target = if build_target(&path)?.contains("riscv") {
+        Target::RISCV
+    } else {
+        Target::XtensaLX
+    };
+
+    let mut config = Config::default();
+    config.target = target;
+    config.output_dir = Some(path.clone());
+    config.impl_debug = true;
+    config.impl_debug_feature = Some("impl-register-debug".to_owned());
+    config.interrupt_link_section = Some(".rwtext".to_owned());
+    config.ident_formats_theme = Some(IdentFormatsTheme::Legacy);
+    config.max_cluster_size = true;
+    config.impl_defmt = Some("defmt".into());
+    config.skip_peripherals_struct = match chip {
+        Chip::Esp32s3Ulp | Chip::Esp32s2Ulp | Chip::Esp32c6Lp => false,
+        _ => true,
+    };
+
+    let input = fs::read_to_string(&svd_file)?;
+    let device = svd2rust::load_from(&input, &config)?;
+
+    let mut config = config.clone();
+    let mut ident_formats = match config.ident_formats_theme {
+        Some(IdentFormatsTheme::Legacy) => IdentFormats::legacy_theme(),
+        _ => IdentFormats::default_theme(),
+    };
+    ident_formats.insert("enum_name".into(), IdentFormat::default().constant_case());
+    ident_formats.insert(
+        "enum_read_name".into(),
+        IdentFormat::default().constant_case(),
+    );
+    ident_formats.insert("enum_value".into(), IdentFormat::default().pascal_case());
+    ident_formats.extend(config.ident_formats.drain());
+    config.ident_formats = ident_formats;
+
+    let mut device_x = String::new();
+    let items = svd2rust::generate::device::render(&device, &config, &mut device_x)?;
+    let data = items.to_string();
+    let data = data.replace(
+        "# ! [no_std]",
+        "# ! [doc(html_logo_url = \"https://avatars.githubusercontent.com/u/46717278\")]\n# ! [no_std]",
+    );
+    let data = data.replace("doc_auto_cfg", "doc_cfg");
+
+    let mut file = File::create(path.join("lib.rs"))?;
+    file.write_all(data.as_ref())?;
+
+    writeln!(File::create(path.join("device.x"))?, "{}", device_x)?;
+    writeln!(
+        File::create(path.join("build.rs"))?,
+        "{}",
+        svd2rust::util::build_rs(&config)
+    )?;
+
+    format(&path, chip)?;
     Ok(())
 }
 

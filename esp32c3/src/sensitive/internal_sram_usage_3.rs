@@ -2,21 +2,21 @@
 pub type R = crate::R<INTERNAL_SRAM_USAGE_3_SPEC>;
 #[doc = "Register `INTERNAL_SRAM_USAGE_3` writer"]
 pub type W = crate::W<INTERNAL_SRAM_USAGE_3_SPEC>;
-#[doc = "Field `INTERNAL_SRAM_USAGE_MAC_DUMP_SRAM` reader - internal_sram_usage_mac_dump_sram"]
+#[doc = "Field `INTERNAL_SRAM_USAGE_MAC_DUMP_SRAM` reader - "]
 pub type INTERNAL_SRAM_USAGE_MAC_DUMP_SRAM_R = crate::FieldReader;
-#[doc = "Field `INTERNAL_SRAM_USAGE_MAC_DUMP_SRAM` writer - internal_sram_usage_mac_dump_sram"]
+#[doc = "Field `INTERNAL_SRAM_USAGE_MAC_DUMP_SRAM` writer - "]
 pub type INTERNAL_SRAM_USAGE_MAC_DUMP_SRAM_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
-#[doc = "Field `INTERNAL_SRAM_ALLOC_MAC_DUMP` reader - internal_sram_alloc_mac_dump"]
+#[doc = "Field `INTERNAL_SRAM_ALLOC_MAC_DUMP` reader - "]
 pub type INTERNAL_SRAM_ALLOC_MAC_DUMP_R = crate::BitReader;
-#[doc = "Field `INTERNAL_SRAM_ALLOC_MAC_DUMP` writer - internal_sram_alloc_mac_dump"]
+#[doc = "Field `INTERNAL_SRAM_ALLOC_MAC_DUMP` writer - "]
 pub type INTERNAL_SRAM_ALLOC_MAC_DUMP_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bits 0:2 - internal_sram_usage_mac_dump_sram"]
+    #[doc = "Bits 0:2"]
     #[inline(always)]
     pub fn internal_sram_usage_mac_dump_sram(&self) -> INTERNAL_SRAM_USAGE_MAC_DUMP_SRAM_R {
         INTERNAL_SRAM_USAGE_MAC_DUMP_SRAM_R::new((self.bits & 7) as u8)
     }
-    #[doc = "Bit 3 - internal_sram_alloc_mac_dump"]
+    #[doc = "Bit 3"]
     #[inline(always)]
     pub fn internal_sram_alloc_mac_dump(&self) -> INTERNAL_SRAM_ALLOC_MAC_DUMP_R {
         INTERNAL_SRAM_ALLOC_MAC_DUMP_R::new(((self.bits >> 3) & 1) != 0)
@@ -27,25 +27,25 @@ impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("INTERNAL_SRAM_USAGE_3")
             .field(
-                "internal_sram_usage_mac_dump_sram",
-                &self.internal_sram_usage_mac_dump_sram(),
-            )
-            .field(
                 "internal_sram_alloc_mac_dump",
                 &self.internal_sram_alloc_mac_dump(),
+            )
+            .field(
+                "internal_sram_usage_mac_dump_sram",
+                &self.internal_sram_usage_mac_dump_sram(),
             )
             .finish()
     }
 }
 impl W {
-    #[doc = "Bits 0:2 - internal_sram_usage_mac_dump_sram"]
+    #[doc = "Bits 0:2"]
     #[inline(always)]
     pub fn internal_sram_usage_mac_dump_sram(
         &mut self,
     ) -> INTERNAL_SRAM_USAGE_MAC_DUMP_SRAM_W<'_, INTERNAL_SRAM_USAGE_3_SPEC> {
         INTERNAL_SRAM_USAGE_MAC_DUMP_SRAM_W::new(self, 0)
     }
-    #[doc = "Bit 3 - internal_sram_alloc_mac_dump"]
+    #[doc = "Bit 3"]
     #[inline(always)]
     pub fn internal_sram_alloc_mac_dump(
         &mut self,
@@ -53,7 +53,7 @@ impl W {
         INTERNAL_SRAM_ALLOC_MAC_DUMP_W::new(self, 3)
     }
 }
-#[doc = "SENSITIVE_INTERNAL_SRAM_USAGE_3_REG\n\nYou can [`read`](crate::Reg::read) this register and get [`internal_sram_usage_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`internal_sram_usage_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`internal_sram_usage_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`internal_sram_usage_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INTERNAL_SRAM_USAGE_3_SPEC;
 impl crate::RegisterSpec for INTERNAL_SRAM_USAGE_3_SPEC {
     type Ux = u32;

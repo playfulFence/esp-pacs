@@ -14,9 +14,9 @@ pub type DL0_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type DL1_EN_R = crate::BitReader;
 #[doc = "Field `DL1_EN` writer - Set this bit to delay the stop bit by 1 bit."]
 pub type DL1_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RS485TX_RX_EN` reader - Set this bit to enable receiver could receive data when the transmitter is transmitting data in rs485 mode."]
+#[doc = "Field `RS485TX_RX_EN` reader - Set this bit to enable receiver could receive data when the transmitter"]
 pub type RS485TX_RX_EN_R = crate::BitReader;
-#[doc = "Field `RS485TX_RX_EN` writer - Set this bit to enable receiver could receive data when the transmitter is transmitting data in rs485 mode."]
+#[doc = "Field `RS485TX_RX_EN` writer - Set this bit to enable receiver could receive data when the transmitter"]
 pub type RS485TX_RX_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RS485RXBY_TX_EN` reader - 1'h1: enable rs485 transmitter to send data when rs485 receiver line is busy."]
 pub type RS485RXBY_TX_EN_R = crate::BitReader;
@@ -46,7 +46,7 @@ impl R {
     pub fn dl1_en(&self) -> DL1_EN_R {
         DL1_EN_R::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bit 3 - Set this bit to enable receiver could receive data when the transmitter is transmitting data in rs485 mode."]
+    #[doc = "Bit 3 - Set this bit to enable receiver could receive data when the transmitter"]
     #[inline(always)]
     pub fn rs485tx_rx_en(&self) -> RS485TX_RX_EN_R {
         RS485TX_RX_EN_R::new(((self.bits >> 3) & 1) != 0)
@@ -71,13 +71,13 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("RS485_CONF")
-            .field("rs485_en", &self.rs485_en())
-            .field("dl0_en", &self.dl0_en())
-            .field("dl1_en", &self.dl1_en())
-            .field("rs485tx_rx_en", &self.rs485tx_rx_en())
-            .field("rs485rxby_tx_en", &self.rs485rxby_tx_en())
-            .field("rs485_rx_dly_num", &self.rs485_rx_dly_num())
             .field("rs485_tx_dly_num", &self.rs485_tx_dly_num())
+            .field("rs485_rx_dly_num", &self.rs485_rx_dly_num())
+            .field("rs485rxby_tx_en", &self.rs485rxby_tx_en())
+            .field("rs485tx_rx_en", &self.rs485tx_rx_en())
+            .field("dl1_en", &self.dl1_en())
+            .field("dl0_en", &self.dl0_en())
+            .field("rs485_en", &self.rs485_en())
             .finish()
     }
 }
@@ -97,7 +97,7 @@ impl W {
     pub fn dl1_en(&mut self) -> DL1_EN_W<'_, RS485_CONF_SPEC> {
         DL1_EN_W::new(self, 2)
     }
-    #[doc = "Bit 3 - Set this bit to enable receiver could receive data when the transmitter is transmitting data in rs485 mode."]
+    #[doc = "Bit 3 - Set this bit to enable receiver could receive data when the transmitter"]
     #[inline(always)]
     pub fn rs485tx_rx_en(&mut self) -> RS485TX_RX_EN_W<'_, RS485_CONF_SPEC> {
         RS485TX_RX_EN_W::new(self, 3)
@@ -118,7 +118,7 @@ impl W {
         RS485_TX_DLY_NUM_W::new(self, 6)
     }
 }
-#[doc = "RS485 mode configuration\n\nYou can [`read`](crate::Reg::read) this register and get [`rs485_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rs485_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`rs485_conf::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rs485_conf::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RS485_CONF_SPEC;
 impl crate::RegisterSpec for RS485_CONF_SPEC {
     type Ux = u32;

@@ -2,12 +2,12 @@
 pub type R = crate::R<PGM_DATA6_SPEC>;
 #[doc = "Register `PGM_DATA6` writer"]
 pub type W = crate::W<PGM_DATA6_SPEC>;
-#[doc = "Field `PGM_DATA_6` reader - The content of the 6th 32-bit data to be programmed."]
+#[doc = "Field `PGM_DATA_6` reader - The content of the 6th 32-bit data to be programmed. /"]
 pub type PGM_DATA_6_R = crate::FieldReader<u32>;
-#[doc = "Field `PGM_DATA_6` writer - The content of the 6th 32-bit data to be programmed."]
+#[doc = "Field `PGM_DATA_6` writer - The content of the 6th 32-bit data to be programmed. /"]
 pub type PGM_DATA_6_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
-    #[doc = "Bits 0:31 - The content of the 6th 32-bit data to be programmed."]
+    #[doc = "Bits 0:31 - The content of the 6th 32-bit data to be programmed. /"]
     #[inline(always)]
     pub fn pgm_data_6(&self) -> PGM_DATA_6_R {
         PGM_DATA_6_R::new(self.bits)
@@ -22,13 +22,13 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - The content of the 6th 32-bit data to be programmed."]
+    #[doc = "Bits 0:31 - The content of the 6th 32-bit data to be programmed. /"]
     #[inline(always)]
     pub fn pgm_data_6(&mut self) -> PGM_DATA_6_W<'_, PGM_DATA6_SPEC> {
         PGM_DATA_6_W::new(self, 0)
     }
 }
-#[doc = "Register 6 that stores data to be programmed.\n\nYou can [`read`](crate::Reg::read) this register and get [`pgm_data6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pgm_data6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Register 6 that stores data to be programmed. /\n\nYou can [`read`](crate::Reg::read) this register and get [`pgm_data6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pgm_data6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PGM_DATA6_SPEC;
 impl crate::RegisterSpec for PGM_DATA6_SPEC {
     type Ux = u32;

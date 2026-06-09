@@ -20,7 +20,7 @@ ARB_CTRL:
       name: CFG
 "INT_*":
   _modify:
-    SARADC1_DONE:
+    "?~SARADC1_DONE":
       name: ADC1_DONE
-    SARADC2_DONE:
+    "?~SARADC2_DONE":
       name: ADC2_DONE

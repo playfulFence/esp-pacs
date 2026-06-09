@@ -16,7 +16,7 @@ pub type SWD_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 pub type XTAL32K_DEAD_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `GLITCH_DET` writer - Clear glitch det interrupt state"]
 pub type GLITCH_DET_W<'a, REG> = crate::BitWriter1C<'a, REG>;
-#[doc = "Field `BBPLL_CAL` writer - clear bbpll cal end interrupt state"]
+#[doc = "Field `BBPLL_CAL` writer - "]
 pub type BBPLL_CAL_W<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for crate::generic::Reg<INT_CLR_SPEC> {
@@ -65,13 +65,13 @@ impl W {
     pub fn glitch_det(&mut self) -> GLITCH_DET_W<'_, INT_CLR_SPEC> {
         GLITCH_DET_W::new(self, 19)
     }
-    #[doc = "Bit 20 - clear bbpll cal end interrupt state"]
+    #[doc = "Bit 20"]
     #[inline(always)]
     pub fn bbpll_cal(&mut self) -> BBPLL_CAL_W<'_, INT_CLR_SPEC> {
         BBPLL_CAL_W::new(self, 20)
     }
 }
-#[doc = "rtc configure register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_clr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_clr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_CLR_SPEC;
 impl crate::RegisterSpec for INT_CLR_SPEC {
     type Ux = u32;

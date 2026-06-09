@@ -44,10 +44,10 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("QUICK_SENT")
-            .field("single_send_num", &self.single_send_num())
-            .field("single_send_en", &self.single_send_en())
-            .field("always_send_num", &self.always_send_num())
             .field("always_send_en", &self.always_send_en())
+            .field("always_send_num", &self.always_send_num())
+            .field("single_send_en", &self.single_send_en())
+            .field("single_send_num", &self.single_send_num())
             .finish()
     }
 }
@@ -73,7 +73,7 @@ impl W {
         ALWAYS_SEND_EN_W::new(self, 7)
     }
 }
-#[doc = "a\n\nYou can [`read`](crate::Reg::read) this register and get [`quick_sent::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`quick_sent::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`quick_sent::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`quick_sent::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct QUICK_SENT_SPEC;
 impl crate::RegisterSpec for QUICK_SENT_SPEC {
     type Ux = u32;

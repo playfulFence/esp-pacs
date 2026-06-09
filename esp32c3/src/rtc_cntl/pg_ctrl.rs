@@ -2,48 +2,48 @@
 pub type R = crate::R<PG_CTRL_SPEC>;
 #[doc = "Register `PG_CTRL` writer"]
 pub type W = crate::W<PG_CTRL_SPEC>;
-#[doc = "Field `POWER_GLITCH_DSENSE` reader - power glitch desense"]
+#[doc = "Field `POWER_GLITCH_DSENSE` reader - "]
 pub type POWER_GLITCH_DSENSE_R = crate::FieldReader;
-#[doc = "Field `POWER_GLITCH_DSENSE` writer - power glitch desense"]
+#[doc = "Field `POWER_GLITCH_DSENSE` writer - "]
 pub type POWER_GLITCH_DSENSE_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `POWER_GLITCH_FORCE_PD` reader - force disable power glitch"]
+#[doc = "Field `POWER_GLITCH_FORCE_PD` reader - "]
 pub type POWER_GLITCH_FORCE_PD_R = crate::BitReader;
-#[doc = "Field `POWER_GLITCH_FORCE_PD` writer - force disable power glitch"]
+#[doc = "Field `POWER_GLITCH_FORCE_PD` writer - "]
 pub type POWER_GLITCH_FORCE_PD_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `POWER_GLITCH_FORCE_PU` reader - force enable power glitch"]
+#[doc = "Field `POWER_GLITCH_FORCE_PU` reader - "]
 pub type POWER_GLITCH_FORCE_PU_R = crate::BitReader;
-#[doc = "Field `POWER_GLITCH_FORCE_PU` writer - force enable power glitch"]
+#[doc = "Field `POWER_GLITCH_FORCE_PU` writer - "]
 pub type POWER_GLITCH_FORCE_PU_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `POWER_GLITCH_EFUSE_SEL` reader - use efuse value control power glitch enable"]
+#[doc = "Field `POWER_GLITCH_EFUSE_SEL` reader - "]
 pub type POWER_GLITCH_EFUSE_SEL_R = crate::BitReader;
-#[doc = "Field `POWER_GLITCH_EFUSE_SEL` writer - use efuse value control power glitch enable"]
+#[doc = "Field `POWER_GLITCH_EFUSE_SEL` writer - "]
 pub type POWER_GLITCH_EFUSE_SEL_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `POWER_GLITCH_EN` reader - enable power glitch"]
+#[doc = "Field `POWER_GLITCH_EN` reader - "]
 pub type POWER_GLITCH_EN_R = crate::BitReader;
-#[doc = "Field `POWER_GLITCH_EN` writer - enable power glitch"]
+#[doc = "Field `POWER_GLITCH_EN` writer - "]
 pub type POWER_GLITCH_EN_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bits 26:27 - power glitch desense"]
+    #[doc = "Bits 26:27"]
     #[inline(always)]
     pub fn power_glitch_dsense(&self) -> POWER_GLITCH_DSENSE_R {
         POWER_GLITCH_DSENSE_R::new(((self.bits >> 26) & 3) as u8)
     }
-    #[doc = "Bit 28 - force disable power glitch"]
+    #[doc = "Bit 28"]
     #[inline(always)]
     pub fn power_glitch_force_pd(&self) -> POWER_GLITCH_FORCE_PD_R {
         POWER_GLITCH_FORCE_PD_R::new(((self.bits >> 28) & 1) != 0)
     }
-    #[doc = "Bit 29 - force enable power glitch"]
+    #[doc = "Bit 29"]
     #[inline(always)]
     pub fn power_glitch_force_pu(&self) -> POWER_GLITCH_FORCE_PU_R {
         POWER_GLITCH_FORCE_PU_R::new(((self.bits >> 29) & 1) != 0)
     }
-    #[doc = "Bit 30 - use efuse value control power glitch enable"]
+    #[doc = "Bit 30"]
     #[inline(always)]
     pub fn power_glitch_efuse_sel(&self) -> POWER_GLITCH_EFUSE_SEL_R {
         POWER_GLITCH_EFUSE_SEL_R::new(((self.bits >> 30) & 1) != 0)
     }
-    #[doc = "Bit 31 - enable power glitch"]
+    #[doc = "Bit 31"]
     #[inline(always)]
     pub fn power_glitch_en(&self) -> POWER_GLITCH_EN_R {
         POWER_GLITCH_EN_R::new(((self.bits >> 31) & 1) != 0)
@@ -53,42 +53,42 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("PG_CTRL")
-            .field("power_glitch_dsense", &self.power_glitch_dsense())
-            .field("power_glitch_force_pd", &self.power_glitch_force_pd())
-            .field("power_glitch_force_pu", &self.power_glitch_force_pu())
-            .field("power_glitch_efuse_sel", &self.power_glitch_efuse_sel())
             .field("power_glitch_en", &self.power_glitch_en())
+            .field("power_glitch_efuse_sel", &self.power_glitch_efuse_sel())
+            .field("power_glitch_force_pu", &self.power_glitch_force_pu())
+            .field("power_glitch_force_pd", &self.power_glitch_force_pd())
+            .field("power_glitch_dsense", &self.power_glitch_dsense())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bits 26:27 - power glitch desense"]
+    #[doc = "Bits 26:27"]
     #[inline(always)]
     pub fn power_glitch_dsense(&mut self) -> POWER_GLITCH_DSENSE_W<'_, PG_CTRL_SPEC> {
         POWER_GLITCH_DSENSE_W::new(self, 26)
     }
-    #[doc = "Bit 28 - force disable power glitch"]
+    #[doc = "Bit 28"]
     #[inline(always)]
     pub fn power_glitch_force_pd(&mut self) -> POWER_GLITCH_FORCE_PD_W<'_, PG_CTRL_SPEC> {
         POWER_GLITCH_FORCE_PD_W::new(self, 28)
     }
-    #[doc = "Bit 29 - force enable power glitch"]
+    #[doc = "Bit 29"]
     #[inline(always)]
     pub fn power_glitch_force_pu(&mut self) -> POWER_GLITCH_FORCE_PU_W<'_, PG_CTRL_SPEC> {
         POWER_GLITCH_FORCE_PU_W::new(self, 29)
     }
-    #[doc = "Bit 30 - use efuse value control power glitch enable"]
+    #[doc = "Bit 30"]
     #[inline(always)]
     pub fn power_glitch_efuse_sel(&mut self) -> POWER_GLITCH_EFUSE_SEL_W<'_, PG_CTRL_SPEC> {
         POWER_GLITCH_EFUSE_SEL_W::new(self, 30)
     }
-    #[doc = "Bit 31 - enable power glitch"]
+    #[doc = "Bit 31"]
     #[inline(always)]
     pub fn power_glitch_en(&mut self) -> POWER_GLITCH_EN_W<'_, PG_CTRL_SPEC> {
         POWER_GLITCH_EN_W::new(self, 31)
     }
 }
-#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`pg_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pg_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`pg_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pg_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PG_CTRL_SPEC;
 impl crate::RegisterSpec for PG_CTRL_SPEC {
     type Ux = u32;

@@ -1,9 +1,9 @@
 #[doc = "Register `INT_ST` reader"]
 pub type R = crate::R<INT_ST_SPEC>;
-#[doc = "Field `TARGET(0-2)` reader - reg_target%s_int_st"]
+#[doc = "Field `TARGET(0-2)` reader - reg_target%s_int_st /"]
 pub type TARGET_R = crate::BitReader;
 impl R {
-    #[doc = "reg_target(0-2)_int_st"]
+    #[doc = "reg_target(0-2)_int_st /"]
     #[doc = ""]
     #[doc = "<div class=\"warning\">`n` is number of field in register. `n == 0` corresponds to `TARGET0` field.</div>"]
     #[inline(always)]
@@ -13,22 +13,22 @@ impl R {
         TARGET_R::new(((self.bits >> n) & 1) != 0)
     }
     #[doc = "Iterator for array of:"]
-    #[doc = "reg_target(0-2)_int_st"]
+    #[doc = "reg_target(0-2)_int_st /"]
     #[inline(always)]
     pub fn target_iter(&self) -> impl Iterator<Item = TARGET_R> + '_ {
         (0..3).map(move |n| TARGET_R::new(((self.bits >> n) & 1) != 0))
     }
-    #[doc = "Bit 0 - reg_target0_int_st"]
+    #[doc = "Bit 0 - reg_target0_int_st /"]
     #[inline(always)]
     pub fn target0(&self) -> TARGET_R {
         TARGET_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 1 - reg_target1_int_st"]
+    #[doc = "Bit 1 - reg_target1_int_st /"]
     #[inline(always)]
     pub fn target1(&self) -> TARGET_R {
         TARGET_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 2 - reg_target2_int_st"]
+    #[doc = "Bit 2 - reg_target2_int_st /"]
     #[inline(always)]
     pub fn target2(&self) -> TARGET_R {
         TARGET_R::new(((self.bits >> 2) & 1) != 0)
@@ -44,7 +44,7 @@ impl core::fmt::Debug for R {
             .finish()
     }
 }
-#[doc = "SYSTIMER_INT_ST.\n\nYou can [`read`](crate::Reg::read) this register and get [`int_st::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "SYSTIMER_INT_ST. /\n\nYou can [`read`](crate::Reg::read) this register and get [`int_st::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_ST_SPEC;
 impl crate::RegisterSpec for INT_ST_SPEC {
     type Ux = u32;

@@ -30,13 +30,13 @@ pub type SWD_W<'a, REG> = crate::BitWriter<'a, REG>;
 pub type XTAL32K_DEAD_R = crate::BitReader;
 #[doc = "Field `XTAL32K_DEAD` writer - enable xtal32k_dead interrupt"]
 pub type XTAL32K_DEAD_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `GLITCH_DET` reader - enbale gitch det interrupt"]
+#[doc = "Field `GLITCH_DET` reader - enable gitch det interrupt"]
 pub type GLITCH_DET_R = crate::BitReader;
-#[doc = "Field `GLITCH_DET` writer - enbale gitch det interrupt"]
+#[doc = "Field `GLITCH_DET` writer - enable gitch det interrupt"]
 pub type GLITCH_DET_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BBPLL_CAL` reader - enbale bbpll cal end interrupt"]
+#[doc = "Field `BBPLL_CAL` reader - "]
 pub type BBPLL_CAL_R = crate::BitReader;
-#[doc = "Field `BBPLL_CAL` writer - enbale bbpll cal end interrupt"]
+#[doc = "Field `BBPLL_CAL` writer - "]
 pub type BBPLL_CAL_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - enable sleep wakeup interrupt"]
@@ -74,12 +74,12 @@ impl R {
     pub fn xtal32k_dead(&self) -> XTAL32K_DEAD_R {
         XTAL32K_DEAD_R::new(((self.bits >> 16) & 1) != 0)
     }
-    #[doc = "Bit 19 - enbale gitch det interrupt"]
+    #[doc = "Bit 19 - enable gitch det interrupt"]
     #[inline(always)]
     pub fn glitch_det(&self) -> GLITCH_DET_R {
         GLITCH_DET_R::new(((self.bits >> 19) & 1) != 0)
     }
-    #[doc = "Bit 20 - enbale bbpll cal end interrupt"]
+    #[doc = "Bit 20"]
     #[inline(always)]
     pub fn bbpll_cal(&self) -> BBPLL_CAL_R {
         BBPLL_CAL_R::new(((self.bits >> 20) & 1) != 0)
@@ -89,15 +89,15 @@ impl R {
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("INT_ENA")
-            .field("slp_wakeup", &self.slp_wakeup())
-            .field("slp_reject", &self.slp_reject())
-            .field("wdt", &self.wdt())
-            .field("brown_out", &self.brown_out())
-            .field("main_timer", &self.main_timer())
-            .field("swd", &self.swd())
-            .field("xtal32k_dead", &self.xtal32k_dead())
-            .field("glitch_det", &self.glitch_det())
             .field("bbpll_cal", &self.bbpll_cal())
+            .field("glitch_det", &self.glitch_det())
+            .field("xtal32k_dead", &self.xtal32k_dead())
+            .field("swd", &self.swd())
+            .field("main_timer", &self.main_timer())
+            .field("brown_out", &self.brown_out())
+            .field("wdt", &self.wdt())
+            .field("slp_reject", &self.slp_reject())
+            .field("slp_wakeup", &self.slp_wakeup())
             .finish()
     }
 }
@@ -137,18 +137,18 @@ impl W {
     pub fn xtal32k_dead(&mut self) -> XTAL32K_DEAD_W<'_, INT_ENA_SPEC> {
         XTAL32K_DEAD_W::new(self, 16)
     }
-    #[doc = "Bit 19 - enbale gitch det interrupt"]
+    #[doc = "Bit 19 - enable gitch det interrupt"]
     #[inline(always)]
     pub fn glitch_det(&mut self) -> GLITCH_DET_W<'_, INT_ENA_SPEC> {
         GLITCH_DET_W::new(self, 19)
     }
-    #[doc = "Bit 20 - enbale bbpll cal end interrupt"]
+    #[doc = "Bit 20"]
     #[inline(always)]
     pub fn bbpll_cal(&mut self) -> BBPLL_CAL_W<'_, INT_ENA_SPEC> {
         BBPLL_CAL_W::new(self, 20)
     }
 }
-#[doc = "rtc configure register\n\nYou can [`read`](crate::Reg::read) this register and get [`int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`int_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct INT_ENA_SPEC;
 impl crate::RegisterSpec for INT_ENA_SPEC {
     type Ux = u32;

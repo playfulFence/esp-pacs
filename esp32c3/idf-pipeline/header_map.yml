@@ -1,0 +1,152 @@
+# Maps each logical peripheral TYPE to the IDF register header file.
+#
+# Fields per entry:
+#   file:   header filename (relative to components/soc/<chip>/register/soc/ or include/soc/)
+#   prefix: C macro prefix to strip from register/field names (default: the key name)
+#   skip:   if true, fall back to yml/ directory instead of parsing a C header
+#   yml:    specific yml fallback filename (default: <key_lowercase>.yml)
+
+peripherals:
+  APB_CTRL:
+    file: apb_ctrl_reg.h
+
+  APB_SARADC:
+    file: apb_saradc_reg.h
+    # Some registers use a longer APB_SARADC_APB_ADC_ prefix – try it first.
+    alt_prefixes:
+      - APB_SARADC_APB_ADC
+    # Registers whose names begin with digits need explicit renaming.
+    renames:
+      1_DATA_STATUS: SAR1DATA_STATUS
+      2_DATA_STATUS: SAR2DATA_STATUS
+
+  ASSIST_DEBUG:
+    file: assist_debug_reg.h
+
+  # GDMA is used as "DMA" in the peripheral instances
+  DMA:
+    file: gdma_reg.h
+    prefix: GDMA
+
+  EFUSE:
+    file: efuse_reg.h
+
+  EXTMEM:
+    file: extmem_reg.h
+
+  GPIO:
+    file: gpio_reg.h
+
+  # GPIO sigma-delta – C header uses "GPIO_" prefix for both registers and fields
+  GPIOSD:
+    file: gpio_sd_reg.h
+    prefix: GPIO
+
+  I2C:
+    file: i2c_reg.h
+
+  I2S:
+    file: i2s_reg.h
+
+  INTERRUPT_CORE0:
+    file: interrupt_core0_reg.h
+
+  # IO_MUX uses global bit-field constants that apply across all registers;
+  # the format is too unusual for our simple parser, so fall back to yml/.
+  IO_MUX:
+    skip: true
+
+  LEDC:
+    file: ledc_reg.h
+
+  RMT:
+    file: rmt_reg.h
+
+  RTC_CNTL:
+    file: rtc_cntl_reg.h
+    # RTC_CNTL_REG (offset 0x80) strips to the generic "REG" name; rename to
+    # what the original regdesc tool produced so existing patches work.
+    renames:
+      REG: RTC
+
+  SENSITIVE:
+    file: sensitive_reg.h
+
+  # SPI0 and SPI1 share spi_mem_reg.h; C prefix is SPI_MEM_
+  SPI0:
+    file: spi_mem_reg.h
+    prefix: SPI_MEM
+
+  SPI1:
+    file: spi_mem_reg.h
+    prefix: SPI_MEM
+
+  SPI2:
+    file: spi_reg.h
+    prefix: SPI
+
+  SYSTEM:
+    file: system_reg.h
+
+  SYSTIMER:
+    file: systimer_reg.h
+
+  # Timer groups use parameterized registers TIMG_Txxx_REG(i)
+  TIMG:
+    file: timer_group_reg.h
+
+  UART:
+    file: uart_reg.h
+
+  UHCI:
+    file: uhci_reg.h
+    # The original regdesc tool prefixed Q%s_WORD%s registers with REG_.
+    # Replicate this so existing patches work unchanged.
+    renames:
+      Q0_WORD0: REG_Q0_WORD0
+      Q0_WORD1: REG_Q0_WORD1
+      Q1_WORD0: REG_Q1_WORD0
+      Q1_WORD1: REG_Q1_WORD1
+      Q2_WORD0: REG_Q2_WORD0
+      Q2_WORD1: REG_Q2_WORD1
+      Q3_WORD0: REG_Q3_WORD0
+      Q3_WORD1: REG_Q3_WORD1
+      Q4_WORD0: REG_Q4_WORD0
+      Q4_WORD1: REG_Q4_WORD1
+      Q5_WORD0: REG_Q5_WORD0
+      Q5_WORD1: REG_Q5_WORD1
+      Q6_WORD0: REG_Q6_WORD0
+      Q6_WORD1: REG_Q6_WORD1
+
+  USB_DEVICE:
+    file: usb_serial_jtag_reg.h
+    prefix: USB_SERIAL_JTAG
+
+  XTS_AES:
+    file: xts_aes_reg.h
+
+  # Peripherals with no dedicated *_reg.h in register/soc/ – fall back to yml/
+  AES:
+    skip: true
+
+  BB:
+    skip: true
+
+  DS:
+    skip: true
+
+  HMAC:
+    skip: true
+
+  RNG:
+    skip: true
+    yml: rng.yml
+
+  RSA:
+    skip: true
+
+  SHA:
+    skip: true
+
+  TWAI:
+    skip: true

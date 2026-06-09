@@ -1,9 +1,9 @@
 #[doc = "Register `BUSY` reader"]
 pub type R = crate::R<BUSY_SPEC>;
-#[doc = "Field `STATE` reader - Sha busy state. 1'b0: idle. 1'b1: busy."]
+#[doc = "Field `STATE` reader - Sha busy state. 1b0: idle. 1b1: busy."]
 pub type STATE_R = crate::BitReader;
 impl R {
-    #[doc = "Bit 0 - Sha busy state. 1'b0: idle. 1'b1: busy."]
+    #[doc = "Bit 0 - Sha busy state. 1b0: idle. 1b1: busy."]
     #[inline(always)]
     pub fn state(&self) -> STATE_R {
         STATE_R::new((self.bits & 1) != 0)

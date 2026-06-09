@@ -1,0 +1,138 @@
+peripherals:
+  - name: RSA
+    register_groups:
+      - description: registers
+        registers:
+          - name: M_MEM[%s]
+            description: "The memory that stores M"
+            addr: 0
+            size: 8
+          - name: Z_MEM[%s]
+            description: "The memory that stores Z"
+            addr: 512
+            size: 8
+          - name: Y_MEM[%s]
+            description: "The memory that stores Y"
+            addr: 1024
+            size: 8
+          - name: X_MEM[%s]
+            description: "The memory that stores X"
+            addr: 1536
+            size: 8
+          - name: M_PRIME
+            description: "RSA M_prime register"
+            addr: 2048
+            fields:
+              - name: M_PRIME
+                description: "Those bits stores m"
+                shift: 0
+                mask: 4294967295
+                access: R/W
+          - name: MODE
+            description: "RSA mode register"
+            addr: 2052
+            fields:
+              - name: MODE
+                description: "rsa mode (rsa length)."
+                shift: 0
+                mask: 127
+                access: R/W
+          - name: QUERY_CLEAN
+            description: "RSA query clean register"
+            addr: 2056
+            fields:
+              - name: QUERY_CLEAN
+                description: "query clean"
+                shift: 0
+                mask: 1
+                access: RO
+          - name: SET_START_MODEXP
+            description: "RSA modular exponentiation trigger register."
+            addr: 2060
+            fields:
+              - name: SET_START_MODEXP
+                description: "start modular exponentiation"
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_START_MODMULT
+            description: "RSA modular multiplication trigger register."
+            addr: 2064
+            fields:
+              - name: SET_START_MODMULT
+                description: "start modular multiplication"
+                shift: 0
+                mask: 1
+                access: WO
+          - name: SET_START_MULT
+            description: "RSA normal multiplication trigger register."
+            addr: 2068
+            fields:
+              - name: SET_START_MULT
+                description: "start multiplicaiton"
+                shift: 0
+                mask: 1
+                access: WO
+          - name: QUERY_IDLE
+            description: "RSA query idle register"
+            addr: 2072
+            fields:
+              - name: QUERY_IDLE
+                description: "query rsa idle. 1b0: busy, 1b1: idle"
+                shift: 0
+                mask: 1
+                access: RO
+          - name: INT_CLR
+            description: "RSA interrupt clear register"
+            addr: 2076
+            fields:
+              - name: CLEAR_INTERRUPT
+                description: "set this bit to clear RSA interrupt."
+                shift: 0
+                mask: 1
+                access: WO
+          - name: CONSTANT_TIME
+            description: "RSA constant time option register"
+            addr: 2080
+            fields:
+              - name: CONSTANT_TIME
+                description: "Configure this bit to 0 for acceleration. 0: with acceleration, 1: without acceleration(defalut)."
+                shift: 0
+                mask: 1
+                access: R/W
+          - name: SEARCH_ENABLE
+            description: "RSA search option"
+            addr: 2084
+            fields:
+              - name: SEARCH_ENABLE
+                description: "Configure this bit to 1 for acceleration. 1: with acceleration, 0: without acceleration(default). This option should be used together with RSA_SEARCH_POS."
+                shift: 0
+                mask: 1
+                access: R/W
+          - name: SEARCH_POS
+            description: "RSA search position configure register"
+            addr: 2088
+            fields:
+              - name: SEARCH_POS
+                description: "Configure this field to set search position. This field should be used together with RSA_SEARCH_ENABLE. The field is only meaningful when RSA_SEARCH_ENABLE is high."
+                shift: 0
+                mask: 4095
+                access: R/W
+          - name: INT_ENA
+            description: "RSA interrupt enable register"
+            addr: 2092
+            fields:
+              - name: INT_ENA
+                description: "Set this bit to enable interrupt that occurs when rsa calculation is done. 1b0: disable, 1b1: enable(default)."
+                shift: 0
+                mask: 1
+                access: R/W
+          - name: DATE
+            description: "RSA version control register"
+            addr: 2096
+            fields:
+              - name: DATE
+                description: "rsa version information"
+                shift: 0
+                mask: 1073741823
+                access: R/W

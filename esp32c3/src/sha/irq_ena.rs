@@ -2,12 +2,12 @@
 pub type R = crate::R<IRQ_ENA_SPEC>;
 #[doc = "Register `IRQ_ENA` writer"]
 pub type W = crate::W<IRQ_ENA_SPEC>;
-#[doc = "Field `INTERRUPT_ENA` reader - Sha interrupt enable register. 1'b0: disable(default). 1'b1: enable."]
+#[doc = "Field `INTERRUPT_ENA` reader - Sha interrupt enable register. 1b0: disable(default). 1b1: enable."]
 pub type INTERRUPT_ENA_R = crate::BitReader;
-#[doc = "Field `INTERRUPT_ENA` writer - Sha interrupt enable register. 1'b0: disable(default). 1'b1: enable."]
+#[doc = "Field `INTERRUPT_ENA` writer - Sha interrupt enable register. 1b0: disable(default). 1b1: enable."]
 pub type INTERRUPT_ENA_W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - Sha interrupt enable register. 1'b0: disable(default). 1'b1: enable."]
+    #[doc = "Bit 0 - Sha interrupt enable register. 1b0: disable(default). 1b1: enable."]
     #[inline(always)]
     pub fn interrupt_ena(&self) -> INTERRUPT_ENA_R {
         INTERRUPT_ENA_R::new((self.bits & 1) != 0)
@@ -22,7 +22,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - Sha interrupt enable register. 1'b0: disable(default). 1'b1: enable."]
+    #[doc = "Bit 0 - Sha interrupt enable register. 1b0: disable(default). 1b1: enable."]
     #[inline(always)]
     pub fn interrupt_ena(&mut self) -> INTERRUPT_ENA_W<'_, IRQ_ENA_SPEC> {
         INTERRUPT_ENA_W::new(self, 0)

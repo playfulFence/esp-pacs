@@ -2,123 +2,123 @@
 pub type R = crate::R<PIN_SPEC>;
 #[doc = "Register `PIN%s` writer"]
 pub type W = crate::W<PIN_SPEC>;
-#[doc = "Field `SYNC2_BYPASS` reader - set GPIO input_sync2 signal mode. 0:disable. 1:trigger at negedge. 2or3:trigger at posedge."]
-pub type SYNC2_BYPASS_R = crate::FieldReader;
-#[doc = "Field `SYNC2_BYPASS` writer - set GPIO input_sync2 signal mode. 0:disable. 1:trigger at negedge. 2or3:trigger at posedge."]
-pub type SYNC2_BYPASS_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `PAD_DRIVER` reader - set this bit to select pad driver. 1:open-drain. 0:normal."]
-pub type PAD_DRIVER_R = crate::BitReader;
-#[doc = "Field `PAD_DRIVER` writer - set this bit to select pad driver. 1:open-drain. 0:normal."]
-pub type PAD_DRIVER_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SYNC1_BYPASS` reader - set GPIO input_sync1 signal mode. 0:disable. 1:trigger at negedge. 2or3:trigger at posedge."]
-pub type SYNC1_BYPASS_R = crate::FieldReader;
-#[doc = "Field `SYNC1_BYPASS` writer - set GPIO input_sync1 signal mode. 0:disable. 1:trigger at negedge. 2or3:trigger at posedge."]
-pub type SYNC1_BYPASS_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `INT_TYPE` reader - set this value to choose interrupt mode. 0:disable GPIO interrupt. 1:trigger at posedge. 2:trigger at negedge. 3:trigger at any edge. 4:valid at low level. 5:valid at high level"]
-pub type INT_TYPE_R = crate::FieldReader;
-#[doc = "Field `INT_TYPE` writer - set this value to choose interrupt mode. 0:disable GPIO interrupt. 1:trigger at posedge. 2:trigger at negedge. 3:trigger at any edge. 4:valid at low level. 5:valid at high level"]
-pub type INT_TYPE_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
-#[doc = "Field `WAKEUP_ENABLE` reader - set this bit to enable GPIO wakeup.(can only wakeup CPU from Light-sleep Mode)"]
-pub type WAKEUP_ENABLE_R = crate::BitReader;
-#[doc = "Field `WAKEUP_ENABLE` writer - set this bit to enable GPIO wakeup.(can only wakeup CPU from Light-sleep Mode)"]
-pub type WAKEUP_ENABLE_W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `CONFIG` reader - reserved"]
-pub type CONFIG_R = crate::FieldReader;
-#[doc = "Field `CONFIG` writer - reserved"]
-pub type CONFIG_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `INT_ENA` reader - set bit 13 to enable CPU interrupt. set bit 14 to enable CPU(not shielded) interrupt."]
-pub type INT_ENA_R = crate::FieldReader;
-#[doc = "Field `INT_ENA` writer - set bit 13 to enable CPU interrupt. set bit 14 to enable CPU(not shielded) interrupt."]
-pub type INT_ENA_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+#[doc = "Field `PIN0_SYNC2_BYPASS` reader - "]
+pub type PIN0_SYNC2_BYPASS_R = crate::FieldReader;
+#[doc = "Field `PIN0_SYNC2_BYPASS` writer - "]
+pub type PIN0_SYNC2_BYPASS_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `PIN0_PAD_DRIVER` reader - "]
+pub type PIN0_PAD_DRIVER_R = crate::BitReader;
+#[doc = "Field `PIN0_PAD_DRIVER` writer - "]
+pub type PIN0_PAD_DRIVER_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PIN0_SYNC1_BYPASS` reader - "]
+pub type PIN0_SYNC1_BYPASS_R = crate::FieldReader;
+#[doc = "Field `PIN0_SYNC1_BYPASS` writer - "]
+pub type PIN0_SYNC1_BYPASS_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `PIN0_INT_TYPE` reader - "]
+pub type PIN0_INT_TYPE_R = crate::FieldReader;
+#[doc = "Field `PIN0_INT_TYPE` writer - "]
+pub type PIN0_INT_TYPE_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+#[doc = "Field `PIN0_WAKEUP_ENABLE` reader - "]
+pub type PIN0_WAKEUP_ENABLE_R = crate::BitReader;
+#[doc = "Field `PIN0_WAKEUP_ENABLE` writer - "]
+pub type PIN0_WAKEUP_ENABLE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PIN0_CONFIG` reader - "]
+pub type PIN0_CONFIG_R = crate::FieldReader;
+#[doc = "Field `PIN0_CONFIG` writer - "]
+pub type PIN0_CONFIG_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `PIN0_INT_ENA` reader - "]
+pub type PIN0_INT_ENA_R = crate::FieldReader;
+#[doc = "Field `PIN0_INT_ENA` writer - "]
+pub type PIN0_INT_ENA_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 impl R {
-    #[doc = "Bits 0:1 - set GPIO input_sync2 signal mode. 0:disable. 1:trigger at negedge. 2or3:trigger at posedge."]
+    #[doc = "Bits 0:1"]
     #[inline(always)]
-    pub fn sync2_bypass(&self) -> SYNC2_BYPASS_R {
-        SYNC2_BYPASS_R::new((self.bits & 3) as u8)
+    pub fn pin0_sync2_bypass(&self) -> PIN0_SYNC2_BYPASS_R {
+        PIN0_SYNC2_BYPASS_R::new((self.bits & 3) as u8)
     }
-    #[doc = "Bit 2 - set this bit to select pad driver. 1:open-drain. 0:normal."]
+    #[doc = "Bit 2"]
     #[inline(always)]
-    pub fn pad_driver(&self) -> PAD_DRIVER_R {
-        PAD_DRIVER_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn pin0_pad_driver(&self) -> PIN0_PAD_DRIVER_R {
+        PIN0_PAD_DRIVER_R::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bits 3:4 - set GPIO input_sync1 signal mode. 0:disable. 1:trigger at negedge. 2or3:trigger at posedge."]
+    #[doc = "Bits 3:4"]
     #[inline(always)]
-    pub fn sync1_bypass(&self) -> SYNC1_BYPASS_R {
-        SYNC1_BYPASS_R::new(((self.bits >> 3) & 3) as u8)
+    pub fn pin0_sync1_bypass(&self) -> PIN0_SYNC1_BYPASS_R {
+        PIN0_SYNC1_BYPASS_R::new(((self.bits >> 3) & 3) as u8)
     }
-    #[doc = "Bits 7:9 - set this value to choose interrupt mode. 0:disable GPIO interrupt. 1:trigger at posedge. 2:trigger at negedge. 3:trigger at any edge. 4:valid at low level. 5:valid at high level"]
+    #[doc = "Bits 7:9"]
     #[inline(always)]
-    pub fn int_type(&self) -> INT_TYPE_R {
-        INT_TYPE_R::new(((self.bits >> 7) & 7) as u8)
+    pub fn pin0_int_type(&self) -> PIN0_INT_TYPE_R {
+        PIN0_INT_TYPE_R::new(((self.bits >> 7) & 7) as u8)
     }
-    #[doc = "Bit 10 - set this bit to enable GPIO wakeup.(can only wakeup CPU from Light-sleep Mode)"]
+    #[doc = "Bit 10"]
     #[inline(always)]
-    pub fn wakeup_enable(&self) -> WAKEUP_ENABLE_R {
-        WAKEUP_ENABLE_R::new(((self.bits >> 10) & 1) != 0)
+    pub fn pin0_wakeup_enable(&self) -> PIN0_WAKEUP_ENABLE_R {
+        PIN0_WAKEUP_ENABLE_R::new(((self.bits >> 10) & 1) != 0)
     }
-    #[doc = "Bits 11:12 - reserved"]
+    #[doc = "Bits 11:12"]
     #[inline(always)]
-    pub fn config(&self) -> CONFIG_R {
-        CONFIG_R::new(((self.bits >> 11) & 3) as u8)
+    pub fn pin0_config(&self) -> PIN0_CONFIG_R {
+        PIN0_CONFIG_R::new(((self.bits >> 11) & 3) as u8)
     }
-    #[doc = "Bits 13:17 - set bit 13 to enable CPU interrupt. set bit 14 to enable CPU(not shielded) interrupt."]
+    #[doc = "Bits 13:17"]
     #[inline(always)]
-    pub fn int_ena(&self) -> INT_ENA_R {
-        INT_ENA_R::new(((self.bits >> 13) & 0x1f) as u8)
+    pub fn pin0_int_ena(&self) -> PIN0_INT_ENA_R {
+        PIN0_INT_ENA_R::new(((self.bits >> 13) & 0x1f) as u8)
     }
 }
 #[cfg(feature = "impl-register-debug")]
 impl core::fmt::Debug for R {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("PIN")
-            .field("sync2_bypass", &self.sync2_bypass())
-            .field("pad_driver", &self.pad_driver())
-            .field("sync1_bypass", &self.sync1_bypass())
-            .field("int_type", &self.int_type())
-            .field("wakeup_enable", &self.wakeup_enable())
-            .field("config", &self.config())
-            .field("int_ena", &self.int_ena())
+            .field("pin0_int_ena", &self.pin0_int_ena())
+            .field("pin0_config", &self.pin0_config())
+            .field("pin0_wakeup_enable", &self.pin0_wakeup_enable())
+            .field("pin0_int_type", &self.pin0_int_type())
+            .field("pin0_sync1_bypass", &self.pin0_sync1_bypass())
+            .field("pin0_pad_driver", &self.pin0_pad_driver())
+            .field("pin0_sync2_bypass", &self.pin0_sync2_bypass())
             .finish()
     }
 }
 impl W {
-    #[doc = "Bits 0:1 - set GPIO input_sync2 signal mode. 0:disable. 1:trigger at negedge. 2or3:trigger at posedge."]
+    #[doc = "Bits 0:1"]
     #[inline(always)]
-    pub fn sync2_bypass(&mut self) -> SYNC2_BYPASS_W<'_, PIN_SPEC> {
-        SYNC2_BYPASS_W::new(self, 0)
+    pub fn pin0_sync2_bypass(&mut self) -> PIN0_SYNC2_BYPASS_W<'_, PIN_SPEC> {
+        PIN0_SYNC2_BYPASS_W::new(self, 0)
     }
-    #[doc = "Bit 2 - set this bit to select pad driver. 1:open-drain. 0:normal."]
+    #[doc = "Bit 2"]
     #[inline(always)]
-    pub fn pad_driver(&mut self) -> PAD_DRIVER_W<'_, PIN_SPEC> {
-        PAD_DRIVER_W::new(self, 2)
+    pub fn pin0_pad_driver(&mut self) -> PIN0_PAD_DRIVER_W<'_, PIN_SPEC> {
+        PIN0_PAD_DRIVER_W::new(self, 2)
     }
-    #[doc = "Bits 3:4 - set GPIO input_sync1 signal mode. 0:disable. 1:trigger at negedge. 2or3:trigger at posedge."]
+    #[doc = "Bits 3:4"]
     #[inline(always)]
-    pub fn sync1_bypass(&mut self) -> SYNC1_BYPASS_W<'_, PIN_SPEC> {
-        SYNC1_BYPASS_W::new(self, 3)
+    pub fn pin0_sync1_bypass(&mut self) -> PIN0_SYNC1_BYPASS_W<'_, PIN_SPEC> {
+        PIN0_SYNC1_BYPASS_W::new(self, 3)
     }
-    #[doc = "Bits 7:9 - set this value to choose interrupt mode. 0:disable GPIO interrupt. 1:trigger at posedge. 2:trigger at negedge. 3:trigger at any edge. 4:valid at low level. 5:valid at high level"]
+    #[doc = "Bits 7:9"]
     #[inline(always)]
-    pub fn int_type(&mut self) -> INT_TYPE_W<'_, PIN_SPEC> {
-        INT_TYPE_W::new(self, 7)
+    pub fn pin0_int_type(&mut self) -> PIN0_INT_TYPE_W<'_, PIN_SPEC> {
+        PIN0_INT_TYPE_W::new(self, 7)
     }
-    #[doc = "Bit 10 - set this bit to enable GPIO wakeup.(can only wakeup CPU from Light-sleep Mode)"]
+    #[doc = "Bit 10"]
     #[inline(always)]
-    pub fn wakeup_enable(&mut self) -> WAKEUP_ENABLE_W<'_, PIN_SPEC> {
-        WAKEUP_ENABLE_W::new(self, 10)
+    pub fn pin0_wakeup_enable(&mut self) -> PIN0_WAKEUP_ENABLE_W<'_, PIN_SPEC> {
+        PIN0_WAKEUP_ENABLE_W::new(self, 10)
     }
-    #[doc = "Bits 11:12 - reserved"]
+    #[doc = "Bits 11:12"]
     #[inline(always)]
-    pub fn config(&mut self) -> CONFIG_W<'_, PIN_SPEC> {
-        CONFIG_W::new(self, 11)
+    pub fn pin0_config(&mut self) -> PIN0_CONFIG_W<'_, PIN_SPEC> {
+        PIN0_CONFIG_W::new(self, 11)
     }
-    #[doc = "Bits 13:17 - set bit 13 to enable CPU interrupt. set bit 14 to enable CPU(not shielded) interrupt."]
+    #[doc = "Bits 13:17"]
     #[inline(always)]
-    pub fn int_ena(&mut self) -> INT_ENA_W<'_, PIN_SPEC> {
-        INT_ENA_W::new(self, 13)
+    pub fn pin0_int_ena(&mut self) -> PIN0_INT_ENA_W<'_, PIN_SPEC> {
+        PIN0_INT_ENA_W::new(self, 13)
     }
 }
-#[doc = "GPIO pin configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`pin::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pin::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`pin::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pin::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PIN_SPEC;
 impl crate::RegisterSpec for PIN_SPEC {
     type Ux = u32;

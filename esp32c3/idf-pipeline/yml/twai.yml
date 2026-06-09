@@ -1,0 +1,413 @@
+peripherals:
+  - name: TWAI0
+    register_groups:
+      - description: registers
+        registers:
+          - name: MODE
+            description: "Mode Register"
+            addr: 0
+            fields:
+              - name: RESET_MODE
+                description: "This bit is used to configure the operating mode of the TWAI Controller. 1: Reset mode; 0: Operating mode."
+                shift: 0
+                mask: 1
+                access: R/W
+              - name: LISTEN_ONLY_MODE
+                description: "1: Listen only mode. In this mode the nodes will only receive messages from the bus, without generating the acknowledge signal nor updating the RX error counter."
+                shift: 1
+                mask: 2
+                access: R/W
+              - name: SELF_TEST_MODE
+                description: "1: Self test mode. In this mode the TX nodes can perform a successful transmission without receiving the acknowledge signal. This mode is often used to test a single node with the self reception request command."
+                shift: 2
+                mask: 4
+                access: R/W
+              - name: RX_FILTER_MODE
+                description: "This bit is used to configure the filter mode. 0: Dual filter mode; 1: Single filter mode."
+                shift: 3
+                mask: 8
+                access: R/W
+          - name: CMD
+            description: "Command Register"
+            addr: 4
+            fields:
+              - name: TX_REQ
+                description: "Set the bit to 1 to allow the driving nodes start transmission."
+                shift: 0
+                mask: 1
+                access: WO
+              - name: ABORT_TX
+                description: "Set the bit to 1 to cancel a pending transmission request."
+                shift: 1
+                mask: 2
+                access: WO
+              - name: RELEASE_BUF
+                description: "Set the bit to 1 to release the RX buffer."
+                shift: 2
+                mask: 4
+                access: WO
+              - name: CLR_OVERRUN
+                description: "Set the bit to 1 to clear the data overrun status bit."
+                shift: 3
+                mask: 8
+                access: WO
+              - name: SELF_RX_REQ
+                description: "Self reception request command. Set the bit to 1 to allow a message be transmitted and received simultaneously."
+                shift: 4
+                mask: 16
+                access: WO
+          - name: STATUS
+            description: "Status register"
+            addr: 8
+            fields:
+              - name: RX_BUF_ST
+                description: "1: The data in the RX buffer is not empty, with at least one received data packet."
+                shift: 0
+                mask: 1
+                access: RO
+              - name: OVERRUN_ST
+                description: "1: The RX FIFO is full and data overrun has occurred."
+                shift: 1
+                mask: 2
+                access: RO
+              - name: TX_BUF_ST
+                description: "1: The TX buffer is empty, the CPU may write a message into it."
+                shift: 2
+                mask: 4
+                access: RO
+              - name: TX_COMPLETE
+                description: "1: The TWAI controller has successfully received a packet from the bus."
+                shift: 3
+                mask: 8
+                access: RO
+              - name: RX_ST
+                description: "1: The TWAI Controller is receiving a message from the bus."
+                shift: 4
+                mask: 16
+                access: RO
+              - name: TX_ST
+                description: "1: The TWAI Controller is transmitting a message to the bus."
+                shift: 5
+                mask: 32
+                access: RO
+              - name: ERR_ST
+                description: "1: At least one of the RX/TX error counter has reached or exceeded the value set in register TWAI_ERR_WARNING_LIMIT_REG."
+                shift: 6
+                mask: 64
+                access: RO
+              - name: BUS_OFF_ST
+                description: "1: In bus-off status, the TWAI Controller is no longer involved in bus activities."
+                shift: 7
+                mask: 128
+                access: RO
+              - name: MISS_ST
+                description: "This bit reflects whether the data packet in the RX FIFO is complete. 1: The current packet is missing; 0: The current packet is complete"
+                shift: 8
+                mask: 256
+                access: RO
+          - name: INT_RAW
+            description: "Interrupt Register"
+            addr: 12
+            fields:
+              - name: RX_INT_ST
+                description: "Receive interrupt. If this bit is set to 1, it indicates there are messages to be handled in the RX FIFO."
+                shift: 0
+                mask: 1
+                access: RO
+              - name: TX_INT_ST
+                description: "Transmit interrupt. If this bit is set to 1, it indicates the message transmitting mis- sion is finished and a new transmission is able to execute."
+                shift: 1
+                mask: 2
+                access: RO
+              - name: ERR_WARN_INT_ST
+                description: "Error warning interrupt. If this bit is set to 1, it indicates the error status signal and the bus-off status signal of Status register have changed (e.g., switched from 0 to 1 or from 1 to 0)."
+                shift: 2
+                mask: 4
+                access: RO
+              - name: OVERRUN_INT_ST
+                description: "Data overrun interrupt. If this bit is set to 1, it indicates a data overrun interrupt is generated in the RX FIFO."
+                shift: 3
+                mask: 8
+                access: RO
+              - name: ERR_PASSIVE_INT_ST
+                description: "Error passive interrupt. If this bit is set to 1, it indicates the TWAI Controller is switched between error active status and error passive status due to the change of error counters."
+                shift: 5
+                mask: 32
+                access: RO
+              - name: ARB_LOST_INT_ST
+                description: "Arbitration lost interrupt. If this bit is set to 1, it indicates an arbitration lost interrupt is generated."
+                shift: 6
+                mask: 64
+                access: RO
+              - name: BUS_ERR_INT_ST
+                description: "Error interrupt. If this bit is set to 1, it indicates an error is detected on the bus."
+                shift: 7
+                mask: 128
+                access: RO
+          - name: INT_ENA
+            description: "Interrupt Enable Register"
+            addr: 16
+            fields:
+              - name: RX_INT_ENA
+                description: "Set this bit to 1 to enable receive interrupt."
+                shift: 0
+                mask: 1
+                access: R/W
+              - name: TX_INT_ENA
+                description: "Set this bit to 1 to enable transmit interrupt."
+                shift: 1
+                mask: 2
+                access: R/W
+              - name: ERR_WARN_INT_ENA
+                description: "Set this bit to 1 to enable error warning interrupt."
+                shift: 2
+                mask: 4
+                access: R/W
+              - name: OVERRUN_INT_ENA
+                description: "Set this bit to 1 to enable data overrun interrupt."
+                shift: 3
+                mask: 8
+                access: R/W
+              - name: ERR_PASSIVE_INT_ENA
+                description: "Set this bit to 1 to enable error passive interrupt."
+                shift: 5
+                mask: 32
+                access: R/W
+              - name: ARB_LOST_INT_ENA
+                description: "Set this bit to 1 to enable arbitration lost interrupt."
+                shift: 6
+                mask: 64
+                access: R/W
+              - name: BUS_ERR_INT_ENA
+                description: "Set this bit to 1 to enable error interrupt."
+                shift: 7
+                mask: 128
+                access: R/W
+          - name: BUS_TIMING_0
+            description: "Bus Timing Register 0"
+            addr: 24
+            fields:
+              - name: BAUD_PRESC
+                description: "Baud Rate Prescaler, determines the frequency dividing ratio."
+                shift: 0
+                mask: 16383
+                access: R/W
+              - name: SYNC_JUMP_WIDTH
+                description: "Synchronization Jump Width (SJW), 1 \verb+~+ 14 Tq wide."
+                shift: 14
+                mask: 49152
+                access: R/W
+          - name: BUS_TIMING_1
+            description: "Bus Timing Register 1"
+            addr: 28
+            fields:
+              - name: TIME_SEG1
+                description: "The width of PBS1."
+                shift: 0
+                mask: 15
+                access: R/W
+              - name: TIME_SEG2
+                description: "The width of PBS2."
+                shift: 4
+                mask: 112
+                access: R/W
+              - name: TIME_SAMP
+                description: "The number of sample points. 0: the bus is sampled once; 1: the bus is sampled three times"
+                shift: 7
+                mask: 128
+                access: R/W
+          - name: ARB_LOST_CAP
+            description: "Arbitration Lost Capture Register"
+            addr: 44
+            fields:
+              - name: ARB_LOST_CAP
+                description: "This register contains information about the bit position of lost arbitration."
+                shift: 0
+                mask: 31
+                access: RO
+          - name: ERR_CODE_CAP
+            description: "Error Code Capture Register"
+            addr: 48
+            fields:
+              - name: ECC_SEGMENT
+                description: "This register contains information about the location of errors, see Table 181 for details."
+                shift: 0
+                mask: 31
+                access: RO
+              - name: ECC_DIRECTION
+                description: "This register contains information about transmission direction of the node when error occurs. 1: Error occurs when receiving a message; 0: Error occurs when transmitting a message"
+                shift: 5
+                mask: 32
+                access: RO
+              - name: ECC_TYPE
+                description: "This register contains information about error types: 00: bit error; 01: form error; 10: stuff error; 11: other type of error"
+                shift: 6
+                mask: 192
+                access: RO
+          - name: ERR_WARNING_LIMIT
+            description: "Error Warning Limit Register"
+            addr: 52
+            fields:
+              - name: ERR_WARNING_LIMIT
+                description: "Error warning threshold. In the case when any of a error counter value exceeds the threshold, or all the error counter values are below the threshold, an error warning interrupt will be triggered (given the enable signal is valid)."
+                shift: 0
+                mask: 255
+                access: R/W
+          - name: RX_ERR_CNT
+            description: "Receive Error Counter Register"
+            addr: 56
+            fields:
+              - name: RX_ERR_CNT
+                description: "The RX error counter register, reflects value changes under reception status."
+                shift: 0
+                mask: 255
+                access: R/W
+          - name: TX_ERR_CNT
+            description: "Transmit Error Counter Register"
+            addr: 60
+            fields:
+              - name: TX_ERR_CNT
+                description: "The TX error counter register, reflects value changes under transmission status."
+                shift: 0
+                mask: 255
+                access: R/W
+          - name: DATA_0
+            description: "Data register 0"
+            addr: 64
+            fields:
+              - name: TX_BYTE_0
+                description: "In reset mode, it is acceptance code register 0 with R/W Permission. In operation mode, it stores the 0th byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_1
+            description: "Data register 1"
+            addr: 68
+            fields:
+              - name: TX_BYTE_1
+                description: "In reset mode, it is acceptance code register 1 with R/W Permission. In operation mode, it stores the 1st byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_2
+            description: "Data register 2"
+            addr: 72
+            fields:
+              - name: TX_BYTE_2
+                description: "In reset mode, it is acceptance code register 2 with R/W Permission. In operation mode, it stores the 2nd byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_3
+            description: "Data register 3"
+            addr: 76
+            fields:
+              - name: TX_BYTE_3
+                description: "In reset mode, it is acceptance code register 3 with R/W Permission. In operation mode, it stores the 3rd byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_4
+            description: "Data register 4"
+            addr: 80
+            fields:
+              - name: TX_BYTE_4
+                description: "In reset mode, it is acceptance mask register 0 with R/W Permission. In operation mode, it stores the 4th byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_5
+            description: "Data register 5"
+            addr: 84
+            fields:
+              - name: TX_BYTE_5
+                description: "In reset mode, it is acceptance mask register 1 with R/W Permission. In operation mode, it stores the 5th byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_6
+            description: "Data register 6"
+            addr: 88
+            fields:
+              - name: TX_BYTE_6
+                description: "In reset mode, it is acceptance mask register 2 with R/W Permission. In operation mode, it stores the 6th byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_7
+            description: "Data register 7"
+            addr: 92
+            fields:
+              - name: TX_BYTE_7
+                description: "In reset mode, it is acceptance mask register 3 with R/W Permission. In operation mode, it stores the 7th byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_8
+            description: "Data register 8"
+            addr: 96
+            fields:
+              - name: TX_BYTE_8
+                description: "Stored the 8th byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_9
+            description: "Data register 9"
+            addr: 100
+            fields:
+              - name: TX_BYTE_9
+                description: "Stored the 9th byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_10
+            description: "Data register 10"
+            addr: 104
+            fields:
+              - name: TX_BYTE_10
+                description: "Stored the 10th byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_11
+            description: "Data register 11"
+            addr: 108
+            fields:
+              - name: TX_BYTE_11
+                description: "Stored the 11th byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: DATA_12
+            description: "Data register 12"
+            addr: 112
+            fields:
+              - name: TX_BYTE_12
+                description: "Stored the 12th byte information of the data to be transmitted under operating mode."
+                shift: 0
+                mask: 255
+                access: WO
+          - name: RX_MESSAGE_CNT
+            description: "Receive Message Counter Register"
+            addr: 116
+            fields:
+              - name: RX_MESSAGE_COUNTER
+                description: "This register reflects the number of messages available within the RX FIFO."
+                shift: 0
+                mask: 127
+                access: RO
+          - name: CLOCK_DIVIDER
+            description: "Clock Divider register"
+            addr: 124
+            fields:
+              - name: CD
+                description: "These bits are used to configure frequency dividing coefficients of the external CLKOUT pin."
+                shift: 0
+                mask: 255
+                access: R/W
+              - name: CLOCK_OFF
+                description: "This bit can be configured under reset mode. 1: Disable the external CLKOUT pin; 0: Enable the external CLKOUT pin"
+                shift: 8
+                mask: 256
+                access: R/W

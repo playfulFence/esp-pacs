@@ -28,7 +28,7 @@ impl W {
         CLK_EN_W::new(self, 0)
     }
 }
-#[doc = "SPI0 clk_gate register\n\nYou can [`read`](crate::Reg::read) this register and get [`clock_gate::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`clock_gate::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`clock_gate::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`clock_gate::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CLOCK_GATE_SPEC;
 impl crate::RegisterSpec for CLOCK_GATE_SPEC {
     type Ux = u32;
@@ -39,7 +39,5 @@ impl crate::Readable for CLOCK_GATE_SPEC {}
 impl crate::Writable for CLOCK_GATE_SPEC {
     type Safety = crate::Unsafe;
 }
-#[doc = "`reset()` method sets CLOCK_GATE to value 0x01"]
-impl crate::Resettable for CLOCK_GATE_SPEC {
-    const RESET_VALUE: u32 = 0x01;
-}
+#[doc = "`reset()` method sets CLOCK_GATE to value 0"]
+impl crate::Resettable for CLOCK_GATE_SPEC {}
