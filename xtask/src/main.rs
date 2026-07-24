@@ -118,19 +118,45 @@ enum Commands {
         chips: Vec<Chip>,
     },
 
-    /// Generate a base CMSIS-SVD from GDVS register CSVs
+    /// Generate a base CMSIS-SVD from ESP-IDF register headers
     ///
-    /// Chip metadata (CSV mapping, peripheral instances, interrupts) is bundled
-    /// under `xtask/regdesc/chips/{chip}/`. Output defaults to
-    /// `target/generated_svds/{chip}.svd`.
+    /// Chip metadata is bundled under `xtask/regdesc/chips/{chip}/`.
+    /// Output defaults to `target/generated_svds/{chip}.svd`.
     GenerateBaseSvd {
         /// Chip to generate
         #[arg(long, value_enum)]
         chip: Chip,
 
-        /// Directory containing GDVS register CSV files
+        /// Path to a local ESP-IDF checkout (`IDF_PATH`)
+        #[arg(long, env = "IDF_PATH")]
+        idf_path: PathBuf,
+
+        /// Output SVD file path
         #[arg(long)]
-        csv_dir: PathBuf,
+        output: Option<PathBuf>,
+
+        /// SVD version number
+        #[arg(long, default_value_t = 1)]
+        version: u32,
+    },
+
+    /// Parse a single ESP-IDF register header and write a base SVD fragment
+    ParseIdfHeader {
+        /// Chip target (used for header path resolution)
+        #[arg(long, value_enum)]
+        chip: Chip,
+
+        /// Path to a local ESP-IDF checkout (`IDF_PATH`)
+        #[arg(long, env = "IDF_PATH")]
+        idf_path: PathBuf,
+
+        /// Header filename (e.g. `interrupt_core0_reg.h`)
+        #[arg(long)]
+        header: String,
+
+        /// Peripheral name override
+        #[arg(long)]
+        peripheral: Option<String>,
 
         /// Output SVD file path
         #[arg(long)]
@@ -180,14 +206,39 @@ fn main() -> Result<()> {
 
         Commands::GenerateBaseSvd {
             chip,
-            csv_dir,
+            idf_path,
             output,
             version,
         } => {
             let chip = chip.to_string();
             let output =
                 output.unwrap_or_else(|| regdesc::default_output_path(&workspace, &chip));
-            regdesc::generate_base_svd(&chip, &csv_dir, &output, version)
+            regdesc::generate_base_svd(&chip, &idf_path, &output, version)
+        }
+
+        Commands::ParseIdfHeader {
+            chip,
+            idf_path,
+            header,
+            peripheral,
+            output,
+            version,
+        } => {
+            let chip = chip.to_string();
+            let output = output.unwrap_or_else(|| {
+                workspace
+                    .join("target")
+                    .join("generated_svds")
+                    .join(format!("{chip}-{}-fragment.svd", header.replace(".h", "")))
+            });
+            regdesc::generate_from_idf_header(
+                &chip,
+                &idf_path,
+                &header,
+                peripheral.as_deref(),
+                &output,
+                version,
+            )
         }
     }
 }

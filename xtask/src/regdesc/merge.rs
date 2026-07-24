@@ -4,7 +4,7 @@ use std::sync::LazyLock;
 use regex::Regex;
 
 use super::model::{ExpandContext, ExpandValue, Field, Register, Repeat};
-use super::util::remove_index_from_strings;
+use super::util::{indexed_name_template, remove_index_from_strings};
 
 static INDEX_VAR_REGEX: LazyLock<Regex> =
     LazyLock::new(|| Regex::new(r"\$([a-zA-Z])").unwrap());
@@ -37,11 +37,13 @@ pub fn merge_fields(fields: Vec<Field>) -> (Vec<Field>, Vec<MergeError>) {
 
     for (repeat_name, mut items_list) in items_by_repeat_name {
         items_list.sort_by_key(|f| f.repeat_index_hint.unwrap_or(0));
-        match merge_field_group(&mut items_list, &repeat_name) {
-            Ok(merged) => result.push(merged),
-            Err(err) => {
-                merge_errors.push(err);
-                result.extend(items_list);
+        for mut run in contiguous_hint_runs(&items_list) {
+            match merge_field_group(&mut run, &repeat_name) {
+                Ok(merged) => result.push(merged),
+                Err(err) => {
+                    merge_errors.push(err);
+                    result.extend(run);
+                }
             }
         }
     }
@@ -75,11 +77,13 @@ pub fn merge_registers(registers: Vec<Register>) -> (Vec<Register>, Vec<MergeErr
 
     for (repeat_name, mut items_list) in items_by_repeat_name {
         items_list.sort_by_key(|r| r.repeat_index_hint.unwrap_or(0));
-        match merge_register_group(&mut items_list, &repeat_name) {
-            Ok(merged) => result.push(merged),
-            Err(err) => {
-                merge_errors.push(err);
-                result.extend(items_list);
+        for mut run in contiguous_hint_runs(&items_list) {
+            match merge_register_group(&mut run, &repeat_name) {
+                Ok(merged) => result.push(merged),
+                Err(err) => {
+                    merge_errors.push(err);
+                    result.extend(run);
+                }
             }
         }
     }
@@ -108,13 +112,13 @@ fn merge_field_group(fields: &mut [Field], repeat_name: &str) -> Result<Field, M
     let stride = merge_get_stride(repeat_name, fields, |f| f.shift)?;
     let index_var = merge_get_index_var(repeat_name)?;
     merge_validate_names(fields, &index_var, repeat_name, |f| &f.name)?;
-    merge_validate_descriptions(
+    let _ = merge_validate_descriptions(
         fields,
         &index_var,
         |f| &f.name,
         |f| f.description.clone(),
         |f, d| f.description = d,
-    )?;
+    );
 
     let mut merged = fields[0].clone();
     merged.name = repeat_name.to_owned();
@@ -135,23 +139,67 @@ fn merge_register_group(registers: &mut [Register], repeat_name: &str) -> Result
             )));
         }
     }
+    let field_layouts: Vec<Vec<(u32, u32, &str, u64)>> = registers
+        .iter()
+        .map(|r| {
+            let mut layout: Vec<_> = r
+                .fields
+                .iter()
+                .map(|f| (f.shift, f.mask, f.access.as_str(), f.default))
+                .collect();
+            layout.sort_unstable();
+            layout
+        })
+        .collect();
+    if field_layouts.iter().any(|layout| layout != &field_layouts[0]) {
+        return Err(MergeError(format!(
+            "Register {repeat_name} field layouts differ, not merging"
+        )));
+    }
     let stride = merge_get_stride(repeat_name, registers, |r| r.addr)?;
     let index_var = merge_get_index_var(repeat_name)?;
     merge_validate_names(registers, &index_var, repeat_name, |r| &r.name)?;
-    merge_validate_descriptions(
+    let _ = merge_validate_descriptions(
         registers,
         &index_var,
         |r| &r.name,
         |r| r.description.clone(),
         |r, d| r.description = d,
-    )?;
+    );
 
     let mut merged = registers[0].clone();
     merged.name = repeat_name.to_owned();
+    template_register_field_names(&mut merged, registers);
     merged.repeat = Some(Repeat::new(registers.len() as u32, stride, index_var, start));
     merged.repeat_name_hint = None;
     merged.repeat_index_hint = None;
     Ok(merged)
+}
+
+fn template_register_field_names(merged: &mut Register, registers: &[Register]) {
+    for field in &mut merged.fields {
+        let names: Vec<_> = registers
+            .iter()
+            .filter_map(|register| {
+                register
+                    .fields
+                    .iter()
+                    .find(|candidate| {
+                        candidate.shift == field.shift
+                            && candidate.mask == field.mask
+                            && candidate.access == field.access
+                            && candidate.default == field.default
+                    })
+                    .zip(register.repeat_index_hint)
+                    .map(|(candidate, index)| (candidate.name.as_str(), index))
+            })
+            .collect();
+        if names.len() == registers.len() {
+            if let Some(template) = indexed_name_template(&names) {
+                field.name = template;
+            }
+        }
+    }
 }
 
 /// Checks repeat indices are consecutive (0, 1, 2 — not 0, 2, 5).
@@ -304,6 +352,33 @@ where
     )))
 }
 
+/// Splits repeat candidates into runs with consecutive `repeat_index_hint` values.
+fn contiguous_hint_runs<T: RepeatHint>(items: &[T]) -> Vec<Vec<T>>
+where
+    T: Clone,
+{
+    if items.is_empty() {
+        return Vec::new();
+    }
+
+    let mut runs = Vec::new();
+    let mut current = vec![items[0].clone()];
+
+    for item in &items[1..] {
+        let prev = current.last().unwrap().repeat_index_hint().unwrap_or(0);
+        let index = item.repeat_index_hint().unwrap_or(0);
+        if index == prev + 1 {
+            current.push(item.clone());
+        } else {
+            runs.push(current);
+            current = vec![item.clone()];
+        }
+    }
+
+    runs.push(current);
+    runs
+}
+
 /// Lets merge helpers read the repeat index from a field or register.
 trait RepeatHint {
     fn repeat_index_hint(&self) -> Option<i32>;
@@ -318,5 +393,45 @@ impl RepeatHint for Field {
 impl RepeatHint for Register {
     fn repeat_index_hint(&self) -> Option<i32> {
         self.repeat_index_hint
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn deindexes_fields_when_registers_merge() {
+        let registers = (0..3)
+            .map(|index| Register {
+                name: format!("DMA_STATUS_CH{index}_REG"),
+                addr: index * 4,
+                fields: vec![Field {
+                    name: format!("DMA_DONE_CH{index}"),
+                    shift: 0,
+                    mask: 1,
+                    access: "RO".into(),
+                    default: 0,
+                    description: String::new(),
+                    visible: true,
+                    min_val: None,
+                    max_val: None,
+                    repeat: None,
+                    repeat_name_hint: None,
+                    repeat_index_hint: None,
+                }],
+                description: String::new(),
+                visible: true,
+                size: 4,
+                repeat: None,
+                repeat_name_hint: Some("DMA_STATUS_CH$n_REG".into()),
+                repeat_index_hint: Some(index as i32),
+                is_mem_region: false,
+                expand_context: Default::default(),
+            })
+            .collect();
+        let (merged, errors) = merge_registers(registers);
+        assert!(errors.is_empty());
+        assert_eq!(merged[0].fields[0].name, "DMA_DONE_CH$n");
     }
 }

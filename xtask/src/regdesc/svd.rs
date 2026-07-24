@@ -5,7 +5,7 @@ use regex::Regex;
 
 use super::model::{
     ChipInfo, Peripheral, PeripheralInstance, PeripheralInterrupt, Register, RegdescFragment,
-    Repeat,
+    Repeat, ExpandContext, ExpandValue,
 };
 use super::util::{guess_field_access, simplify_name};
 
@@ -255,7 +255,12 @@ fn write_peripheral(
 
 /// Writes the `<addressBlock>` size summary.
 fn write_address_block(out: &mut String, peripheral: &Peripheral) {
-    let size: u32 = peripheral.sorted_registers().iter().map(|r| r.size).sum();
+    let size = peripheral
+        .sorted_registers()
+        .iter()
+        .map(|register| register.addr.saturating_add(register.size))
+        .max()
+        .unwrap_or(0);
     writeln!(out, "      <addressBlock>").unwrap();
     writeln!(out, "        <offset>0x0</offset>").unwrap();
     writeln!(out, "        <size>{:#x}</size>", size).unwrap();
@@ -291,8 +296,21 @@ fn write_registers(out: &mut String, peripheral: &Peripheral) {
     registers.sort_by_key(|r| r.addr);
 
     for mut register in registers {
-        register = register.replace_placeholders("%s");
-        register.name = simplify_name(&peripheral.name, &register.name);
+        if let Some(repeat) = &register.repeat {
+            if repeat.count == 1 {
+                let mut ctx = ExpandContext::default();
+                ctx.insert(
+                    repeat.index_var.clone(),
+                    ExpandValue::Int(repeat.start),
+                );
+                register.name = ctx.replace(&register.name);
+                register.description = ctx.replace(&register.description);
+                register.repeat = None;
+            } else {
+                register = register.replace_placeholders("%s");
+            }
+        }
+        register.name = simplify_peripheral_name(peripheral, &register.name);
 
         if register.is_mem_region {
             register.name = format!("{}[%s]", register.name);
@@ -318,6 +336,15 @@ fn write_register(out: &mut String, peripheral: &Peripheral, register: &Register
                 repeat.stride
             )
             .unwrap();
+            if !register.is_mem_region {
+                writeln!(
+                    out,
+                    "          <dimIndex>{}-{}</dimIndex>",
+                    repeat.start,
+                    repeat.start + repeat.count as i32 - 1
+                )
+                .unwrap();
+            }
         }
     }
     writeln!(
@@ -357,13 +384,34 @@ fn write_fields(out: &mut String, peripheral: &Peripheral, register: &Register) 
     writeln!(out, "          <fields>").unwrap();
 
     for mut field in register.expanded_fields() {
-        field.name = simplify_name(&peripheral.name, &field.name);
+        // `_REG` is sometimes part of a real IDF field name, not generated
+        // register syntax. Protect it while simplify_name strips register
+        // suffixes, otherwise distinct fields such as CLKRST/CLKRST_REG collide.
+        const FIELD_REG_SENTINEL: &str = "_REG__SVD_FIELD";
+        if field.name.ends_with("_REG") {
+            field.name = format!(
+                "{}{FIELD_REG_SENTINEL}",
+                field.name.trim_end_matches("_REG")
+            );
+        }
+        field.name = simplify_peripheral_name(peripheral, &field.name);
         if field.name.starts_with(&register.name) && field.name != register.name {
             field.name = simplify_name(&register.name, &field.name);
         }
+        field.name = field.name.replace(FIELD_REG_SENTINEL, "_REG");
 
         if field.name.contains("%s") {
             field.name = field.name.replace("%s", "").trim_end_matches('_').to_owned();
+        }
+
+        if field.bit_width() == 0 {
+            log::warn!(
+                "skipping zero-width field {} in {}.{}",
+                field.name,
+                peripheral.name,
+                register.name
+            );
+            continue;
         }
 
         let mut description = field.description.clone();
@@ -395,13 +443,27 @@ fn write_fields(out: &mut String, peripheral: &Peripheral, register: &Register) 
         writeln!(out, "              <bitWidth>{}</bitWidth>", field.bit_width()).unwrap();
         if let Some(access) = guess_field_access(&field.access) {
             writeln!(out, "              <access>{access}</access>").unwrap();
-        } else {
+        } else if !field.access.is_empty() {
             log::warn!("unrecognized field access value '{}', ignoring", field.access);
         }
         writeln!(out, "            </field>").unwrap();
     }
 
     writeln!(out, "          </fields>").unwrap();
+}
+
+fn simplify_peripheral_name(peripheral: &Peripheral, name: &str) -> String {
+    let prefix = peripheral
+        .name_prefixes
+        .iter()
+        .find(|prefix| {
+            name.len() > prefix.len()
+                && name[..prefix.len()].eq_ignore_ascii_case(prefix)
+                && name.as_bytes().get(prefix.len()) == Some(&b'_')
+        })
+        .map(String::as_str)
+        .unwrap_or(&peripheral.name);
+    simplify_name(prefix, name)
 }
 
 /// Escapes `&`, `<`, `>`, `"` so the XML doesn't break.

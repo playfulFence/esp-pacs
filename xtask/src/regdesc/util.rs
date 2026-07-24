@@ -31,8 +31,11 @@ pub fn remove_index_from_strings(
     idx_b: i32,
     placeholder: &str,
 ) -> Result<String, String> {
-    if a.is_empty() && b.is_empty() {
-        return Ok(String::new());
+    if a.is_empty() || b.is_empty() {
+        if a == b {
+            return Ok(a.to_owned());
+        }
+        return Err(format!("Strings '{a}' and '{b}' differ at positions 0 and 0"));
     }
     if a == b {
         return Ok(a.to_owned());
@@ -89,6 +92,35 @@ pub fn remove_index_from_strings(
     }
 
     Ok(res)
+}
+
+/// Replaces the numeric index that varies consistently across a set of names
+/// with `$n`. Returns the unchanged name when all names are already equal.
+pub fn indexed_name_template(names: &[(&str, i32)]) -> Option<String> {
+    let &(first, first_index) = names.first()?;
+    if names.iter().all(|(name, _)| *name == first) {
+        return Some(first.to_owned());
+    }
+
+    let first_index = first_index.to_string();
+    for (start, _) in first.match_indices(&first_index) {
+        let end = start + first_index.len();
+        if start > 0 && first.as_bytes()[start - 1].is_ascii_digit() {
+            continue;
+        }
+        if end < first.len() && first.as_bytes()[end].is_ascii_digit() {
+            continue;
+        }
+        let prefix = &first[..start];
+        let suffix = &first[end..];
+        if names
+            .iter()
+            .all(|(name, index)| *name == format!("{prefix}{index}{suffix}"))
+        {
+            return Some(format!("{prefix}$n{suffix}"));
+        }
+    }
+    None
 }
 
 /// Trims spaces — GDVS CSVs love trailing whitespace.
@@ -149,6 +181,24 @@ pub fn guess_field_access(access: &str) -> Option<&'static str> {
 
     let stripped = ACCESS_SUFFIX.replace(access, "");
     guess(&stripped)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn templates_index_embedded_in_field_names() {
+        assert_eq!(
+            indexed_name_template(&[
+                ("DMA_IN_DONE_CH0_INT_RAW", 0),
+                ("DMA_IN_DONE_CH1_INT_RAW", 1),
+                ("DMA_IN_DONE_CH2_INT_RAW", 2),
+            ])
+            .as_deref(),
+            Some("DMA_IN_DONE_CH$n_INT_RAW")
+        );
+    }
 }
 
 /// Turns `esp32s31` into `ESP32-S31` for the SVD header.

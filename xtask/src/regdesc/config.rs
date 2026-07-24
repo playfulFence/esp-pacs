@@ -47,16 +47,50 @@ struct PeripheralDescription {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct CsvEntryOptions {
+pub struct RegdescEntryOptions {
+    /// Peripheral type name — must match `peripheral:` in `peripherals.yml`.
     pub name: Option<String>,
-    /// Warning names to ignore (reserved for future use; present in YAML for compatibility).
+    /// ESP-IDF header filename override (e.g. `interrupt_core0_reg.h`).
+    pub idf: Option<String>,
+    /// Additional IDF symbol prefixes to strip from register and field names.
+    /// Use this when the IDF block name differs from the public PAC name.
+    #[serde(default)]
+    pub strip_prefixes: Vec<String>,
+    /// Skip this entry (no header in IDF or not yet supported).
+    #[serde(default)]
+    pub skip: bool,
+    /// Warning names to ignore (reserved for compatibility with regdesc-data YAML).
     #[serde(default)]
     #[allow(dead_code)]
     pub wno: Vec<String>,
+    /// Ordered symbol-prefix rewrites applied before array inference. This is
+    /// for IDF block qualifiers such as `SPI_MEM_C_`, not register patches.
+    #[serde(default)]
+    pub prefix_replacements: HashMap<String, String>,
+    /// Repeat templates whose IDF members intentionally have per-index field
+    /// differences but should retain one compatibility array layout.
+    #[serde(default)]
+    pub normalize_array_layouts: Vec<String>,
+    /// Repeat templates that must remain as individual registers for API
+    /// compatibility even when IDF structure or naming implies an array.
+    #[serde(default)]
+    pub preserve_flat_layouts: Vec<String>,
+    /// Use explicit arrays from the companion `*_struct.h`. Existing patch
+    /// files can temporarily opt out while being migrated to array-aware rules.
+    #[serde(default = "default_true")]
+    pub struct_arrays: bool,
+    /// Run conservative name-based repeat inference after structure parsing.
+    /// Disable only when an existing svdtools patch still owns array creation.
+    #[serde(default = "default_true")]
+    pub infer_arrays: bool,
 }
 
-/// Reads `regdesc.yml` — which CSV files to parse and any name overrides.
-pub fn load_regdesc_config(path: &Path) -> Result<HashMap<String, CsvEntryOptions>> {
+fn default_true() -> bool {
+    true
+}
+
+/// Reads `regdesc.yml` — maps config entries to IDF headers and peripheral names.
+pub fn load_regdesc_config(path: &Path) -> Result<HashMap<String, RegdescEntryOptions>> {
     let content = fs::read_to_string(path)
         .with_context(|| format!("reading regdesc config {}", path.display()))?;
     serde_yaml::from_str(&content)

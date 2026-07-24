@@ -1,34 +1,67 @@
 ---
-aes_reg.csv: {}
+aes_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
 apb_saradc_reg.csv:
   name: APB_SARADC
   wno:
     - reg-names
 assist_debug_reg.csv: {}
-dma_reg.csv: {}
+dma_reg.csv:
+  name: DMA
+  idf: gdma_reg.h
 ds_reg.csv: {}
 ecc_mult_reg.csv:
   name: ECC
   wno:
     - field-names
     - overlap
-efuse_reg.csv: {}
+efuse_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
 extmem_reg.csv: {}
-gpio_reg.csv: {}
-gpio_sd_reg.csv: {}
+gpio_reg.csv:
+  infer_arrays: false
+gpio_sd_reg.csv:
+  name: GPIOSD
+  idf: gpio_ext_reg.h
+  preserve_flat_layouts:
+    - GPIO_EXT_ETM_TASK_P$n_CFG_REG
+  strip_prefixes:
+    - GPIO_EXT
 hardware_lock_reg.csv: {}
 hmac_reg.csv: {}
-host_reg.csv: {}
+host_reg.csv:
+  name: SLCHOST
+  idf: sdio_slc_host_reg.h
+  struct_arrays: false
+  infer_arrays: false
 hp_apm_reg.csv: {}
-hp_system_reg.csv: {}
-i2c_ext_reg.csv: {}
-i2s1_reg.csv: {}
+hp_system_reg.csv:
+  name: HP_SYS
+i2c_ext_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
+i2s1_reg.csv:
+  name: I2S
+  idf: i2s_reg.h
+ieee802154_reg.csv:
+  name: IEEE802154
 interrupt_matrix_reg.csv: {}
-intpri_reg.csv: {}
-io_mux_reg.csv: {}
+intpri_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
+  strip_prefixes:
+    - INTPRI_CORE0
+io_mux_reg.csv:
+  normalize_array_layouts:
+    - IO_MUX_GPIO$n_REG
 ledc_reg.csv: {}
-lp_analog_peri_reg.csv: {}
-lp_aon_reg.csv: {}
+lp_analog_peri_reg.csv:
+  name: LP_ANA
+lp_aon_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
 lp_apm0_reg.csv: {}
 lp_apm_reg.csv: {}
 lp_clkrst_reg.csv: {}
@@ -37,10 +70,16 @@ lp_i2c_ana_mst_reg.csv:
     - field-names
 lp_i2c_ext_reg.csv:
   name: LP_I2C0
+  struct_arrays: false
+  infer_arrays: false
+  strip_prefixes:
+    - LP_I2C
   wno:
     - reg-names
     - field-names
 lp_io_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
   wno:
     - field-names
 lp_tee_reg.csv:
@@ -51,7 +90,11 @@ lp_uart_reg.csv: {}
 lp_wdt_reg.csv: {}
 lpperi_reg.csv: {}
 mem_monitor_reg.csv: {}
+modem_lpcon_reg.csv: {}
+modem_syscon_reg.csv: {}
 otp_debug_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
   wno:
     - field-names
 parl_io_reg.csv: {}
@@ -59,38 +102,60 @@ pau_reg.csv: {}
 pcnt_reg.csv: {}
 pcr_reg.csv: {}
 pmu_reg.csv: {}
-pwm_reg.csv: {}
+pwm_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
 rmt_reg.csv: {}
 rsa_reg.csv: {}
-sdio_hinf_reg.csv: {}
-sdio_slc_reg.csv: {}
+sdio_hinf_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
+sdio_slc_reg.csv:
+  skip: true
 sha_reg.csv: {}
-soc_etm_reg.csv: {}
+soc_etm_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
 spi1_mem_reg.csv:
   name: SPI1
+  idf: spi_mem_reg.h
+  struct_arrays: false
+  infer_arrays: false
   wno:
     - reg-names
     - field-names
 spi2_reg.csv:
   name: SPI2
+  idf: spi_reg.h
+  struct_arrays: false
+  infer_arrays: false
   wno:
     - reg-names
     - field-names
 spi_mem_reg.csv:
   name: SPI0
+  struct_arrays: false
+  infer_arrays: false
   wno:
     - reg-names
     - field-names
-sys_timer_reg.csv: {}
+sys_timer_reg.csv:
+  struct_arrays: false
+  infer_arrays: false
 tee_reg.csv: {}
-timers_single_reg.csv: {}
+timers_single_reg.csv:
+  name: TIMG
+  idf: timer_group_reg.h
 touch_reg.csv:
-  wno:
-    - field-names
+  skip: true
 trace_reg.csv: {}
 twai_reg.csv: {}
 uart_reg.csv: {}
 uhci_reg.csv: {}
 usb_device_reg.csv:
+  name: USB_DEVICE
+  idf: usb_serial_jtag_reg.h
+  strip_prefixes:
+    - USB_SERIAL_JTAG
   wno:
     - field-names

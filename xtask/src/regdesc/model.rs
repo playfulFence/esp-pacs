@@ -97,7 +97,10 @@ impl Field {
             field.repeat = None;
             field.shift += repeat.stride * i;
             let mut expand_ctx = ctx.clone();
-            if self.repeat.is_some() && !expand_ctx.values.contains_key(&repeat.index_var) {
+            // A field repeat is nested inside the register context. Its own
+            // index must shadow a register repeat that happens to use the same
+            // placeholder name, otherwise every field expands to `%s`.
+            if self.repeat.is_some() {
                 expand_ctx.insert(repeat.index_var.clone(), ExpandValue::Int(i as i32 + repeat.start));
             }
             field.name = expand_ctx.replace(&field.name);
@@ -264,6 +267,9 @@ impl RegisterGroup {
 #[derive(Debug, Clone)]
 pub struct Peripheral {
     pub name: String,
+    /// IDF symbol prefixes that identify this peripheral but are not part of
+    /// the public register or field names.
+    pub name_prefixes: Vec<String>,
     pub register_groups: Vec<RegisterGroup>,
     #[allow(dead_code)]
     pub description: String,
@@ -291,6 +297,14 @@ impl Peripheral {
             .collect();
         all.sort_by_key(|r| r.addr);
         all
+    }
+
+    /// Number of register nodes after merge (before repeat expansion).
+    pub fn register_count(&self) -> usize {
+        self.register_groups
+            .iter()
+            .map(|group| group.registers.len())
+            .sum()
     }
 }
 

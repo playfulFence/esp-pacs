@@ -443,7 +443,7 @@ peripheral_interrupts:
     instance: LP_GPIO
     value: 146
   - name: LP_I2C
-    instance: LP_I2C0
+    instance: LP_I2C
     value: 147
   - name: LP_SPI
     instance: LP_SPI

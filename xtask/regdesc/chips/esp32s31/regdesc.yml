@@ -1,4 +1,9 @@
 ---
+# regdesc.yml maps config entries to ESP-IDF register headers.
+# Keys are legacy identifiers; `idf:` overrides the header filename when it
+# differs from `{key}.h`. `name:` must match `peripheral:` in peripherals.yml.
+# Entries marked `skip: true` are added by esp32s31/svd/patches instead.
+
 adc_reg.csv: {}
 aes_reg.csv: {}
 ahb_dma_reg.csv: {}
@@ -9,10 +14,13 @@ bitscrambler_reg.csv: {}
 bus_monitor_reg.csv: {}
 cache_reg.csv: {}
 cnnt_io_mux_reg.csv: {}
-cnnt_sys_reg.csv: {}
+cnnt_sys_reg.csv:
+  skip: true
 cordic_reg.csv: {}
-core0_interrupt_reg.csv: {}
-core1_interrupt_reg.csv: {}
+core0_interrupt_reg.csv:
+  skip: true
+core1_interrupt_reg.csv:
+  skip: true
 cpu_apm_reg.csv: {}
 dac_reg.csv: {}
 dma2d_reg.csv: {}
@@ -34,18 +42,24 @@ hp_sys_clkrst_reg.csv: {}
 hp_sys_reg.csv:
   name: HP_SYS
 huk_reg.csv: {}
-i2c_ext_reg.csv: {}
+i2c_ext_reg.csv:
+  name: I2C
+  struct_arrays: false
 i2s_reg.csv: {}
-icm_sys_axi_ic_reg.csv: {}
-icm_sys_reg.csv: {}
+icm_sys_axi_ic_reg.csv:
+  skip: true
+icm_sys_reg.csv:
+  skip: true
 iomux_mspi_pin_reg.csv: {}
-iomux_reg.csv: {}
+iomux_reg.csv:
+  name: IO_MUX
 jpeg_reg.csv: {}
 keymng_reg.csv: {}
 lcdcam_reg.csv: {}
 ledc_reg.csv: {}
 lp_adi_reg.csv: {}
-lp_ahb_dma_reg.csv: {}
+lp_ahb_dma_reg.csv:
+  name: LP_AHB_DMA
 lp_analog_peri_reg.csv:
   name: LP_ANA_PERI
 lp_aonclkrst_reg.csv:
@@ -53,15 +67,21 @@ lp_aonclkrst_reg.csv:
 lp_apm_reg.csv: {}
 lp_gpio_reg.csv: {}
 lp_i2c_ana_mst_reg.csv: {}
-lp_i2c_ext_reg.csv: {}
-lp_intr_reg.csv: {}
-lp_iomux_reg.csv: {}
-lp_mailbox_reg.csv: {}
+lp_i2c_ext_reg.csv:
+  name: LP_I2C
+lp_intr_reg.csv:
+  skip: true
+lp_iomux_reg.csv:
+  skip: true
+lp_mailbox_reg.csv:
+  skip: true
 lp_peri_pms_reg.csv: {}
 lp_periclkrst_reg.csv: {}
 lp_pwr_reg.csv: {}
-lp_spi_reg.csv: {}
-lp_sys_reg.csv: {}
+lp_spi_reg.csv:
+  skip: true
+lp_sys_reg.csv:
+  skip: true
 lp_tee_reg.csv: {}
 lp_uart_reg.csv: {}
 mem_monitor_reg.csv: {}
@@ -79,18 +99,33 @@ rsa_reg.csv: {}
 rtc_timer_reg.csv: {}
 rtc_wdt_reg.csv: {}
 rtclockcali_reg.csv: {}
-sdio_host_reg.csv: {}
+sdio_host_reg.csv:
+  name: SDHOST
 sha_reg.csv: {}
 soc_etm_reg.csv: {}
-spi1_mem_reg_s.csv: # TODO: am I using the correct file? (c/s)
+spi1_mem_reg_s.csv:
   name: SPI1
+  struct_arrays: false
+  infer_arrays: false
+  prefix_replacements:
+    "SPI1_MEM_C_": "SPI_MEM_"
 spi2_reg_s.csv:
   name: SPI2
+  struct_arrays: false
+  infer_arrays: false
 spi3_reg.csv:
   name: SPI3
-spi_mem_reg_s.csv: # TODO: am I using the correct file? (c/s)
+  struct_arrays: false
+  infer_arrays: false
+spi_mem_reg_s.csv:
   name: SPI0
-sys_timer_reg.csv: {}
+  prefix_replacements:
+    "SPI_MEM_C_": "SPI_MEM_"
+    "SPI_SMEM_C_": "SPI_SMEM_"
+    "SPI_FMEM_C_": "SPI_FMEM_"
+sys_timer_reg.csv:
+  # common_patches/systimer.yaml still expands the legacy flat registers.
+  struct_arrays: false
 tee_reg.csv: {}
 timers_reg.csv: {}
 touch_aon_reg.csv: {}
